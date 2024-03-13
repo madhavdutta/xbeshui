@@ -1,6 +1,5 @@
 ![xbeshUILogo](public/xbeshui.png)
 
-# xBesh UI
 Explore a diverse collection of over 100+ intuitive components, designed to seamlessly integrate into your  React or NextJS app. With no cost and full access to the source code, you're free to craft remarkable applications hassle-free. While inspired by Shadcn UI, it's important to note that this project is entirely independent and has no affiliation with Shadcn whatsoever.
 
 ![blog](public/og.jpg)
