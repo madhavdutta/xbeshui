@@ -1,0 +1,27 @@
+# Ignore development files
+*.log
+*.tmp
+*.bak
+node_modules/
+
+# Ignore configuration files
+config.js
+.env
+
+# Ignore version control files
+.git
+.gitignore
+
+# Ignore build files
+# lib/
+build/
+coverage/
+
+# Ignore editor and IDE files
+.vscode/
+.idea/
+
+# Ignore miscellaneous files
+*.DS_Store
+Thumbs.db
+pnpm-lock.yaml

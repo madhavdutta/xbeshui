@@ -1,0 +1,507 @@
+{
+  "library": {
+    "name": "Xbesh UI",
+    "version": "1.0.0",
+    "description": "A comprehensive UI component library for modern web applications, offering a wide range of customizable and accessible components.",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/madhavdutta/xbeshui"
+    },
+    "homepage": "https://xbesh.dev",
+    "license": "MIT",
+    "categories": [
+      {
+        "name": "Buttons",
+        "components": [
+          {
+            "name": "Button",
+            "description": "A highly customizable button component for user interactions.",
+            "export": "Button",
+            "path": "/components/Button",
+            "new": false
+          },
+          {
+            "name": "Toggle",
+            "description": "A simple on/off toggle switch for binary settings or options.",
+            "export": "Toggle",
+            "path": "/components/Toggle",
+            "new": false
+          },
+          {
+            "name": "ToggleGroup",
+            "description": "A group of toggle buttons, allowing multiple selections.",
+            "export": "ToggleGroup",
+            "path": "/components/ToggleGroup",
+            "new": false
+          }
+        ]
+      },
+      {
+        "name": "Data Displays",
+        "components": [
+          {
+            "name": "Avatar",
+            "description": "A component to represent a user or entity, typically an image or initials.",
+            "export": "Avatar",
+            "path": "/components/Avatar",
+            "new": false
+          },
+          {
+            "name": "Image",
+            "description": "A component for displaying images with support for lazy loading and placeholders.",
+            "export": "Image",
+            "path": "/components/Image",
+            "new": false
+          },
+          {
+            "name": "BackgroundImage",
+            "description": "A component for setting a background image with options for positioning, sizing, and styling.",
+            "export": "BackgroundImage",
+            "path": "/components/BackgroundImage",
+            "new": true
+          },
+          {
+            "name": "Badge",
+            "description": "A small status indicator for notifications, counts, or labels.",
+            "export": "Badge",
+            "path": "/components/Badge",
+            "new": false
+          },
+          {
+            "name": "Calendar",
+            "description": "A component for displaying dates and allowing users to select dates from a calendar interface.",
+            "export": "Calendar",
+            "path": "/components/Calendar",
+            "new": false
+          },
+          {
+            "name": "RangeCalendar",
+            "description": "A calendar component for selecting a range of dates.",
+            "export": "RangeCalendar",
+            "path": "/components/RangeCalendar",
+            "new": true
+          },
+          {
+            "name": "Card",
+            "description": "A container component for grouping related content with a consistent style.",
+            "export": "Card",
+            "path": "/components/Card",
+            "new": false
+          },
+          {
+            "name": "DataTable",
+            "description": "A component for displaying data in a tabular format, with support for sorting, filtering, and pagination.",
+            "export": "DataTable",
+            "path": "/components/DataTable",
+            "new": false
+          },
+          {
+            "name": "List",
+            "description": "A component for displaying lists of items, such as bullet or numbered lists.",
+            "export": "List",
+            "path": "/components/List",
+            "new": true
+          },
+          {
+            "name": "Label",
+            "description": "A component for adding labels to inputs in forms for better accessibility.",
+            "export": "Label",
+            "path": "/components/Label",
+            "new": false
+          },
+          {
+            "name": "Skeleton",
+            "description": "A placeholder component used while content is loading to improve user experience.",
+            "export": "Skeleton",
+            "path": "/components/Skeleton",
+            "new": false
+          },
+          {
+            "name": "Table",
+            "description": "A component for displaying rows of data and content in a structured format.",
+            "export": "Table",
+            "path": "/components/Table",
+            "new": false
+          }
+        ]
+      },
+      {
+        "name": "Feedbacks",
+        "components": [
+          {
+            "name": "Alert",
+            "description": "Use for contextual feedback messages for typical user actions.",
+            "export": "Alert",
+            "path": "/components/Alert",
+            "new": false
+          },
+          {
+            "name": "AlertDialog",
+            "description": "A modal dialog that interrupts the user's workflow to provide information or ask for input.",
+            "export": "AlertDialog",
+            "path": "/components/AlertDialog",
+            "new": false
+          },
+          {
+            "name": "Sonner",
+            "description": "A notification component, typically used to display temporary, auto-hiding alerts or messages.",
+            "export": "Sonner",
+            "path": "/components/Sonner",
+            "new": true
+          },
+          {
+            "name": "Toast",
+            "description": "A component for displaying brief, auto-hiding messages in a floating overlay.",
+            "export": "Toast",
+            "path": "/components/Toast",
+            "new": false
+          }
+        ]
+      },
+      {
+        "name": "Forms",
+        "components": [
+          {
+            "name": "Checkbox",
+            "description": "An input component used to select one or more options from a set.",
+            "export": "Checkbox",
+            "path": "/components/Checkbox",
+            "new": false
+          },
+          {
+            "name": "Combobox",
+            "description": "A text input with a dropdown list of options for autocomplete or selection.",
+            "export": "Combobox",
+            "path": "/components/Combobox",
+            "new": false
+          },
+          {
+            "name": "DropdownMenu",
+            "description": "A component that allows users to choose one value from a list.",
+            "export": "DropdownMenu",
+            "path": "/components/DropdownMenu",
+            "new": false
+          },
+          {
+            "name": "Form",
+            "description": "A component for collecting user input, with support for validation and submission handling.",
+            "export": "Form",
+            "path": "/components/Form",
+            "new": false
+          },
+          {
+            "name": "Input",
+            "description": "A basic input component for user text input.",
+            "export": "Input",
+            "path": "/components/Input",
+            "new": false
+          },
+          {
+            "name": "RadioGroup",
+            "description": "A set of radio buttons for selecting one option from many.",
+            "export": "RadioGroup",
+            "path": "/components/RadioGroup",
+            "new": false
+          },
+          {
+            "name": "Select",
+            "description": "A dropdown component for selecting one or multiple values from a list.",
+            "export": "Select",
+            "path": "/components/Select",
+            "new": false
+          },
+          {
+            "name": "MultiSelect",
+            "description": "A component for selecting multiple options from a dropdown list.",
+            "export": "MultiSelect",
+            "path": "/components/MultiSelect",
+            "new": true
+          },
+
+          {
+            "name": "Slider",
+            "description": "A component for selecting a single value or a range from a specified interval.",
+            "export": "Slider",
+            "path": "/components/Slider",
+            "new": false
+          },
+          {
+            "name": "Switch",
+            "description": "A toggle switch component for switching between two states or options.",
+            "export": "Switch",
+            "path": "/components/Switch",
+            "new": false
+          },
+          {
+            "name": "Textarea",
+            "description": "A multi-line text input component for longer user inputs.",
+            "export": "Textarea",
+            "path": "/components/Textarea",
+            "new": false
+          }
+        ]
+      },
+      {
+        "name": "Inputs",
+        "components": [
+          {
+            "name": "Checkbox",
+            "description": "An input component used to select one or more options from a set.",
+            "export": "Checkbox",
+            "path": "/components/Checkbox",
+            "new": false
+          },
+          {
+            "name": "Combobox",
+            "description": "A text input with a dropdown list of options for autocomplete or selection.",
+            "export": "Combobox",
+            "path": "/components/Combobox",
+            "new": false
+          },
+          {
+            "name": "DropdownMenu",
+            "description": "A component that allows users to choose one value from a list.",
+            "export": "DropdownMenu",
+            "path": "/components/DropdownMenu",
+            "new": false
+          },
+          {
+            "name": "Input",
+            "description": "A basic input component for user text input.",
+            "export": "Input",
+            "path": "/components/Input",
+            "new": false
+          },
+          {
+            "name": "RadioGroup",
+            "description": "A set of radio buttons for selecting one option from many.",
+            "export": "RadioGroup",
+            "path": "/components/RadioGroup",
+            "new": false
+          },
+          {
+            "name": "Select",
+            "description": "A dropdown component for selecting one or multiple values from a list.",
+            "export": "Select",
+            "path": "/components/Select",
+            "new": false
+          },
+          {
+            "name": "Slider",
+            "description": "A component for selecting a single value or a range from a specified interval.",
+            "export": "Slider",
+            "path": "/components/Slider",
+            "new": false
+          },
+          {
+            "name": "Switch",
+            "description": "A toggle switch component for switching between two states or options.",
+            "export": "Switch",
+            "path": "/components/Switch",
+            "new": false
+          },
+          {
+            "name": "Textarea",
+            "description": "A multi-line text input component for longer user inputs.",
+            "export": "Textarea",
+            "path": "/components/Textarea",
+            "new": false
+          },
+          {
+            "name": "Toggle",
+            "description": "A simple on/off toggle switch for binary settings or options.",
+            "export": "Toggle",
+            "path": "/components/Toggle",
+            "new": false
+          },
+          {
+            "name": "ToggleGroup",
+            "description": "A group of toggle buttons, allowing multiple selections.",
+            "export": "ToggleGroup",
+            "path": "/components/ToggleGroup",
+            "new": false
+          }
+        ]
+      },
+      {
+        "name": "Layout",
+        "components": [
+          {
+            "name": "AspectRatio",
+            "description": "A component to enforce a specific aspect ratio for its children.",
+            "export": "AspectRatio",
+            "path": "/components/AspectRatio",
+            "new": false
+          },
+          {
+            "name": "Drawer",
+            "description": "A panel that slides out from the edge of the screen, typically used to enter or navigate information.",
+            "export": "Drawer",
+            "path": "/components/Drawer",
+            "new": true
+          },
+          {
+            "name": "Menubar",
+            "description": "A component for creating a horizontal menu bar, commonly used for navigation purposes.",
+            "export": "Menubar",
+            "path": "/components/Menubar",
+            "new": false
+          },
+          {
+            "name": "NavigationMenu",
+            "description": "A component for site navigation, typically displayed as a vertical list of links.",
+            "export": "NavigationMenu",
+            "path": "/components/NavigationMenu",
+            "new": false
+          },
+          {
+            "name": "Sheet",
+            "description": "A component that slides in from the bottom of the screen, typically used for mobile-responsive menus or modals.",
+            "export": "Sheet",
+            "path": "/components/Sheet",
+            "new": false
+          },
+          {
+            "name": "Tabs",
+            "description": "A component for creating tabbed interfaces, allowing users to switch between different views or datasets.",
+            "export": "Tabs",
+            "path": "/components/Tabs",
+            "new": false
+          }
+        ]
+      },
+      {
+        "name": "Misc",
+        "components": [
+          {
+            "name": "Command",
+            "description": "A component that triggers a specific action or command.",
+            "export": "Command",
+            "path": "/components/Command",
+            "new": false
+          },
+          {
+            "name": "Separator",
+            "description": "A visual or thematic separator for content, often used in menus or lists.",
+            "export": "Separator",
+            "path": "/components/Separator",
+            "new": false
+          }
+        ]
+      },
+      {
+        "name": "Navigation",
+        "components": [
+          {
+            "name": "Accordion",
+            "description": "A versatile accordion component for displaying collapsible content panels.",
+            "export": "Accordion",
+            "path": "/components/Accordion",
+            "new": false
+          },
+          {
+            "name": "Tabs",
+            "description": "A component for creating tabbed interfaces, allowing users to switch between different views or datasets.",
+            "export": "Tabs",
+            "path": "/components/Tabs",
+            "new": false
+          }
+        ]
+      },
+      {
+        "name": "Overlays",
+        "components": [
+          {
+            "name": "AlertDialog",
+            "description": "A modal dialog that interrupts the user's workflow to provide information or ask for input.",
+            "export": "AlertDialog",
+            "path": "/components/AlertDialog",
+            "new": false
+          },
+          {
+            "name": "Dialog",
+            "description": "A dialog component for modal interactions, requiring users to respond before continuing.",
+            "export": "Dialog",
+            "path": "/components/Dialog",
+            "new": false
+          },
+          {
+            "name": "Drawer",
+            "description": "A panel that slides out from the edge of the screen, typically used to enter or navigate information.",
+            "export": "Drawer",
+            "path": "/components/Drawer",
+            "new": true
+          },
+          {
+            "name": "Popover",
+            "description": "A small, contextual overlay that opens on demand, perfect for housing secondary information.",
+            "export": "Popover",
+            "path": "/components/Popover",
+            "new": false
+          },
+          {
+            "name": "Sheet",
+            "description": "A component that slides in from the bottom of the screen, typically used for mobile-responsive menus or modals.",
+            "export": "Sheet",
+            "path": "/components/Sheet",
+            "new": false
+          },
+          {
+            "name": "Tooltip",
+            "description": "A small, floating box that appears when a user hovers over an element, providing additional information.",
+            "export": "Tooltip",
+            "path": "/components/Tooltip",
+            "new": false
+          }
+        ]
+      },
+      {
+        "name": "Typography",
+        "components": [
+          {
+            "name": "Tooltip",
+            "description": "A small, floating box that appears when a user hovers over an element, providing additional information.",
+            "export": "Tooltip",
+            "path": "/components/Tooltip",
+            "new": false
+          },
+          {
+            "name": "Blockquote",
+            "description": "A component for displaying a quotation in a stylized format, commonly used in articles or blogs.",
+            "export": "Blockquote",
+            "path": "/components/Blockquote",
+            "new": true
+          },
+          {
+            "name": "Code",
+            "description": "A component for displaying code snippets with syntax highlighting and line numbering.",
+            "export": "Code",
+            "path": "/components/Code",
+            "new": true
+          },
+          {
+            "name": "Label",
+            "description": "A component for labeling or categorizing content, often used in forms.",
+            "export": "Label",
+            "path": "/components/Label",
+            "new": true
+          },
+          {
+            "name": "Text",
+            "description": "A component for displaying plain text content with support for text formatting and styling.",
+            "export": "Text",
+            "path": "/components/Text",
+            "new": true
+          },
+          {
+            "name": "Title",
+            "description": "A component for displaying a title or heading with various levels of hierarchy.",
+            "export": "Title",
+            "path": "/components/Title",
+            "new": true
+          }
+        ]
+      }
+    ]
+  }
+}

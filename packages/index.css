@@ -1,0 +1,177 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 240 10% 3.9%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 240 10% 3.9%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 10% 3.9%;
+
+        --primary: 240 5.9% 10%;
+        --primary-foreground: 0 0% 98%;
+
+        --secondary: 240 4.8% 95.9%;
+        --secondary-foreground: 240 5.9% 10%;
+
+        --muted: 240 4.8% 95.9%;
+        --muted-foreground: 240 3.8% 46.1%;
+
+        --accent: 240 4.8% 95.9%;
+        --accent-foreground: 240 5.9% 10%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 240 5.9% 90%;
+        --input: 240 5.9% 90%;
+        --ring: 240 10% 3.9%;
+
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+
+        --popover: 240 10% 3.9%;
+        --popover-foreground: 0 0% 98%;
+
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
+    }
+}
+
+.active-tabs {
+    width: 800px;
+    padding: 10px;
+    position: relative;
+    margin: 20px auto;
+}
+
+.active-tabs input {
+    opacity: 0;
+    display: none;
+    visibility: hidden;
+}
+
+.btn {
+    background: #1babbb;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-family: 'open sans';
+    font-size: 13px;
+    height: 40px;
+    line-height: 35px;
+    margin-right: 1px;
+    text-align: center;
+    width: 100px;
+    opacity: 0.8;
+    transition: all 0.4s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    opacity: 1;
+}
+
+.active-tabs input:checked + label {
+    background: #fff;
+    opacity: 1;
+    transform: translateY(-5px);
+    box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.3);
+    color: #1babbb;
+}
+
+.tabs-container {
+    width: 100%;
+    position: relative;
+    float: left;
+    top: -5px;
+    background: #fff;
+}
+
+.tab-1,
+.tab-2,
+.tab-3,
+.tab-4,
+.tab-5,
+.tab-6,
+.tab-7 {
+    height: 200px;
+    width: 100%;
+    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+}
+
+.tab-2,
+.tab-4,
+.tab-6 {
+    height: 300px;
+}
+
+.tab-1 p,
+.tab-2 p,
+.tab-3 p,
+.tab-4 p,
+.tab-5 p,
+.tab-6 p,
+.tab-7 p {
+    color: #1babbb;
+    font-family: 'Open Sans';
+    font-size: 50px;
+    line-height: 200px;
+    text-align: center;
+}
+
+.tab-2 p,
+.tab-4 p,
+.tab-6 p {
+    line-height: 300px;
+}
+
+.btn-1:checked ~ .tabs-container .tab-1,
+.btn-2:checked ~ .tabs-container .tab-2,
+.btn-3:checked ~ .tabs-container .tab-3,
+.btn-4:checked ~ .tabs-container .tab-4,
+.btn-5:checked ~ .tabs-container .tab-5,
+.btn-6:checked ~ .tabs-container .tab-6,
+.btn-7:checked ~ .tabs-container .tab-7 {
+    position: relative;
+    visibility: visible;
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
