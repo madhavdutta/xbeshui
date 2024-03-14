@@ -9,7 +9,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "./packages/index.ts"),
-      name: "react-beautiful-timeline",
+      name: "@xbeshui/core",
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {

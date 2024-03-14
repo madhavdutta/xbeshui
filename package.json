@@ -1,10 +1,10 @@
 {
-  "name": "@xbesh-ui/core",
+  "name": "@xbeshui/core",
   "description": "xBesh UI is a collection of accessible, reusable, and composable React components for building user interfaces.",
   "publisher": "madhavudtta",
   "homepage": "https://xbesh.dev",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.7",
   "repository": {
     "url": "https://github.com/madhavdutta/xbeshUI.git",
     "type": "git",
