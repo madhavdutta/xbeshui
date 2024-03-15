@@ -1,15 +1,13 @@
 {
   "name": "@xbeshui/core",
   "description": "xBesh UI is a collection of accessible, reusable, and composable React components for building user interfaces.",
-  "publisher": "madhavudtta",
+  "version": "1.0.9",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/madhavdutta/xbeshUI.git"
+  },
   "homepage": "https://xbesh.dev",
   "private": false,
-  "version": "1.0.7",
-  "repository": {
-    "url": "https://github.com/madhavdutta/xbeshUI.git",
-    "type": "git",
-    "directory": "packages/core"
-  },
   "type": "module",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
@@ -66,7 +64,6 @@
     "@tailwindcss/typography": "^0.5.10",
     "@tanstack/react-table": "^8.13.2",
     "@types/react-color": "^3.0.12",
-    "@vitejs/plugin-react-swc": "^3.6.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",
@@ -94,10 +91,12 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.35",
-    "tailwindcss": "^3.4.1",
     "typescript": "^5.4.2",
     "vite": "^5.1.6",
     "vite-plugin-dts": "^3.7.3"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.0.0"
   },
   "keywords": [
     "react",
@@ -118,14 +117,29 @@
     "frontend",
     "next",
     "ui-kit"
-],
-"author": "[Madhav Dutta](https://twitter.com/madhavudtta)",
-"contributers": [
-    "[Mohd Aakib](https://github.com/mohdaakib)",
-    "[Mahesh Sharma](https://github.com/maheshsharmma1987)",
-    "[Milan Thakur](https://github.com/xbmilan)",
-    "[Mahesh Chaudhary](https://github.com/codewithmaheshch)",
+  ],
+  "author": {
+    "name": "Madhav Dutta",
+    "url": "https://twitter.com/madhavudtta"
+  },
+  "contributors": [
+    {
+      "name": "Mohd Aakib",
+      "url": "https://github.com/mohdaakib"
+    },
+    {
+      "name": "Mahesh Sharma",
+      "url": "https://github.com/maheshsharmma1987"
+    },
+    {
+      "name": "Milan Thakur",
+      "url": "https://github.com/xbmilan"
+    },
+    {
+      "name": "Mahesh Chaudhary",
+      "url": "https://github.com/codewithmaheshch"
+    },
     "Mohd Azhar"
-],
+  ],
   "license": "MIT"
 }
