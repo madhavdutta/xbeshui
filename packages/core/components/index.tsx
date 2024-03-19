@@ -1,12 +1,12 @@
 // All Buttons core components are exported from this file
-export { Button, buttonVariants } from "./Buttons/button";
-export { ToggleGroup, ToggleGroupItem } from "./Buttons/toggle-group";
+export { Button } from "./Buttons/button/button";
+export { ToggleGroup, ToggleGroupItem } from "./Buttons/toggle/toggle-group";
 export { Toggle, toggleVariants } from "./Buttons/toggle";
 
 // All Layout core components are exported from this file
-export { Container } from "./Layout/container";
-export { Group } from "./Layout/group";
-export { Stack } from "./Layout/stack";
+export { Container } from "./Layout/container/container";
+export { Group } from "./Layout/group/group";
+export { Stack } from "./Layout/stack/stack";
 
 // All DataDisplay core components are exported from this file
 export {
@@ -15,7 +15,7 @@ export {
   AccordionTrigger,
   AccordionContent,
 } from "./DataDisplay/accordion";
-export { Avatar } from "./DataDisplay/avatar";
+export { Avatar } from "./DataDisplay/avatar/avatar";
 export { Badge, badgeVariants } from "./DataDisplay/badge";
 export {
   XbTable,
@@ -27,7 +27,7 @@ export {
   TableRow,
   TableCell,
   TableCaption,
-} from "./DataDisplay/table";
+} from "./DataDisplay/table/table";
 export {
   Card,
   CardHeader,
@@ -35,7 +35,7 @@ export {
   CardTitle,
   CardDescription,
   CardContent,
-} from "./DataDisplay/card";
+} from "./DataDisplay/card/card";
 export {
   Command,
   CommandDialog,
@@ -50,26 +50,26 @@ export {
 
 // Remove the duplicate export statement for 'Table' component
 // All DataDisplay core components are exported from this file
-export { useConfirmDialog } from "./Feedback/alert-dialog";
-export { AspectRatio } from "./Layout/aspect-ratio";
-export { Resizable } from "./Layout/resizable";
-export { Xbpagination } from "./Navigation/pagination";
-export { DynamicHoverCard } from "./Overlays/hover-card";
+export { useConfirmDialog } from "./Feedback/dialog/confirmDialog";
+export { AspectRatio } from "./Layout/aspectRatio/aspectRatio";
+export { Resizable } from "./Layout/resizable/resizable";
+export { Xbpagination } from "./Navigation/pagination/pagination";
+export { DynamicHoverCard } from "./Overlays/hoverCard/hoverCard";
 export {
   DynamicPopover,
   Popover,
   PopoverTrigger,
   PopoverContent,
-} from "./Overlays/popover";
+} from "./Overlays/popover/popover";
 
-export { Tabs, TabsList, TabsTrigger, TabsContent } from "./DataDisplay/tabs";
+export { Tabs, TabsList, TabsTrigger, TabsContent } from "./DataDisplay/tabs/tabs";
 
 // All Feedback core components are exported from this file
 
-export { Alert, AlertTitle, AlertDescription } from "./Feedback/alert";
-export { Progress } from "./Feedback/progress";
-export { Skeleton } from "./Feedback/skeleton";
-export { Toaster } from "./Feedback/toaster";
+export { Alert, AlertTitle, AlertDescription } from "./Feedback/alert/alert";
+export { Progress } from "./Feedback/progress/progress";
+export { Skeleton } from "./Feedback/skeleton/skeleton";
+export { Toaster } from "./Feedback/toast/toaster";
 
 //All Forms core components are exported from this file
 export {
@@ -84,9 +84,9 @@ export {
 } from "./Forms/form";
 
 // All Inputs core components are exported from this file
-export { Checkbox } from "./Inputs/checkbox";
-export { Input } from "./Inputs/input";
-export { RadioGroup, RadioGroupItem } from "./Inputs/radio-group";
+export { Checkbox } from "./Inputs/checkbox/checkbox";
+export { Input } from "./Inputs/textInput/textInput";
+export { RadioGroup, RadioGroupItem } from "./Inputs/radio/radio";
 export {
   Select,
   SelectGroup,
@@ -98,14 +98,14 @@ export {
   SelectSeparator,
   SelectScrollUpButton,
   SelectScrollDownButton,
-} from "./Inputs/select";
-export { Slider } from "./Inputs/slider";
-export { Switch } from "./Inputs/switch";
-export { Textarea } from "./Inputs/textarea";
+} from "./Inputs/select/select";
+export { Slider } from "./Inputs/rangeSlider/rangeSlider";
+export { Switch } from "./Inputs/switch/switch";
+export { Textarea } from "./Inputs/textarea/textarea";
 
 // All Misc core components are exported from this file
 
-export { Calendar } from "./Misc/calendar";
+export { Calendar } from "./Misc/calendar/calendar";
 export {
   type CarouselApi,
   Carousel,
@@ -113,14 +113,14 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
-} from "./Misc/carousel";
+} from "./Misc/carousel/carousel";
 export {
   Collapsible,
   CollapsibleTrigger,
   CollapsibleContent,
-} from "./Misc/collapsible";
-export { ScrollArea, ScrollBar } from "./Misc/scroll-area";
-export { Separator } from "./Misc/separator";
+} from "./Misc/collapsible/collapsible";
+export { ScrollArea, ScrollBar } from "./Misc/scrollArea/scrollArea";
+export { Separator } from "./Misc/separator/separator";
 
 // All Navigation core components are exported from this file
 
@@ -134,7 +134,7 @@ export {
   NavigationMenuLink,
   NavigationMenuIndicator,
   NavigationMenuViewport,
-} from "./Navigation/navigation-menu";
+} from "./Navigation/navMenu/navMenu";
 
 // All Overlays core components are exported from this file
 
@@ -154,7 +154,7 @@ export {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuRadioGroup,
-} from "./Overlays/context-menu";
+} from "./Overlays/contextMenu/contextMenu";
 
 export {
   Dialog,
@@ -167,7 +167,7 @@ export {
   DialogFooter,
   DialogTitle,
   DialogDescription,
-} from "./Overlays/dialog";
+} from "./Overlays/dialog/dialog";
 
 export {
   Drawer,
@@ -180,7 +180,7 @@ export {
   DrawerFooter,
   DrawerTitle,
   DrawerDescription,
-} from "./Overlays/drawer";
+} from "./Overlays/drawer/drawer";
 
 export {
   DropdownMenu,
@@ -198,7 +198,7 @@ export {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuRadioGroup,
-} from "./Overlays/dropdown-menu";
+} from "./Overlays/dropdownMenu/dropdownMenu";
 
 export {
   Menubar,
@@ -217,7 +217,7 @@ export {
   MenubarGroup,
   MenubarSub,
   MenubarShortcut,
-} from "./Overlays/menubar";
+} from "./Overlays/menuBar/menubar";
 
 export {
   Sheet,
@@ -230,7 +230,7 @@ export {
   SheetFooter,
   SheetTitle,
   SheetDescription,
-} from "./Overlays/sheet";
+} from "./Overlays/sheet/sheet";
 
 export {
   type ToastProps,
@@ -248,21 +248,21 @@ export {
   TooltipTrigger,
   TooltipContent,
   TooltipProvider,
-} from "./Overlays/tooltip";
+} from "./Overlays/tooltip/tooltip";
 export { useToast, toast } from "./Overlays/use-toast";
 
 // All Typography core components are exported from this file
-export { Label } from "./Typography/label";
-export { Title } from "./Typography/title";
-export { Text } from "./Typography/text";
-export { BlockQuote } from "./Typography/blockquote";
-export { Code } from "./Typography/code";
-export { List, ListItem } from "./Typography/list";
+export { Label } from "./Typography/label/label";
+export { Title } from "./Typography/title/title";
+export { Text } from "./Typography/text/text";
+export { BlockQuote } from "./Typography/blockquote/blockquote";
+export { Code } from "./Typography/code/code";
+export { List, ListItem } from "./Typography/list/list";
 
 // All Theme core components are exported from this file
-export { XbeshProvider } from "./Theme/xbeshProvider";
-export { XBeshThemeProvider } from "./Theme/xBeshThemeProvider";
-export { XbeshThemeSwitch } from "./Theme/xBeshThemeSwitch";
+export { XbeshProvider } from "./Theme/xBeshTheme/xbeshProvider";
+export { XBeshThemeProvider } from "./Theme/xBeshTheme/xBeshThemeProvider";
+export { XbeshThemeSwitch } from "./Theme/themeSwitch/xBeshThemeSwitch";
 
 // layout
 
@@ -271,5 +271,5 @@ export { HoverCardDesign } from "./common/hoverCardDesign";
 export { PopoverDesign } from "./common/popoverDesign";
 export { SheetDesign } from "./common/sheetDesign";
 
-export { MultiSelect } from "./Inputs/MultiSelect/multi-select";
-export { AppShell } from "./Layout/appshell";
+export { MultiSelect } from "./Inputs/multiSleect/multiSelect";
+export { AppShell } from "./Layout/appShell/appshell";
