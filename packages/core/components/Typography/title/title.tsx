@@ -86,7 +86,7 @@ export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement>, Va
 }
 
 const Title = React.forwardRef<HTMLHeadingElement, TitleProps>(
-    ({ className, order = "h1", size, textWrap, line, fontFamily, align,gradient, gradientColors, ...props }) => {
+    ({ className, order = "h1", size, textWrap, line, fontFamily, align,gradient, gradientColors, ...props }, ref) => {
         const HeadingLevel = order as keyof JSX.IntrinsicElements;
         return (
             <HeadingLevel

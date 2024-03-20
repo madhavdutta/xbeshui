@@ -7,7 +7,7 @@ import {
 } from "@tabler/icons-react";
 
 import { cn } from "../../../../utils";
-import { ButtonProps, buttonVariants } from "../Buttons/button/button/button";
+import { ButtonProps } from "../../Buttons/button/button";
 
 interface Page {
   label: string;
@@ -178,10 +178,10 @@ const PaginationLink = ({
     return (
       <span
         className={cn(
-          buttonVariants({
-            variant: isActive ? "outline" : "ghost",
-            size,
-          }),
+          // buttonVariants({
+          //   variant: isActive ? "outline" : "ghost",
+          //   size,
+          // }),
           "cursor-not-allowed",
           className
         )}
@@ -194,10 +194,10 @@ const PaginationLink = ({
     <a
       aria-current={isActive ? "page" : undefined}
       className={cn(
-        buttonVariants({
-          variant: isActive ? "outline" : "ghost",
-          size,
-        }),
+        // buttonVariants({
+        //   variant: isActive ? "outline" : "ghost",
+        //   size,
+        // }),
         className
       )}
       {...props}

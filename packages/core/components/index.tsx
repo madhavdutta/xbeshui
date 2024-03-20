@@ -1,7 +1,7 @@
 // All Buttons core components are exported from this file
 export { Button } from "./Buttons/button/button";
-export { ToggleGroup, ToggleGroupItem } from "./Buttons/toggle/toggle-group";
-export { Toggle, toggleVariants } from "./Buttons/toggle";
+export { ToggleGroup, ToggleGroupItem } from "./Buttons/toggle/toggleGroup";
+export { Toggle, toggleVariants } from "./Buttons/toggle/toggle";
 
 // All Layout core components are exported from this file
 export { Container } from "./Layout/container/container";
@@ -14,9 +14,9 @@ export {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "./DataDisplay/accordion";
+} from "./DataDisplay/accordion/accordion";
 export { Avatar } from "./DataDisplay/avatar/avatar";
-export { Badge, badgeVariants } from "./DataDisplay/badge";
+export { Badge, badgeVariants } from "./DataDisplay/badge/badge";
 export {
   XbTable,
   Table,
@@ -46,11 +46,11 @@ export {
   CommandItem,
   CommandShortcut,
   CommandSeparator,
-} from "./DataDisplay/command";
+} from "./Inputs/spotlight/spotlight";
 
 // Remove the duplicate export statement for 'Table' component
 // All DataDisplay core components are exported from this file
-export { useConfirmDialog } from "./Feedback/dialog/confirmDialog";
+export { useConfirmDialog } from "./Feedback/confirmDialog/confirmDialog";
 export { AspectRatio } from "./Layout/aspectRatio/aspectRatio";
 export { Resizable } from "./Layout/resizable/resizable";
 export { Xbpagination } from "./Navigation/pagination/pagination";
@@ -242,14 +242,14 @@ export {
   ToastDescription,
   ToastClose,
   ToastAction,
-} from "./Overlays/toast";
+} from "./Feedback/toast/toast";
 export {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
   TooltipProvider,
 } from "./Overlays/tooltip/tooltip";
-export { useToast, toast } from "./Overlays/use-toast";
+// export { useToast, toast } from "./Overlays/use-toast";
 
 // All Typography core components are exported from this file
 export { Label } from "./Typography/label/label";
@@ -267,9 +267,9 @@ export { XbeshThemeSwitch } from "./Theme/themeSwitch/xBeshThemeSwitch";
 // layout
 
 // common
-export { HoverCardDesign } from "./common/hoverCardDesign";
-export { PopoverDesign } from "./common/popoverDesign";
-export { SheetDesign } from "./common/sheetDesign";
+// export { HoverCardDesign } from "./common/hoverCardDesign";
+// export { PopoverDesign } from "./common/popoverDesign";
+// export { SheetDesign } from "./common/sheetDesign";
 
-export { MultiSelect } from "./Inputs/multiSleect/multiSelect";
+export { MultiSelect } from "./Inputs/multiSelect/multiSelect";
 export { AppShell } from "./Layout/appShell/appshell";

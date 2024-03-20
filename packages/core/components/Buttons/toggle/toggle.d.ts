@@ -1,4 +1,4 @@
-import { ToggleVariant } from "../../../types/variantType";
+import { ToggleVariant, ToggleGroupVariant } from "../../../types/variantType";
 
 // Define ToggleSize type representing the structure of button sizes
 export type ToggleSize = {
@@ -27,6 +27,19 @@ export interface ToggleVariantsConfig {
   };
   defaultVariants: {
     variant: keyof ToggleVariant;
+    size: keyof ToggleSize;
+    radius: keyof ToggleRadius;
+  };
+}
+
+export type ToggleGroupVariantConfig = {
+  variants: {
+    variant: ToggleGroupVariant;
+    size: ToggleSize;
+    radius: ToggleRadius;
+  };
+  defaultVariants: {
+    variant: keyof ToggleGroupVariant;
     size: keyof ToggleSize;
     radius: keyof ToggleRadius;
   };

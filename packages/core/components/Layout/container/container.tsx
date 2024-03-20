@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { cn } from "../../../../utils";
 import { cva, type VariantProps } from "class-variance-authority"
-import "../Theme/xbeshDefaultUIStyles.css"
+// import "../Theme/xbeshDefaultUIStyles.css"
 
 const containerJustifyVariant = cva(
     "container mx-auto w-full p-8 max-w-none",
