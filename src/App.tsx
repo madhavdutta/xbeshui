@@ -12,9 +12,26 @@ import { FileButton } from '../packages/core/components/Buttons/fileButton/fileB
 import { CopyButton } from '../packages/core/components/Buttons/copyButton/copyButton';
 import React from 'react';
 import { IconCopy } from '@tabler/icons-react';
+import { Button } from '../packages/core/components';
 
 function App() {
-  const [count, setCount] = useState(0)
+//   const [count, setCount] = useState(0)
+//   var randomNumber = Math.floor(Math.random() * 100) + 1;
+
+//   const useTitle = title => {
+//     const documentDefined = typeof document !== 'undefined';
+//     const originalTitle = React.useRef(documentDefined ? document.title : null);
+  
+//     React.useEffect(() => {
+//       if (!documentDefined) return;
+  
+//       if (document.title !== title) document.title = title;
+  
+//       return () => {
+//         document.title = originalTitle.current as string;
+//       };
+//     }, []);
+//   };
 
   return (
     <>
@@ -50,8 +67,8 @@ function App() {
           </ToggleGroup>
 
         </Group> */}
-        <FileButton onFileSelect={(value) => console.log(value)} variant={"default"} size={"lg"} radius={"md"} allowedFileTypes={["image/svg+xml"]}>Upload Image</FileButton>
-        <CopyButton value="https://www.google.com" size="lg" radius={"md"}>Copy to clipboard</CopyButton>
+        {/* <FileButton onFileSelect={(value) => console.log(value)} variant={"default"} size={"lg"} radius={"md"} allowedFileTypes={["image/svg+xml"]}>Upload Image</FileButton>
+        <CopyButton value={"Here we go"} size="lg" radius={"md"}>Copy to clipboard</CopyButton> */}
       </Stack>
     </>
   )
