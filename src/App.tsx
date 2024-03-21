@@ -1,41 +1,42 @@
-import { useState } from 'react'
-import './App.css'
+// import { useState } from 'react'
+import "./App.css";
 // import { Button } from '../packages/core/components/Buttons/button/button';
-import { Stack } from '../packages/core/components/Layout/stack/stack';
+// import { Stack } from "../packages/core/components/Layout/stack/stack";
 // import { Group } from '../packages/core/components/Layout/group/group';
 // import { Toggle } from '../packages/core/components/Buttons/toggle/toggle';
 // import { Text } from '../packages/core/components/Typography/text/text';
 // import { IconBold, IconItalic, IconStack, IconUnderline } from "@tabler/icons-react";
 // import { ToggleGroup, ToggleGroupItem } from '../packages/core/components/Buttons/toggle/toggleGroup';
 
-import { FileButton } from '../packages/core/components/Buttons/fileButton/fileButton';
-import { CopyButton } from '../packages/core/components/Buttons/copyButton/copyButton';
-import React from 'react';
-import { IconCopy } from '@tabler/icons-react';
-import { Button } from '../packages/core/components';
+// import { FileButton } from '../packages/core/components/Buttons/fileButton/fileButton';
+// import { CopyButton } from '../packages/core/components/Buttons/copyButton/copyButton';
+import {Avatar} from "../packages/core/components/DataDisplay/avatar/avatar"; 
+import React from "react";
+// import { IconCopy } from '@tabler/icons-react';
+// import { Button } from '../packages/core/components';
 
 function App() {
-//   const [count, setCount] = useState(0)
-//   var randomNumber = Math.floor(Math.random() * 100) + 1;
+  //   const [count, setCount] = useState(0)
+  //   var randomNumber = Math.floor(Math.random() * 100) + 1;
 
-//   const useTitle = title => {
-//     const documentDefined = typeof document !== 'undefined';
-//     const originalTitle = React.useRef(documentDefined ? document.title : null);
-  
-//     React.useEffect(() => {
-//       if (!documentDefined) return;
-  
-//       if (document.title !== title) document.title = title;
-  
-//       return () => {
-//         document.title = originalTitle.current as string;
-//       };
-//     }, []);
-//   };
+  //   const useTitle = title => {
+  //     const documentDefined = typeof document !== 'undefined';
+  //     const originalTitle = React.useRef(documentDefined ? document.title : null);
+
+  //     React.useEffect(() => {
+  //       if (!documentDefined) return;
+
+  //       if (document.title !== title) document.title = title;
+
+  //       return () => {
+  //         document.title = originalTitle.current as string;
+  //       };
+  //     }, []);
+  //   };
 
   return (
     <>
-      <Stack gap='sm'>
+     
         {/* <Group><Text>xs :</Text> <Button radius='md' size={'xs'} variant={"default"}>clickme</Button></Group>
       <Group><Text>sm :</Text> <Button radius='md' size={'sm'} variant={"ghost"}>clickme</Button></Group>
       <Group><Text>md/default :</Text> <Button radius='md' size={'md'} variant={"destructive"}>clickme</Button></Group>
@@ -68,10 +69,18 @@ function App() {
 
         </Group> */}
         {/* <FileButton onFileSelect={(value) => console.log(value)} variant={"default"} size={"lg"} radius={"md"} allowedFileTypes={["image/svg+xml"]}>Upload Image</FileButton>
+
         <CopyButton value={"Here we go"} size="lg" radius={"md"}>Copy to clipboard</CopyButton> */}
-      </Stack>
+       
+        <Avatar
+          src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-7.png"
+          alt="Alt Text"
+          radius='mdadd'
+          size='md'       
+           />
+     
     </>
-  )
+  );
 }
 
-export default App
+export default App;

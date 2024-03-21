@@ -8,7 +8,7 @@ import { accordionVariantsConfig } from "./accordion.config";
 const accordionVariants = cva("w-full", accordionVariantsConfig);
 
 
-// eslint-disable-next-line react/display-name
+
 const Accordion = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> &
@@ -43,6 +43,7 @@ const AccordionTrigger = React.forwardRef<
   VariantProps<typeof accordionVariants>
 >(
   (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     { className, children, chevronPosition, type = "multiple", ...props },
     ref
   ) => (
