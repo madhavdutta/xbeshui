@@ -32,7 +32,7 @@ export interface AvatarVariantsConfig {
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarVariants> {
   src?: string;
   alt?: string;
-  fallback?: React.ReactNode;
+  fallback?: string;
   radius?: keyof AvatarRadius;
   size?: keyof AvatarSize;
 }

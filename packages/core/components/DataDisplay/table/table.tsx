@@ -1,37 +1,11 @@
 import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../../utils";
-import { Button } from "../..";
+import { tableVariants } from "./table.config";
+import type { TableProps } from "./tableType";
+import { Button } from "../../Buttons/button/button";
 
-const tableVariants = cva("table-auto", {
-  variants: {
-    size: {
-      default: "table-auto",
-      fixed: "table-fixed",
-    },
-    borderCollapse: {
-      default: "border-collapse",
-      collapse: "border-collapse",
-      separate: "border-separate",
-    },
-  },
-  defaultVariants: {
-    size: "default",
-    borderCollapse: "default",
-  },
-});
 
-export interface TableProps
-  extends React.HTMLAttributes<HTMLTableElement>,
-    VariantProps<typeof tableVariants> {
-  data: any[];
-  children?: React.ReactNode;
-  size?: "default" | "fixed";
-  footer?: React.ReactNode;
-  borderCollapse?: "default" | "collapse" | "separate";
-  itemsPerPage?: number;
-  withPagination?: boolean;
-}
+
 
 const XbTable = React.forwardRef<HTMLTableElement, TableProps>(
   (
@@ -85,7 +59,7 @@ const XbTable = React.forwardRef<HTMLTableElement, TableProps>(
             </TableRow>
           </TableHeader>
           <TableBody>
-            {currentData.map((row, rowIndex) => (
+            {currentData.map((row: { [x: string]: string | number | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<unknown>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }, rowIndex: React.Key | null | undefined) => (
               <TableRow key={rowIndex}>
                 {columns.map((column) => (
                   <TableCell key={column.key} className="py-4">
