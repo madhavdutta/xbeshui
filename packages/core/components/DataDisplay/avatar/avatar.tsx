@@ -3,11 +3,7 @@ import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { cn, getInitials } from "../../../../utils";
 import { avatarVariants } from "./avatar.config";
 import type { AvatarProps } from "./avatar.d";
-<<<<<<< HEAD
-import {IconUser} from "@tabler/icons-react";
-=======
 import { IconUserCircle } from "@tabler/icons-react";
->>>>>>> d3a4c6a05aa9e528e069c64d70501bcc21c72431
 
 const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
@@ -33,13 +29,6 @@ const Avatar = React.forwardRef<
         )}
         {...props}
       >
-<<<<<<< HEAD
-        {fallback ? <IconUser /> : null}
-      </AvatarPrimitive.Fallback>
-    </AvatarPrimitive.Root>
-  );
-});
-=======
         {src ? (
           <AvatarPrimitive.Image
             className="aspect-square h-full w-full object-cover"
@@ -65,7 +54,6 @@ const Avatar = React.forwardRef<
     );
   }
 );
->>>>>>> d3a4c6a05aa9e528e069c64d70501bcc21c72431
 
 Avatar.displayName = "Avatar";
 
