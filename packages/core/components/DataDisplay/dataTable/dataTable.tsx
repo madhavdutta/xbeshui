@@ -36,7 +36,7 @@ import { IconCirclePlus } from "@tabler/icons-react";
 type DataTableProps<T> = {
   data: T[];
   filters: { name: string; options: string[] }[];
-  columns: ColumnDef<any>[];
+  columns: ColumnDef<unknown>[];
   searchable: string;
 };
 
@@ -81,7 +81,7 @@ export const DataTable = <T,>({
           value={
             (table.getColumn(searchable)?.getFilterValue() as string) ?? ""
           }
-          onChange={(event: { target: { value: any } }) =>
+          onChange={(event: { target: { value: unknown } }) =>
             table.getColumn(searchable)?.setFilterValue(event.target.value)
           }
           className="max-w-sm"

@@ -1,14 +1,12 @@
 import React, { forwardRef } from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+import {  type VariantProps } from "class-variance-authority";
 import { cn } from "../../../../utils";
 import { ButtonVariant } from "../../../types/variantType";
 import { ButtonSize } from "./button.d";
-import { ButtonConfig } from "./button.config";
+import { buttonVariants } from "./button.config";
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
-  ButtonConfig
-);
+
+
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   leftSection?: React.ReactNode;

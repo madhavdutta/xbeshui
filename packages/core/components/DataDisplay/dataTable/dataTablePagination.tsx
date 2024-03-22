@@ -6,7 +6,7 @@ import {
   } from "@tabler/icons-react"
   import { type Table } from "@tanstack/react-table"
   
-  import { Button } from "../Buttons/button/button/button"
+  import { Button } from "../../Buttons/button/button";
   import {
     Select,
     SelectContent,

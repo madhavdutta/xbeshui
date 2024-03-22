@@ -1,4 +1,3 @@
-;
 import * as React from "react";
 import {
   IconChevronLeft,
@@ -8,6 +7,7 @@ import {
 
 import { cn } from "../../../../utils";
 import { ButtonProps } from "../../Buttons/button/button";
+import { buttonVariants } from "../../Buttons/button/button.config";
 
 interface Page {
   label: string;
@@ -178,10 +178,10 @@ const PaginationLink = ({
     return (
       <span
         className={cn(
-          // buttonVariants({
-          //   variant: isActive ? "outline" : "ghost",
-          //   size,
-          // }),
+          buttonVariants({
+            variant: isActive ? "outline" : "ghost",
+            size,
+          }),
           "cursor-not-allowed",
           className
         )}
@@ -194,10 +194,10 @@ const PaginationLink = ({
     <a
       aria-current={isActive ? "page" : undefined}
       className={cn(
-        // buttonVariants({
-        //   variant: isActive ? "outline" : "ghost",
-        //   size,
-        // }),
+        buttonVariants({
+          variant: isActive ? "outline" : "ghost",
+          size,
+        }),
         className
       )}
       {...props}
@@ -258,4 +258,4 @@ const PaginationEllipsis = ({
 );
 PaginationEllipsis.displayName = "PaginationEllipsis";
 
-export  {Xbpagination};
+export { Xbpagination };
