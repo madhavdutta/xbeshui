@@ -1,2 +1,2 @@
 export {Logging} from './Logging';
-export {cn} from './utils';
+export {cn, getInitials} from './utils';

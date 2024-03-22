@@ -3,6 +3,7 @@ import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { cn } from "../../../../utils";
 import { avatarVariants } from "./avatar.config";
 import type { AvatarProps } from "./avatar.d";
+import {IconUser} from "@tabler/icons-react";
 
 const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
@@ -22,7 +23,7 @@ const Avatar = React.forwardRef<
       <AvatarPrimitive.Fallback
         className="flex h-full w-full items-center justify-center bg-muted text-white"
       >
-        {fallback}
+        {fallback ? <IconUser /> : null}
       </AvatarPrimitive.Fallback>
     </AvatarPrimitive.Root>
   );

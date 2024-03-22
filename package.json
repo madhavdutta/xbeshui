@@ -72,6 +72,7 @@
     "react-hook-form": "^7.51.0",
     "react-resizable-panels": "^2.0.12",
     "tailwind-merge": "^2.2.1",
+    "uuid": "^9.0.1",
     "vaul": "^0.9.0"
   },
   "devDependencies": {
@@ -82,6 +83,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "@vitejs/plugin-react": "^4.2.1",

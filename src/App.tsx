@@ -1,6 +1,6 @@
 // import { useState } from 'react'
 import "./App.css";
-// import { Button } from '../packages/core/components/Buttons/button/button';
+import { Button } from '../packages/core/components/Buttons/button/button';
 // import { Stack } from "../packages/core/components/Layout/stack/stack";
 // import { Group } from '../packages/core/components/Layout/group/group';
 // import { Toggle } from '../packages/core/components/Buttons/toggle/toggle';
@@ -9,9 +9,14 @@ import "./App.css";
 // import { ToggleGroup, ToggleGroupItem } from '../packages/core/components/Buttons/toggle/toggleGroup';
 
 // import { FileButton } from '../packages/core/components/Buttons/fileButton/fileButton';
-// import { CopyButton } from '../packages/core/components/Buttons/copyButton/copyButton';
+// import { CopyButton } from '../packages/core/components/Buttons/copyButton/copyButton'; 
+
 import {Avatar} from "../packages/core/components/DataDisplay/avatar/avatar"; 
+import {Alert} from "../packages/core/components/Feedback/alert/alert";
+import {v4} from "uuid";
+
 import React from "react";
+import { IconBodyScan, IconBolt, IconRocket, IconStack } from "@tabler/icons-react";
 // import { IconCopy } from '@tabler/icons-react';
 // import { Button } from '../packages/core/components';
 
@@ -68,17 +73,13 @@ function App() {
           </ToggleGroup>
 
         </Group> */}
-        {/* <FileButton onFileSelect={(value) => console.log(value)} variant={"default"} size={"lg"} radius={"md"} allowedFileTypes={["image/svg+xml"]}>Upload Image</FileButton>
+         {/* <FileButton onFileSelect={(value) => console.log(value)} variant={"default"} size={"lg"} radius={"md"} allowedFileTypes={["image/svg+xml"]}>Upload Image</FileButton> */}
 
-        <CopyButton value={"Here we go"} size="lg" radius={"md"}>Copy to clipboard</CopyButton> */}
-       
-        <Avatar
-          src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-7.png"
-          alt="Alt Text"
-          radius='mdadd'
-          size='md'       
-           />
-     
+        {/* <CopyButton value={"Here we go"} size="lg" radius={"md"}>Copy to clipboard</CopyButton> */}
+       <Alert variant="default" title="Hello World" message="Here we go now" id={v4()} icon={<IconStack size={20} />} />
+          <br />
+      {/* <Button variant="outline" size="icon" radius="md" ><IconBolt /></Button> */}
+      
     </>
   );
 }
