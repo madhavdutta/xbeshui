@@ -1,6 +1,6 @@
 import { VariantProps } from "class-variance-authority";
 
-export type AvatarSize = {
+type AvatarSize = {
   default: string;
   xs: string;
   sm: string;
@@ -9,16 +9,17 @@ export type AvatarSize = {
   xl: string;
 };
 
-export type AvatarRadius = {
+type AvatarRadius = {
   default: string;
   xs: string;
   sm: string;
   md: string;
   lg: string;
   xl: string;
+  full: string;
 };
 
-export interface AvatarVariantsConfig {
+interface AvatarVariantsConfig {
   variants: {
     radius: AvatarRadius;
     size: AvatarSize;
@@ -29,10 +30,12 @@ export interface AvatarVariantsConfig {
   };
 }
 
-export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarVariants> {
+interface AvatarProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarVariants> {
   src?: string;
   alt?: string;
   fallback?: string;
   radius?: keyof AvatarRadius;
   size?: keyof AvatarSize;
 }
+
+export type { AvatarProps, AvatarVariantsConfig };

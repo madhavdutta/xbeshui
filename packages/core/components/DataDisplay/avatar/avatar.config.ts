@@ -9,7 +9,8 @@ const avatarConfig: AvatarVariantsConfig = {
       sm: "rounded-sm",
       md: "rounded-md",
       lg: "rounded-lg",
-      xl: "rounded-full",
+      xl: "rounded-xl",
+      full: "rounded-full",
     },
     size: {
       default: "h-10 w-10",
