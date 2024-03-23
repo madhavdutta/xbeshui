@@ -15,12 +15,14 @@ import "./App.css";
 // import { Image } from "../packages/core/components/DataDisplay/image/image";
 import { Badge } from "../packages/core/components/DataDisplay/badge/badge";
 import { XbTable } from "../packages/core/components/DataDisplay/table/table";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "../packages/core/components/DataDisplay/tabs/tabs";
+import { BlockQuote } from "../packages/core/components/Typography/blockquote/blockquote";
+import { Code } from "../packages/core/components/Typography/code/code";
+import {Label} from "../packages/core/components/Typography/label/label";
+import {List,ListItem} from "../packages/core/components/Typography/list/list";
+import {Text} from "../packages/core/components/Typography/text/text";
+import {Title} from "../packages/core/components/Typography/title/title";
+import {FlexBox} from "../packages/core/components/Layout/flexBox/flexBox";
+import {SimpleGrid} from "../packages/core/components/Layout/simpleGrid/simpleGrid";
 import {
   Accordion,
   AccordionContent,
@@ -36,6 +38,7 @@ import {
   // CardContent,
 } from "../packages/core/components/DataDisplay/card/card";
 import React from "react";
+import { IconAlertCircle } from "@tabler/icons-react";
 // import { IconCopy } from "@tabler/icons-react";
 // import { Button } from '../packages/core/components';
 
@@ -193,17 +196,55 @@ function App() {
         </AccordionItem>
       </Accordion>
 
-      <Tabs defaultValue="account" orientation="vertical">
-        <TabsList>
-          <TabsTrigger value="account">Account</TabsTrigger>
-          <TabsTrigger value="password">Password</TabsTrigger>
-        </TabsList>
-        <TabsContent value="account">
-          Make changes to your account here.
-        </TabsContent>
-        <TabsContent value="password">Change your password here.</TabsContent>
-      </Tabs>
+      <BlockQuote cite="Nelson Mandela" icon={<IconAlertCircle />}>
+        The greatest glory in living lies not in never falling, but in rising
+        every time we fall.
+      </BlockQuote>
+
+      <Code>
+        {`import { useState } from 'react';
+
+function SearchableVideoList({ videos }) {
+  const [searchText, setSearchText] = useState('');
+  const foundVideos = filterVideos(videos, searchText);
+  return (
+    <>
+      <SearchInput
+        value={searchText}
+        onChange={newText => setSearchText(newText)} />
+      <VideoList
+        videos={foundVideos}
     </>
+  );
+}`}{" "}
+      </Code>
+
+      <Label fontFamily={'mono'} fontSize={'6xl'}>abdcjhdbcdkjcbd</Label>
+
+      <List type='disc' fontSize='xs' position='inside'>
+      <ListItem className="text-red-500">Item 1</ListItem>
+      <ListItem>Item 2</ListItem>
+      <ListItem>Item 3</ListItem>
+    </List>
+
+    <Text  size='7xl'>hello</Text>
+    <Title order='h4' > hello</Title>
+
+    <FlexBox direction='row' justify='center' align='center' >
+          <div className="w-50 bg-red-500 p-20 mx-2">Item 1</div>
+    </FlexBox>
+
+    <div className="p-10">
+          <SimpleGrid cols={3} spacing="lg" verticalSpacing="md">
+            <div className="bg-blue-500 text-white p-5">1</div>
+            <div className="bg-blue-500 text-white p-5">2</div>
+            <div className="bg-blue-500 text-white p-5">3</div>
+            <div className="bg-blue-500 text-white p-5">3</div>
+            <div className="bg-blue-500 text-white p-5">3</div>
+          </SimpleGrid>
+          </div>
+    </>
+
   );
 }
 

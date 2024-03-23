@@ -1,20 +1,14 @@
 import React from "react";
-
-interface FlexBoxProps {
-  children: React.ReactNode;
-  direction?: "row" | "row-reverse" | "column" | "column-reverse";
-  justify?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around";
-  align?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
-  wrap?: "nowrap" | "wrap" | "wrap-reverse";
-  className?: string;
-}
+import { FlexBoxProps } from "./flexBox.d";
+import { cn } from "../../../../utils";
+import { flexBoxVariants } from "./flexBox.config";
 
 const FlexBox: React.FC<FlexBoxProps> = ({
   children,
-  direction = "row",
-  justify = "flex-start",
-  align = "stretch",
-  wrap = "nowrap",
+  direction,
+  justify,
+  align,
+  wrap,
   className,
 }) => {
   const getGap = () => {
@@ -31,19 +25,21 @@ const FlexBox: React.FC<FlexBoxProps> = ({
   };
 
   const flexStyle: React.CSSProperties = {
-    display: "flex",
-    flexDirection: direction,
-    justifyContent: justify,
-    alignItems: align,
-    flexWrap: wrap,
     gap: getGap(),
   };
 
   return (
-    <div className={className} style={flexStyle}>
+    <div
+      className={cn(
+        flexBoxVariants({ justify, align, direction, wrap, className })
+      )}
+      style={flexStyle}
+    >
       {children}
     </div>
   );
 };
 
-export default FlexBox;
+FlexBox.displayName = "FlexBox";
+
+export { FlexBox };

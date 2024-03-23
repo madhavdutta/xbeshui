@@ -1,25 +1,50 @@
 import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../../utils";
+import { IconCheck, IconCopy } from "@tabler/icons-react";
+import { codeVariants } from "./code.config";
+import { CodeProps } from "./code.d";
 
-const textVariants = cva("relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold");
 
-export interface CodeProps extends React.HTMLAttributes<HTMLParagraphElement>, VariantProps<typeof textVariants> {
-    asChild?: boolean;
-}
+const Code = React.forwardRef<HTMLPreElement, CodeProps>(
+  ({ className, color = "gray", ...props }, ref) => {
+    const tailwindClasses = `
+            ${color === "gray" ? "bg-gray-100" : `bg-${color}-100`}
+            block
+            w-full
+            p-4
+            pl-10
+            relative
+            text-gray-500
+            text-left
+        `;
 
-const Code = React.forwardRef<HTMLElement, CodeProps>(
-    ({ className,  ...props }, ref: React.Ref<HTMLElement>) => {
-        return (
-            <code
-                className={cn("relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-xs font-normal p-3", className)}
-                ref={ref}
-                {...props}
-            >
-               <pre>{props.children}</pre>
-            </code>
-        );
-    }
+    const [copied, setCopied] = React.useState(false);
+
+    const copyToClipboard = () => {
+      const text = props.children || ""; // Use default value or fallback
+      navigator.clipboard.writeText(text.toString());
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000); // Revert the icon back to "Copy" after 2 seconds
+    };
+
+    return (
+      <div className="relative">
+        <code
+          className={cn(codeVariants.toString(), tailwindClasses, className)}
+        >
+          <pre ref={ref} {...props}>
+            {props.children}
+          </pre>
+        </code>
+        <button
+          className="absolute top-0 right-0 m-2 p-1 rounded  text-gray-800 hover:bg-gray-300"
+          onClick={copyToClipboard}
+        >
+          {copied ? <IconCheck size={16} /> : <IconCopy size={16} />}
+        </button>
+      </div>
+    );
+  }
 );
 
 Code.displayName = "Code";

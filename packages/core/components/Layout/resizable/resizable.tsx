@@ -1,32 +1,24 @@
-import { IconGripVertical } from "@tabler/icons-react"
-import * as ResizablePrimitive from "react-resizable-panels"
-
+import { IconGripVertical } from "@tabler/icons-react";
+import * as ResizablePrimitive from "react-resizable-panels";
+import { DynamicResizablePanelsProps } from "./resizable.d";
 import { cn } from "../../../../utils";
 import React from "react";
 
-type PanelConfig = {
-  key: string | number;
-  content: React.ReactNode;
-  resizable?: boolean;
-  defaultSize?: number  // Note the addition here
-  direction?: 'horizontal' | 'vertical';
-  nestedPanels?: PanelConfig[]; 
-};
-
-type DynamicResizablePanelsProps = {
-  panels: PanelConfig[];
-  className?: string;
-  direction?: 'horizontal' | 'vertical'; 
-};
-
-const Resizable: React.FC<DynamicResizablePanelsProps> = ({ panels, className, direction = 'horizontal' }) => {
+const Resizable: React.FC<DynamicResizablePanelsProps> = ({
+  panels,
+  className,
+  direction = "horizontal",
+}) => {
   return (
     <ResizablePanelGroup className={className} direction={direction}>
       {panels.map((panel, index) => (
         <React.Fragment key={panel.key}>
           <ResizablePanel defaultSize={panel.defaultSize}>
             {panel.nestedPanels ? (
-              <Resizable panels={panel.nestedPanels} direction={panel.direction} />
+              <Resizable
+                panels={panel.nestedPanels}
+                direction={panel.direction}
+              />
             ) : (
               panel.content
             )}
@@ -51,16 +43,16 @@ const ResizablePanelGroup = ({
     )}
     {...props}
   />
-)
+);
 
-const ResizablePanel = ResizablePrimitive.Panel
+const ResizablePanel = ResizablePrimitive.Panel;
 
 const ResizableHandle = ({
   withHandle,
   className,
   ...props
 }: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
-  withHandle?: boolean
+  withHandle?: boolean;
 }) => (
   <ResizablePrimitive.PanelResizeHandle
     className={cn(
@@ -75,6 +67,6 @@ const ResizableHandle = ({
       </div>
     )}
   </ResizablePrimitive.PanelResizeHandle>
-)
+);
 
-export {Resizable};
+export { Resizable };

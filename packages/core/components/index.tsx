@@ -16,7 +16,7 @@ export {
   AccordionContent,
 } from "./DataDisplay/accordion/accordion";
 export { Avatar } from "./DataDisplay/avatar/avatar";
-export { Badge, badgeVariants } from "./DataDisplay/badge/badge";
+export { Badge } from "./DataDisplay/badge/badge";
 export {
   XbTable,
   Table,
@@ -52,6 +52,7 @@ export {
 // All DataDisplay core components are exported from this file
 export { useConfirmDialog } from "./Feedback/confirmDialog/confirmDialog";
 export { AspectRatio } from "./Layout/aspectRatio/aspectRatio";
+export {FlexBox} from  './Layout/flexBox/flexBox'
 export { Resizable } from "./Layout/resizable/resizable";
 export { Xbpagination } from "./Navigation/pagination/pagination";
 export { DynamicHoverCard } from "./Overlays/hoverCard/hoverCard";

@@ -9,10 +9,11 @@ interface CopyButtonType {
     variant?: keyof typeof ButtonConfig.variants.variant;
     size?: keyof typeof ButtonConfig.variants.size;
     radius?: keyof typeof ButtonConfig.variants.radius;
+    className?:string;
 }
 
 const CopyButton = React.forwardRef<HTMLButtonElement, CopyButtonType>(
-    ({ children, variant, size, radius, value }, ref) => {
+    ({className, children, variant, size, radius, value }, ref) => {
         const [copied, setCopied] = React.useState(false);
 
         useEffect(() => {
@@ -36,7 +37,7 @@ const CopyButton = React.forwardRef<HTMLButtonElement, CopyButtonType>(
 
         return (
             // <Stack gap="xxs" align="center" justify="center">
-            <Button variant={copied ? "success" : variant?variant:"outline"} radius={radius} size={size} onClick={copyToClipboard} ref={ref} leftSection={copied ? <IconCheck size={20} stroke={1.5} /> : <IconCopy size={size === "xs" || size === "sm" ? 16 : 20} stroke={1.5} />}>
+            <Button className={className} variant={copied ? "success" : variant?variant:"outline"} radius={radius} size={size} onClick={copyToClipboard} ref={ref} leftSection={copied ? <IconCheck size={20} stroke={1.5} /> : <IconCopy size={size === "xs" || size === "sm" ? 16 : 20} stroke={1.5} />}>
                 {copied ? "Copied" : children || "Copy"}
             </Button>
             // {copied && <Text size="xs" color="success">Copied to clipboard</Text>}
