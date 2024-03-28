@@ -1,7 +1,7 @@
 import { VariantProps } from "class-variance-authority";
 import { titleVariants } from "./title.config";
 
-export type TitleVariants = {
+export type TitleVariantsType = {
   variants: {
     order: {
       h1: string;
@@ -46,11 +46,11 @@ export type TitleVariants = {
     };
   };
   defaultVariants: {
-    order: keyof TitleVariants["variants"]["order"];
-    textWrap: keyof TitleVariants["variants"]["textWrap"];
-    fontFamily: keyof TitleVariants["variants"]["fontFamily"];
-    align: keyof TitleVariants["variants"]["align"];
-    gradient: keyof TitleVariants["variants"]["gradient"];
+    order: keyof TitleVariantsType["variants"]["order"];
+    textWrap: keyof TitleVariantsType["variants"]["textWrap"];
+    fontFamily: keyof TitleVariantsType["variants"]["fontFamily"];
+    align: keyof TitleVariantsType["variants"]["align"];
+    gradient: keyof TitleVariantsType["variants"]["gradient"];
   };
 };
 
@@ -58,10 +58,10 @@ export interface TitleProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
     VariantProps<typeof titleVariants> {
   asChild?: boolean;
-  order?: keyof TitleVariants["variants"]["order"];
-  textWrap?: keyof TitleVariants["variants"]["textWrap"];
-  fontFamily?: keyof TitleVariants["variants"]["fontFamily"];
-  align?: keyof TitleVariants["variants"]["align"];
-  gradient?: keyof TitleVariants["variants"]["gradient"];
+  order?: keyof TitleVariantsType["variants"]["order"];
+  textWrap?: keyof TitleVariantsType["variants"]["textWrap"];
+  fontFamily?: keyof TitleVariantsType["variants"]["fontFamily"];
+  align?: keyof TitleVariantsType["variants"]["align"];
+  gradient?: keyof TitleVariantsType["variants"]["gradient"];
   gradientColors?: string;
 }

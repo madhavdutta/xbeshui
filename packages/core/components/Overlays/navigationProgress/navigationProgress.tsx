@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 
 type ProgressbarProps = {
-  target: React.RefObject<HTMLElement>;
+  target?: React.RefObject<HTMLElement>;
   className?: string;
 };
 

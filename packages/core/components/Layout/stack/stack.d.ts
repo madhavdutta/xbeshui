@@ -28,16 +28,11 @@ export interface stackVariantType {
       xl: string;
       xxl: string;
     };
-    grow: {
-      true: string;
-      false: string;
-    };
   };
   defaultVariants: {
     justify: keyof stackVariantType["variants"]["justify"];
     align: keyof stackVariantType["variants"]["align"];
     gap: keyof stackVariantType["variants"]["gap"];
-    grow: keyof stackVariantType["variants"]["grow"];
   };
 }
 

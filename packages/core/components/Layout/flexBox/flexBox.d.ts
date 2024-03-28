@@ -1,7 +1,7 @@
 import { VariantProps } from "class-variance-authority";
 import { flexBoxVariants } from "./flexBox.config";
 
-export interface flexBoxVariantTYpe {
+export interface flexBoxVariantType {
   variants: {
     direction: {
       default: string;
@@ -34,10 +34,10 @@ export interface flexBoxVariantTYpe {
     };
   };
   defaultVariants: {
-    direction: keyof flexBoxVariantTYpe["variants"]["direction"];
-    justify: keyof flexBoxVariantTYpe["variants"]["justify"];
-    align: keyof flexBoxVariantTYpe["variants"]["align"];
-    wrap: keyof flexBoxVariantTYpe["variants"]["wrap"];
+    direction: keyof flexBoxVariantType["variants"]["direction"];
+    justify: keyof flexBoxVariantType["variants"]["justify"];
+    align: keyof flexBoxVariantType["variants"]["align"];
+    wrap: keyof flexBoxVariantType["variants"]["wrap"];
   };
 }
 
@@ -45,8 +45,8 @@ export interface FlexBoxProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof flexBoxVariants> {
   children: React.ReactNode;
-  direction?: keyof flexBoxVariantTYpe["variants"]["direction"];
-  justify?: keyof flexBoxVariantTYpe["variants"]["justify"];
-  align?: keyof flexBoxVariantTYpe["variants"]["align"];
-  wrap?: keyof flexBoxVariantTYpe["variants"]["wrap"];
+  direction?: keyof flexBoxVariantType["variants"]["direction"];
+  justify?: keyof flexBoxVariantType["variants"]["justify"];
+  align?: keyof flexBoxVariantType["variants"]["align"];
+  wrap?: keyof flexBoxVariantType["variants"]["wrap"];
 }

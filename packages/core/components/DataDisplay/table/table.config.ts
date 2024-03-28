@@ -1,6 +1,7 @@
 import { cva } from "class-variance-authority";
+import { TableVariantsConfig } from "./tableType";
 
-export const tableVariants = cva("table-auto", {
+const tableConfig: TableVariantsConfig = {
   variants: {
     size: {
       default: "table-auto",
@@ -16,4 +17,6 @@ export const tableVariants = cva("table-auto", {
     size: "default",
     borderCollapse: "default",
   },
-});
+};
+
+export const tableVariants = cva("table-auto", tableConfig);

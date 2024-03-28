@@ -1,6 +1,8 @@
 import { cva } from "class-variance-authority";
+import { ListVariantsType } from "./list.d";
 
-export const listVariants = cva("list-none", {
+
+const listConfig:ListVariantsType= {
   variants: {
     type: {
       default: "list-none",
@@ -35,4 +37,6 @@ export const listVariants = cva("list-none", {
     fontSize: "default",
     position: "default",
   },
-});
+}
+
+export const listVariants = cva("list-none",listConfig);

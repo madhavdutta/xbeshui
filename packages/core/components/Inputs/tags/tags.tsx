@@ -1,78 +1,11 @@
 import React, { useState } from "react";
-import { Badge } from "../badge/badge";
+
 import { IconX } from "@tabler/icons-react";
 
-import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../../utils";
-
-const tagInputVariants = cva(
-  "w-full h-9 rounded-md border border-input bg-transparent text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
-  {
-    variants: {
-      labelPosition: {
-        default: "",
-        right: "",
-        left: "",
-      },
-
-      variant: {
-        default: "none",
-        filled: "bg-gray-200",
-        unstyled: "border-0 shadow-none",
-      },
-
-      radius: {
-        default: "rounded-none",
-        xs: "rounded-xs",
-        sm: "rounded-sm",
-        md: "rounded-md",
-        lg: "rounded-lg",
-        xl: "rounded-xl",
-      },
-      // size: {
-      //   default: "",
-      //   xs: "shadow-xs",
-      //   sm: "shadow-sm",
-      //   md: "shadow-md",
-      //   lg: "shadow-lg",
-      //   xl: "shadow-xl",
-      // },
-      disabled: {
-        default: "",
-        true: "border",
-        false: "",
-      },
-      error: {
-        default: "",
-        true: "border-red-500 text-red-500",
-      },
-    },
-    defaultVariants: {
-      labelPosition: "default",
-      radius: "default",
-      // size: "default",
-      disabled: "default",
-      variant: "default",
-    },
-  }
-);
-
-export interface TagsInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof tagInputVariants> {
-  className?: string;
-  placeholder?: string;
-  label?: React.ReactNode;
-  description?: React.ReactNode;
-  labelPosition?: "default" | "left" | "right";
-  variant?: "default" | "filled" | "unstyled";
-  radius?: "default" | "xs" | "sm" | "md" | "lg" | "xl";
-  disabled?: boolean;
-  error?: boolean;
-  data?: string[];
-  allowDuplicates?: boolean;
-  maxTags?: number;
-}
+import { Badge } from "../../DataDisplay/badge/badge";
+import { TagsInputProps } from "./tags.d";
+import { tagInputVariants } from "./tags.config";
 
 const TagsInput = React.forwardRef<HTMLInputElement, TagsInputProps>(
   (
@@ -84,7 +17,6 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsInputProps>(
       radius,
       disabled,
       variant,
-      error,
       data,
       allowDuplicates = false,
       maxTags = Infinity,
@@ -143,9 +75,7 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsInputProps>(
           {...props}
           ref={ref}
           disabled={disabled}
-          className={cn(
-            tagInputVariants({ error, variant, radius, className })
-          )}
+          className={cn(tagInputVariants({ variant, radius, className }))}
           type="text"
           value={inputValue}
           onChange={handleInputChange}

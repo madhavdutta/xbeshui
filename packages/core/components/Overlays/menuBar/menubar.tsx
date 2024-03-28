@@ -4,157 +4,157 @@ import { IconCheck, IconChevronRight, IconDots } from "@tabler/icons-react";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { cn } from "../../../../utils";
 
-interface MenuType {
-  className: string;
-  mock: any;
-}
+// interface MenuType {
+//   className: string;
+//   mock: any;
+// }
 
-const Menu = ({ className, mock }: MenuType) => {
-  return (
-    <Menubar className={className}>
-      <MenubarMenu>
-        <MenubarTrigger>{mock.FILE_MENU_TITLE}</MenubarTrigger>
-        <MenubarContent className={className}>
-          {mock.fileMenuItems.map((fItem: any, index: number) => {
-            if (fItem.hasSubMenu === false) {
-              return (
-                <MenubarItem key={index} disabled={fItem.disabled}>
-                  {fItem.name}
-                  {fItem.menubarShortcut !== "" ? (
-                    <MenubarShortcut>{fItem.menubarShortcut}</MenubarShortcut>
-                  ) : (
-                    <MenubarShortcut></MenubarShortcut>
-                  )}
-                </MenubarItem>
-              );
-            } else {
-              return (
-                <MenubarSub key={index}>
-                  <MenubarSeparator />
-                  <MenubarSubTrigger>{fItem.name}</MenubarSubTrigger>
-                  <MenubarSubContent>
-                    {fItem.subMenu.map((item: any, index: number) => {
-                      <MenubarItem></MenubarItem>;
-                      return <MenubarItem key={index}>{item}</MenubarItem>;
-                    })}
-                  </MenubarSubContent>
-                  <MenubarSeparator />
-                </MenubarSub>
-              );
-            }
-          })}
-        </MenubarContent>
-      </MenubarMenu>
-      <MenubarMenu>
-        <MenubarTrigger>{mock.EDIT_MENU_TITLE}</MenubarTrigger>
-        <MenubarContent>
-          {mock.editMenuItems.map((eItem: any, index: number) => {
-            if (eItem.hasSubMenu === false) {
-              return (
-                <MenubarItem key={index} disabled={eItem.disabled}>
-                  {eItem.name}
-                  {eItem.menubarShortcut !== "" ? (
-                    <MenubarShortcut>{eItem.menubarShortcut}</MenubarShortcut>
-                  ) : (
-                    <MenubarShortcut></MenubarShortcut>
-                  )}
-                </MenubarItem>
-              );
-            } else {
-              return (
-                <MenubarSub key={index}>
-                  <MenubarSeparator />
-                  <MenubarSubTrigger>{eItem.name}</MenubarSubTrigger>
-                  <MenubarSubContent>
-                    {eItem.subMenu.map((item: any, index: number) => {
-                      <MenubarItem></MenubarItem>;
-                      return (
-                        <MenubarSub key={index}>
-                          <MenubarItem>{item.name}</MenubarItem>
-                          {item.hasSeparatorBelow && <MenubarSeparator />}
-                        </MenubarSub>
-                      );
-                    })}
-                  </MenubarSubContent>
-                  <MenubarSeparator />
-                </MenubarSub>
-              );
-            }
-          })}
-        </MenubarContent>
-      </MenubarMenu>
-      <MenubarMenu>
-        <MenubarTrigger>{mock.VIEW_MENU_TITLE}</MenubarTrigger>
-        <MenubarContent>
-          {mock.viewMenuItems.map((vItem: any, index: any) => {
-            if (vItem.isCheckboxItem === false) {
-              return (
-                <MenubarSub key={index}>
-                  <MenubarItem disabled={vItem.disabled} inset={vItem.inset}>
-                    {vItem.name}
-                    {vItem.menubarShortcut !== "" ? (
-                      <MenubarShortcut>{vItem.menubarShortcut}</MenubarShortcut>
-                    ) : (
-                      <MenubarShortcut></MenubarShortcut>
-                    )}
-                  </MenubarItem>
-                  {vItem.hasSeparatorBelow === true && <MenubarSeparator />}
-                </MenubarSub>
-              );
-            } else {
-              return (
-                <MenubarSub key={index}>
-                  <MenubarCheckboxItem
-                    disabled={vItem.disabled}
-                    checked={vItem.checked}
-                  >
-                    {vItem.name}
-                    {vItem.menubarShortcut !== "" ? (
-                      <MenubarShortcut>{vItem.menubarShortcut}</MenubarShortcut>
-                    ) : (
-                      <MenubarShortcut></MenubarShortcut>
-                    )}
-                  </MenubarCheckboxItem>
-                  {vItem.hasSeparatorBelow === true && <MenubarSeparator />}
-                </MenubarSub>
-              );
-            }
-          })}
-        </MenubarContent>
-      </MenubarMenu>
-      <MenubarMenu>
-        <MenubarTrigger>{mock.PROFILES_MENU_TITLE}</MenubarTrigger>
-        <MenubarContent>
-          {mock.profileMenuItems.map((pItem: any, index: number) => {
-            if (pItem.isRadioItem === true) {
-              return (
-                <MenubarSub key={index}>
-                  <MenubarRadioGroup value={pItem.defaultValue}>
-                    {pItem.radioItems.map((item: any, index: number) => {
-                      return (
-                        <MenubarRadioItem key={index} value={item.radioId}>
-                          {item.name}
-                        </MenubarRadioItem>
-                      );
-                    })}
-                  </MenubarRadioGroup>
-                  {pItem.hasSeparatorBelow === true && <MenubarSeparator />}
-                </MenubarSub>
-              );
-            } else {
-              return (
-                <MenubarSub key={index}>
-                  <MenubarItem inset={pItem.inset}>{pItem.name}</MenubarItem>
-                  {pItem.hasSeparatorBelow === true && <MenubarSeparator />}
-                </MenubarSub>
-              );
-            }
-          })}
-        </MenubarContent>
-      </MenubarMenu>
-    </Menubar>
-  );
-};
+// const Menu = ({ className, mock }: MenuType) => {
+//   return (
+//     <Menubar className={className}>
+//       <MenubarMenu>
+//         <MenubarTrigger>{mock.FILE_MENU_TITLE}</MenubarTrigger>
+//         <MenubarContent className={className}>
+//           {mock.fileMenuItems.map((fItem: any, index: number) => {
+//             if (fItem.hasSubMenu === false) {
+//               return (
+//                 <MenubarItem key={index} disabled={fItem.disabled}>
+//                   {fItem.name}
+//                   {fItem.menubarShortcut !== "" ? (
+//                     <MenubarShortcut>{fItem.menubarShortcut}</MenubarShortcut>
+//                   ) : (
+//                     <MenubarShortcut></MenubarShortcut>
+//                   )}
+//                 </MenubarItem>
+//               );
+//             } else {
+//               return (
+//                 <MenubarSub key={index}>
+//                   <MenubarSeparator />
+//                   <MenubarSubTrigger>{fItem.name}</MenubarSubTrigger>
+//                   <MenubarSubContent>
+//                     {fItem.subMenu.map((item: any, index: number) => {
+//                       <MenubarItem></MenubarItem>;
+//                       return <MenubarItem key={index}>{item}</MenubarItem>;
+//                     })}
+//                   </MenubarSubContent>
+//                   <MenubarSeparator />
+//                 </MenubarSub>
+//               );
+//             }
+//           })}
+//         </MenubarContent>
+//       </MenubarMenu>
+//       <MenubarMenu>
+//         <MenubarTrigger>{mock.EDIT_MENU_TITLE}</MenubarTrigger>
+//         <MenubarContent>
+//           {mock.editMenuItems.map((eItem: any, index: number) => {
+//             if (eItem.hasSubMenu === false) {
+//               return (
+//                 <MenubarItem key={index} disabled={eItem.disabled}>
+//                   {eItem.name}
+//                   {eItem.menubarShortcut !== "" ? (
+//                     <MenubarShortcut>{eItem.menubarShortcut}</MenubarShortcut>
+//                   ) : (
+//                     <MenubarShortcut></MenubarShortcut>
+//                   )}
+//                 </MenubarItem>
+//               );
+//             } else {
+//               return (
+//                 <MenubarSub key={index}>
+//                   <MenubarSeparator />
+//                   <MenubarSubTrigger>{eItem.name}</MenubarSubTrigger>
+//                   <MenubarSubContent>
+//                     {eItem.subMenu.map((item: any, index: number) => {
+//                       <MenubarItem></MenubarItem>;
+//                       return (
+//                         <MenubarSub key={index}>
+//                           <MenubarItem>{item.name}</MenubarItem>
+//                           {item.hasSeparatorBelow && <MenubarSeparator />}
+//                         </MenubarSub>
+//                       );
+//                     })}
+//                   </MenubarSubContent>
+//                   <MenubarSeparator />
+//                 </MenubarSub>
+//               );
+//             }
+//           })}
+//         </MenubarContent>
+//       </MenubarMenu>
+//       <MenubarMenu>
+//         <MenubarTrigger>{mock.VIEW_MENU_TITLE}</MenubarTrigger>
+//         <MenubarContent>
+//           {mock.viewMenuItems.map((vItem: any, index: any) => {
+//             if (vItem.isCheckboxItem === false) {
+//               return (
+//                 <MenubarSub key={index}>
+//                   <MenubarItem disabled={vItem.disabled} inset={vItem.inset}>
+//                     {vItem.name}
+//                     {vItem.menubarShortcut !== "" ? (
+//                       <MenubarShortcut>{vItem.menubarShortcut}</MenubarShortcut>
+//                     ) : (
+//                       <MenubarShortcut></MenubarShortcut>
+//                     )}
+//                   </MenubarItem>
+//                   {vItem.hasSeparatorBelow === true && <MenubarSeparator />}
+//                 </MenubarSub>
+//               );
+//             } else {
+//               return (
+//                 <MenubarSub key={index}>
+//                   <MenubarCheckboxItem
+//                     disabled={vItem.disabled}
+//                     checked={vItem.checked}
+//                   >
+//                     {vItem.name}
+//                     {vItem.menubarShortcut !== "" ? (
+//                       <MenubarShortcut>{vItem.menubarShortcut}</MenubarShortcut>
+//                     ) : (
+//                       <MenubarShortcut></MenubarShortcut>
+//                     )}
+//                   </MenubarCheckboxItem>
+//                   {vItem.hasSeparatorBelow === true && <MenubarSeparator />}
+//                 </MenubarSub>
+//               );
+//             }
+//           })}
+//         </MenubarContent>
+//       </MenubarMenu>
+//       <MenubarMenu>
+//         <MenubarTrigger>{mock.PROFILES_MENU_TITLE}</MenubarTrigger>
+//         <MenubarContent>
+//           {mock.profileMenuItems.map((pItem: any, index: number) => {
+//             if (pItem.isRadioItem === true) {
+//               return (
+//                 <MenubarSub key={index}>
+//                   <MenubarRadioGroup value={pItem.defaultValue}>
+//                     {pItem.radioItems.map((item: any, index: number) => {
+//                       return (
+//                         <MenubarRadioItem key={index} value={item.radioId}>
+//                           {item.name}
+//                         </MenubarRadioItem>
+//                       );
+//                     })}
+//                   </MenubarRadioGroup>
+//                   {pItem.hasSeparatorBelow === true && <MenubarSeparator />}
+//                 </MenubarSub>
+//               );
+//             } else {
+//               return (
+//                 <MenubarSub key={index}>
+//                   <MenubarItem inset={pItem.inset}>{pItem.name}</MenubarItem>
+//                   {pItem.hasSeparatorBelow === true && <MenubarSeparator />}
+//                 </MenubarSub>
+//               );
+//             }
+//           })}
+//         </MenubarContent>
+//       </MenubarMenu>
+//     </Menubar>
+//   );
+// };
 
 const MenubarMenu = MenubarPrimitive.Menu;
 
@@ -367,7 +367,7 @@ const MenubarShortcut = ({
 MenubarShortcut.displayname = "MenubarShortcut";
 
 export {
-  Menu,
+  // Menu,
   Menubar,
   MenubarMenu,
   MenubarTrigger,

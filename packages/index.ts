@@ -1,7 +1,13 @@
 import "./index.css";
 // All Buttons core components are exported from this file
-export { Button, buttonVariants } from "./core/components/Buttons/button/button/button";
-export { ToggleGroup, ToggleGroupItem } from "./core/components/Buttons/toggle/toggle-group";
+export {
+  Button,
+  buttonVariants,
+} from "./core/components/Buttons/button/button/button";
+export {
+  ToggleGroup,
+  ToggleGroupItem,
+} from "./core/components/Buttons/toggle/toggle-group";
 export { Toggle, toggleVariants } from "./core/components/Buttons/toggle";
 
 // All Layout core components are exported from this file
@@ -57,17 +63,26 @@ export { Resizable } from "./core/components/Layout/resizable/resizable";
 export { Pagination } from "./core/components/Navigation/pagination/pagination";
 export { DynamicHoverCard } from "./core/components/Overlays/hoverCard/hoverCard";
 export {
-  DynamicPopover,
   Popover,
+  Popovermain,
   PopoverTrigger,
   PopoverContent,
 } from "./core/components/Overlays/popover/popover";
 
-export { Tabs, TabsList, TabsTrigger, TabsContent } from "./core/components/DataDisplay/tabs/tabs";
+export {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "./core/components/DataDisplay/tabs/tabs";
 
 // All Feedback core components are exported from this file
 
-export { Alert, AlertTitle, AlertDescription } from "./core/components/Feedback/alert/alert";
+export {
+  Alert,
+  AlertTitle,
+  AlertDescription,
+} from "./core/components/Feedback/alert/alert";
 export { Progress } from "./core/components/Feedback/progress/progress";
 export { Skeleton } from "./core/components/Feedback/skeleton/skeleton";
 export { Toaster } from "./core/components/Feedback/toast/toaster";
@@ -87,7 +102,10 @@ export {
 // All Inputs core components are exported from this file
 export { Checkbox } from "./core/components/Inputs/checkbox/checkbox";
 export { Input } from "./core/components/Inputs/textInput/textInput";
-export { RadioGroup, RadioGroupItem } from "./core/components/Inputs/radio/radio";
+export {
+  RadioGroup,
+  RadioGroupItem,
+} from "./core/components/Inputs/radio/radio";
 export {
   Select,
   SelectGroup,
@@ -120,7 +138,10 @@ export {
   CollapsibleTrigger,
   CollapsibleContent,
 } from "./core/components/Misc/collapsible/collapsible";
-export { ScrollArea, ScrollBar } from "./core/components/Misc/scrollArea/scrollArea";
+export {
+  ScrollArea,
+  ScrollBar,
+} from "./core/components/Misc/scrollArea/scrollArea";
 export { Separator } from "./core/components/Misc/separator/separator";
 
 // All Navigation core components are exported from this file

@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
-
-export const imageVariants = cva("", {
+import { ImageVariantsConfig } from "./image.d";
+const imageConfig: ImageVariantsConfig = {
   variants: {
     radius: {
       default: "rounded-none",
@@ -22,4 +22,5 @@ export const imageVariants = cva("", {
     radius: "default",
     fit: "cover",
   },
-});
+};
+export const imageVariants = cva("", imageConfig);

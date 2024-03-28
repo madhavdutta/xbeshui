@@ -1,62 +1,9 @@
 import * as React from "react";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 
-import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../../utils";
-
-const switchVariants = cva("", {
-  variants: {
-    labelPosition: {
-      default: "",
-      left: "",
-      right: "",
-    },
-    size: {
-      default: "h-5 w-9",
-      xs: "h-3 w-7",
-      sm: "h-4 w-8",
-      md: "h-5 w-9",
-      lg: "h-6 w-10",
-      xl: "h-7 w-12",
-    },
-    radius: {
-      default: "rounded-full",
-      xs: "rounded-xs",
-      sm: "rounded-sm",
-      md: "rounded-md",
-      lg: "rounded-lg",
-      xl: "rounded-xl",
-    },
-    disabled: {
-      disable: "",
-      true: "opacity-50 cursor-not-allowed",
-    },
-    error: {
-      disable: "",
-      true: "border-red-500",
-    },
-  },
-  defaultVariants: {
-    labelPosition: "default",
-    size: "default",
-    radius: "default",
-    disabled: "disable",
-    error: "disable",
-  },
-});
-
-export interface switchProps
-  extends React.HTMLAttributes<HTMLTableElement>,
-    VariantProps<typeof switchVariants> {
-  label?: React.ReactNode;
-  description?: string;
-  bgcolor?: string;
-  labelPosition?: "default" | "left" | "right";
-  size?: "default" | "xs" | "sm" | "md" | "lg" | "xl";
-  radius?: "default" | "xs" | "sm" | "md" | "lg" | "xl";
-  disabled?: "disable" | boolean;
-  error?: "disable" | boolean;
-}
+import { switchVariants } from "./switch.config";
+import { switchProps } from "./switch.d";
 
 const Switch = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
@@ -70,9 +17,7 @@ const Switch = React.forwardRef<
       bgcolor,
       size,
       disabled,
-      error,
       label,
-      description,
       ...props
     },
     ref
@@ -85,12 +30,11 @@ const Switch = React.forwardRef<
             switchVariants({
               radius,
               size,
-              disabled,
-              error,
               className,
             })
           )}
           {...props}
+          disabled={disabled}
           ref={ref}
         >
           <SwitchPrimitives.Thumb

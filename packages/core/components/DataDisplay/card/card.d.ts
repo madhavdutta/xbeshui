@@ -28,7 +28,7 @@ export interface CardVariantsConfig {
     };
   };
   defaultVariants: {
-    withBorder: keyof CardVariantsConfig["variants"]["withBorder"];
+    withBorder:boolean;
     shadow: keyof cardShadow;
     radius: keyof cardRadius;
   };

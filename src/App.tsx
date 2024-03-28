@@ -1,3 +1,4 @@
+"use client";
 // import { useState } from 'react'
 import "./App.css";
 // import { Button } from '../packages/core/components/Buttons/button/button';
@@ -10,7 +11,7 @@ import "./App.css";
 
 // import { FileButton } from '../packages/core/components/Buttons/fileButton/fileButton';
 // import { CopyButton } from '../packages/core/components/Buttons/copyButton/copyButton';
-// import { Avatar } from "../packages/core/components/DataDisplay/avatar/avatar";
+import { Avatar } from "../packages/core/components/DataDisplay/avatar/avatar";
 // import { BackgroundImage } from "../packages/core/components/DataDisplay/backgroundImage/backgroundimage";
 // import { Image } from "../packages/core/components/DataDisplay/image/image";
 import { Badge } from "../packages/core/components/DataDisplay/badge/badge";
@@ -76,11 +77,73 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "../packages/core/components/Overlays/menuBar/menubar";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../packages/core/components/Overlays/sheet/sheet";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../packages/core/components/Overlays/tooltip/tooltip";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuTrigger,
+} from "../packages/core/components/Overlays/dropdownMenu/dropdownMenu";
+import {
+  ContextMenu,
+  ContextMenuCheckboxItem,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuLabel,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem,
+  ContextMenuSeparator,
+  ContextMenuShortcut,
+  ContextMenuSub,
+  ContextMenuSubContent,
+  ContextMenuSubTrigger,
+  ContextMenuTrigger,
+} from "../packages/core/components/Overlays/contextMenu/contextMenu";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "../packages/core/components/Overlays/drawer/drawer";
+import { Stack } from "../packages/core/components/Layout/stack/stack";
+import { IconUser } from "@tabler/icons-react";
+import { IconMinus } from "@tabler/icons-react";
+import { IconPlus } from "@tabler/icons-react";
 // import { IconCopy } from "@tabler/icons-react";
 // import { Button } from '../packages/core/components';
 
+
 function App() {
   const { toast } = useToast();
+  const [goal, setGoal] = React.useState(350);
+
+  function onClick(adjustment: number) {
+    setGoal(Math.max(200, Math.min(400, goal + adjustment)));
+  }
+
   //   const [count, setCount] = useState(0)
   //   var randomNumber = Math.floor(Math.random() * 100) + 1;
 
@@ -127,6 +190,46 @@ function App() {
     { id: 19, name: "Anna Harris", role: "Administrator", city: "ahmedabad" },
     { id: 20, name: "Robert Wright", role: "Supervisor", city: "hyderabad" },
   ];
+  // const mock = {
+  //   FILE_MENU_TITLE: "File",
+  //   EDIT_MENU_TITLE: "Edit",
+  //   VIEW_MENU_TITLE: "View",
+  //   PROFILES_MENU_TITLE: "Profiles",
+  //   fileMenuItems: [
+  //     { name: "New", menubarShortcut: "Ctrl+N" },
+  //     { name: "Open", menubarShortcut: "Ctrl+O" },
+  //     { name: "Save", menubarShortcut: "Ctrl+S" },
+  //     { name: "Save As", menubarShortcut: "Ctrl+Shift+S" },
+  //     { name: "Close", menubarShortcut: "Ctrl+W" },
+  //     { name: "Exit", menubarShortcut: "Ctrl+Q" },
+  //   ],
+  //   editMenuItems: [
+  //     { name: "Undo", menubarShortcut: "Ctrl+Z" },
+  //     { name: "Redo", menubarShortcut: "Ctrl+Shift+Z" },
+  //     { name: "Cut", menubarShortcut: "Ctrl+X" },
+  //     { name: "Copy", menubarShortcut: "Ctrl+C" },
+  //     { name: "Paste", menubarShortcut: "Ctrl+V" },
+  //     { name: "Delete", menubarShortcut: "Del" },
+  //   ],
+  //   viewMenuItems: [
+  //     { name: "Zoom In", menubarShortcut: "Ctrl+Shift+=" },
+  //     { name: "Zoom Out", menubarShortcut: "Ctrl+-" },
+  //     { name: "Reset Zoom", menubarShortcut: "Ctrl+0" },
+  //     { name: "Toggle Full Screen", menubarShortcut: "F11" },
+  //   ],
+  //   profileMenuItems: [
+  //     {
+  //       name: "Light Mode",
+  //       isRadioItem: true,
+  //       radioItems: [
+  //         { name: "Light Mode", radioId: "light-mode" },
+  //         { name: "Dark Mode", radioId: "dark-mode" },
+  //       ],
+  //       hasSeparatorBelow: true,
+  //     },
+  //     { name: "Settings", inset: true },
+  //   ],
+  // };
 
   return (
     <>
@@ -327,12 +430,12 @@ function SearchableVideoList({ videos }) {
           });
         }}
       >
-        Add to calendar
+        toast
       </Button>
 
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="outline">Share</Button>
+          <Button variant="outline">Dialog</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
@@ -453,6 +556,223 @@ function SearchableVideoList({ videos }) {
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
+
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="outline">Sheet</Button>
+        </SheetTrigger>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Edit profile</SheetTitle>
+            <SheetDescription>
+              Make changes to your profile here. Click save when you're done.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="name" className="text-right">
+                Name
+              </Label>
+              <Input
+                id="name"
+                value="Pedro Duarte"
+                className="col-span-3"
+                onChange={() => console.log("hello")}
+              />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="username" className="text-right">
+                Username
+              </Label>
+              <Input
+                id="username"
+                value="@peduarte"
+                className="col-span-3"
+                onChange={() => console.log("hello")}
+              />
+            </div>
+          </div>
+          <SheetFooter>
+            <SheetClose asChild>
+              <Button type="submit">Save changes</Button>
+            </SheetClose>
+          </SheetFooter>
+        </SheetContent>
+      </Sheet>
+
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button variant="outline">Tooltip</Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Add to library</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild className="pointer-events-auto">
+          <Avatar icon={<IconUser />} radius="full" />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-56">
+          <DropdownMenuLabel>
+            <Stack>
+              <Text size="sm" className="font-semibold">
+                xBesh
+              </Text>
+              <Text
+                size="xs"
+                fontFamily="sans"
+                className="text-gray-500 font-normal"
+              >
+                madhav@xbesh.com
+              </Text>
+            </Stack>
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuItem>
+              <Text className="text-sm">Profile</Text>
+              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Text className="text-sm">Billing</Text>
+              <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Text className="text-sm">Settings</Text>
+              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Text className="text-sm">Keyboard shortcuts</Text>
+              <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <Text className="text-sm text-red-600">Log out</Text>
+            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <ContextMenu>
+        <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+          Right click here
+        </ContextMenuTrigger>
+        <ContextMenuContent className="w-64">
+          <ContextMenuItem inset>
+            Back
+            <ContextMenuShortcut>⌘[</ContextMenuShortcut>
+          </ContextMenuItem>
+          <ContextMenuItem inset disabled>
+            Forward
+            <ContextMenuShortcut>⌘]</ContextMenuShortcut>
+          </ContextMenuItem>
+          <ContextMenuItem inset>
+            Reload
+            <ContextMenuShortcut>⌘R</ContextMenuShortcut>
+          </ContextMenuItem>
+          <ContextMenuSub>
+            <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
+            <ContextMenuSubContent className="w-48">
+              <ContextMenuItem>
+                Save Page As...
+                <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
+              </ContextMenuItem>
+              <ContextMenuItem>Create Shortcut...</ContextMenuItem>
+              <ContextMenuItem>Name Window...</ContextMenuItem>
+              <ContextMenuSeparator />
+              <ContextMenuItem>Developer Tools</ContextMenuItem>
+            </ContextMenuSubContent>
+          </ContextMenuSub>
+          <ContextMenuSeparator />
+          <ContextMenuCheckboxItem checked>
+            Show Bookmarks Bar
+            <ContextMenuShortcut>⌘⇧B</ContextMenuShortcut>
+          </ContextMenuCheckboxItem>
+          <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
+          <ContextMenuSeparator />
+          <ContextMenuRadioGroup value="pedro">
+            <ContextMenuLabel inset>People</ContextMenuLabel>
+            <ContextMenuSeparator />
+            <ContextMenuRadioItem value="pedro">
+              Pedro Duarte
+            </ContextMenuRadioItem>
+            <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>
+          </ContextMenuRadioGroup>
+        </ContextMenuContent>
+      </ContextMenu>
+
+      <Drawer>
+        <DrawerTrigger asChild>
+          <Button variant="outline">Open Drawer</Button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <div className="mx-auto w-full max-w-sm">
+            <DrawerHeader>
+              <DrawerTitle>Move Goal</DrawerTitle>
+              <DrawerDescription>
+                Set your daily activity goal.
+              </DrawerDescription>
+            </DrawerHeader>
+            <div className="p-4 pb-0">
+              <div className="flex items-center justify-center space-x-2">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="h-8 w-8 shrink-0 rounded-full"
+                  onClick={() => onClick(-10)}
+                  disabled={goal <= 200}
+                >
+                  <IconMinus className="h-4 w-4" />
+                  <span className="sr-only">Decrease</span>
+                </Button>
+                <div className="flex-1 text-center">
+                  <div className="text-7xl font-bold tracking-tighter">
+                    {goal}
+                  </div>
+                  <div className="text-[0.70rem] uppercase text-muted-foreground">
+                    Calories/day
+                  </div>
+                </div>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="h-8 w-8 shrink-0 rounded-full"
+                  onClick={() => onClick(10)}
+                  disabled={goal >= 400}
+                >
+                  <IconPlus className="h-4 w-4" />
+                  <span className="sr-only">Increase</span>
+                </Button>
+              </div>
+              <div className="mt-3 h-[120px]">
+                {/* <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={data}>
+                  <Bar
+                    dataKey="goal"
+                    style={
+                      {
+                        fill: "hsl(var(--foreground))",
+                        opacity: 0.9,
+                      } as React.CSSProperties
+                    }
+                  />
+                </BarChart>
+              </ResponsiveContainer> */}
+              </div>
+            </div>
+            <DrawerFooter>
+              <Button>Submit</Button>
+              <DrawerClose asChild>
+                <Button variant="outline">Cancel</Button>
+              </DrawerClose>
+            </DrawerFooter>
+          </div>
+        </DrawerContent>
+      </Drawer>
     </>
   );
 }

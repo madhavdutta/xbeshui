@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
-
-export const containerVariant = cva("container mx-auto w-full p-8 max-w-none", {
+import { containerJustifyVariantType } from "./container.d";
+const containerConfig:containerJustifyVariantType={
   variants: {
     p: {
       default: "p-8",
@@ -35,4 +35,5 @@ export const containerVariant = cva("container mx-auto w-full p-8 max-w-none", {
     size: "default",
     p: "default",
   },
-});
+}
+export const containerVariant = cva("container mx-auto w-full p-8 max-w-none",containerConfig );

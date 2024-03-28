@@ -24,16 +24,11 @@ export interface groupVariantType {
       xl: string;
       xxl: string;
     };
-    grow: {
-      true: string;
-      false: string;
-    };
   };
   defaultVariants: {
     justify: keyof groupVariantType["variants"]["justify"];
     align: keyof groupVariantType["variants"]["align"];
     gap: keyof groupVariantType["variants"]["gap"];
-    grow: keyof groupVariantType["variants"]["grow"];
   };
 }
 
@@ -44,5 +39,4 @@ export interface GroupProps
   justify?: keyof groupVariantType["variants"]["justify"];
   align?: keyof groupVariantType["variants"]["align"];
   gap?: keyof groupVariantType["variants"]["gap"];
-  grow?: boolean;
 }

@@ -32,6 +32,7 @@ export interface simpleGridVariantType {
       sm: string;
       md: string;
       lg: string;
+      xl:string;
     };
   };
   defaultVariants: {
