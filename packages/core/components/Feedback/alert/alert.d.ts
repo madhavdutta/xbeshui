@@ -16,7 +16,7 @@ interface AlertVariantsType {
     }
 }
 
-interface AlertPropsType extends React.HTMLAttributes<HTMLDivElement>, AlertVariantsType {
+interface AlertPropsType extends React.HTMLAttributes<HTMLDivElement>,  VariantProps<typeof alertVariantsConfig> {
     id: string;
     title?: string;
     message?: string;

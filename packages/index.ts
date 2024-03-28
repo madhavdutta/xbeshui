@@ -54,7 +54,7 @@ export {
 export { useConfirmDialog } from "./core/components/Feedback/dialog/confirmDialog";
 export { AspectRatio } from "./core/components/Layout/aspectRatio/aspectRatio";
 export { Resizable } from "./core/components/Layout/resizable/resizable";
-export { Xbpagination } from "./core/components/Navigation/pagination/pagination";
+export { Pagination } from "./core/components/Navigation/pagination/pagination";
 export { DynamicHoverCard } from "./core/components/Overlays/hoverCard/hoverCard";
 export {
   DynamicPopover,

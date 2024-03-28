@@ -1,17 +1,8 @@
-;
-
 import * as React from "react";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 
 import { cn } from "../../../../utils";
-
-interface HoverCardProps {
-  triggerContent: React.ReactNode;
-  cardContent: React.ReactNode;
-  align?: "start" | "center" | "end";
-  sideOffset?: number;
-  className?: string;
-}
+import { HoverCardProps } from "./hover.d";
 
 const DynamicHoverCard: React.FC<HoverCardProps> = ({
   triggerContent,
