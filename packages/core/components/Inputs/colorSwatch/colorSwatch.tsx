@@ -1,9 +1,5 @@
 import React from "react";
-
-interface ColorSwatchProps {
-  color: string;
-  className?: string;
-}
+import { ColorSwatchProps } from "./colorSwatch.d";
 
 const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, className }) => {
   return (

@@ -1,31 +1,38 @@
-import * as React from "react"
-import * as PopoverPrimitive from "@radix-ui/react-popover"
-
+import * as React from "react";
+import * as PopoverPrimitive from "@radix-ui/react-popover";
 import { cn } from "../../../../utils";
+import { DynamicPopoverProps } from "./popover.d";
 
-
-interface DynamicPopoverProps {
-  trigger: React.ReactNode;
-  content: React.ReactNode;
-  align?: "start" | "center" | "end";
-  sideOffset?: number;
-  className?:string
-}
-
-const DynamicPopover: React.FC<DynamicPopoverProps> = ({ trigger, content,className, align = "center", sideOffset = 4 }) => {
+const Popover: React.FC<DynamicPopoverProps> = ({
+  trigger,
+  content,
+  className,
+  childern,
+  align = "center",
+  sideOffset = 4,
+}) => {
   return (
-    <Popover>
-      <PopoverTrigger>{trigger}</PopoverTrigger>
-      <PopoverContent align={align} sideOffset={sideOffset} className={className} >
-        {content}
-      </PopoverContent>
-    </Popover>
+    <>
+      {childern ? (
+        childern
+      ) : (
+        <Popovermain>
+          <PopoverTrigger>{trigger}</PopoverTrigger>
+          <PopoverContent
+            align={align}
+            sideOffset={sideOffset}
+            className={className}
+          >
+            {content}
+          </PopoverContent>
+        </Popovermain>
+      )}
+    </>
   );
 };
 
-const Popover = PopoverPrimitive.Root
-const PopoverTrigger = PopoverPrimitive.Trigger
-
+const Popovermain = PopoverPrimitive.Root;
+const PopoverTrigger = PopoverPrimitive.Trigger;
 
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
@@ -43,7 +50,7 @@ const PopoverContent = React.forwardRef<
       {...props}
     />
   </PopoverPrimitive.Portal>
-))
-PopoverContent.displayName = PopoverPrimitive.Content.displayName
+));
+PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
-export {DynamicPopover,Popover,PopoverTrigger,PopoverContent};
+export { Popover, Popovermain, PopoverTrigger, PopoverContent };

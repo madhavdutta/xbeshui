@@ -1,6 +1,7 @@
 import { cva } from "class-variance-authority";
+import { TitleVariantsType } from "./title.d";
 
-export const titleVariants = cva("scroll-m-20 font-normal tracking-tight ", {
+const titleConfig: TitleVariantsType = {
   variants: {
     order: {
       h1: "text-6xl leading-12 font-bold",
@@ -48,4 +49,9 @@ export const titleVariants = cva("scroll-m-20 font-normal tracking-tight ", {
     align: "default",
     gradient: "default",
   },
-});
+};
+
+export const titleVariants = cva(
+  "scroll-m-20 font-normal tracking-tight ",
+  titleConfig
+);

@@ -1,7 +1,7 @@
 import { VariantProps } from "class-variance-authority";
 import { textVariants } from "./text.config";
 
-export interface TextVariants {
+export interface TextVariantsType {
   variants: {
     size: {
       default: string;
@@ -104,28 +104,28 @@ export interface TextVariants {
     };
   };
   defaultVariants: {
-    size: keyof TextVariants["variants"]["size"];
-    textWrap: keyof TextVariants["variants"]["textWrap"];
-    line: keyof TextVariants["variants"]["line"];
-    align: keyof TextVariants["variants"]["align"];
-    fontFamily: keyof TextVariants["variants"]["fontFamily"];
-    textTransform: keyof TextVariants["variants"]["textTransform"];
-    textOverflow: keyof TextVariants["variants"]["textOverflow"];
-    lineClamp: keyof TextVariants["variants"]["lineClamp"];
-    fontWeight: keyof TextVariants["variants"]["fontWeight"];
+    size: keyof TextVariantsType["variants"]["size"];
+    textWrap: keyof TextVariantsType["variants"]["textWrap"];
+    line: keyof TextVariantsType["variants"]["line"];
+    align: keyof TextVariantsType["variants"]["align"];
+    fontFamily: keyof TextVariantsType["variants"]["fontFamily"];
+    textTransform: keyof TextVariantsType["variants"]["textTransform"];
+    textOverflow: keyof TextVariantsType["variants"]["textOverflow"];
+    lineClamp: keyof TextVariantsType["variants"]["lineClamp"];
+    fontWeight: keyof TextVariantsType["variants"]["fontWeight"];
   };
 }
 
 export interface TextProps
   extends React.HTMLAttributes<HTMLParagraphElement>,
     VariantProps<typeof textVariants> {
-  size?: keyof TextVariants["variants"]["size"];
-  textWrap?: keyof TextVariants["variants"]["textWrap"];
-  line?: keyof TextVariants["variants"]["line"];
-  align?: keyof TextVariants["variants"]["align"];
-  fontFamily?: keyof TextVariants["variants"]["fontFamily"];
-  textTransform?: keyof TextVariants["variants"]["textTransform"];
-  textOverflow?: keyof TextVariants["variants"]["textOverflow"];
-  lineClamp?: keyof TextVariants["variants"]["lineClamp"];
-  fontWeight?: keyof TextVariants["variants"]["fontWeight"];
+  size?: keyof TextVariantsType["variants"]["size"];
+  textWrap?: keyof TextVariantsType["variants"]["textWrap"];
+  line?: keyof TextVariantsType["variants"]["line"];
+  align?: keyof TextVariantsType["variants"]["align"];
+  fontFamily?: keyof TextVariantsType["variants"]["fontFamily"];
+  textTransform?: keyof TextVariantsType["variants"]["textTransform"];
+  textOverflow?: keyof TextVariantsType["variants"]["textOverflow"];
+  lineClamp?: keyof TextVariantsType["variants"]["lineClamp"];
+  fontWeight?: keyof TextVariantsType["variants"]["fontWeight"];
 }

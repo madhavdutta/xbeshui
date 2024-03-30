@@ -14,6 +14,7 @@ export interface containerJustifyVariantType {
       xxl: string;
     };
     justify: {
+      default: string;
       flexStart: string;
       center: string;
       spaceBetween: string;

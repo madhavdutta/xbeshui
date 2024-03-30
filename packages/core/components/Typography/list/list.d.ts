@@ -1,7 +1,7 @@
 import { VariantProps } from "class-variance-authority";
 import { listVariants } from "./list.config";
 
-export interface ListVariants {
+export interface ListVariantsType {
   variants: {
     type: {
       default: string;
@@ -10,20 +10,20 @@ export interface ListVariants {
       decimal: string;
     };
     fontSize: {
-        default: string;
-        xs: string;
-        sm: string;
-        base: string;
-        lg: string;
-        xl: string;
-        "2xl": string;
-        "3xl": string;
-        "4xl": string;
-        "5xl": string;
-        "6xl": string;
-        "7xl": string;
-        "8xl": string;
-        "9xl": string;
+      default: string;
+      xs: string;
+      sm: string;
+      base: string;
+      lg: string;
+      xl: string;
+      "2xl": string;
+      "3xl": string;
+      "4xl": string;
+      "5xl": string;
+      "6xl": string;
+      "7xl": string;
+      "8xl": string;
+      "9xl": string;
     };
     position: {
       default: string;
@@ -32,9 +32,9 @@ export interface ListVariants {
     };
   };
   defaultVariants: {
-    type: keyof ListVariants["variants"]["type"];
-    fontSize: keyof ListVariants["variants"]["fontSize"];
-    position: keyof ListVariants["variants"]["position"];
+    type: keyof ListVariantsType["variants"]["type"];
+    fontSize: keyof ListVariantsType["variants"]["fontSize"];
+    position: keyof ListVariantsType["variants"]["position"];
   };
 }
 
@@ -42,10 +42,10 @@ export interface ListProps
   extends React.HTMLAttributes<HTMLOListElement>,
     VariantProps<typeof listVariants> {
   asChild?: boolean;
-  type: keyof ListVariants["variants"]["type"];
-  fontSize: keyof ListVariants["variants"]["fontSize"];
-  position: keyof ListVariants["variants"]["position"];
-  children: React.ReactNode;
+  type?: keyof ListVariantsType["variants"]["type"];
+  fontSize?: keyof ListVariantsType["variants"]["fontSize"];
+  position?: keyof ListVariantsType["variants"]["position"];
+  children?: React.ReactNode;
 }
 
 export interface ListItemProps extends React.LiHTMLAttributes<HTMLLIElement> {

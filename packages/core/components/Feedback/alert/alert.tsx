@@ -34,7 +34,7 @@ AlertDescription.displayName = "AlertDescription"
 const Alert = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertPropsConfig> & AlertPropsType
->(({ className, variant, id, title, message, icon,  ...props }, ref) => (
+>(({ className, variant, title, message, icon,  ...props }, ref) => (
   <div
     ref={ref}
     role="alert"

@@ -1,6 +1,5 @@
 import * as React from "react";
 import {
-  ColumnDef,
   ColumnFiltersState,
   SortingState,
   VisibilityState,
@@ -11,7 +10,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import {  ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import {
   Text,
   Button,
@@ -29,16 +28,11 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow} from "../table/table";
+  TableRow,
+} from "../table/table";
 import { DataTablePagination } from "./dataTablePagination";
 import { IconCirclePlus } from "@tabler/icons-react";
-
-type DataTableProps<T> = {
-  data: T[];
-  filters: { name: string; options: string[] }[];
-  columns: ColumnDef<unknown>[];
-  searchable: string;
-};
+import { DataTableProps } from "./dataTable.d";
 
 export const DataTable = <T,>({
   data,
@@ -90,16 +84,14 @@ export const DataTable = <T,>({
           filters.map((filter) => (
             <DropdownMenu key={filter.name}>
               <DropdownMenuTrigger>
-              
                 <Group
-                justify="flexStart"
-                gap={'xxs'}
+                  justify="flexStart"
+                  gap={"xxs"}
                   className="border-dotted border-2 p-2 px-3 rounded-md text-xs leading-5"
                 >
                   <IconCirclePlus stroke={1.5} size={18} />
                   {filter.name.charAt(0).toUpperCase() + filter.name.slice(1)}
                 </Group>
-              
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem
@@ -127,7 +119,8 @@ export const DataTable = <T,>({
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
-              <Text size="xs">View</Text> <ChevronDown className="ml-2 h-4 w-4" />
+              <Text size="xs">View</Text>{" "}
+              <ChevronDown className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

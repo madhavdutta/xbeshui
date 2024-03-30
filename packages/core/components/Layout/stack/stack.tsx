@@ -5,10 +5,10 @@ import { stackVariant } from "./stack.config";
 import { StackProps } from "./stack.d";
 
 const Stack = React.forwardRef<HTMLInputElement, StackProps>(
-  ({ className, justify, gap, grow, align, ...props }, ref) => {
+  ({ className, justify, gap, align, ...props }, ref) => {
     return (
       <div
-        className={cn(stackVariant({ justify, gap, grow, align, className }))}
+        className={cn(stackVariant({ justify, gap, align, className }))}
         ref={ref}
         {...props}
       >

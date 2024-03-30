@@ -1,4 +1,5 @@
 import { cva } from "class-variance-authority";
+import { labelVariantsType } from "./label.d";
 
 const fontSizes = {
   xs: "text-xs",
@@ -32,21 +33,21 @@ const fontWidths = {
   extrabold: "font-extrabold",
   black: "font-black",
 };
-
+const labelConfig: labelVariantsType = {
+  variants: {
+    fontSize: fontSizes,
+    fontFamily: fontFamilies,
+    fontWidth: fontWidths,
+  },
+  defaultVariants: {
+    fontSize: "base",
+    fontFamily: "sans",
+    fontWidth: "normal",
+  },
+};
 const labelVariants = cva(
   "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
-  {
-    variants: {
-      fontSize: fontSizes,
-      fontFamily: fontFamilies,
-      fontWidth: fontWidths,
-    },
-    defaultVariants: {
-      fontSize: "base",
-      fontFamily: "sans",
-      fontWidth: "normal",
-    },
-  }
+  labelConfig
 );
 
 export { labelVariants };

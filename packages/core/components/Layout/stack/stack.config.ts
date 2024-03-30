@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
-
-export const stackVariant = cva("flex flex-col w-full", {
+import { stackVariantType } from "./stack.d";
+const stackConfig: stackVariantType = {
   variants: {
     justify: {
       default: "justify-start",
@@ -27,15 +27,11 @@ export const stackVariant = cva("flex flex-col w-full", {
       xl: "gap-24",
       xxl: "gap-28",
     },
-    grow: {
-      true: "xbeshCustomGrow",
-      false: "",
-    },
   },
   defaultVariants: {
     justify: "flexStart",
     align: "itemStart",
     gap: "default",
-    grow: false,
   },
-});
+};
+export const stackVariant = cva("flex flex-col w-full", stackConfig);

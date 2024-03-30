@@ -1,5 +1,5 @@
 
-export interface labelVariants {
+export interface labelVariantsType {
   variants: {
     fontSize: {
       xs: string;
@@ -33,9 +33,9 @@ export interface labelVariants {
     };
   };
   defaultVariants: {
-    fontSize: keyof labelVariants["variants"]["fontSize"];
-    fontFamily: keyof labelVariants["variants"]["fontFamily"];
-    fontWidth: keyof labelVariants["variants"]["fontWidth"];
+    fontSize: keyof labelVariantsType["variants"]["fontSize"];
+    fontFamily: keyof labelVariantsType["variants"]["fontFamily"];
+    fontWidth: keyof labelVariantsType["variants"]["fontWidth"];
   };
 }
 

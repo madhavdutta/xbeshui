@@ -2,25 +2,8 @@ import * as React from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 
 import { cn } from "../../../../utils";
-// import { buttonVariants } from "../../Buttons/button/button"
-
-interface ConfirmOptions {
-  title: string;
-  children: React.ReactNode;
-  labels: {
-    confirm: string;
-    cancel: string;
-  };
-  onConfirm: () => void;
-}
-
-interface AlertDialogWrapperProps {
-  isOpen: boolean;
-  onOpenChange: (open: boolean) => void;
-  options: ConfirmOptions;
-  onConfirm: () => void;
-  onCancel: () => void;
-}
+import { buttonVariants } from "../../Buttons/button/button.config";
+import { AlertDialogWrapperProps, ConfirmOptions } from "./confirmDialog.d";
 
 const AlertDialogWrapper: React.FC<AlertDialogWrapperProps> = ({
   isOpen,
@@ -53,8 +36,6 @@ const AlertDialogWrapper: React.FC<AlertDialogWrapperProps> = ({
     </AlertDialog>
   );
 };
-
-
 
 const useConfirmDialog = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -190,7 +171,7 @@ const AlertDialogAction = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Action
     ref={ref}
-    // className={cn(buttonVariants(), className)}
+    className={cn(buttonVariants(), className)}
     {...props}
   />
 ));
@@ -202,11 +183,11 @@ const AlertDialogCancel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Cancel
     ref={ref}
-    // className={cn(
-    //   buttonVariants({ variant: "outline" }),
-    //   "mt-2 sm:mt-0",
-    //   className
-    // )}
+    className={cn(
+      buttonVariants({ variant: "outline" }),
+      "mt-2 sm:mt-0",
+      className
+    )}
     {...props}
   />
 ));

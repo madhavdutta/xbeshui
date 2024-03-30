@@ -1,5 +1,6 @@
 import { cva } from "class-variance-authority";
-export const flexBoxVariants = cva("flex", {
+import { flexBoxVariantType } from "./flexBox.d";
+const flexBoxConfig: flexBoxVariantType = {
   variants: {
     direction: {
       default: "flex-row",
@@ -37,4 +38,5 @@ export const flexBoxVariants = cva("flex", {
     align: "default",
     wrap: "default",
   },
-});
+};
+export const flexBoxVariants = cva("flex", flexBoxConfig);

@@ -1,5 +1,7 @@
 import { cva } from "class-variance-authority";
-export const simpleGridVariant = cva("grid", {
+import { simpleGridVariantType } from "./simpleGrid.d";
+
+const simpleGridConfig: simpleGridVariantType = {
   variants: {
     cols: {
       default: 1,
@@ -38,4 +40,5 @@ export const simpleGridVariant = cva("grid", {
     verticalSpacing: "default",
     spacing: "default",
   },
-});
+};
+export const simpleGridVariant = cva("grid", simpleGridConfig);

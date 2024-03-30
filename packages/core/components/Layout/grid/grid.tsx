@@ -1,4 +1,5 @@
 import React from "react";
+import { GutterType, GridProps, GridColProps } from "./grid.d";
 
 const getValueForViewport = (
   value: number | GutterType,
@@ -29,52 +30,6 @@ const theme = {
   gutterBase: 16,
 };
 
-type SpanType =
-  | number
-  | {
-      base: number;
-      xs?: number;
-      sm?: number;
-      md?: number;
-      lg?: number;
-      xl?: number;
-    }
-    ;
-
-interface GutterType {
-  base: number;
-  xs?: number;
-  sm?: number;
-  md?: number;
-  lg?: number;
-  xl?: number;
-  [key: string]: number | undefined;
-}
-
-interface GridProps {
-  children: React.ReactNode;
-  gutter?: number | GutterType;
-  columns?: number;
-  overflow?: "visible" | "hidden";
-  className?: string;
-  justify?:
-    | "flex-start"
-    | "flex-end"
-    | "center"
-    | "space-between"
-    | "space-around";
-  align?: "stretch" | "center" | "flex-start" | "flex-end";
-}
-
-interface GridColProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  span: SpanType;
-  offset?: SpanType;
-  order?: SpanType;
-  style?: React.CSSProperties;
-  className?: string;
-}
-
 const Grid: React.FC<GridProps> = ({
   children,
   gutter = 10,
@@ -87,7 +42,7 @@ const Grid: React.FC<GridProps> = ({
   const gutterValue =
     typeof gutter === "number" ? gutter : getValueForViewport(gutter, theme);
   const gridStyle: React.CSSProperties = {
-    display: 'grid',
+    display: "grid",
     gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
     gap: `${gutterValue}px`,
     overflow,

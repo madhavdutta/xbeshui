@@ -1,25 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useRef } from "react";
 import { SketchPicker, ColorResult } from "react-color";
 import ColorSwatch from "../colorSwatch/colorSwatch";
 import { IconColorPicker } from "@tabler/icons-react";
 import { Input } from "../..";
-
-interface ColorInputProps {
-  label?: React.ReactNode | string;
-  description?: React.ReactNode | string;
-  placeholder?: string;
-  value?: string;
-  onChange?: (value: string) => void;
-  format?: "hex" | "rgb" | "hsl";
-  swatches?: string[];
-  swatchesPerRow?: number;
-  defaultValue?: string;
-  disabled?: boolean;
-  required?: boolean;
-  className?: string;
-  radius?: "default" | "xs" | "sm" | "md" | "lg" | "xl";
-  size?:string | number
-}
+import { ColorInputProps } from "./colorInput.d";
 
 export const ColorInput: React.FC<ColorInputProps> = ({
   label = "",
@@ -119,7 +104,7 @@ export const ColorInput: React.FC<ColorInputProps> = ({
         />
       </div>
       {showColorPicker && (
-        <div ref={colorPickerRef} >
+        <div ref={colorPickerRef}>
           <SketchPicker
             color={value}
             onChange={handleColorChange}

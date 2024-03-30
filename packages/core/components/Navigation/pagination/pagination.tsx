@@ -8,18 +8,7 @@ import {
 import { cn } from "../../../../utils";
 import { ButtonProps } from "../../Buttons/button/button";
 import { buttonVariants } from "../../Buttons/button/button.config";
-
-interface Page {
-  label: string;
-  href: string;
-  isActive?: boolean;
-}
-
-interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-}
+import { Page, PaginationProps } from "./pagination.d";
 
 const generatePages = (currentPage: number, totalPages: number): Page[] => {
   const pages: Page[] = [];
@@ -87,7 +76,7 @@ const generatePages = (currentPage: number, totalPages: number): Page[] => {
   return pages;
 };
 
-const Xbpagination: React.FC<PaginationProps> = ({
+const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
   onPageChange,
@@ -95,7 +84,7 @@ const Xbpagination: React.FC<PaginationProps> = ({
   const pages = generatePages(currentPage, totalPages);
 
   return (
-    <Pagination>
+    <Paginationcomp>
       <PaginationContent>
         {pages.map((page, index) => (
           <PaginationItem key={index}>
@@ -127,11 +116,14 @@ const Xbpagination: React.FC<PaginationProps> = ({
           </PaginationItem>
         ))}
       </PaginationContent>
-    </Pagination>
+    </Paginationcomp>
   );
 };
 
-const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
+const Paginationcomp = ({
+  className,
+  ...props
+}: React.ComponentProps<"nav">) => (
   <nav
     role="navigation"
     aria-label="pagination"
@@ -139,7 +131,7 @@ const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
     {...props}
   />
 );
-Pagination.displayName = "Pagination";
+Paginationcomp.displayName = "Paginationcomp";
 
 const PaginationContent = React.forwardRef<
   HTMLUListElement,
@@ -258,4 +250,4 @@ const PaginationEllipsis = ({
 );
 PaginationEllipsis.displayName = "PaginationEllipsis";
 
-export { Xbpagination };
+export { Pagination };
