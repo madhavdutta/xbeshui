@@ -11,7 +11,10 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, textareaProps>(
       label,
       description,
       labelPosition,
+      placeholder,
       radius,
+      size,
+      error,
       disabled,
       variant,
       ...props
@@ -19,24 +22,59 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, textareaProps>(
     ref
   ) => {
     return (
-      <div className="grid w-full gap-1.5">
-        {label && (
-          <label
-            className={cn(
-              "flex items-center gap-2 mb-1 text-sm font-normal",
-              labelPosition === "left" && "flex-row-reverse"
+      <div className='grid w-full'>
+        {error ? (
+          <>
+            {" "}
+            {label && (
+              <label
+                className={cn(
+                  "flex items-center gap-2 text-sm font-normal text-red-500",
+                  labelPosition === "left" && "flex-row-reverse"
+                )}
+              >
+                {label}
+              </label>
             )}
-          >
-            {label}
-          </label>
-        )}
-        {description && (
-          <div className="mb-1 text-xs text-gray-400 font-normal">
-            {description}
-          </div>
+            {description && (
+              <div
+                className={cn(
+                  "flex items-center gap-2 mb-1 text-sm text-red-500 font-normal",
+                  labelPosition === "left" && "flex-row-reverse"
+                )}
+              >
+                {description}
+              </div>
+            )}
+          </>
+        ) : (
+          <>
+            {" "}
+            {label && (
+              <label
+                className={cn(
+                  "flex items-center gap-2 mb-1 text-sm font-normal",
+                  labelPosition === "left" && "flex-row-reverse"
+                )}
+              >
+                {label}
+              </label>
+            )}
+            {description && (
+              <div
+                className={cn(
+                  "flex items-center gap-2 mb-1 text-sm text-gray-400  font-normal",
+                  labelPosition === "left" && "flex-row-reverse"
+                )}
+              >
+                {description}
+              </div>
+            )}
+          </>
         )}
         <textarea
-          className={cn(textareaVariants({ variant, radius, className }))}
+          className={cn(textareaVariants({ variant,error, size, radius, className }))}
+          placeholder={placeholder}
           ref={ref}
           disabled={disabled}
           {...props}

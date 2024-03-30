@@ -10,11 +10,11 @@ const switchConfig: switchConfigType = {
     },
     size: {
       default: "h-5 w-9",
-      xs: "h-3 w-7",
-      sm: "h-4 w-8",
-      md: "h-5 w-9",
-      lg: "h-6 w-10",
-      xl: "h-7 w-12",
+      xs: "h-4 w-9",
+      sm: "h-4 w-10",
+      md: "h-5 w-11",
+      lg: "h-6 w-12",
+      xl: "h-7 w-13",
     },
     radius: {
       default: "rounded-full",

@@ -57,11 +57,51 @@ import {
   // CardContent,
 } from "../packages/core/components/DataDisplay/card/card";
 import React from "react";
-import { IconAlertCircle, IconCopy } from "@tabler/icons-react";
+import {
+  IconAlertCircle,
+  IconCalculator,
+  IconCalendar,
+  IconCopy,
+  IconCreditCard,
+  IconMoodHappy,
+  IconSettings,
+  IconUser,
+} from "@tabler/icons-react";
 import { Button } from "../packages/core/components/Buttons/button/button";
 import { useToast } from "../packages/core/components/Feedback/toast/use-toast";
 import { ToastAction } from "../packages/core/components/Feedback/toast/toast";
 import { Input } from "../packages/core/components/Inputs/textInput/textInput";
+import { Textarea } from "../packages/core/components/Inputs/textarea/textarea";
+import { TagsInput } from "../packages/core/components/Inputs/tags/tags";
+import { Switch } from "../packages/core/components/Inputs/switch/switch";
+import { FileInput } from "../packages/core/components/Inputs/fileInput/fileInput";
+import { Slider } from "../packages/core/components/Inputs/rangeSlider/rangeSlider";
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "../packages/core/components/Inputs/spotlight/spotlight";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "../packages/core/components/Inputs/select/select";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "../packages/core/components/Inputs/inputOtp/inputOtp";
+
 import {
   Menubar,
   MenubarCheckboxItem,
@@ -129,16 +169,27 @@ import {
   DrawerTrigger,
 } from "../packages/core/components/Overlays/drawer/drawer";
 import { Stack } from "../packages/core/components/Layout/stack/stack";
-import { IconUser } from "@tabler/icons-react";
 import { IconMinus } from "@tabler/icons-react";
 import { IconPlus } from "@tabler/icons-react";
 // import { IconCopy } from "@tabler/icons-react";
 // import { Button } from '../packages/core/components';
 
-
 function App() {
   const { toast } = useToast();
   const [goal, setGoal] = React.useState(350);
+  const [opened, setOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "j" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setOpen((open) => !open);
+      }
+    };
+
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, []);
 
   function onClick(adjustment: number) {
     setGoal(Math.max(200, Math.min(400, goal + adjustment)));
@@ -773,6 +824,113 @@ function SearchableVideoList({ videos }) {
           </div>
         </DrawerContent>
       </Drawer>
+
+      <Input
+        placeholder="input field..."
+        radius="md"
+        label="Input label"
+        description="Input description"
+        size="xl"
+      />
+      <Textarea
+        className=""
+        placeholder="textarea filed..."
+        radius="md"
+        label="Textarea label"
+        description="Textarea description"
+        size="xl"
+      />
+      <TagsInput label="tag label" description="tag description" size="sm" />
+
+      <Switch label="this is switch" size="lg" radius="lg" />
+
+      <FileInput
+        size={"xl"}
+        label="Fileinput label"
+        description="Fileinput description"
+        placeholder="select file.."
+        radius="md"
+      />
+
+      <InputOTP
+        maxLength={6}
+        onChange={(value) => console.log(value)}
+        className="mt-0"
+      >
+        <InputOTPGroup>
+          <InputOTPSlot index={0} />
+          <InputOTPSlot index={1} />
+          <InputOTPSlot index={2} />
+        </InputOTPGroup>
+        <InputOTPSeparator />
+        <InputOTPGroup>
+          <InputOTPSlot index={3} />
+          <InputOTPSlot index={4} />
+          <InputOTPSlot index={5} />
+        </InputOTPGroup>
+      </InputOTP>
+
+      <Slider />
+      <p className="text-sm text-muted-foreground">
+        Press{" "}
+        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+          <span className="text-xs">⌘</span>J
+        </kbd>
+      </p>
+      <CommandDialog open={opened} onOpenChange={setOpen}>
+        <CommandInput placeholder="Type a command or search..." />
+        <CommandList>
+          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandGroup heading="Suggestions">
+            <CommandItem>
+              <IconCalendar className="mr-2 h-4 w-4" />
+              <span>Calendar</span>
+            </CommandItem>
+            <CommandItem>
+              <IconMoodHappy className="mr-2 h-4 w-4" />
+              <span>Search Emoji</span>
+            </CommandItem>
+            <CommandItem>
+              <IconCalculator className="mr-2 h-4 w-4" />
+              <span>Calculator</span>
+            </CommandItem>
+          </CommandGroup>
+          <CommandSeparator />
+          <CommandGroup heading="Settings">
+            <CommandItem>
+              <IconUser className="mr-2 h-4 w-4" />
+              <span>Profile</span>
+              <CommandShortcut>⌘P</CommandShortcut>
+            </CommandItem>
+            <CommandItem>
+              <IconCreditCard className="mr-2 h-4 w-4" />
+              <span>Billing</span>
+              <CommandShortcut>⌘B</CommandShortcut>
+            </CommandItem>
+            <CommandItem>
+              <IconSettings className="mr-2 h-4 w-4" />
+              <span>Settings</span>
+              <CommandShortcut>⌘S</CommandShortcut>
+            </CommandItem>
+          </CommandGroup>
+        </CommandList>
+      </CommandDialog>
+
+      <Select>
+        <SelectTrigger className="w-[180px]">
+          <SelectValue placeholder="Select a fruit" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>Fruits</SelectLabel>
+            <SelectItem value="apple">Apple</SelectItem>
+            <SelectItem value="banana">Banana</SelectItem>
+            <SelectItem value="blueberry">Blueberry</SelectItem>
+            <SelectItem value="grapes">Grapes</SelectItem>
+            <SelectItem value="pineapple">Pineapple</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
     </>
   );
 }

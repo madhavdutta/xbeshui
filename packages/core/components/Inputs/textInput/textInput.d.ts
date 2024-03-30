@@ -1,17 +1,25 @@
 export interface inputConfigType {
   variants: {
+    variant: {
+      default: string;
+      filled: string;
+      unstyled: string;
+    };
     labelPosition: {
       default: string;
       right: string;
       left: string;
     };
 
-    variant: {
+    size: {
       default: string;
-      filled: string;
-      unstyled: string;
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      full: string;
     };
-
     radius: {
       default: string;
       xs: string;
@@ -20,16 +28,17 @@ export interface inputConfigType {
       lg: string;
       xl: string;
     };
-    error:{
+    error: {
       default: string;
-      'true': string;
-      'false':string
-    }
+      true: string;
+      false: string;
+    };
   };
   defaultVariants: {
     labelPosition: keyof inputConfigType["variants"]["labelPosition"];
     radius: keyof inputConfigType["variants"]["radius"];
     variant: keyof inputConfigType["variants"]["variant"];
+    size: keyof inputConfigType["variants"]["size"];
   };
 }
 
@@ -46,6 +55,7 @@ export interface InputProps
   labelPosition?: keyof inputConfigType["variants"]["labelPosition"];
   radius?: keyof inputConfigType["variants"]["radius"];
   variant?: keyof inputConfigType["variants"]["variant"];
-  error?:boolean;
+  size?: keyof inputConfigType["variants"]["size"];
+  error?: boolean;
   disabled?: boolean;
 }

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import { IconX } from "@tabler/icons-react";
-
 import { cn } from "../../../../utils";
 import { Badge } from "../../DataDisplay/badge/badge";
 import { TagsInputProps } from "./tags.d";
@@ -16,6 +14,8 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsInputProps>(
       labelPosition,
       radius,
       disabled,
+      size,
+      error,
       variant,
       data,
       allowDuplicates = false,
@@ -55,7 +55,7 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsInputProps>(
     };
 
     return (
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full relative">
         {label && (
           <label
             className={cn(
@@ -67,32 +67,47 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsInputProps>(
           </label>
         )}
         {description && (
-          <div className="mb-1 text-xs text-gray-400 font-normal">
+          <div
+            className={cn(
+              "flex items-center gap-2 mb-1 text-sm text-gray-400 font-normal",
+              labelPosition === "left" && "flex-row-reverse"
+            )}
+          >
             {description}
           </div>
         )}
-        <input
-          {...props}
-          ref={ref}
-          disabled={disabled}
-          className={cn(tagInputVariants({ variant, radius, className }))}
-          type="text"
-          value={inputValue}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-          placeholder={placeholder}
-        />
-        <div>
-          {tags?.map((tag, index) => (
+        <div className="flex items-center flex-wrap gap-2 border rounded-md p-2">
+          {tags.map((tag, index) => (
             <Badge
               key={index}
-              rightSection={<IconX size={14} onClick={() => removeTag(tag)} />}
+              rightSection={
+                <IconX
+                  size={14}
+                  onClick={() => removeTag(tag)}
+                  style={{ cursor: "pointer" }}
+                />
+              }
               variant={"secondary"}
               style={{ margin: "0 4px", cursor: "pointer" }}
             >
               {tag}
             </Badge>
           ))}
+          <input
+            {...props}
+            ref={ref}
+            disabled={disabled}
+            className={cn(
+              tagInputVariants({ variant, error, size, radius, className }),
+              "flex-grow outline-none"
+            )}
+            style={{ paddingRight: "30px" }} // Adjust padding to fit tags
+            type="text"
+            value={inputValue}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            placeholder={placeholder}
+          />
         </div>
       </div>
     );

@@ -16,6 +16,8 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       leftSectionWidth = 40,
       rightSectionWidth = 40,
       label,
+      size,
+      error,
       description,
       labelPosition,
       radius,
@@ -44,20 +46,54 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
 
     return (
       <div className="flex flex-col w-full">
-        {label && (
-          <label
-            className={cn(
-              "flex items-center gap-2 mb-1 text-sm font-normal",
-              labelPosition === "left" && "flex-row-reverse"
+        {error ? (
+          <>
+            {" "}
+            {label && (
+              <label
+                className={cn(
+                  "flex items-center gap-2 mb-1 text-sm font-normal text-red-500",
+                  labelPosition === "left" && "flex-row-reverse"
+                )}
+              >
+                {label}
+              </label>
             )}
-          >
-            {label}
-          </label>
-        )}
-        {description && (
-          <div className="mb-1 text-xs text-gray-400 font-normal">
-            {description}
-          </div>
+            {description && (
+              <div
+                className={cn(
+                  "flex items-center gap-2 mb-1 text-sm text-red-500 font-normal",
+                  labelPosition === "left" && "flex-row-reverse"
+                )}
+              >
+                {description}
+              </div>
+            )}
+          </>
+        ) : (
+          <>
+            {" "}
+            {label && (
+              <label
+                className={cn(
+                  "flex items-center gap-2 mb-1 text-sm font-normal",
+                  labelPosition === "left" && "flex-row-reverse"
+                )}
+              >
+                {label}
+              </label>
+            )}
+            {description && (
+              <div
+                className={cn(
+                  "flex items-center gap-2 mb-1 text-sm text-gray-400  font-normal",
+                  labelPosition === "left" && "flex-row-reverse"
+                )}
+              >
+                {description}
+              </div>
+            )}
+          </>
         )}
         <div className="flex items-center w-full relative">
           {leftSection && (
@@ -80,7 +116,9 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
             {...props}
             ref={ref}
             type="text"
-            className={cn(fileInputVariants({ variant, radius, className }))}
+            className={cn(
+              fileInputVariants({ variant, size, error, radius, className })
+            )}
             value={selectedFile?.name || ""}
             onClick={() => hiddenInputRef.current?.click()}
             readOnly

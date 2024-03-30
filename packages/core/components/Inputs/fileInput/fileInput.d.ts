@@ -11,13 +11,27 @@ export interface fileInputConfigType {
       right: string;
       left: string;
     };
+    size: {
+      default: string;
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      full: string;
+    };
+    error: {
+      default: string;
+      true: string;
+      false: string;
+    };
 
     radius: {
       default: string;
       xs: string;
       sm: string;
       md: string;
-      lg: "rounded-lg";
+      lg: string;
       xl: string;
     };
   };
@@ -25,6 +39,7 @@ export interface fileInputConfigType {
     labelPosition: keyof fileInputConfigType["variants"]["labelPosition"];
     radius: keyof fileInputConfigType["variants"]["radius"];
     variant: keyof fileInputConfigType["variants"]["variant"];
+    size: keyof fileInputConfigType["variants"]["size"];
   };
 }
 
@@ -42,5 +57,7 @@ export interface FileInputProps
   labelPosition?: keyof fileInputConfigType["variants"]["labelPosition"];
   radius?: keyof fileInputConfigType["variants"]["radius"];
   variant?: keyof fileInputConfigType["variants"]["variant"];
+  size: keyof fileInputConfigType["variants"]["size"];
+  error?: boolean;
   disabled?: boolean;
 }

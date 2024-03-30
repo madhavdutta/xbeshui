@@ -17,6 +17,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       label,
       description,
       labelPosition,
+      size,
       radius,
       error,
       disabled,
@@ -30,21 +31,56 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className="flex flex-col w-full">
-        {label && (
-          <label
-            className={cn(
-              "flex items-center gap-2 mb-1 text-sm font-normal",
-              labelPosition === "left" && "flex-row-reverse"
+        {error ? (
+          <>
+            {" "}
+            {label && (
+              <label
+                className={cn(
+                  "flex items-center gap-2 mb-1 text-sm font-normal text-red-500",
+                  labelPosition === "left" && "flex-row-reverse"
+                )}
+              >
+                {label}
+              </label>
             )}
-          >
-            {label}
-          </label>
+            {description && (
+              <div
+                className={cn(
+                  "flex items-center gap-2 mb-1 text-sm text-red-500 font-normal",
+                  labelPosition === "left" && "flex-row-reverse"
+                )}
+              >
+                {description}
+              </div>
+            )}
+          </>
+        ) : (
+          <>
+            {" "}
+            {label && (
+              <label
+                className={cn(
+                  "flex items-center gap-2 mb-1 text-sm font-normal",
+                  labelPosition === "left" && "flex-row-reverse"
+                )}
+              >
+                {label}
+              </label>
+            )}
+            {description && (
+              <div
+                className={cn(
+                  "flex items-center gap-2 mb-1 text-sm text-gray-400  font-normal",
+                  labelPosition === "left" && "flex-row-reverse"
+                )}
+              >
+                {description}
+              </div>
+            )}
+          </>
         )}
-        {description && (
-          <div className="mb-1 text-xs text-gray-400 font-normal">
-            {description}
-          </div>
-        )}
+
         <div className="flex items-center w-full relative">
           {leftSection && (
             <div
@@ -58,7 +94,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {...props}
             ref={ref}
             disabled={disabled}
-            className={cn(inputVariants({ variant, error, radius, className }))}
+            className={cn(
+              inputVariants({ variant, error, size, radius, className })
+            )}
             style={{
               paddingLeft: `${paddingLeft}px`,
               paddingRight: `${paddingRight}px`,
