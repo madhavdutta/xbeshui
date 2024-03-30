@@ -23,6 +23,7 @@ import {Text} from "../packages/core/components/Typography/text/text";
 import {Title} from "../packages/core/components/Typography/title/title";
 import {FlexBox} from "../packages/core/components/Layout/flexBox/flexBox";
 import {SimpleGrid} from "../packages/core/components/Layout/simpleGrid/simpleGrid";
+import {Alert} from "../packages/core/components/Feedback/alert/alert";
 import {
   Accordion,
   AccordionContent,
@@ -61,34 +62,34 @@ function App() {
   //     }, []);
   //   };
 
-  const data = [
-    {
-      id: 1,
-      name: "John Doe",
-      role: "Developer",
-      city: "delhi",
-      country: "india",
-    },
-    { id: 2, name: "Jane Doe", role: "Designer", city: "up" },
-    { id: 3, name: "Alice Smith", role: "Manager", city: "haryana" },
-    { id: 4, name: "Bob Johnson", role: "Engineer", city: "mumbai" },
-    { id: 5, name: "Eve Wilson", role: "Analyst", city: "bangalore" },
-    { id: 6, name: "Charlie Brown", role: "Consultant", city: "chennai" },
-    { id: 7, name: "Grace Lee", role: "Coordinator", city: "kolkata" },
-    { id: 8, name: "David Clark", role: "Administrator", city: "pune" },
-    { id: 9, name: "Sarah Davis", role: "Supervisor", city: "ahmedabad" },
-    { id: 10, name: "Michael Martinez", role: "Specialist", city: "hyderabad" },
-    { id: 11, name: "Linda Garcia", role: "Technician", city: "jaipur" },
-    { id: 12, name: "Peter Adams", role: "Coordinator", city: "lucknow" },
-    { id: 13, name: "Jennifer Baker", role: "Analyst", city: "patna" },
-    { id: 14, name: "Tom Wilson", role: "Manager", city: "nagpur" },
-    { id: 15, name: "Jessica Perez", role: "Developer", city: "chandigarh" },
-    { id: 16, name: "Mark Taylor", role: "Designer", city: "surat" },
-    { id: 17, name: "Karen Lopez", role: "Engineer", city: "kanpur" },
-    { id: 18, name: "Steven Young", role: "Consultant", city: "jaipur" },
-    { id: 19, name: "Anna Harris", role: "Administrator", city: "ahmedabad" },
-    { id: 20, name: "Robert Wright", role: "Supervisor", city: "hyderabad" },
-  ];
+  // const data = [
+  //   {
+  //     id: 1,
+  //     name: "John Doe",
+  //     role: "Developer",
+  //     city: "delhi",
+  //     country: "india",
+  //   },
+  //   { id: 2, name: "Jane Doe", role: "Designer", city: "up" },
+  //   { id: 3, name: "Alice Smith", role: "Manager", city: "haryana" },
+  //   { id: 4, name: "Bob Johnson", role: "Engineer", city: "mumbai" },
+  //   { id: 5, name: "Eve Wilson", role: "Analyst", city: "bangalore" },
+  //   { id: 6, name: "Charlie Brown", role: "Consultant", city: "chennai" },
+  //   { id: 7, name: "Grace Lee", role: "Coordinator", city: "kolkata" },
+  //   { id: 8, name: "David Clark", role: "Administrator", city: "pune" },
+  //   { id: 9, name: "Sarah Davis", role: "Supervisor", city: "ahmedabad" },
+  //   { id: 10, name: "Michael Martinez", role: "Specialist", city: "hyderabad" },
+  //   { id: 11, name: "Linda Garcia", role: "Technician", city: "jaipur" },
+  //   { id: 12, name: "Peter Adams", role: "Coordinator", city: "lucknow" },
+  //   { id: 13, name: "Jennifer Baker", role: "Analyst", city: "patna" },
+  //   { id: 14, name: "Tom Wilson", role: "Manager", city: "nagpur" },
+  //   { id: 15, name: "Jessica Perez", role: "Developer", city: "chandigarh" },
+  //   { id: 16, name: "Mark Taylor", role: "Designer", city: "surat" },
+  //   { id: 17, name: "Karen Lopez", role: "Engineer", city: "kanpur" },
+  //   { id: 18, name: "Steven Young", role: "Consultant", city: "jaipur" },
+  //   { id: 19, name: "Anna Harris", role: "Administrator", city: "ahmedabad" },
+  //   { id: 20, name: "Robert Wright", role: "Supervisor", city: "hyderabad" },
+  // ];
 
   return (
     <>
@@ -160,20 +161,20 @@ function App() {
       />
       */}
 
-      <XbTable
+      {/* <XbTable
         data={data}
         borderCollapse="collapse"
         withPagination
         itemsPerPage={10}
-      />
+      /> */}
 
-      <Card className="p-1" shadow="md">
+      {/* <Card className="p-1" shadow="md">
         <Badge variant={"default"} size={"md"} radius={"xl"}>
           badge
         </Badge>
-      </Card>
+      </Card> */}
 
-      <Accordion
+      {/* <Accordion
         type="multiple"
         variant="default"
         radius="lg"
@@ -194,14 +195,14 @@ function App() {
             dolore magna aliqua.
           </AccordionContent>
         </AccordionItem>
-      </Accordion>
+      </Accordion> */}
 
-      <BlockQuote cite="Nelson Mandela" icon={<IconAlertCircle />}>
+      {/* <BlockQuote cite="Nelson Mandela" icon={<IconAlertCircle />}>
         The greatest glory in living lies not in never falling, but in rising
         every time we fall.
-      </BlockQuote>
+      </BlockQuote> */}
 
-      <Code>
+      {/* <Code>
         {`import { useState } from 'react';
 
 function SearchableVideoList({ videos }) {
@@ -217,24 +218,24 @@ function SearchableVideoList({ videos }) {
     </>
   );
 }`}{" "}
-      </Code>
+      </Code> */}
 
-      <Label fontFamily={'mono'} fontSize={'6xl'}>abdcjhdbcdkjcbd</Label>
+      {/* <Label fontFamily={'mono'} fontSize={'6xl'}>abdcjhdbcdkjcbd</Label>
 
       <List type='disc' fontSize='xs' position='inside'>
       <ListItem className="text-red-500">Item 1</ListItem>
       <ListItem>Item 2</ListItem>
       <ListItem>Item 3</ListItem>
-    </List>
+    </List> */}
 
-    <Text  size='7xl'>hello</Text>
+    {/* <Text  size='7xl'>hello</Text>
     <Title order='h4' > hello</Title>
 
     <FlexBox direction='row' justify='center' align='center' >
           <div className="w-50 bg-red-500 p-20 mx-2">Item 1</div>
-    </FlexBox>
+    </FlexBox> */}
 
-    <div className="p-10">
+    {/* <div className="p-10">
           <SimpleGrid cols={3} spacing="lg" verticalSpacing="md">
             <div className="bg-blue-500 text-white p-5">1</div>
             <div className="bg-blue-500 text-white p-5">2</div>
@@ -242,7 +243,9 @@ function SearchableVideoList({ videos }) {
             <div className="bg-blue-500 text-white p-5">3</div>
             <div className="bg-blue-500 text-white p-5">3</div>
           </SimpleGrid>
-          </div>
+          </div> */}
+
+          <Alert variant="default" title="Alert title" message="Alert message" />
     </>
 
   );
