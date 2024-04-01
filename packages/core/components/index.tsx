@@ -77,18 +77,6 @@ export { Progress } from "./Feedback/progress/progress";
 export { Skeleton } from "./Feedback/skeleton/skeleton";
 export { Toaster } from "./Feedback/toast/toaster";
 
-//All Forms core components are exported from this file
-export {
-  useFormField,
-  Form,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-  FormField,
-} from "./Forms/form";
-
 // All Inputs core components are exported from this file
 export { Checkbox } from "./Inputs/checkbox/checkbox";
 export { Input } from "./Inputs/textInput/textInput";
