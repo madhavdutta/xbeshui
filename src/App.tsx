@@ -354,20 +354,20 @@ function App() {
       />
       */}
 
-      <XbTable
+      {/* <XbTable
         data={data}
         borderCollapse="collapse"
         withPagination
         itemsPerPage={10}
-      />
+      /> */}
 
-      <Card className="p-1" shadow="md">
+      {/* <Card className="p-1" shadow="md">
         <Badge variant={"default"} size={"md"} radius={"xl"}>
           badge
         </Badge>
-      </Card>
+      </Card> */}
 
-      <Accordion
+      {/* <Accordion
         type="multiple"
         variant="default"
         radius="lg"
@@ -388,14 +388,14 @@ function App() {
             dolore magna aliqua.
           </AccordionContent>
         </AccordionItem>
-      </Accordion>
+      </Accordion> */}
 
-      <BlockQuote cite="Nelson Mandela" icon={<IconAlertCircle />}>
+      {/* <BlockQuote cite="Nelson Mandela" icon={<IconAlertCircle />}>
         The greatest glory in living lies not in never falling, but in rising
         every time we fall.
-      </BlockQuote>
+      </BlockQuote> */}
 
-      <Code>
+      {/* <Code>
         {`import { useState } from 'react';
 
 function SearchableVideoList({ videos }) {
@@ -411,7 +411,7 @@ function SearchableVideoList({ videos }) {
     </>
   );
 }`}{" "}
-      </Code>
+      </Code> */}
 
       <Label fontFamily={"mono"} fontSize={"6xl"}>
         abdcjhdbcdkjcbd
