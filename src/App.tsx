@@ -2,6 +2,7 @@
 // import { useState } from 'react'
 import "./App.css";
 // import { Button } from '../packages/core/components/Buttons/button/button';
+import { ActionIcon } from "../packages/core/components/Buttons/actionIcon/actionIcon";
 // import { Stack } from "../packages/core/components/Layout/stack/stack";
 // import { Group } from '../packages/core/components/Layout/group/group';
 // import { Toggle } from '../packages/core/components/Buttons/toggle/toggle';
@@ -65,6 +66,7 @@ import {
   IconCreditCard,
   IconMoodHappy,
   IconSettings,
+  IconStack,
   IconUser,
 } from "@tabler/icons-react";
 import { Button } from "../packages/core/components/Buttons/button/button";
@@ -173,6 +175,10 @@ import { Stack } from "../packages/core/components/Layout/stack/stack";
 import { IconMinus } from "@tabler/icons-react";
 import { IconPlus } from "@tabler/icons-react";
 import { Checkbox } from "../packages/core/components/Inputs/checkbox/checkbox";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "../packages/core/components/Inputs/radio/radio";
 // import { IconCopy } from "@tabler/icons-react";
 // import { Button } from '../packages/core/components';
 
@@ -935,10 +941,22 @@ function SearchableVideoList({ videos }) {
       </Select>
 
       <MultiSelect />
+      <Checkbox
+        id="terms"
+        label={" Accept terms and conditions"}
+        radius="md"
+        size="sm"
+      />
 
+      <RadioGroup size="lg" defaultValue="comfortable">
+        <RadioGroupItem value="default" id="r1" label={"Default"} />
+        <RadioGroupItem value="comfortable" id="r2" label={"Comfortable"} />
+        <RadioGroupItem value="compact" id="r3" label={"Compact"} />
+      </RadioGroup>
 
-      <Checkbox id="terms" label={' Accept terms and conditions'}  radius="md" size="xs"/>
-
+      <ActionIcon size='xs' variant='ghost' >
+        <IconStack size={18} />
+      </ActionIcon>
     </>
   );
 }

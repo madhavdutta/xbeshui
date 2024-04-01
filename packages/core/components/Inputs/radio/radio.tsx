@@ -6,6 +6,7 @@ import { cn } from "../../../../utils";
 import { radiogroupprops } from "./radio.d";
 import { Text } from "../../Typography/text/text";
 
+
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> &
@@ -27,11 +28,10 @@ const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> & {
     label: React.ReactNode;
-    size: string;
-  }
+  } & radiogroupprops
 >(({ className, label, size, ...props }, ref) => {
   return (
-    <>
+    <div className="flex items-center space-x-2">
       <RadioGroupPrimitive.Item
         ref={ref}
         className={cn(
@@ -45,7 +45,7 @@ const RadioGroupItem = React.forwardRef<
         </RadioGroupPrimitive.Indicator>
       </RadioGroupPrimitive.Item>
       <Text className={`text-${size}`}>{label}</Text>
-    </>
+    </div>
   );
 });
 RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
