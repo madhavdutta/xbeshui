@@ -52,18 +52,23 @@ export {
 // All DataDisplay core components are exported from this file
 export { useConfirmDialog } from "./Feedback/confirmDialog/confirmDialog";
 export { AspectRatio } from "./Layout/aspectRatio/aspectRatio";
-export {FlexBox} from  './Layout/flexBox/flexBox'
+export { FlexBox } from "./Layout/flexBox/flexBox";
 export { Resizable } from "./Layout/resizable/resizable";
-export { Xbpagination } from "./Navigation/pagination/pagination";
+export { Pagination } from "./Navigation/pagination/pagination";
 export { DynamicHoverCard } from "./Overlays/hoverCard/hoverCard";
 export {
-  DynamicPopover,
   Popover,
+  Popovermain,
   PopoverTrigger,
   PopoverContent,
 } from "./Overlays/popover/popover";
 
-export { Tabs, TabsList, TabsTrigger, TabsContent } from "./DataDisplay/tabs/tabs";
+export {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "./DataDisplay/tabs/tabs";
 
 // All Feedback core components are exported from this file
 
@@ -168,7 +173,7 @@ export {
   DialogFooter,
   DialogTitle,
   DialogDescription,
-} from "./Overlays/dialog/dialog";
+} from "./Feedback/dialog/dialog";
 
 export {
   Drawer,

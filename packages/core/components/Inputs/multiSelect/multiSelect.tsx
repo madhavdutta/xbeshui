@@ -1,11 +1,7 @@
-import * as React from "react";
+"use client";
 
-import {
-  Command,
-  CommandGroup,
-  CommandItem,
-} from "../../index";
-import { Command as CommandPrimitive } from "cmdk";
+import * as React from "react";
+import {  Command as CommandPrimitive } from "cmdk";
 import { Badge } from "../..";
 
 type Framework = Record<"value" | "label", string>;
@@ -56,55 +52,42 @@ export function MultiSelect() {
   }, []);
 
   const handleKeyDown = React.useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
-    const input = inputRef.current
-    if (input) {
-      if (e.key === "Delete" || e.key === "Backspace") {
-        if (input.value === "") {
-          setSelected(prev => {
-            const newSelected = [...prev];
-            newSelected.pop();
-            return newSelected;
-          })
-        }
-      }
-      // This is not a default behaviour of the <input /> field
-      if (e.key === "Escape") {
-        input.blur();
+    const input = inputRef.current;
+    if (!input) return;
+
+    if (e.key === "Delete" || e.key === "Backspace") {
+      if (inputValue === "") {
+        setSelected(prev => {
+          const newSelected = [...prev];
+          newSelected.pop();
+          return newSelected;
+        });
       }
     }
-  }, []);
 
-  const selectables = FRAMEWORKS.filter(framework => !selected.includes(framework));
+    if (e.key === "Escape") {
+      input.blur();
+    }
+  }, [inputValue]);
+
+  const selectables = FRAMEWORKS.filter(framework => !selected.some(s => s.value === framework.value));
 
   return (
-    <Command onKeyDown={handleKeyDown} className="overflow-visible bg-transparent">
-      <div
-        className="group w-96 border border-input px-3 py-2 text-sm rounded-md"
-      >
+    <CommandPrimitive onKeyDown={handleKeyDown} className="overflow-visible bg-transparent">
+      <div className="group w-96 border border-input px-3 py-2 text-sm rounded-md">
         <div className="flex gap-1 flex-wrap">
-          {selected.map((framework) => {
-            return (
-              <Badge key={framework.value} variant="secondary">
-                {framework.label}
-                <button
-                  className="ml-1 ring-offset-background rounded-full outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      handleUnselect(framework);
-                    }
-                  }}
-                  onMouseDown={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                  }}
-                  onClick={() => handleUnselect(framework)}
-                >
-                  {/* <X className="h-3 w-3 text-muted-foreground hover:text-foreground" /> */}x
-                </button>
-              </Badge>
-            )
-          })}
-          {/* Avoid having the "Search" Icon */}
+          {selected.map((framework) => (
+            <Badge key={framework.value} variant="secondary">
+              {framework.label}
+              <button
+                className="ml-1 ring-offset-background rounded-full outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                onClick={() => handleUnselect(framework)}
+                aria-label="Remove"
+              >
+                x
+              </button>
+            </Badge>
+          ))}
           <CommandPrimitive.Input
             ref={inputRef}
             value={inputValue}
@@ -112,36 +95,28 @@ export function MultiSelect() {
             onBlur={() => setOpen(false)}
             onFocus={() => setOpen(true)}
             placeholder="Select here..."
-            className="ml-2 text-xs px-0 bg-transparent h-6 border-0 focus:outline-none outline-none placeholder:text-muted-foreground flex-1"
+            className="ml-2 text-xs px-0 bg-transparent h-6 border-0 focus:outline-none placeholder:text-muted-foreground flex-1"
           />
         </div>
       </div>
-      <div className="relative mt-2">
-        {open && selectables.length > 0 ?
-          <div className="absolute w-full z-10 top-0 rounded-md border bg-popover text-popover-foreground shadow-md outline-none animate-in">
-            <CommandGroup className="h-full overflow-auto">
-              {selectables.map((framework) => {
-                return (
-                  <CommandItem
-                    key={framework.value}
-                    onMouseDown={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                    }}
-                    onSelect={(value) => {
-                      setInputValue(value)
-                      setSelected(prev => [...prev, framework])
-                    }}
-                    className={"cursor-pointer"}
-                  >
-                    {framework.label}
-                  </CommandItem>
-                );
-              })}
-            </CommandGroup>
-          </div>
-          : null}
-      </div>
-    </Command>
-  )
+      {open && selectables.length > 0 && (
+        <div className="absolute w-full z-10 top-0 rounded-md border bg-popover text-popover-foreground shadow-md outline-none animate-in">
+          <CommandPrimitive.Group className="h-full overflow-auto">
+            {selectables.map((framework) => (
+              <CommandPrimitive.Item
+                key={framework.value}
+                onSelect={() => {
+                  setInputValue("");
+                  setSelected(prev => [...prev, framework]);
+                }}
+                className="cursor-pointer"
+              >
+                {framework.label}
+              </CommandPrimitive.Item>
+            ))}
+          </CommandPrimitive.Group>
+        </div>
+      )}
+    </CommandPrimitive>
+  );
 }

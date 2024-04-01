@@ -189,7 +189,7 @@ export {
   DialogFooter,
   DialogTitle,
   DialogDescription,
-} from "./core/components/Overlays/dialog/dialog";
+} from "./core/components/Feedback/dialog/dialog";
 
 export {
   Drawer,

@@ -56,4 +56,4 @@ const Alert = React.forwardRef<
 
 Alert.displayName = "Alert"
 
-export { Alert }
+export { Alert,AlertTitle,AlertDescription }

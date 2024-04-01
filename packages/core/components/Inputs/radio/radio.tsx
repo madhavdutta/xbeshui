@@ -4,6 +4,7 @@ import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 
 import { cn } from "../../../../utils";
 import { radiogroupprops } from "./radio.d";
+import { Text } from "../../Typography/text/text";
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
@@ -26,8 +27,9 @@ const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> & {
     label: React.ReactNode;
+    size: string;
   }
->(({ className, label, ...props }, ref) => {
+>(({ className, label, size, ...props }, ref) => {
   return (
     <>
       <RadioGroupPrimitive.Item
@@ -42,7 +44,7 @@ const RadioGroupItem = React.forwardRef<
           <IconCheck stroke={1.5} className="h-3.5 w-3.5 fill-primary" />
         </RadioGroupPrimitive.Indicator>
       </RadioGroupPrimitive.Item>
-      <span>{label}</span>
+      <Text className={`text-${size}`}>{label}</Text>
     </>
   );
 });

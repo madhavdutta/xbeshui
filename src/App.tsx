@@ -101,6 +101,7 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "../packages/core/components/Inputs/inputOtp/inputOtp";
+import { MultiSelect } from "../packages/core/components/Inputs/multiSelect/multiSelect";
 
 import {
   Menubar,
@@ -171,6 +172,7 @@ import {
 import { Stack } from "../packages/core/components/Layout/stack/stack";
 import { IconMinus } from "@tabler/icons-react";
 import { IconPlus } from "@tabler/icons-react";
+import { Checkbox } from "../packages/core/components/Inputs/checkbox/checkbox";
 // import { IconCopy } from "@tabler/icons-react";
 // import { Button } from '../packages/core/components';
 
@@ -931,6 +933,12 @@ function SearchableVideoList({ videos }) {
           </SelectGroup>
         </SelectContent>
       </Select>
+
+      <MultiSelect />
+
+
+      <Checkbox id="terms" label={' Accept terms and conditions'}  radius="md" size="xs"/>
+
     </>
   );
 }

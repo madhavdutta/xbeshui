@@ -1,6 +1,6 @@
 import * as React from "react"
 import {
-  IconCaretUpDown,
+  IconSelector,
   IconCheck,
   IconChevronDown,
   IconChevronUp,
@@ -29,7 +29,7 @@ const SelectTrigger = React.forwardRef<
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <IconCaretUpDown stroke={1.5} className="h-4 w-4 opacity-50" />
+      <IconSelector stroke={1.5} className="h-4 w-4 ml-2 opacity-50" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ))

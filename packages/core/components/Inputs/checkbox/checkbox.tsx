@@ -4,17 +4,16 @@ import { IconCheck } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
 import { checkboxVariants } from "./checkbox.config";
 import { checkboxProps } from "./checkbox.d";
-
-
+import { Text } from "../../Typography/text/text";
 
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>&checkboxProps
->(({ className,label,radius,size,variant,disabled, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> & checkboxProps
+>(({ className, label, radius, size, variant, disabled, ...props }, ref) => (
   <label className="flex items-center space-x-2">
     <CheckboxPrimitive.Root
       ref={ref}
-      className={cn(checkboxVariants({ radius,size,variant, className }))}
+      className={cn(checkboxVariants({ radius, size, variant, className }))}
       disabled={disabled}
       {...props}
     >
@@ -24,7 +23,7 @@ const Checkbox = React.forwardRef<
         <IconCheck stroke={1.5} className="h-4 w-4" />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
-    <span>{label}</span>
+    <Text className={`text-${size}`}>{label}</Text>
   </label>
 ));
 Checkbox.displayName = CheckboxPrimitive.Root.displayName;
