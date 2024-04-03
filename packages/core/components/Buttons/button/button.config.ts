@@ -20,6 +20,7 @@ export const ButtonConfig: ButtonVariantsConfig = {
       sm: "rounded-md h-8 px-3 text-xs",
       md: "rounded-md h-8 px-4 text-sm",
       lg: "rounded-md h-8 px-4 text-md",
+      icon: "rounded-md h-8 w-8 p-0 text-md",
       "compact-xs": "rounded-sm px-1 text-xs",
       "compact-sm": "rounded-sm px-1 text-sm",
       "compact-md": "rounded-sm px-1 text-sm",

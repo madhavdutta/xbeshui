@@ -6,7 +6,7 @@ import {
 } from "@tabler/icons-react";
 
 import { cn } from "../../../../utils";
-import { ButtonProps } from "../../Buttons/button/button";
+import { ButtonProps } from "../../Buttons/button/button.d";
 import { buttonVariants } from "../../Buttons/button/button.config";
 import { Page, PaginationProps } from "./pagination.d";
 
@@ -162,7 +162,7 @@ type PaginationLinkProps = {
 const PaginationLink = ({
   className,
   isActive,
-  size = "icon",
+  size ="default",
   disabled,
   ...props
 }: PaginationLinkProps) => {
