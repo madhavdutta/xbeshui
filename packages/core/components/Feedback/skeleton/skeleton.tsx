@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { cn } from "../../../../utils";
-import { SkeletonProps } from "./skeleton.d";
+import { SkeletonProps } from "./skeletonType";
 import { skeletonVariants } from "./skeleton.config";
 
 const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(

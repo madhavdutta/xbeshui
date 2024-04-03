@@ -1,7 +1,7 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
 import { CardVariants } from "./card.config";
-import { CardProps } from "./card.d";
+import { CardProps } from "./cardType";
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, radius, shadow, withBorder, ...props }, ref) => (

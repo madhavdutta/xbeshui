@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { ListVariantsType } from "./list.d";
+import { ListVariantsType } from "./listType";
 
 
 const listConfig:ListVariantsType= {

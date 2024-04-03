@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { AvatarVariantsConfig } from "./avatar.d";
+import { AvatarVariantsConfig } from "./avatarType";
 
 const avatarConfig: AvatarVariantsConfig = {
   variants: {

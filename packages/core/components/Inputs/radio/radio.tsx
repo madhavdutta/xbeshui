@@ -3,7 +3,7 @@ import { IconCheck } from "@tabler/icons-react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 
 import { cn } from "../../../../utils";
-import { radiogroupprops } from "./radio.d";
+import { radiogroupprops } from "./radioType";
 import { Text } from "../../Typography/text/text";
 
 

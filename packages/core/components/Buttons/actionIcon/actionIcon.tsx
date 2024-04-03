@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { cn } from "../../../../utils";
 
-import { ActionIconProps } from "./actionIcon.d";
+import { ActionIconProps } from "./actionIconType";
 import { actionIconVariants } from "./actionIcon.config";
 
 const ActionIcon = forwardRef<HTMLButtonElement, ActionIconProps>(

@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { fileInputConfigType } from "./fileInput.d";
+import { fileInputConfigType } from "./fileInputType";
 
 const fileInputConfig: fileInputConfigType = {
   variants: {

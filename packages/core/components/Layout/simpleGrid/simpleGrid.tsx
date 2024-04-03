@@ -1,5 +1,5 @@
 import React from "react";
-import { SimpleGridProps } from "./simpleGrid.d";
+import { SimpleGridProps } from "./simpleGridType";
 import { cn } from "../../../../utils";
 import { simpleGridVariant } from "./simpleGrid.config";
 

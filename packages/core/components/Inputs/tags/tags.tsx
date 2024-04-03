@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IconX } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
 import { Badge } from "../../DataDisplay/badge/badge";
-import { TagsInputProps } from "./tags.d";
+import { TagsInputProps } from "./tagsType";
 import { tagInputVariants } from "./tags.config";
 
 const TagsInput = React.forwardRef<HTMLInputElement, TagsInputProps>(

@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { cn } from "../../../../utils";
-import { textareaProps } from "./textarea.d";
+import { textareaProps } from "./textareaType";
 import { textareaVariants } from "./textarea.config";
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, textareaProps>(

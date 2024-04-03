@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { groupVariantType } from "./group.d";
+import { groupVariantType } from "./groupType";
 const groupConfig: groupVariantType = {
   variants: {
     justify: {

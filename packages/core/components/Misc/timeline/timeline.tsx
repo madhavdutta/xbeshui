@@ -1,5 +1,5 @@
 import React from "react";
-import { TimelineItemProps, TimelineProps } from "./timeline.d";
+import { TimelineItemProps, TimelineProps } from "./timelineType";
 
 const TimelineItem: React.FC<TimelineItemProps> = ({
   children,

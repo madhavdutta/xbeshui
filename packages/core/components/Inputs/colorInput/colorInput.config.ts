@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { colorInputConfigType } from "./colorInput.d";
+import { colorInputConfigType } from "./colorInputType";
 export const colorInputConfig: colorInputConfigType = {
   variants: {
     variant: {

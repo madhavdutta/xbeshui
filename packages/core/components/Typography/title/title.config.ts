@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { TitleVariantsType } from "./title.d";
+import { TitleVariantsType } from "./titleType";
 
 const titleConfig: TitleVariantsType = {
   variants: {

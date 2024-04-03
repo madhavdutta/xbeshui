@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { CardVariantsConfig } from "./card.d";
+import { CardVariantsConfig } from "./cardType";
 
 
 const cardConfig:CardVariantsConfig= {

@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { ImageVariantsConfig } from "./image.d";
+import { ImageVariantsConfig } from "./imageType";
 const imageConfig: ImageVariantsConfig = {
   variants: {
     radius: {

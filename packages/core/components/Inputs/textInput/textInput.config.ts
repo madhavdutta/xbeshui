@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { inputConfigType } from "./textInput.d";
+import { inputConfigType } from "./textInputType";
 
 const inputConfig: inputConfigType = {
   variants: {

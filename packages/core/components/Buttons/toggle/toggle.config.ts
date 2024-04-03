@@ -1,4 +1,4 @@
-import { ToggleGroupVariantConfig, ToggleVariantsConfig } from "./toggle.d";
+import { ToggleGroupVariantConfig, ToggleVariantsConfig } from "./toggleType";
 
 export const toggleVariantsConfig: ToggleVariantsConfig = {
     variants: {

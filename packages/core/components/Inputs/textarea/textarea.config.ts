@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { textareaConfigType } from "./textarea.d";
+import { textareaConfigType } from "./textareaType";
 const textareaConfig: textareaConfigType = {
   variants: {
     variant: {

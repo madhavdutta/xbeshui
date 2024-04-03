@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { sheetVarientConfigType } from "./sheet.d";
+import { sheetVarientConfigType } from "./sheetType";
 
 export const sheetVarientConfig: sheetVarientConfigType = {
   variants: {

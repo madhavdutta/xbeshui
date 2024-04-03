@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { progressVariantConfigType } from "./progress.d";
+import { progressVariantConfigType } from "./progressType";
 
 const progressVariantConfig: progressVariantConfigType = {
   variants: {

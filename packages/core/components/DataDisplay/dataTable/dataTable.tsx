@@ -32,7 +32,7 @@ import {
 } from "../table/table";
 import { DataTablePagination } from "./dataTablePagination";
 import { IconCirclePlus } from "@tabler/icons-react";
-import { DataTableProps } from "./dataTable.d";
+import { DataTableProps } from "./dataTableType";
 
 export const DataTable = <T,>({
   data,

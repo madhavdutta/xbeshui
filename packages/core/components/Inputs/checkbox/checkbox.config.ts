@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { checkboxConfigType } from "./checkbox.d";
+import { checkboxConfigType } from "./checkboxType";
 export const checkboxConfig: checkboxConfigType = {
   variants: {
     variant: {

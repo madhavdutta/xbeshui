@@ -1,5 +1,5 @@
 import React from "react";
-import { FlexBoxProps } from "./flexBox.d";
+import { FlexBoxProps } from "./flexBoxType";
 import { cn } from "../../../../utils";
 import { flexBoxVariants } from "./flexBox.config";
 

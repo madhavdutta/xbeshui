@@ -1,5 +1,5 @@
 
-import { BadgeVariantsConfig } from "./badge.d";
+import { BadgeVariantsConfig } from "./badgeType";
 import { cva } from "class-variance-authority";
 
 export const badgeVariant: BadgeVariantsConfig = {

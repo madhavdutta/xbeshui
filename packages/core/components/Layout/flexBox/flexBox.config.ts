@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { flexBoxVariantType } from "./flexBox.d";
+import { flexBoxVariantType } from "./flexBoxType";
 const flexBoxConfig: flexBoxVariantType = {
   variants: {
     direction: {

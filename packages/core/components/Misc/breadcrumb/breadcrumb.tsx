@@ -11,7 +11,7 @@ import {
   BreadcrumbPageProps,
   BreadcrumbSeparatorProps,
   BreadcrumbEllipsisProps,
-} from "./breadcrumb.d";
+} from "./breadcrumbType";
 
 // Breadcrumb Container
 const Breadcrumb = React.forwardRef<HTMLElement, BreadcrumbProps>(

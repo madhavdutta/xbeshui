@@ -13,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../../index";
-import { DataTablePaginationProps } from "./dataTable.d";
+import { DataTablePaginationProps } from "./dataTableType";
 
 export function DataTablePagination<TData>({
   table,

@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import {radioConfigType} from './radio.d'
+import {radioConfigType} from './radioType'
 const radioConfig:radioConfigType={
     variants: {
       variant: {
