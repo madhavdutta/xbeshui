@@ -21,7 +21,7 @@ export {
 } from "../packages/core/components/DataDisplay/accordion/accordion";
 export { Avatar } from "../packages/core/components/DataDisplay/avatar/avatar";
 export { Badge } from "../packages/core/components/DataDisplay/badge/badge";
-export { BackgroundImage } from "../packages/core/components/DataDisplay/backgroundImage/backgroundimage";
+export { BackgroundImage } from "../packages/core/components/DataDisplay/backgroundImage/backgroundImage";
 export { Image } from "../packages/core/components/DataDisplay/image/image";
 export { DataTable } from "../packages/core/components/DataDisplay/dataTable/dataTable";
 export { DataTablePagination } from "../packages/core/components/DataDisplay/dataTable/dataTablePagination";
