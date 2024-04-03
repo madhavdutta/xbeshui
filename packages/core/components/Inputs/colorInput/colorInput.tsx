@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useRef } from "react";
 import { SketchPicker, ColorResult } from "react-color";
-import ColorSwatch from "../colorSwatch/colorSwatch";
+import {ColorSwatch} from "../colorSwatch/colorSwatch";
 import { IconColorPicker } from "@tabler/icons-react";
 import { Input } from "../..";
 import { ColorInputProps } from "./colorInput.d";

@@ -1,8 +1,7 @@
 import React, { forwardRef } from "react";
 import { cn } from "../../../../utils";
-
-import { ButtonProps } from "./button.d";
 import { buttonVariants } from "./button.config";
+import { ButtonProps } from "./button.d";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (

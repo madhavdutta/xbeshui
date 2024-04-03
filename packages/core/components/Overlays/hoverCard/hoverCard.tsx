@@ -4,7 +4,7 @@ import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import { cn } from "../../../../utils";
 import { HoverCardProps } from "./hover.d";
 
-const DynamicHoverCard: React.FC<HoverCardProps> = ({
+const HoverCard: React.FC<HoverCardProps> = ({
   triggerContent,
   cardContent,
   align = "center",
@@ -52,4 +52,4 @@ const HoverCardContent = React.forwardRef<
 ));
 HoverCardContent.displayName = HoverCardPrimitive.Content.displayName;
 
-export { DynamicHoverCard };
+export { HoverCard };

@@ -5,7 +5,7 @@ type ProgressbarProps = {
   className?: string;
 };
 
-export const Progressbar = ({ target, className }: ProgressbarProps) => {
+export const NavigaionProgress = ({ target, className }: ProgressbarProps) => {
   const [progress, setProgress] = useState(0);
 
   useLayoutEffect(() => {

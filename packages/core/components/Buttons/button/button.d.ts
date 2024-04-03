@@ -41,4 +41,5 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant?: keyof ButtonVariant | null;
   size?: keyof ButtonSize | null;
   radius?: keyof ButtonRadius;
+  loading?:boolean;
 }

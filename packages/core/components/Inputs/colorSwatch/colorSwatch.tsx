@@ -10,4 +10,4 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, className }) => {
   );
 };
 
-export default ColorSwatch;
+export  {ColorSwatch};

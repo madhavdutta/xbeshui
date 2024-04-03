@@ -1,92 +1,8 @@
-import * as React from "react"
-import { IconChevronDown } from "@tabler/icons-react"
-import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
-import { cva } from "class-variance-authority"
-
+import * as React from "react";
+import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
+import { cva } from "class-variance-authority";
 import { cn } from "../../../../utils";
-
-const mock = {
-  GETTING_STARTED_TITLE: "Getting Started",
-  XBESH_UI: "XBESH UI",
-  ABOUT: "XBESH UI is a collection of modern, accessible, and reusable components that help you build high-quality, responsive web applications with React.",
-  navigationMenuGettingStartedMockData: [
-    {
-      title: "Installation",
-      href: "/docs/getting-started/installation",
-      description: "Learn how to install XBESH UI in your project."
-    },
-    {
-      title: "Usage",
-      href: "/docs/getting-started/usage",
-      description: "Learn how to use XBESH UI in your project."
-    },
-    {
-      title: "Theming",
-      href: "/docs/getting-started/theming",
-      description: "Learn how to customize the look and feel of XBESH UI."
-    }
-  ],
-  COMPONENTS_TITLE: "Components",
-  navigationMenuComponentMockData: [
-    {
-      title: "Accordion",
-      href: "/docs/components/accordion",
-      description: "A collapsible accordion component."
-    },
-    {
-      title: "Alert",
-      href: "/docs/components/alert",
-      description: "A dismissible alert component."
-    },
-    {
-      title: "Avatar",
-      href: "/docs/components/avatar",
-      description: "A user avatar component."
-    },
-    {
-      title: "Badge",
-      href: "/docs/components/badge",
-      description: "A badge to highlight information."
-    },
-    {
-      title: "Breadcrumb",
-      href: "/docs/components/breadcrumb",
-      description: "A breadcrumb navigation component."
-    },
-    {
-      title: "Button",
-      href: "/docs/components/button",
-      description: "A clickable button component."
-    },
-    {
-      title: "Card",
-      href: "/docs/components/card",
-      description: "A card to display content."
-    },
-    {
-      title: "Checkbox",
-      href: "/docs/components/checkbox",
-      description: "A checkbox component."
-    },
-    {
-      title: "Dialog",
-      href: "/docs/components/dialog",
-      description: "A modal dialog component."
-    },
-    {
-      title: "Divider",
-      href: "/docs/components/divider",
-      description: "A horizontal rule to divide content."
-    },
-    {
-      title: "Dropdown",
-      href: "/docs/components/dropdown",
-      description: "A dropdown menu component."
-
-    },
-  ],
-  DOCUMENTATION_TITLE: "Documentation"
-  }
+import { IconChevronDown } from "@tabler/icons-react";
 
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -100,93 +16,11 @@ const NavigationMenu = React.forwardRef<
     )}
     {...props}
   >
-     <NavigationMenuList>
-              <NavigationMenuItem>
-                  <NavigationMenuTrigger>{mock.GETTING_STARTED_TITLE}</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                      <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                          <li className="row-span-3">
-                              <NavigationMenuLink asChild>
-                                  <a
-                                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                      href="/"
-                                  >
-                                      {/* <Icons.logo className="h-6 w-6" /> */}
-                                      <div className="mb-2 mt-4 text-lg font-medium">
-                                          {mock.XBESH_UI}
-                                      </div>
-                                      <p className="text-sm leading-tight text-muted-foreground">
-                                          {mock.ABOUT}
-                                      </p>
-                                  </a>
-                              </NavigationMenuLink>
-                          </li>
-                          {mock.navigationMenuGettingStartedMockData.map((item:any) => (
-                              <ListItem
-                                  key={item.title}
-                                  href={item.href}
-                                  title={item.title}>
-                                  {item.description}
-                              </ListItem>
-                          ))}
-                      </ul>
-                  </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                  <NavigationMenuTrigger>{mock.COMPONENTS_TITLE}</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                          {mock.navigationMenuComponentMockData.map((component:any) => (
-                              <ListItem
-                                  key={component.title}
-                                  title={component.title}
-                                  href={component.href}
-                              >
-                                  {component.description}
-                              </ListItem>
-                          ))}
-                      </ul>
-                  </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-              {/* <NavigationMenuPrimitive.Link href="/docs" legacyBehavior passHref> */}
-                  <NavigationMenuPrimitive.Link href="/docs"  >
-                      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                          {mock.DOCUMENTATION_TITLE}
-                      </NavigationMenuLink>
-                  </NavigationMenuPrimitive.Link>
-              </NavigationMenuItem>
-          </NavigationMenuList>
+    {children}
     <NavigationMenuViewport />
   </NavigationMenuPrimitive.Root>
-))
-NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName
-
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-      <li>
-          <NavigationMenuLink asChild>
-              <a
-                  ref={ref}
-                  className={cn(
-                      "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                      className
-                  )}
-                  {...props}
-              >
-                  <div className="text-sm font-medium leading-none">{title}</div>
-                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                      {children}
-                  </p>
-              </a>
-          </NavigationMenuLink>
-      </li>
-  )
-})
-ListItem.displayName = "ListItem"
+));
+NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName;
 
 const NavigationMenuList = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.List>,
@@ -200,14 +34,14 @@ const NavigationMenuList = React.forwardRef<
     )}
     {...props}
   />
-))
-NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
+));
+NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
 
-const NavigationMenuItem = NavigationMenuPrimitive.Item
+const NavigationMenuItem = NavigationMenuPrimitive.Item;
 
 const navigationMenuTriggerStyle = cva(
   "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
-)
+);
 
 const NavigationMenuTrigger = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
@@ -224,8 +58,8 @@ const NavigationMenuTrigger = React.forwardRef<
       aria-hidden="true"
     />
   </NavigationMenuPrimitive.Trigger>
-))
-NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName
+));
+NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
 
 const NavigationMenuContent = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Content>,
@@ -239,10 +73,10 @@ const NavigationMenuContent = React.forwardRef<
     )}
     {...props}
   />
-))
-NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName
+));
+NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
 
-const NavigationMenuLink = NavigationMenuPrimitive.Link
+const NavigationMenuLink = NavigationMenuPrimitive.Link;
 
 const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
@@ -258,9 +92,9 @@ const NavigationMenuViewport = React.forwardRef<
       {...props}
     />
   </div>
-))
+));
 NavigationMenuViewport.displayName =
-  NavigationMenuPrimitive.Viewport.displayName
+  NavigationMenuPrimitive.Viewport.displayName;
 
 const NavigationMenuIndicator = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Indicator>,
@@ -276,12 +110,11 @@ const NavigationMenuIndicator = React.forwardRef<
   >
     <div className="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
   </NavigationMenuPrimitive.Indicator>
-))
+));
 NavigationMenuIndicator.displayName =
-  NavigationMenuPrimitive.Indicator.displayName
+  NavigationMenuPrimitive.Indicator.displayName;
 
 export {
- 
   navigationMenuTriggerStyle,
   NavigationMenu,
   NavigationMenuList,
@@ -291,6 +124,4 @@ export {
   NavigationMenuLink,
   NavigationMenuIndicator,
   NavigationMenuViewport,
-
-}
-
+};

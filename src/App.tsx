@@ -497,9 +497,9 @@ function SearchableVideoList({ videos }) {
                 readOnly
               />
             </div>
-            <Button size={"icon"}>
+            <ActionIcon >
               <IconCopy size={18} />
-            </Button>
+            </ActionIcon>
           </div>
           <DialogFooter className="sm:justify-start">
             <DialogClose asChild>
@@ -761,16 +761,15 @@ function SearchableVideoList({ videos }) {
             </DrawerHeader>
             <div className="p-4 pb-0">
               <div className="flex items-center justify-center space-x-2">
-                <Button
+                <ActionIcon
                   variant="outline"
-                  size="icon"
                   className="h-8 w-8 shrink-0 rounded-full"
                   onClick={() => onClick(-10)}
                   disabled={goal <= 200}
                 >
                   <IconMinus className="h-4 w-4" />
                   <span className="sr-only">Decrease</span>
-                </Button>
+                </ActionIcon>
                 <div className="flex-1 text-center">
                   <div className="text-7xl font-bold tracking-tighter">
                     {goal}
@@ -779,16 +778,15 @@ function SearchableVideoList({ videos }) {
                     Calories/day
                   </div>
                 </div>
-                <Button
+                <ActionIcon
                   variant="outline"
-                  size="icon"
                   className="h-8 w-8 shrink-0 rounded-full"
                   onClick={() => onClick(10)}
                   disabled={goal >= 400}
                 >
                   <IconPlus className="h-4 w-4" />
                   <span className="sr-only">Increase</span>
-                </Button>
+                </ActionIcon>
               </div>
               <div className="mt-3 h-[120px]">
                 {/* <ResponsiveContainer width="100%" height="100%">
@@ -972,6 +970,8 @@ function SearchableVideoList({ videos }) {
           <div className="bg-blue-500 text-red p-5">3</div>
         </SimpleGrid>
       </div>
+
+      <Button loading={true}>click me</Button>
 
 
       
