@@ -2,7 +2,7 @@ import * as React from "react";
 import { cn } from "../../../../utils";
 import { IconCheck, IconCopy } from "@tabler/icons-react";
 import { codeVariants } from "./code.config";
-import { CodeProps } from "./code.d";
+import { CodeProps } from "./codeType";
 
 
 const Code = React.forwardRef<HTMLPreElement, CodeProps>(

@@ -8,7 +8,7 @@ import {
 import { cn } from "../../../../utils";
 import { ButtonProps } from "../../Buttons/button/button.d";
 import { buttonVariants } from "../../Buttons/button/button.config";
-import { Page, PaginationProps } from "./pagination.d";
+import { Page, PaginationProps } from "./paginationType";
 
 const generatePages = (currentPage: number, totalPages: number): Page[] => {
   const pages: Page[] = [];

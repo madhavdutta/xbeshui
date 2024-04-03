@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
 import { Text } from "../../Typography/text/text";
-import { SeparatorProps } from "./separator.d";
+import { SeparatorProps } from "./separatorType";
 
 import { cn } from "../../../../utils";
 import { SepratorConfig } from "./separator.config";

@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { tagsConfigType } from "./tags.d";
+import { tagsConfigType } from "./tagsType";
 const tagsConfig: tagsConfigType = {
   variants: {
     labelPosition: {

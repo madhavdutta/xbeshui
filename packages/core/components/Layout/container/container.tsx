@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { cn } from "../../../../utils";
 import { containerVariant } from "./container.config";
-import { ContainerProps } from "./container.d";
+import { ContainerProps } from "./containerType";
 
 const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
   ({ className, justify, p, size, fluid, ...props }, ref) => {

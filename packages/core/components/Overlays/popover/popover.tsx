@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import { cn } from "../../../../utils";
-import { DynamicPopoverProps } from "./popover.d";
+import { DynamicPopoverProps } from "./popoverType";
 
 const Popover: React.FC<DynamicPopoverProps> = ({
   trigger,

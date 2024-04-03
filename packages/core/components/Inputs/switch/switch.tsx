@@ -3,7 +3,7 @@ import * as SwitchPrimitives from "@radix-ui/react-switch";
 
 import { cn } from "../../../../utils";
 import { switchVariants } from "./switch.config";
-import { switchProps } from "./switch.d";
+import { switchProps } from "./switchType";
 import { Text } from "../../Typography/text/text";
 
 const Switch = React.forwardRef<

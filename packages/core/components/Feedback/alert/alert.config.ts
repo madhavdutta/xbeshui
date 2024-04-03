@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { AlertVariantsType, AlertVariant } from "./alert.d";
+import { AlertVariantsType, AlertVariant } from "./alertType";
 
 const AlertVariantConfig:AlertVariant = {
     default: "bg-background text-foreground",

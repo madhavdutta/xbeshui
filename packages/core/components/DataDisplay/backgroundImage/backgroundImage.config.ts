@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { BackgroundImageVariantsConfig } from "./backgroundImage.d";
+import { BackgroundImageVariantsConfig } from "./backgroundImageType";
 
 export const backgroundImageVariant: BackgroundImageVariantsConfig = {
   variants: {

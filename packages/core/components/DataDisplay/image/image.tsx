@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "../../../../utils";
 import { imageVariants } from "./image.config";
-import type { ImageProps } from "./image.d";
+import type { ImageProps } from "./imageType";
 
 const Image: React.FC<ImageProps> = ({
   src,

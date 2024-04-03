@@ -3,7 +3,7 @@ import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 
 import { cn } from "../../../../utils";
 import { buttonVariants } from "../../Buttons/button/button.config";
-import { AlertDialogWrapperProps, ConfirmOptions } from "./confirmDialog.d";
+import { AlertDialogWrapperProps, ConfirmOptions } from "./confirmDialogType";
 
 const AlertDialogWrapper: React.FC<AlertDialogWrapperProps> = ({
   isOpen,

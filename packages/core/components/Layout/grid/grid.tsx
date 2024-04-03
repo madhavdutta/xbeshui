@@ -1,5 +1,5 @@
 import React from "react";
-import { GutterType, GridProps, GridColProps } from "./grid.d";
+import { GutterType, GridProps, GridColProps } from "./gridType";
 
 const getValueForViewport = (
   value: number | GutterType,

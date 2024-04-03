@@ -1,6 +1,6 @@
 import { IconGripVertical } from "@tabler/icons-react";
 import * as ResizablePrimitive from "react-resizable-panels";
-import { DynamicResizablePanelsProps } from "./resizable.d";
+import { DynamicResizablePanelsProps } from "./resizableType";
 import { cn } from "../../../../utils";
 import React from "react";
 

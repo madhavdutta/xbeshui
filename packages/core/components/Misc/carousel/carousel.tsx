@@ -1,7 +1,7 @@
 import * as React from "react";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import useEmblaCarousel from "embla-carousel-react";
-import { CarouselContextProps, CarouselProps, CarouselApi } from "./carousel.d";
+import { CarouselContextProps, CarouselProps, CarouselApi } from "./carouselType";
 
 import { cn } from "../../../../utils";
 import { Button } from "../../Buttons/button/button";

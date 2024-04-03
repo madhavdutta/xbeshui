@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
-import { BlockQuoteProps } from './blockquote.d'
+import { BlockQuoteProps } from './blockquoteType'
 import { blockQuoteVariants } from "./blockquote.config";
 
 // Adjust the component to forward a reference to an HTMLQuoteElement, not an HTMLParagraphElement

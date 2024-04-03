@@ -5,7 +5,7 @@ import { cn } from "../../../../utils/index"
 import { Stack } from "../../Layout/stack/stack"
 import { Group } from "../../Layout/group/group"
 import { alertPropsConfig } from "./alert.config"
-import { AlertPropsType } from "./alert.d"
+import { AlertPropsType } from "./alertType"
 
 const AlertTitle = React.forwardRef<
   HTMLParagraphElement,

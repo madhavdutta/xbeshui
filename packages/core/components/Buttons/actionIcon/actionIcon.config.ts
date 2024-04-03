@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { AcionIconConfigType } from "./actionIcon.d";
+import { AcionIconConfigType } from "./actionIconType";
 
 export const AcionIconConfig: AcionIconConfigType = {
   variants: {

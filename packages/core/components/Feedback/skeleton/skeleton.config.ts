@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { skeletonVariantsConfigType } from "./skeleton.d";
+import { skeletonVariantsConfigType } from "./skeletonType";
 
 const skeletonVariantsConfig: skeletonVariantsConfigType = {
   variants: {

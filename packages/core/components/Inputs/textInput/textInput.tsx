@@ -3,7 +3,7 @@ import * as React from "react";
 // Utility to concatenate class names
 
 import { cn } from "../../../../utils";
-import { InputProps } from "./textInput.d";
+import { InputProps } from "./textInputType";
 import { inputVariants } from "./textInput.config";
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(

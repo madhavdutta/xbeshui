@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { toastVariantsConigType } from "./toast.d";
+import { toastVariantsConigType } from "./toastType";
 
 const toastVariantsConig: toastVariantsConigType = {
   variants: {

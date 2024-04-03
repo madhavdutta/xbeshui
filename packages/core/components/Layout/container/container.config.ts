@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { containerJustifyVariantType } from "./container.d";
+import { containerJustifyVariantType } from "./containerType";
 const containerConfig:containerJustifyVariantType={
   variants: {
     p: {
