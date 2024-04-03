@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { ButtonVariantsConfig } from "./button.d";
+import { ButtonVariantsConfig } from "./buttonType";
 
 export const ButtonConfig: ButtonVariantsConfig = {
   variants: {

@@ -1,14 +1,3 @@
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//   content: [
-//     "./lib/**/*.{js,ts,jsx,tsx}",
-//   ],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
-
 import xBeshTheme from "./packages/core/types/xBeshTheme"
 
 export default {

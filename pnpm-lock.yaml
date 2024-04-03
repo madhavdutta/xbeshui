@@ -203,10 +203,10 @@ devDependencies:
     specifier: ^5
     version: 5.4.3
   vite:
-    specifier: ^5.1.6
+    specifier: ^5.2.7
     version: 5.2.7(@types/node@20.12.3)
   vite-plugin-dts:
-    specifier: ^3.7.3
+    specifier: ^3.8.1
     version: 3.8.1(@types/node@20.12.3)(typescript@5.4.3)(vite@5.2.7)
 
 packages:
