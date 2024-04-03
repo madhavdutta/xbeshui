@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import   { forwardRef } from "react";
 import { cn } from "../../../../utils";
 
 import { ButtonProps } from "./button.d";

@@ -1,5 +1,15 @@
-import { ButtonVariant } from "../../../types/variantType";
-
+// import { ButtonVariant } from "../../../types/variantType";
+export type ButtonVariant = {
+  "default": string;
+  "success": string;
+  "warning": string;
+  "notice": string;
+  "destructive": string;
+  "outline": string;
+  "secondary": string;
+  "ghost": string;
+  "link": string;
+};
 // Define ButtonSize type representing the structure of button sizes
 export type ButtonSize = {
   default: string;
@@ -7,6 +17,7 @@ export type ButtonSize = {
   sm: string;
   md: string;
   lg: string;
+  icon: string;
   "compact-xs": string;
   "compact-sm": string;
   "compact-md": string;

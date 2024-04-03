@@ -1,14 +1,7 @@
-import "./index.css";
 // All Buttons core components are exported from this file
-export {
-  Button,
-  buttonVariants,
-} from "./core/components/Buttons/button/button/button";
-export {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "./core/components/Buttons/toggle/toggle-group";
-export { Toggle, toggleVariants } from "./core/components/Buttons/toggle";
+export { Button } from "./core/components/Buttons/button/button";
+export { ToggleGroup, ToggleGroupItem } from "./core/components/Buttons/toggle/toggleGroup";
+export { Toggle, toggleVariants } from "./core/components/Buttons/toggle/toggle";
 
 // All Layout core components are exported from this file
 export { Container } from "./core/components/Layout/container/container";
@@ -21,9 +14,9 @@ export {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "./core/components/DataDisplay/accordion";
+} from "./core/components/DataDisplay/accordion/accordion";
 export { Avatar } from "./core/components/DataDisplay/avatar/avatar";
-export { Badge, badgeVariants } from "./core/components/DataDisplay/badge";
+export { Badge } from "./core/components/DataDisplay/badge/badge";
 export {
   XbTable,
   Table,
@@ -53,12 +46,13 @@ export {
   CommandItem,
   CommandShortcut,
   CommandSeparator,
-} from "./core/components/DataDisplay/command";
+} from "./core/components/Inputs/spotlight/spotlight";
 
 // Remove the duplicate export statement for 'Table' component
 // All DataDisplay core components are exported from this file
-export { useConfirmDialog } from "./core/components/Feedback/dialog/confirmDialog";
+export { useConfirmDialog } from "./core/components/Feedback/confirmDialog/confirmDialog";
 export { AspectRatio } from "./core/components/Layout/aspectRatio/aspectRatio";
+export { FlexBox } from "./core/components/Layout/flexBox/flexBox";
 export { Resizable } from "./core/components/Layout/resizable/resizable";
 export { Pagination } from "./core/components/Navigation/pagination/pagination";
 export { DynamicHoverCard } from "./core/components/Overlays/hoverCard/hoverCard";
@@ -78,34 +72,15 @@ export {
 
 // All Feedback core components are exported from this file
 
-export {
-  Alert,
-  AlertTitle,
-  AlertDescription,
-} from "./core/components/Feedback/alert/alert";
+export { Alert, AlertTitle, AlertDescription } from "./core/components/Feedback/alert/alert";
 export { Progress } from "./core/components/Feedback/progress/progress";
 export { Skeleton } from "./core/components/Feedback/skeleton/skeleton";
 export { Toaster } from "./core/components/Feedback/toast/toaster";
 
-//All Forms core components are exported from this file
-export {
-  useFormField,
-  Form,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-  FormField,
-} from "./core/components/Forms/form";
-
 // All Inputs core components are exported from this file
 export { Checkbox } from "./core/components/Inputs/checkbox/checkbox";
 export { Input } from "./core/components/Inputs/textInput/textInput";
-export {
-  RadioGroup,
-  RadioGroupItem,
-} from "./core/components/Inputs/radio/radio";
+export { RadioGroup, RadioGroupItem } from "./core/components/Inputs/radio/radio";
 export {
   Select,
   SelectGroup,
@@ -138,10 +113,7 @@ export {
   CollapsibleTrigger,
   CollapsibleContent,
 } from "./core/components/Misc/collapsible/collapsible";
-export {
-  ScrollArea,
-  ScrollBar,
-} from "./core/components/Misc/scrollArea/scrollArea";
+export { ScrollArea, ScrollBar } from "./core/components/Misc/scrollArea/scrollArea";
 export { Separator } from "./core/components/Misc/separator/separator";
 
 // All Navigation core components are exported from this file
@@ -264,14 +236,14 @@ export {
   ToastDescription,
   ToastClose,
   ToastAction,
-} from "./core/components/Overlays/toast";
+} from "./core/components/Feedback/toast/toast";
 export {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
   TooltipProvider,
 } from "./core/components/Overlays/tooltip/tooltip";
-export { useToast, toast } from "./core/components/Overlays/use-toast";
+// export { useToast, toast } from "./core/components/Overlays/use-toast";
 
 // All Typography core components are exported from this file
 export { Label } from "./core/components/Typography/label/label";
@@ -289,9 +261,9 @@ export { XbeshThemeSwitch } from "./core/components/Theme/themeSwitch/xBeshTheme
 // layout
 
 // common
-export { HoverCardDesign } from "./core/components/common/hoverCardDesign";
-export { PopoverDesign } from "./core/components/common/popoverDesign";
-export { SheetDesign } from "./core/components/common/sheetDesign";
+// export { HoverCardDesign } from "./core/components/common/hoverCardDesign";
+// export { PopoverDesign } from "./core/components/common/popoverDesign";
+// export { SheetDesign } from "./core/components/common/sheetDesign";
 
-export { MultiSelect } from "./core/components/Inputs/multiSleect/multiSelect";
+export { MultiSelect } from "./core/components/Inputs/multiSelect/multiSelect";
 export { AppShell } from "./core/components/Layout/appShell/appshell";
