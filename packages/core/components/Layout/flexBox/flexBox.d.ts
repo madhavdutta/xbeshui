@@ -44,7 +44,7 @@ export interface flexBoxVariantType {
 export interface FlexBoxProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof flexBoxVariants> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   direction?: keyof flexBoxVariantType["variants"]["direction"];
   justify?: keyof flexBoxVariantType["variants"]["justify"];
   align?: keyof flexBoxVariantType["variants"]["align"];

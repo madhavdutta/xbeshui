@@ -11,7 +11,6 @@ export type ButtonSize = {
   "compact-sm": string;
   "compact-md": string;
   "compact-lg": string;
-  icon: string;
 };
 
 export type ButtonRadius = {
@@ -35,4 +34,11 @@ export interface ButtonVariantsConfig {
     size: keyof ButtonSize;
     radius: keyof ButtonRadius;
   };
+}
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
+  leftSection?: React.ReactNode;
+  rightSection?: React.ReactNode;
+  variant?: keyof ButtonVariant | null;
+  size?: keyof ButtonSize | null;
+  radius?: keyof ButtonRadius;
 }

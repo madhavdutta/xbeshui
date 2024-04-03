@@ -30,57 +30,57 @@ const theme = {
   gutterBase: 16,
 };
 
-const Grid: React.FC<GridProps> = ({
-  children,
-  gutter = 10,
-  columns = 12,
-  overflow = "visible",
-  justify,
-  align,
-  className,
-}) => {
-  const gutterValue =
-    typeof gutter === "number" ? gutter : getValueForViewport(gutter, theme);
-  const gridStyle: React.CSSProperties = {
-    display: "grid",
-    gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
-    gap: `${gutterValue}px`,
-    overflow,
-    justifyContent: justify,
-    alignItems: align,
-  };
+const Grid = React.forwardRef<HTMLDivElement, GridProps>(
+  (
+    {
+      children,
+      gutter = 10,
+      columns = 12,
+      overflow = "visible",
+      justify,
+      align,
+      className,
+    },
+    ref
+  ) => {
+    const gutterValue =
+      typeof gutter === "number" ? gutter : getValueForViewport(gutter, theme);
+    const gridStyle: React.CSSProperties = {
+      display: "grid",
+      gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
+      gap: `${gutterValue}px`,
+      overflow,
+      justifyContent: justify,
+      alignItems: align,
+    };
 
-  return (
-    <div style={gridStyle} className={className}>
-      {children}
-    </div>
-  );
-};
+    return (
+      <div style={gridStyle} ref={ref} className={className}>
+        {children}
+      </div>
+    );
+  }
+);
 
-const GridCol: React.FC<GridColProps> = ({
-  children,
-  span,
-  offset = 0,
-  order = 0,
-  style,
-  className,
-}) => {
-  const spanValue = getValueForViewport(span, theme);
-  const offsetValue = getValueForViewport(offset, theme);
-  const orderValue = getValueForViewport(order, theme);
+const GridCol = React.forwardRef<HTMLDivElement, GridColProps>(
+  ({ children, span, offset = 0, order = 0, style, className }) => {
+    const spanValue = getValueForViewport(span, theme);
+    const offsetValue = getValueForViewport(offset, theme);
+    const orderValue = getValueForViewport(order, theme);
 
-  const colStyle: React.CSSProperties = {
-    gridColumn: `span ${spanValue}`,
-    marginLeft: `${offsetValue * theme.gutterBase}px`, // Example calculation, adjust as needed
-    order: orderValue,
-    ...style,
-  };
+    const colStyle: React.CSSProperties = {
+      gridColumn: `span ${spanValue}`,
+      marginLeft: `${offsetValue * theme.gutterBase}px`, // Example calculation, adjust as needed
+      order: orderValue,
+      ...style,
+    };
 
-  return (
-    <div style={colStyle} className={className}>
-      {children}
-    </div>
-  );
-};
+    return (
+      <div style={colStyle} className={className}>
+        {children}
+      </div>
+    );
+  }
+);
 
 export { Grid, GridCol };

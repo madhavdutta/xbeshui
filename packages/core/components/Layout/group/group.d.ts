@@ -24,11 +24,22 @@ export interface groupVariantType {
       xl: string;
       xxl: string;
     };
+    wrap: {
+      default: string;
+      wrap: string;
+      nowrap: string;
+    };
+    grow: {
+      default: string;
+      true: string;
+      flase: string;
+    };
   };
   defaultVariants: {
     justify: keyof groupVariantType["variants"]["justify"];
     align: keyof groupVariantType["variants"]["align"];
     gap: keyof groupVariantType["variants"]["gap"];
+    wrap: keyof groupVariantType["variants"]["wrap"];
   };
 }
 
@@ -39,4 +50,6 @@ export interface GroupProps
   justify?: keyof groupVariantType["variants"]["justify"];
   align?: keyof groupVariantType["variants"]["align"];
   gap?: keyof groupVariantType["variants"]["gap"];
+  wrap?: keyof groupVariantType["variants"]["wrap"];
+  grow?: keyof groupVariantType["variants"]["grow"];
 }

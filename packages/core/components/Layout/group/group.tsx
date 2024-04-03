@@ -6,10 +6,10 @@ import { GroupProps } from "./group.d";
 // import "../Theme/xbeshDefaultUIStyles.css";
 
 const Group = React.forwardRef<HTMLDivElement, GroupProps>(
-  ({ className, justify, align, gap, ...props }, ref) => {
+  ({ className, justify, align, gap, wrap, ...props }, ref) => {
     return (
       <div
-        className={cn(groupVariant({ justify, align, gap, className }))}
+        className={cn(groupVariant({ justify, align, gap, wrap, className }))}
         ref={ref}
         {...props}
       >

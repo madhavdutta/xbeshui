@@ -24,7 +24,6 @@ export const ButtonConfig: ButtonVariantsConfig = {
       "compact-sm": "rounded-sm px-1 text-sm",
       "compact-md": "rounded-sm px-1 text-sm",
       "compact-lg": "rounded-sm px-1 text-md",
-      icon: "h-9 w-9"
     },
     radius: {
       none: "rounded-none",

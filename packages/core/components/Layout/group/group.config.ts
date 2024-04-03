@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 import { groupVariantType } from "./group.d";
-const groupConfig:groupVariantType= {
+const groupConfig: groupVariantType = {
   variants: {
     justify: {
       default: "",
@@ -23,13 +23,22 @@ const groupConfig:groupVariantType= {
       xl: "gap-24",
       xxl: "gap-28",
     },
+    wrap: {
+      default: "flex-nowrap",
+      wrap: "flex-wrap",
+      nowrap: "flex-nowrap",
+    },
+    grow: {
+      default: "grow-0",
+      true: "grow",
+      flase: "grow-0",
+    },
   },
   defaultVariants: {
     justify: "default",
     align: "center",
     gap: "default",
+    wrap: "default",
   },
-}
-export const groupVariant = cva("w-full flex flex-row",groupConfig);
-
-
+};
+export const groupVariant = cva("w-full flex flex-row", groupConfig);

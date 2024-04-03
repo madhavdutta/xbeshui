@@ -179,6 +179,7 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "../packages/core/components/Inputs/radio/radio";
+import { AspectRatio } from "../packages/core/components/Layout/aspectRatio/aspectRatio";
 // import { IconCopy } from "@tabler/icons-react";
 // import { Button } from '../packages/core/components';
 
@@ -431,24 +432,6 @@ function SearchableVideoList({ videos }) {
 
       <Text size="7xl">hello</Text>
       <Title order="h4"> hello</Title>
-
-      <FlexBox direction="row" justify="center" align="center">
-        <div className="bg-blue-500 text-white p-5">1</div>
-        <div className="bg-blue-500 text-white p-5">2</div>
-        <div className="bg-blue-500 text-white p-5">3</div>
-        <div className="bg-blue-500 text-white p-5">3</div>
-        <div className="bg-blue-500 text-white p-5">3</div>
-      </FlexBox>
-
-      <div className="p-10">
-        <SimpleGrid cols={3} spacing="lg" verticalSpacing="md">
-          <div className="bg-blue-500 text-white p-5">1</div>
-          <div className="bg-blue-500 text-white p-5">2</div>
-          <div className="bg-blue-500 text-white p-5">3</div>
-          <div className="bg-blue-500 text-white p-5">3</div>
-          <div className="bg-blue-500 text-white p-5">3</div>
-        </SimpleGrid>
-      </div>
 
       <Separator
         variant="solid"
@@ -957,6 +940,41 @@ function SearchableVideoList({ videos }) {
       <ActionIcon size='xs' variant='ghost' >
         <IconStack size={18} />
       </ActionIcon>
+ 
+      <AspectRatio ratio={16 / 9} className="w-full">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.3063874233135!2d-74.04668908358428!3d40.68924937933441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25090129c363d%3A0x40c6a5770d25022b!2sStatue%20of%20Liberty%20National%20Monument!5e0!3m2!1sen!2sru!4v1644262070010!5m2!1sen!2sru"
+        title="Google map"
+        style={{ border: 0 }}
+      />
+    </AspectRatio>
+
+
+    <FlexBox direction="row" justify="center" align="center">
+        <div className="bg-yellow-500 text-red p-5 w-full">1</div>
+        <div className="bg-blue-500 text-red p-5  w-full">2</div>
+        <div className="bg-blue-500 text-red p-5  w-full">3</div>
+        <div className="bg-blue-500 text-red p-5  w-full">3</div>
+        <div className="bg-blue-500 text-red p-5  w-full">3</div>
+        <div className="bg-yellow-500 text-red p-5  w-full">1</div>
+        <div className="bg-blue-500 text-red p-5  w-full">2</div>
+        <div className="bg-blue-500 text-red p-5  w-full">3</div>
+        <div className="bg-blue-500 text-red p-5  w-full">3</div>
+        <div className="bg-blue-500 text-red p-5  w-full">3</div>
+      </FlexBox>
+
+      <div className="p-10">
+        <SimpleGrid cols={3} spacing="lg" verticalSpacing="md">
+          <div className="bg-blue-500 text-red p-5">1</div>
+          <div className="bg-blue-500 text-red p-5">2</div>
+          <div className="bg-blue-500 text-red p-5">3</div>
+          <div className="bg-blue-500 text-red p-5">3</div>
+          <div className="bg-blue-500 text-red p-5">3</div>
+        </SimpleGrid>
+      </div>
+
+
+      
     </>
   );
 }
