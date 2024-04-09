@@ -1,4 +1,4 @@
-export interface colorInputConfigType {
+export interface ColorInputConfigType {
   variants: {
     variant: {
       default: string;
@@ -23,28 +23,9 @@ export interface colorInputConfigType {
     };
   };
   defaultVariants: {
-    variant: keyof colorInputConfigType["variants"]["variant"];
-    radius: keyof colorInputConfigType["variants"]["radius"];
-    size: keyof colorInputConfigType["variants"]["size"];
+    variant: keyof ColorInputConfigType["variants"]["variant"];
+    radius: keyof ColorInputConfigType["variants"]["radius"];
+    size: keyof ColorInputConfigType["variants"]["size"];
   };
 }
 
-export interface ColorInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof checkboxVariants> {
-  label?: React.ReactNode | string;
-  description?: React.ReactNode | string;
-  placeholder?: string;
-  value?: string;
-  onChange?: (value: string) => void;
-  format?: "hex" | "rgb" | "hsl";
-  swatches?: string[];
-  swatchesPerRow?: number;
-  defaultValue?: string;
-  disabled?: boolean;
-  required?: boolean;
-  className?: string;
-  variant?: keyof colorInputConfigType["variants"]["variant"];
-  radius?: keyof colorInputConfigType["variants"]["radius"];
-  size?: keyof colorInputConfigType["variants"]["size"];
-}

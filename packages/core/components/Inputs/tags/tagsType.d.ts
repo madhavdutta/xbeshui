@@ -1,4 +1,4 @@
-export interface tagsConfigType {
+export interface TagsConfigType {
   variants: {
     variant: {
       default: string;
@@ -10,7 +10,7 @@ export interface tagsConfigType {
       right: string;
       left: string;
     };
-    size: {
+    width: {
       default: string;
       xs: string;
       sm: string;
@@ -34,27 +34,10 @@ export interface tagsConfigType {
     };
   };
   defaultVariants: {
-    labelPosition: keyof tagsConfigType["variants"]["labelPosition"];
-    radius: keyof tagsConfigType["variants"]["radius"];
-    variant: keyof tagsConfigType["variants"]["variant"];
-    size: keyof tagsConfigType["variants"]["size"];
+    labelPosition: keyof TagsConfigType["variants"]["labelPosition"];
+    radius: keyof TagsConfigType["variants"]["radius"];
+    variant: keyof TagsConfigType["variants"]["variant"];
+    width: keyof TagsConfigType["variants"]["width"];
   };
 }
 
-export interface TagsInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof tagInputVariants> {
-  className?: string;
-  placeholder?: string;
-  label?: React.ReactNode;
-  description?: React.ReactNode;
-  labelPosition?: keyof tagsConfigType["variants"]["labelPosition"];
-  radius?: keyof tagsConfigType["variants"]["radius"];
-  variant?: keyof tagsConfigType["variants"]["variant"];
-  size?: keyof tagsConfigType["variants"]["size"];
-  disabled?: boolean;
-  data?: string[];
-  allowDuplicates?: boolean;
-  maxTags?: number;
-  error?:boolean;
-}

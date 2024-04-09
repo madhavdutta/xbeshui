@@ -1,6 +1,7 @@
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
+import { BlockQuoteVariantsType } from "./blockquoteType";
 
-export const blockQuoteVariant = {
+export const blockQuoteVariant:BlockQuoteVariantsType = {
   variants: {
     size: {
       default: "text-base",
@@ -66,3 +67,16 @@ export const blockQuoteVariants = cva(
   "my-5 border-l-2 pl-6 italic text-gray-400",
   blockQuoteVariant
 );
+
+export interface BlockQuoteProps
+  extends React.HTMLAttributes<HTMLParagraphElement>,
+    VariantProps<typeof blockQuoteVariants> {
+  size: keyof BlockQuoteVariantsType["variants"]["size"];
+  textWrap: keyof BlockQuoteVariantsType["variants"]["textWrap"];
+  line: keyof BlockQuoteVariantsType["variants"]["line"];
+  fontFamily: keyof BlockQuoteVariantsType["variants"]["fontFamily"];
+  color?: string; // New prop
+  cite?: string; // New prop
+  icon?: React.ReactNode; // New prop
+  mt?: string; // New prop
+}

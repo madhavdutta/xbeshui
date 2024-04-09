@@ -19,9 +19,3 @@ export interface skeletonVariantsConfigType {
   };
 }
 
-export interface SkeletonProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof skeletonVariants> {
-  radius: keyof skeletonVariantsConfigType["variants"]["radius"];
-  animate: keyof skeletonVariantsConfigType["variants"]["animate"];
-}

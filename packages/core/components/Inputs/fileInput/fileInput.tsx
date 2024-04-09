@@ -3,8 +3,7 @@ import * as React from "react";
 // Utility to concatenate class names
 
 import { cn } from "../../../../utils";
-import { FileInputProps } from "./fileInputType";
-import { fileInputVariants } from "./fileInput.config";
+import { FileInputProps, fileInputVariants } from "./fileInput.config";
 
 const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
   (

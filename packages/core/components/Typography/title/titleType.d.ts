@@ -54,14 +54,4 @@ export type TitleVariantsType = {
   };
 };
 
-export interface TitleProps
-  extends React.HTMLAttributes<HTMLHeadingElement>,
-    VariantProps<typeof titleVariants> {
-  asChild?: boolean;
-  order?: keyof TitleVariantsType["variants"]["order"];
-  textWrap?: keyof TitleVariantsType["variants"]["textWrap"];
-  fontFamily?: keyof TitleVariantsType["variants"]["fontFamily"];
-  align?: keyof TitleVariantsType["variants"]["align"];
-  gradient?: keyof TitleVariantsType["variants"]["gradient"];
-  gradientColors?: string;
-}
+

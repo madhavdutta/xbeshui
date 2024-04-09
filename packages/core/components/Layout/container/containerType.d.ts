@@ -1,7 +1,4 @@
-import { VariantProps } from "class-variance-authority";
-import { containerVariant } from "./container.config";
-
-export interface containerJustifyVariantType {
+export interface ContainerVariantType {
   variants: {
     p: {
       default: string;
@@ -15,11 +12,19 @@ export interface containerJustifyVariantType {
     };
     justify: {
       default: string;
-      flexStart: string;
+      start: string;
       center: string;
       spaceBetween: string;
-      flexEnd: string;
+      end: string;
       spaceAround: string;
+    };
+    items: {
+      default: string;
+      start: string;
+      center: string;
+      baseline: string;
+      end: string;
+      stretch: string;
     };
     size: {
       default: string;
@@ -31,19 +36,11 @@ export interface containerJustifyVariantType {
       xxl: string;
     };
   };
-  defaultVariants: {
-    justify: keyof containerJustifyVariantType['variants']['justify'];
-    size: keyof containerJustifyVariantType['variants']['size'];
-    p: keyof containerJustifyVariantType['variants']['p'];
-  };
-}
 
-export interface ContainerProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof containerVariant> {
-  justify?: keyof containerJustifyVariantType["variants"]["justify"];
-  size?: keyof containerJustifyVariantType["variants"]["size"];
-  p?: keyof containerJustifyVariantType["variants"]["p"];
-  asChild?: boolean;
-  fluid?: boolean;
+  defaultVariants: {
+    justify: keyof ContainerVariantType["variants"]["justify"];
+    size: keyof ContainerVariantType["variants"]["size"];
+    p: keyof ContainerVariantType["variants"]["p"];
+    itemsJustify: keyof ContainerVariantType["variants"]["items"];
+  };
 }

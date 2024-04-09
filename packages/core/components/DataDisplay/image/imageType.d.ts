@@ -1,6 +1,4 @@
-import { VariantProps } from "class-variance-authority";
-
-export type ImageSize = {
+export type ImageSizeType = {
   default: string;
   xs: string;
   sm: string;
@@ -9,7 +7,7 @@ export type ImageSize = {
   xl: string;
 };
 
-export type ImageFit = {
+export type ImageFitType = {
   contain: string;
   cover: string;
   fill: string;
@@ -17,20 +15,13 @@ export type ImageFit = {
   scaleDown: string;
 };
 
-export interface ImageVariantsConfig {
+export interface ImageVariantsConfigType {
   variants: {
-    radius: ImageSize;
-    fit: ImageFit;
+    radius: ImageSizeType;
+    fit: ImageFitType;
   };
   defaultVariants: {
-    radius: keyof ImageSize;
-    fit: keyof ImageFit;
+    radius: keyof ImageSizeType;
+    fit: keyof ImageFitType;
   };
-}
-
-export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement>, VariantProps<typeof imageVariants> {
-  width?: string | number;
-  height?: string | number;
-  radius?: keyof ImageSize;
-  fit?: keyof ImageFit;
 }

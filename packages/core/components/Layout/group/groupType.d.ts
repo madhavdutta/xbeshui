@@ -1,7 +1,7 @@
 import { VariantProps } from "class-variance-authority";
 import { groupVariant } from "./group.config";
 
-export interface groupVariantType {
+export interface GroupVariantType {
   variants: {
     justify: {
       default: string;
@@ -36,20 +36,11 @@ export interface groupVariantType {
     };
   };
   defaultVariants: {
-    justify: keyof groupVariantType["variants"]["justify"];
-    align: keyof groupVariantType["variants"]["align"];
-    gap: keyof groupVariantType["variants"]["gap"];
-    wrap: keyof groupVariantType["variants"]["wrap"];
+    justify: keyof GroupVariantType["variants"]["justify"];
+    align: keyof GroupVariantType["variants"]["align"];
+    gap: keyof GroupVariantType["variants"]["gap"];
+    wrap: keyof GroupVariantType["variants"]["wrap"];
   };
 }
 
-export interface GroupProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof groupVariant> {
-  asChild?: boolean;
-  justify?: keyof groupVariantType["variants"]["justify"];
-  align?: keyof groupVariantType["variants"]["align"];
-  gap?: keyof groupVariantType["variants"]["gap"];
-  wrap?: keyof groupVariantType["variants"]["wrap"];
-  grow?: keyof groupVariantType["variants"]["grow"];
-}
+

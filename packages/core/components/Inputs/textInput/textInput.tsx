@@ -3,8 +3,7 @@ import * as React from "react";
 // Utility to concatenate class names
 
 import { cn } from "../../../../utils";
-import { InputProps } from "./textInputType";
-import { inputVariants } from "./textInput.config";
+import { inputVariants, InputProps } from "./textInput.config";
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
@@ -17,7 +16,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       label,
       description,
       labelPosition,
-      size,
+      width,
       radius,
       error,
       disabled,
@@ -95,7 +94,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             disabled={disabled}
             className={cn(
-              inputVariants({ variant, error, size, radius, className })
+              inputVariants({ variant, error, width, radius, className })
             )}
             style={{
               paddingLeft: `${paddingLeft}px`,

@@ -1,7 +1,6 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
-import { TextProps } from "./textType";
-import { textVariants } from "./text.config";
+import { TextProps, textVariants } from "./text.config";
 
 const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
   (

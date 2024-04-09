@@ -116,16 +116,3 @@ export interface TextVariantsType {
   };
 }
 
-export interface TextProps
-  extends React.HTMLAttributes<HTMLParagraphElement>,
-    VariantProps<typeof textVariants> {
-  size?: keyof TextVariantsType["variants"]["size"];
-  textWrap?: keyof TextVariantsType["variants"]["textWrap"];
-  line?: keyof TextVariantsType["variants"]["line"];
-  align?: keyof TextVariantsType["variants"]["align"];
-  fontFamily?: keyof TextVariantsType["variants"]["fontFamily"];
-  textTransform?: keyof TextVariantsType["variants"]["textTransform"];
-  textOverflow?: keyof TextVariantsType["variants"]["textOverflow"];
-  lineClamp?: keyof TextVariantsType["variants"]["lineClamp"];
-  fontWeight?: keyof TextVariantsType["variants"]["fontWeight"];
-}

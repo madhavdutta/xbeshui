@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { cn } from "../../../../utils";
-import { groupVariant } from "./group.config";
-import { GroupProps } from "./groupType";
+import { GroupProps, groupVariant } from "./group.config";
+
 // import "../Theme/xbeshDefaultUIStyles.css";
 
 const Group = React.forwardRef<HTMLDivElement, GroupProps>(

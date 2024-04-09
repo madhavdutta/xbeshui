@@ -1,39 +1,61 @@
-import { cva } from "class-variance-authority";
-import { containerJustifyVariantType } from "./containerType";
-const containerConfig:containerJustifyVariantType={
+import { VariantProps, cva } from "class-variance-authority";
+import { ContainerVariantType } from "./containerType";
+
+const containerConfig: ContainerVariantType = {
   variants: {
     p: {
-      default: "p-8",
+      default: "p-0",
       none: "p-0",
-      xs: "p-4",
-      sm: "p-8",
-      md: "p-12",
-      lg: "p-16",
-      xl: "p-20",
-      xxl: "p-24",
+      xs: "p-1",
+      sm: "p-2",
+      md: "p-4",
+      lg: "p-6",
+      xl: "p-8",
+      xxl: "p-10",
     },
     justify: {
       default: "justify-start",
-      flexStart: "justify-start",
+      start: "justify-start",
       center: "justify-center",
       spaceBetween: "justify-between",
-      flexEnd: "justify-end",
+      end: "justify-end",
       spaceAround: "justify-around",
     },
+    items: {
+      default: "items-start",
+      start: "items-start",
+      center: "items-center",
+      baseline: "items-baseline",
+      end: "items-end",
+      stretch: "items-stretch",
+    },
     size: {
-      default: "w-full",
-      xs: "w-5/12",
-      sm: "w-6/12",
-      md: "w-7/12",
-      lg: "w-8/12",
-      xl: "w-9/12",
-      xxl: "w-10/12",
+      default: "max-w-none",
+      xs: "max-w-xs",
+      sm: "max-w-sm",
+      md: "max-w-md",
+      lg: "max-w-lg",
+      xl: "max-w-xl",
+      xxl: "max-w-xxl",
     },
   },
   defaultVariants: {
-    justify: "flexStart",
+    justify: "default",
     size: "default",
     p: "default",
+    itemsJustify: "default",
   },
+};
+
+export const containerVariant = cva("flex flex-col bg-background text-primary-foreground container mx-auto p-8 max-w-none", containerConfig);
+
+export interface ContainerProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+  VariantProps<typeof containerVariant> {
+  justify?: keyof ContainerVariantType["variants"]["justify"];
+  size?: keyof ContainerVariantType["variants"]["size"];
+  p?: keyof ContainerVariantType["variants"]["p"];
+  itemsJustify?: keyof ContainerVariantType["variants"]["items"];
+  asChild?: boolean;
+  fluid?: boolean;
 }
-export const containerVariant = cva("container mx-auto w-full p-8 max-w-none",containerConfig );

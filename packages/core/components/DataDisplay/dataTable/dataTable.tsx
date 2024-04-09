@@ -10,7 +10,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ChevronDown } from "lucide-react";
+import { IconChevronDown } from "@tabler/icons-react";
 import {
   Text,
   Button,
@@ -120,7 +120,7 @@ export const DataTable = <T,>({
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
               <Text size="xs">View</Text>{" "}
-              <ChevronDown className="ml-2 h-4 w-4" />
+              <IconChevronDown stroke={1.5} className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

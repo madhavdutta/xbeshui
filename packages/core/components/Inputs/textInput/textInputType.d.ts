@@ -1,4 +1,4 @@
-export interface inputConfigType {
+export interface InputConfigType {
   variants: {
     variant: {
       default: string;
@@ -10,15 +10,14 @@ export interface inputConfigType {
       right: string;
       left: string;
     };
-
-    size: {
+    width: {
       default: string;
       xs: string;
-      sm: string;
-      md: string;
-      lg: string;
-      xl: string;
-      full: string;
+      sm:string;
+      md:string;
+      lg:string;
+      xl:string;
+      full:string;
     };
     radius: {
       default: string;
@@ -35,27 +34,9 @@ export interface inputConfigType {
     };
   };
   defaultVariants: {
-    labelPosition: keyof inputConfigType["variants"]["labelPosition"];
-    radius: keyof inputConfigType["variants"]["radius"];
-    variant: keyof inputConfigType["variants"]["variant"];
-    size: keyof inputConfigType["variants"]["size"];
+    labelPosition: keyof InputConfigType["variants"]["labelPosition"];
+    radius: keyof InputConfigType["variants"]["radius"];
+    variant: keyof InputConfigType["variants"]["variant"];
+    width: keyof InputConfigType["variants"]["width"];
   };
-}
-
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof inputVariants> {
-  leftSection?: React.ReactNode;
-  rightSection?: React.ReactNode;
-  leftSectionWidth?: number;
-  rightSectionWidth?: number;
-  className?: string;
-  label?: React.ReactNode;
-  description?: React.ReactNode;
-  labelPosition?: keyof inputConfigType["variants"]["labelPosition"];
-  radius?: keyof inputConfigType["variants"]["radius"];
-  variant?: keyof inputConfigType["variants"]["variant"];
-  size?: keyof inputConfigType["variants"]["size"];
-  error?: boolean;
-  disabled?: boolean;
 }

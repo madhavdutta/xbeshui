@@ -1,7 +1,7 @@
 import { VariantProps } from "class-variance-authority";
 import { ButtonVariant } from "../../../types/variantType";
 
-export type badgeSize = {
+export type BadgeSizeType = {
   default: string;
   xs: string;
   sm: string;
@@ -13,7 +13,7 @@ export type badgeSize = {
   "compact-lg": string;
 };
 
-export type badgeRadius = {
+export type BadgeRadiusType = {
   none: string;
   sm: string;
   md: string;
@@ -23,25 +23,15 @@ export type badgeRadius = {
   full: string;
 };
 
-export interface BadgeVariantsConfig {
+export interface BadgeVariantsConfigType {
   variants: {
-    variant: ButtonVariant;
-    size: badgeSize;
-    radius: badgeRadius;
+    variant: ButtonVariantType;
+    size: BadgeSizeType;
+    radius: BadgeRadiusType;
   };
   defaultVariants: {
-    variant: keyof ButtonVariant;
-    size: keyof badgeSize;
-    radius: keyof badgeRadius;
+    variant: keyof ButtonVariantType;
+    size: keyof BadgeSizeType;
+    radius: keyof BadgeRadiusType;
   };
-}
-
-export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {
-  leftSection?: React.ReactNode;
-  rightSection?: React.ReactNode;
-  variant: keyof ButtonVariant;
-  size:  ButtonSize;
-  radius: ButtonRadius;
 }

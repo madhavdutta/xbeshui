@@ -1,7 +1,7 @@
-import { cva } from "class-variance-authority";
-import { inputConfigType } from "./textInputType";
+import { VariantProps, cva } from "class-variance-authority";
+import { InputConfigType } from "./textInputType";
 
-const inputConfig: inputConfigType = {
+const inputConfig: InputConfigType = {
   variants: {
     variant: {
       default: "none",
@@ -13,8 +13,8 @@ const inputConfig: inputConfigType = {
       right: "",
       left: "",
     },
-    size: {
-      default: "w-4/6",
+    width: {
+      default: "w-full",
       xs: "w-3/12",
       sm: "w-4/12",
       md: "w-3/6",
@@ -22,7 +22,6 @@ const inputConfig: inputConfigType = {
       xl: "w-5/6",
       full: "w-full",
     },
-
     radius: {
       default: "rounded-none",
       xs: "rounded-xs",
@@ -41,7 +40,7 @@ const inputConfig: inputConfigType = {
     labelPosition: "default",
     radius: "default",
     variant: "default",
-    size: "default",
+    width: "default",
   },
 };
 
@@ -49,3 +48,22 @@ export const inputVariants = cva(
   "w-full h-9 rounded-md border border-input bg-transparent text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
   inputConfig
 );
+
+
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement>,
+    VariantProps<typeof inputVariants> {
+  leftSection?: React.ReactNode;
+  rightSection?: React.ReactNode;
+  leftSectionWidth?: number;
+  rightSectionWidth?: number;
+  className?: string;
+  label?: React.ReactNode;
+  description?: React.ReactNode;
+  labelPosition?: keyof InputConfigType["variants"]["labelPosition"];
+  radius?: keyof InputConfigType["variants"]["radius"];
+  width?: keyof InputConfigType["variants"]["width"];
+  variant?: keyof InputConfigType["variants"]["variant"];
+  error?: boolean;
+  disabled?: boolean;
+}

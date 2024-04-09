@@ -1,4 +1,4 @@
-export interface sheetVarientConfigType {
+export interface SheetVarientConfigType {
   variants: {
     side: {
       default: string;
@@ -24,18 +24,10 @@ export interface sheetVarientConfigType {
     };
   };
   defaultVariants: {
-    side: keyof sheetVarientConfigType["variants"]["side"];
-    size: keyof sheetVarientConfigType["variants"]["size"];
-    fontFamily: keyof sheetVarientConfigType["variants"]["fontFamily"];
+    side: keyof SheetVarientConfigType["variants"]["side"];
+    size: keyof SheetVarientConfigType["variants"]["size"];
+    fontFamily: keyof SheetVarientConfigType["variants"]["fontFamily"];
   };
 }
 
-export interface SheetContentProps
-  extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
-    VariantProps<typeof sheetVariants> {
-  children?: React.ReactNode;
-  className?: string;
-  side?: keyof sheetVarientConfigType["variants"]["side"];
-  size?: keyof sheetVarientConfigType["variants"]["size"];
-  fontFamily?: keyof sheetVarientConfigType["variants"]["fontFamily"];
-}
+

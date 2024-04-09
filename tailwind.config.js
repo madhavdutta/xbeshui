@@ -1,10 +1,11 @@
 import xBeshTheme from "./packages/core/types/xBeshTheme"
 
 export default {
-  darkMode: ["class"],
+  darkMode: ["dark"],
   // purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   content: [
     "./packages/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}"
   ],
   prefix: "",
   theme: {

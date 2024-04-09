@@ -42,12 +42,3 @@ export interface simpleGridVariantType {
   };
 }
 
-export interface SimpleGridProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof simpleGridVariant> {
-  children?: React.ReactNode;
-  className?: string;
-  cols: keyof simpleGridVariantType["variants"]["cols"];
-  verticalSpacing: keyof simpleGridVariantType["variants"]["verticalSpacing"];
-  spacing: keyof simpleGridVariantType["variants"]["spacing"];
-}

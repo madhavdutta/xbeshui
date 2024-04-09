@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
-import { fileInputConfigType } from "./fileInputType";
+import { FileInputConfigType } from "./fileInputType";
 
-const fileInputConfig: fileInputConfigType = {
+const fileInputConfig: FileInputConfigType = {
   variants: {
     variant: {
       default: "none",
@@ -50,3 +50,22 @@ export const fileInputVariants = cva(
   "w-full h-9 rounded-md border border-input bg-transparent text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
   fileInputConfig
 );
+
+export interface FileInputProps
+  extends React.InputHTMLAttributes<HTMLInputElement>,
+    VariantProps<typeof fileInputVariants> {
+  onFileSelect?: (file: File | null) => void;
+  leftSection?: React.ReactNode;
+  rightSection?: React.ReactNode;
+  leftSectionWidth?: number;
+  rightSectionWidth?: number;
+  className?: string;
+  label?: React.ReactNode;
+  description?: React.ReactNode;
+  labelPosition?: keyof FileInputConfigType["variants"]["labelPosition"];
+  radius?: keyof FileInputConfigType["variants"]["radius"];
+  variant?: keyof FileInputConfigType["variants"]["variant"];
+  size: keyof FileInputConfigType["variants"]["size"];
+  error?: boolean;
+  disabled?: boolean;
+}

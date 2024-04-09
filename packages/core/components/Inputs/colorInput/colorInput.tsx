@@ -4,7 +4,8 @@ import { SketchPicker, ColorResult } from "react-color";
 import {ColorSwatch} from "../colorSwatch/colorSwatch";
 import { IconColorPicker } from "@tabler/icons-react";
 import { Input } from "../..";
-import { ColorInputProps } from "./colorInputType";
+import { ColorInputProps } from "./colorInput.config";
+
 
 export const ColorInput: React.FC<ColorInputProps> = ({
   label = "",

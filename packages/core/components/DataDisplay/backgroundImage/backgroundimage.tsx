@@ -1,7 +1,6 @@
 import React from "react";
 import { cn } from "../../../../utils";
-import { backgroundImageVariants } from "./backgroundImage.config";
-import type { BackgroundImageProps } from "./backgroundImageType";
+import { BackgroundImageProps, backgroundImageVariants } from "./backgroundImage.config";
 
 const BackgroundImage: React.FC<BackgroundImageProps> = ({
   src,

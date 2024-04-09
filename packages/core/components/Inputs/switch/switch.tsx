@@ -2,13 +2,12 @@ import * as React from "react";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 
 import { cn } from "../../../../utils";
-import { switchVariants } from "./switch.config";
-import { switchProps } from "./switchType";
+import { switchVariants, SwitchProps } from "./switch.config";
 import { Text } from "../../Typography/text/text";
 
 const Switch = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
-  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> & switchProps
+  React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> & SwitchProps
 >(({ className, size, radius, label, disabled, ...props }, ref) => {
   const thumbSize =
     size === "default"

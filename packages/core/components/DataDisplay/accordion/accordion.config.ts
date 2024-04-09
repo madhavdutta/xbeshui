@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
-import { AccordionVariants } from "./accordionType";
+import { AccordionVariantsType } from "./accordionType";
 
-const accordionVariant: AccordionVariants = {
+const accordionVariant: AccordionVariantsType = {
   variants: {
     variant: {
       default: "",

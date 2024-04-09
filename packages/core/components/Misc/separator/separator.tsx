@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
 import { Text } from "../../Typography/text/text";
-import { SeparatorProps } from "./separatorType";
 
 import { cn } from "../../../../utils";
-import { SepratorConfig } from "./separator.config";
+import { SeparatorProps, sepratorVariant } from "./separator.config";
+
 
 const Separator = React.forwardRef<
   React.ElementRef<typeof SeparatorPrimitive.Root>,
@@ -34,7 +34,7 @@ const Separator = React.forwardRef<
               ref={ref}
               decorative={decorative}
               orientation={orientation}
-              className={cn(SepratorConfig({variant,orientation, className }))}
+              className={cn(sepratorVariant({variant,orientation, className }))}
               {...props}
             />
           </div>
@@ -47,7 +47,7 @@ const Separator = React.forwardRef<
               ref={ref}
               decorative={decorative}
               orientation={orientation}
-              className={cn(SepratorConfig({variant,orientation, className }))}
+              className={cn(sepratorVariant({variant,orientation, className }))}
               {...props}
             />
           </div>
@@ -63,7 +63,7 @@ const Separator = React.forwardRef<
               ref={ref}
               decorative={decorative}
               orientation={orientation}
-              className={cn(SepratorConfig({variant,orientation, className }))}
+              className={cn(sepratorVariant({variant,orientation, className }))}
               {...props}
             />
           </div>
@@ -80,7 +80,7 @@ const Separator = React.forwardRef<
           ref={ref}
           decorative={decorative}
           orientation={orientation}
-          className={cn(SepratorConfig({variant,orientation, className }))}
+          className={cn(sepratorVariant({variant,orientation, className }))}
           {...props}
         />
       )}

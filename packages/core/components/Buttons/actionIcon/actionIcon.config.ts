@@ -1,13 +1,14 @@
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 import { AcionIconConfigType } from "./actionIconType";
+
 
 export const AcionIconConfig: AcionIconConfigType = {
   variants: {
     variant: {
       default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
-      success: "bg-green-600 text-white	 shadow-sm hover:bg-accent",
-      warning: "bg-orange-600 text-white shadow-sm hover:bg-accent",
-      notice: "bg-blue-600 text-white	 shadow-sm hover:bg-accent",
+      success: "bg-green-600 text-white	 shadow-sm hover:bg-green/90",
+      warning: "bg-orange-600 text-white shadow-sm hover:bg-orange/90",
+      notice: "bg-blue-600 text-white	 shadow-sm hover:bg-blue/90",
       destructive:
         "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
       outline:
@@ -41,7 +42,17 @@ export const AcionIconConfig: AcionIconConfigType = {
     radius: "md",
   },
 };
+
+
 export const actionIconVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
   AcionIconConfig
 );
+
+export interface ActionIconProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof actionIconVariants> {
+  variant?: keyof AcionIconConfigType["variants"]["variant"];
+  size?: keyof AcionIconConfigType["variants"]["size"];
+  radius?: keyof AcionIconConfigType["variants"]["radius"];
+}

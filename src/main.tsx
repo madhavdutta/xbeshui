@@ -10,9 +10,9 @@ const RootComponent = () => {
 
 
   return (
-    <React.StrictMode>
+    <React.StrictMode >
       <XbeshProvider storageKey={"vite"} defaultTheme={"light"}>
-        <div>
+        <div className="w-full">
           <App />
 
           <Toaster />

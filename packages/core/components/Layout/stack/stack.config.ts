@@ -1,6 +1,6 @@
-import { cva } from "class-variance-authority";
-import { stackVariantType } from "./stackType";
-const stackConfig: stackVariantType = {
+import { VariantProps, cva } from "class-variance-authority";
+import { StackVariantType } from "./stackType";
+const stackConfig: StackVariantType = {
   variants: {
     justify: {
       default: "justify-start",
@@ -35,3 +35,13 @@ const stackConfig: stackVariantType = {
   },
 };
 export const stackVariant = cva("flex flex-col w-full", stackConfig);
+
+export interface StackProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof stackVariant> {
+  asChild?: boolean;
+  justify?: keyof StackVariantType["variants"]["justify"];
+  align?: keyof StackVariantType["variants"]["align"];
+  gap?: keyof StackVariantType["variants"]["gap"];
+  grow?: boolean;
+}

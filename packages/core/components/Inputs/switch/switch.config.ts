@@ -1,7 +1,7 @@
-import { cva } from "class-variance-authority";
-import { switchConfigType } from "./switchType";
+import { VariantProps, cva } from "class-variance-authority";
+import { SwitchConfigType } from "./switchType";
 
-const switchConfig: switchConfigType = {
+const switchConfig: SwitchConfigType = {
   variants: {
     labelPosition: {
       default: "",
@@ -33,3 +33,15 @@ const switchConfig: switchConfigType = {
 };
 
 export const switchVariants = cva("", switchConfig);
+
+export interface SwitchProps
+  extends React.HTMLAttributes<HTMLTableElement>,
+    VariantProps<typeof switchVariants> {
+  label?: React.ReactNode;
+  description?: string;
+  bgcolor?: string;
+  labelPosition?: keyof SwitchConfigType["variants"]["labelPosition"];
+  size?: keyof SwitchConfigType["variants"]["size"];
+  radius?: keyof SwitchConfigType["variants"]["radius"];
+  disabled?: boolean;
+}

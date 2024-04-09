@@ -13,39 +13,11 @@ interface FileButtonProps {
   onFileSelect: (files: File[] | null) => void; // Change type to FileList
 }
 
-// interface FileData {
-//   file: File;
-//   errorMessage: string | null;
-// }
-
 const FileButton = React.forwardRef<HTMLButtonElement, FileButtonProps>(
   ({ children, onFileSelect, variant, size, radius, allowedFileTypes }, ref) => {
     const fileInputRef = React.useRef<HTMLInputElement>(null);
     const [filesData, setFilesData] = React.useState<File[]>([]);
 
-    // const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //   const files = event.target.files;
-    //   if (files && files.length > 0) {
-    //     const newFilesData: FileData[] = [];
-    //     for (let i = 0; i < files.length; i++) {
-    //       const fileType = files[i].type.split("/")[1];
-    //       if (allowedFileTypes && allowedFileTypes.length > 0 && !allowedFileTypes.includes(fileType)) {
-    //         // newFilesData.push({ file: files[i], errorMessage: "Invalid file type" });
-    //         console.log(fileType)
-    //         newFilesData.push({ file: files[i], errorMessage: `Invalid file type. Allowed types are: ${allowedFileTypes.join(", ")}` });
-    //         setFilesData([...newFilesData]);  
-    //         onFileSelect(null);
-    //       } else {
-    //         newFilesData.push({ file: files[i], errorMessage: null });
-    //         onFileSelect(files); // Pass files as FileList
-    //         setFilesData([...newFilesData]);
-    //       }
-    //     }
-      
-    //   }
-    // };
-
-    
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const files = event.target.files;
       if (files && files.length > 0) {

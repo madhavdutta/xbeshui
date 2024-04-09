@@ -1,4 +1,4 @@
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 import { skeletonVariantsConfigType } from "./skeletonType";
 
 const skeletonVariantsConfig: skeletonVariantsConfigType = {
@@ -26,3 +26,11 @@ export const skeletonVariants = cva(
   "animate-pulse rounded-md h-2 bg-primary/10",
   skeletonVariantsConfig
 );
+
+
+export interface SkeletonProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof skeletonVariants> {
+  radius: keyof skeletonVariantsConfigType["variants"]["radius"];
+  animate: keyof skeletonVariantsConfigType["variants"]["animate"];
+}

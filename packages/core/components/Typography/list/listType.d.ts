@@ -38,17 +38,4 @@ export interface ListVariantsType {
   };
 }
 
-export interface ListProps
-  extends React.HTMLAttributes<HTMLOListElement>,
-    VariantProps<typeof listVariants> {
-  asChild?: boolean;
-  type?: keyof ListVariantsType["variants"]["type"];
-  fontSize?: keyof ListVariantsType["variants"]["fontSize"];
-  position?: keyof ListVariantsType["variants"]["position"];
-  children?: React.ReactNode;
-}
 
-export interface ListItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
-  children: React.ReactNode;
-  className?: string;
-}

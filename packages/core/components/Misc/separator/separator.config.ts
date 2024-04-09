@@ -1,6 +1,8 @@
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
+import { SepratorConfigType } from "./separatorType";
+import * as SeparatorPrimitive from "@radix-ui/react-separator";
 
-export const SepratorConfig = cva("shrink-0 bg-border", {
+export const sepratorConfig:SepratorConfigType ={
   variants: {
     variant: {
       default: "border-solid",
@@ -49,4 +51,18 @@ export const SepratorConfig = cva("shrink-0 bg-border", {
     labelSize: "default",
     labelPosition: "default",
   },
-});
+}
+
+export const sepratorVariant = cva("shrink-0 bg-border",sepratorConfig);
+
+
+
+export type SeparatorProps = {
+  label?: React.ReactNode;
+  decorative?: boolean;
+  variant?: keyof SepratorConfigType["variants"]["variant"];
+  orientation?: keyof SepratorConfigType["variants"]["orientation"];
+  labelSize?: keyof SepratorConfigType["variants"]["labelSize"];
+  labelPosition?: keyof SepratorConfigType["variants"]["labelPosition"];
+} & React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root> &
+  VariantProps<typeof sepratorVariant>;

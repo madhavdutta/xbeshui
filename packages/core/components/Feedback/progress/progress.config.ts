@@ -1,4 +1,4 @@
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 import { progressVariantConfigType } from "./progressType";
 
 const progressVariantConfig: progressVariantConfigType = {
@@ -42,3 +42,14 @@ export const progressVariants = cva(
   "relative h-2 w-full overflow-hidden rounded-full bg-primary/20",
   progressVariantConfig
 );
+
+export interface ProgressProps extends VariantProps<typeof progressVariants> {
+  value?: number;
+  color?: string;
+  variant?: keyof progressVariantConfigType["variants"]["variant"];
+  radius?: keyof progressVariantConfigType["variants"]["radius"];
+  size?: keyof progressVariantConfigType["variants"]["size"];
+  striped?: keyof progressVariantConfigType["variants"]["striped"];
+  animated?: keyof progressVariantConfigType["variants"]["animated"];
+}
+

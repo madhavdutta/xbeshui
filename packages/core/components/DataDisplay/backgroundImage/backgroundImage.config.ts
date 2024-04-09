@@ -1,7 +1,7 @@
-import { cva } from "class-variance-authority";
-import { BackgroundImageVariantsConfig } from "./backgroundImageType";
+import { VariantProps, cva } from "class-variance-authority";
+import { BackgroundImageFitType, BackgroundImageRadiusType, BackgroundImageVariantsConfigType} from "./backgroundImageType";
 
-export const backgroundImageVariant: BackgroundImageVariantsConfig = {
+export const backgroundImageVariant: BackgroundImageVariantsConfigType = {
   variants: {
     radius: {
       none: "rounded-none",
@@ -26,3 +26,14 @@ export const backgroundImageVariant: BackgroundImageVariantsConfig = {
   },
 };
 export const backgroundImageVariants = cva("", backgroundImageVariant);
+
+export interface BackgroundImageProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof backgroundImageVariants> {
+  src: string;
+  alt?: string;
+  width?: string | number;
+  height?: string | number;
+  radius: keyof BackgroundImageRadiusType;
+  fit: keyof BackgroundImageFitType;
+}

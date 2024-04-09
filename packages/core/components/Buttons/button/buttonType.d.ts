@@ -1,5 +1,5 @@
 // import { ButtonVariant } from "../../../types/variantType";
-export type ButtonVariant = {
+export type ButtonVariantType = {
   "default": string;
   "success": string;
   "warning": string;
@@ -10,8 +10,9 @@ export type ButtonVariant = {
   "ghost": string;
   "link": string;
 };
+
 // Define ButtonSize type representing the structure of button sizes
-export type ButtonSize = {
+export type ButtonSizeType = {
   default: string;
   xs: string;
   sm: string;
@@ -24,7 +25,7 @@ export type ButtonSize = {
   "compact-lg": string;
 };
 
-export type ButtonRadius = {
+export type ButtonRadiusType = {
   none: "rounded-none";
   sm: "rounded-sm";
   md: "rounded-md";
@@ -34,23 +35,15 @@ export type ButtonRadius = {
   full: "rounded-full";
 }
 
-export interface ButtonVariantsConfig {
+export interface ButtonVariantsConfigType {
   variants: {
-    variant: ButtonVariant;
-    size: ButtonSize;
-    radius: ButtonRadius;
+    variant: ButtonVariantType;
+    size: ButtonSizeType;
+    radius: ButtonRadiusType;
   };
   defaultVariants: {
-    variant: keyof ButtonVariant;
-    size: keyof ButtonSize;
-    radius: keyof ButtonRadius;
+    variant: keyof ButtonVariantType;
+    size: keyof ButtonSizeType;
+    radius: keyof ButtonRadiusType;
   };
-}
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
-  leftSection?: React.ReactNode;
-  rightSection?: React.ReactNode;
-  variant?: keyof ButtonVariant | null;
-  size?: keyof ButtonSize | null;
-  radius?: keyof ButtonRadius;
-  loading?:boolean;
 }

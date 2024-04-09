@@ -1,4 +1,4 @@
-export interface checkboxConfigType {
+export interface CheckboxConfigType {
   variants: {
     variant: {
       default: string;
@@ -23,18 +23,8 @@ export interface checkboxConfigType {
     };
   },
   defaultVariants: {
-    variant: keyof checkboxConfigType["variants"]["variant"];
-    radius: keyof checkboxConfigType["variants"]["radius"];
-    size: keyof checkboxConfigType["variants"]["size"];
+    variant: keyof CheckboxConfigType["variants"]["variant"];
+    radius: keyof CheckboxConfigType["variants"]["radius"];
+    size: keyof CheckboxConfigType["variants"]["size"];
   };
-}
-
-export interface checkboxProps
-  extends React.HTMLAttributes<HTMLTableElement>,
-    VariantProps<typeof checkboxVariants> {
-  label: React.ReactNode;
-  variant?: keyof checkboxConfigType["variants"]["variant"];
-  radius?: keyof checkboxConfigType["variants"]["radius"];
-  size?: keyof checkboxConfigType["variants"]["size"];
-  disabled?:boolean
 }

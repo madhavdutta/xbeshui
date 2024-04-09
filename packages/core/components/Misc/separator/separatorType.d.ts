@@ -6,8 +6,15 @@ export interface SepratorConfigType {
     variant: {
       default: string;
       dashed: string;
+      solid:  string;
       dotted: string;
     };
+    width: {
+      default: string;
+      xs: string;
+      md: string;
+      lg: string;
+    },
     orientation: {
       default: string;
       horizontal: string;
@@ -41,15 +48,6 @@ export interface SepratorConfigType {
     orientation: keyof SepratorConfigType["variants"]["orientation"];
     labelSize: keyof SepratorConfigType["variants"]["labelSize"];
     labelPosition: keyof SepratorConfigType["variants"]["labelPosition"];
+    width:keyof SepratorConfigType["variants"]["width"];
   };
 }
-
-export type SeparatorProps = {
-  label?: React.ReactNode;
-  decorative?: boolean;
-  variant?: keyof SepratorConfigType["variants"]["variant"];
-  orientation?: keyof SepratorConfigType["variants"]["orientation"];
-  labelSize?: keyof SepratorConfigType["variants"]["labelSize"];
-  labelPosition?: keyof SepratorConfigType["variants"]["labelPosition"];
-} & React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root> &
-  VariantProps<typeof SepratorConfig>;

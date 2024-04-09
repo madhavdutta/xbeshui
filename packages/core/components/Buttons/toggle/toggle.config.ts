@@ -1,6 +1,7 @@
-import { ToggleGroupVariantConfig, ToggleVariantsConfig } from "./toggleType";
+import { cva } from "class-variance-authority";
+import { ToggleGroupVariantsConfigType, ToggleVariantsConfigType } from "./toggleType";
 
-export const toggleVariantsConfig: ToggleVariantsConfig = {
+export const toggleVariantsConfig: ToggleVariantsConfigType = {
     variants: {
       variant: {
         default: "hover:bg-accent hover:text-accent-foreground",
@@ -34,7 +35,7 @@ export const toggleVariantsConfig: ToggleVariantsConfig = {
     },
   };
 
-export const toggleGroupVriantConfig: ToggleGroupVariantConfig = 
+export const toggleGroupVriantsConfig: ToggleGroupVariantsConfigType = 
 {
   variants: {
     variant: {
@@ -68,3 +69,14 @@ export const toggleGroupVriantConfig: ToggleGroupVariantConfig =
     radius: "md",
   },
 };
+
+
+export const toggleVariants = cva(
+  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground",
+  toggleVariantsConfig
+)
+
+export const toggleGroupVariants = cva(
+  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+  toggleGroupVriantsConfig
+)

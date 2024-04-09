@@ -1,4 +1,4 @@
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 import { simpleGridVariantType } from "./simpleGridType";
 
 const simpleGridConfig: simpleGridVariantType = {
@@ -42,3 +42,14 @@ const simpleGridConfig: simpleGridVariantType = {
   },
 };
 export const simpleGridVariant = cva("grid", simpleGridConfig);
+
+export interface SimpleGridProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof simpleGridVariant> {
+  children?: React.ReactNode;
+  className?: string;
+  cols: keyof simpleGridVariantType["variants"]["cols"];
+  verticalSpacing: keyof simpleGridVariantType["variants"]["verticalSpacing"];
+  spacing: keyof simpleGridVariantType["variants"]["spacing"];
+}
+

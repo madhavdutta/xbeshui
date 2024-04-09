@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 import { cn } from "../../../../utils";
-import { ButtonProps, buttonVariants } from "./button.config";
+import { LinkProps, buttonVariants } from "../button/button.config";
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   (
     {
       className,
@@ -11,25 +11,29 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       leftSection,
       radius,
       rightSection,
+      href,
+      target,
       children,
       ...props
     },
     ref
   ) => {
     return (
-      <button
-        className={cn(buttonVariants({ variant, size, radius }), className)}
+      <a
+        className={cn(buttonVariants({ variant, size }), className)}
+        href={href}
+        target={target}
         ref={ref}
         {...props}
       >
         {leftSection && <span className="mr-2">{leftSection}</span>}
         {children}
         {rightSection && <span className="ml-2">{rightSection}</span>}
-      </button>
+      </a>
     );
   }
 );
 
-Button.displayName = "Button";
+Link.displayName = "Link";
 
-export { Button, buttonVariants };
+export { Link };

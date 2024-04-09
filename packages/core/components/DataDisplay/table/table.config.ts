@@ -1,7 +1,7 @@
-import { cva } from "class-variance-authority";
-import { TableVariantsConfig } from "./tableType";
+import { VariantProps, cva } from "class-variance-authority";
+import {   TableVariantsConfigType } from "./tableType";
 
-const tableConfig: TableVariantsConfig = {
+const tableConfig: TableVariantsConfigType = {
   variants: {
     size: {
       default: "table-auto",
@@ -20,3 +20,13 @@ const tableConfig: TableVariantsConfig = {
 };
 
 export const tableVariants = cva("table-auto", tableConfig);
+
+export interface TableProps extends React.HTMLAttributes<HTMLTableElement>, VariantProps<typeof tableVariants> {
+  data: never[];
+  children?: React.ReactNode;
+  size?: keyof TableVariantsConfigType["variants"]["size"];
+  footer?: React.ReactNode;
+  borderCollapse?: keyof TableVariantsConfigType["variants"]["borderCollapse"];
+  itemsPerPage?: number;
+  withPagination?: boolean;
+}

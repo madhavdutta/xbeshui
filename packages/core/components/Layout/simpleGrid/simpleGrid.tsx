@@ -1,7 +1,6 @@
 import React from "react";
-import { SimpleGridProps } from "./simpleGridType";
 import { cn } from "../../../../utils";
-import { simpleGridVariant } from "./simpleGrid.config";
+import { SimpleGridProps, simpleGridVariant } from "./simpleGrid.config";
 
 const SimpleGrid = React.forwardRef<HTMLDivElement, SimpleGridProps>(
   ({ cols, spacing, verticalSpacing, children, className }, ref) => {

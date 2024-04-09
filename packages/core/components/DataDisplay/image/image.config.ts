@@ -1,6 +1,6 @@
-import { cva } from "class-variance-authority";
-import { ImageVariantsConfig } from "./imageType";
-const imageConfig: ImageVariantsConfig = {
+import { VariantProps, cva } from "class-variance-authority";
+import { ImageFitType, ImageSizeType, ImageVariantsConfigType } from "./imageType";
+const imageConfig: ImageVariantsConfigType = {
   variants: {
     radius: {
       default: "rounded-none",
@@ -24,3 +24,10 @@ const imageConfig: ImageVariantsConfig = {
   },
 };
 export const imageVariants = cva("", imageConfig);
+
+export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement>, VariantProps<typeof imageVariants> {
+  width?: string | number;
+  height?: string | number;
+  radius?: keyof ImageSizeType;
+  fit?: keyof ImageFitType;
+}

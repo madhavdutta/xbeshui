@@ -1,9 +1,7 @@
 import React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { cn, getInitials } from "../../../../utils";
-import { avatarVariants } from "./avatar.config";
-import type { AvatarProps } from "./avatarType";
-import { IconUserCircle } from "@tabler/icons-react";
+import { AvatarProps, avatarVariants } from "./avatar.config";import { IconUserCircle } from "@tabler/icons-react";
 
 const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,

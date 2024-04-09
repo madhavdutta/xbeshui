@@ -1,7 +1,22 @@
-import { ToggleVariant, ToggleGroupVariant } from "../../../types/variantType";
+export type ToggleVariantType = {
+  "default": string;
+  "destructive": string;
+  "outline": string;
+  "secondary": string;
+  "ghost": string;
+};
+
+export type ToggleGroupVariantType = {
+  default: string;
+  success: string;
+  warning: string;
+  notice: string;
+  destructive: string,
+  outline: string;
+};
 
 // Define ToggleSize type representing the structure of button sizes
-export type ToggleSize = {
+export type ToggleSizeType = {
   default: string;
   xs: string;
   sm: string;
@@ -9,7 +24,7 @@ export type ToggleSize = {
   lg: string;
 };
 
-export type ToggleRadius = {
+export type ToggleRadiusType = {
   none: "rounded-none";
   sm: "rounded-sm";
   md: "rounded-md";
@@ -19,28 +34,28 @@ export type ToggleRadius = {
   full: "rounded-full";
 }
 
-export interface ToggleVariantsConfig {
+export interface ToggleVariantsConfigType {
   variants: {
-    variant: ToggleVariant;
-    size: ToggleSize;
-    radius: ToggleRadius;
+    variant: ToggleVariantType;
+    size: ToggleSizeType;
+    radius: ToggleRadiusType;
   };
   defaultVariants: {
-    variant: keyof ToggleVariant;
-    size: keyof ToggleSize;
-    radius: keyof ToggleRadius;
+    variant: keyof ToggleVariantType;
+    size: keyof ToggleSizeType;
+    radius: keyof ToggleRadiusType;
   };
 }
 
-export type ToggleGroupVariantConfig = {
+export type ToggleGroupVariantsConfigType = {
   variants: {
-    variant: ToggleGroupVariant;
-    size: ToggleSize;
-    radius: ToggleRadius;
+    variant: ToggleGroupVariantType;
+    size: ToggleSizeType;
+    radius: ToggleRadiusType;
   };
   defaultVariants: {
-    variant: keyof ToggleGroupVariant;
-    size: keyof ToggleSize;
-    radius: keyof ToggleRadius;
+    variant: keyof ToggleGroupVariantType;
+    size: keyof ToggleSizeType;
+    radius: keyof ToggleRadiusType;
   };
 }

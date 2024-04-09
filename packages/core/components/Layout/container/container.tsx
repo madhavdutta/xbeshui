@@ -1,15 +1,15 @@
 import * as React from "react";
 
 import { cn } from "../../../../utils";
-import { containerVariant } from "./container.config";
-import { ContainerProps } from "./containerType";
+import { ContainerProps, containerVariant } from "./container.config";
+
 
 const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
-  ({ className, justify, p, size, fluid, ...props }, ref) => {
+  ({ className, justify, items, p, size, fluid, ...props }, ref) => {
     return (
       <div
         className={cn(
-          containerVariant({ justify, size, p, className }),
+          containerVariant({ justify, items, size, p, className }),
           fluid ? "w-full" : ""
         )}
         ref={ref}

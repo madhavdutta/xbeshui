@@ -1,6 +1,6 @@
-import { cva } from "class-variance-authority";
-import { groupVariantType } from "./groupType";
-const groupConfig: groupVariantType = {
+import { VariantProps, cva } from "class-variance-authority";
+import { GroupVariantType } from "./groupType";
+const groupConfig: GroupVariantType = {
   variants: {
     justify: {
       default: "",
@@ -42,3 +42,14 @@ const groupConfig: groupVariantType = {
   },
 };
 export const groupVariant = cva("w-full flex flex-row", groupConfig);
+
+export interface GroupProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof groupVariant> {
+  asChild?: boolean;
+  justify?: keyof GroupVariantType["variants"]["justify"];
+  align?: keyof GroupVariantType["variants"]["align"];
+  gap?: keyof GroupVariantType["variants"]["gap"];
+  wrap?: keyof GroupVariantType["variants"]["wrap"];
+  grow?:boolean
+}

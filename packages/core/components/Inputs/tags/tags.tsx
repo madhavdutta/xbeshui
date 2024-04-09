@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { IconX } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
 import { Badge } from "../../DataDisplay/badge/badge";
-import { TagsInputProps } from "./tagsType";
-import { tagInputVariants } from "./tags.config";
 
-const TagsInput = React.forwardRef<HTMLInputElement, TagsInputProps>(
+import { tagsVariants, TagsProps } from "./tags.config";
+
+const TagsInput = React.forwardRef<HTMLInputElement, TagsProps>(
   (
     {
       className,
@@ -14,7 +14,7 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsInputProps>(
       labelPosition,
       radius,
       disabled,
-      size,
+      width,
       error,
       variant,
       data,
@@ -98,7 +98,7 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsInputProps>(
             ref={ref}
             disabled={disabled}
             className={cn(
-              tagInputVariants({ variant, error, size, radius, className }),
+              tagsVariants({ variant, error, width, radius, className }),
               "flex-grow outline-none"
             )}
             style={{ paddingRight: "30px" }} // Adjust padding to fit tags

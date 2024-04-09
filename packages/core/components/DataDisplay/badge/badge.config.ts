@@ -1,8 +1,8 @@
+import { VariantProps, cva } from "class-variance-authority";
+import {BadgeVariantsConfigType, BadgeRadiusType, BadgeSizeType} from "./badgeType";
+import { ButtonVariantType } from "../../Buttons/button/buttonType";
 
-import { BadgeVariantsConfig } from "./badgeType";
-import { cva } from "class-variance-authority";
-
-export const badgeVariant: BadgeVariantsConfig = {
+export const badgeVariantConfig: BadgeVariantsConfigType = {
   variants: {
     variant: {
       default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
@@ -45,4 +45,14 @@ export const badgeVariant: BadgeVariantsConfig = {
     radius: "md",
   },
 };
-export const badgeVariants = cva( "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors", badgeVariant);
+
+export const badgeVariants = cva( "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors", badgeVariantConfig);
+
+export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeVariants> {
+  leftSection?: React.ReactNode;
+  rightSection?: React.ReactNode;
+  variant?: keyof ButtonVariantType;
+  size?:  keyof BadgeSizeType;
+  radius?: keyof BadgeRadiusType;
+}

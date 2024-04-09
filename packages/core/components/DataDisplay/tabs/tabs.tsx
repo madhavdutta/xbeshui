@@ -4,26 +4,6 @@ import * as TabsPrimitive from "@radix-ui/react-tabs";
 // import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../../utils";
 
-// const tabsVariants = cva("w-full", {
-//   variants: {
-//     variant: { default: "", outline: "", pills: "" },
-//     radius: {
-//       default: "rounded-none",
-//       xs: "rounded",
-//       sm: "rounded-sm",
-//       md: "rounded-md",
-//       lg: "rounded-lg",
-//       xl: "rounded-xl",
-//     },
-//     orientation: { default: "", horizontal: "", vertical: "" },
-//   },
-//   defaultVariants: {
-//     variant: "default",
-//     radius: "default",
-//     orientation: "default",
-//   },
-// });
-
 const Tabs = TabsPrimitive.Root;
 
 const TabsList = React.forwardRef<

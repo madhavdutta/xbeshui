@@ -1,6 +1,6 @@
-import { cva } from "class-variance-authority";
-import { textareaConfigType } from "./textareaType";
-const textareaConfig: textareaConfigType = {
+import { VariantProps, cva } from "class-variance-authority";
+import { TextareaConfigType } from "./textareaType";
+const textareaConfig: TextareaConfigType = {
   variants: {
     variant: {
       default: "none",
@@ -47,3 +47,18 @@ export const textareaVariants = cva(
   "flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
   textareaConfig
 );
+
+
+export interface TextareaProps
+  extends React.HTMLAttributes<HTMLTextAreaElement>,
+    VariantProps<typeof textareaVariants> {
+  label?: React.ReactNode;
+  description?: string;
+  labelPosition?: keyof TextareaConfigType["variants"]["labelPosition"];
+  radius?: keyof TextareaConfigType["variants"]["radius"];
+  variant?: keyof TextareaConfigType["variants"]["variant"];
+  size?: keyof TextareaConfigType["variants"]["size"];
+  disabled?: boolean;
+  error?:boolean;
+  placeholder?:string;
+}

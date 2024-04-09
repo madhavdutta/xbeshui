@@ -7,7 +7,7 @@ import tailwindcss from "tailwindcss";
 export default defineConfig({
   build: {
     lib: {
-      entry: resolve(__dirname, "./packages/core/components/index.tsx"),
+      entry: resolve(__dirname, "./packages/index.tsx"),
       name: "@xbeshui/core",
       fileName: (format) => `index.${format}.js`,
     },

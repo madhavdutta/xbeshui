@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { cn } from "../../../../utils";
-import { stackVariant } from "./stack.config";
-import { StackProps } from "./stackType";
+import { StackProps, stackVariant } from "./stack.config";
+
 
 const Stack = React.forwardRef<HTMLInputElement, StackProps>(
   ({ className, justify, gap, align, ...props }, ref) => {

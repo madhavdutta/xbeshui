@@ -1,13 +1,13 @@
-import { cva } from "class-variance-authority";
-import { tagsConfigType } from "./tagsType";
-const tagsConfig: tagsConfigType = {
+import { VariantProps, cva } from "class-variance-authority";
+import { TagsConfigType } from "./tagsType";
+const tagsConfig: TagsConfigType = {
   variants: {
     labelPosition: {
       default: "",
       right: "",
       left: "",
     },
-    size: {
+    width: {
       default: "w-4/6",
       xs: "w-3/12",
       sm: "w-4/12",
@@ -41,10 +41,26 @@ const tagsConfig: tagsConfigType = {
     labelPosition: "default",
     radius: "default",
     variant: "default",
-    size: "default",
+    width: "default",
   },
 };
-export const tagInputVariants = cva(
+export const tagsVariants = cva(
   "w-full h-9 rounded-md  text-sm" ,
   tagsConfig
 );
+
+export interface TagsProps extends React.InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof tagsVariants> {
+  className?: string;
+  placeholder?: string;
+  label?: React.ReactNode;
+  description?: React.ReactNode;
+  labelPosition?: keyof TagsConfigType["variants"]["labelPosition"];
+  radius?: keyof TagsConfigType["variants"]["radius"];
+  variant?: keyof TagsConfigType["variants"]["variant"];
+  width?: keyof TagsConfigType["variants"]["width"];
+  disabled?: boolean;
+  data?: string[];
+  allowDuplicates?: boolean;
+  maxTags?: number;
+  error?:boolean;
+}

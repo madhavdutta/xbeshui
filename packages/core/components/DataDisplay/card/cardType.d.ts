@@ -1,14 +1,6 @@
 import { VariantProps } from "class-variance-authority";
 
-export type cardRadius = {
-  default: string;
-  xs: string;
-  sm: string;
-  md: string;
-  lg: string;
-  xl: string;
-};
-export type cardShadow = {
+export type CardSizeType = {
   default: string;
   xs: string;
   sm: string;
@@ -17,10 +9,28 @@ export type cardShadow = {
   xl: string;
 };
 
-export interface CardVariantsConfig {
+export type CardRadiusType = {
+  default: string;
+  xs: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+};
+export type CardShadowType = {
+  default: string;
+  xs: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+};
+
+export interface CardVariantsConfigType {
   variants: {
-    radius: cardRadius;
-    shadow: cardShadow;
+    size: CardSizeType;
+    radius: CardRadiusType;
+    shadow: CardShadowType;
     withBorder: {
       default: string;
       true: string;
@@ -28,16 +38,11 @@ export interface CardVariantsConfig {
     };
   };
   defaultVariants: {
+    size: keyof CardSizeType;
     withBorder:boolean;
-    shadow: keyof cardShadow;
-    radius: keyof cardRadius;
+    shadow: keyof CardShadowType;
+    radius: keyof CardRadiusType;
   };
 }
 
-export interface CardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {
-  withBorder: boolean;
-  shadow: keyof cardShadow;
-  radius: keyof cardRadius;
-}
+

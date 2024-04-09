@@ -1,7 +1,6 @@
 import { forwardRef } from "react";
 import { cn } from "../../../../utils";
-import type { BadgeProps } from "./badgeType";
-import { badgeVariants } from "./badge.config";
+import { BadgeProps, badgeVariants } from "./badge.config";
 
 const Badge = forwardRef<HTMLDivElement, BadgeProps>(
   ({ className, variant, size, leftSection, radius, rightSection, children, ...props }, ref) => {

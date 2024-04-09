@@ -1,4 +1,4 @@
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 import { TitleVariantsType } from "./titleType";
 
 const titleConfig: TitleVariantsType = {
@@ -55,3 +55,14 @@ export const titleVariants = cva(
   "scroll-m-20 font-normal tracking-tight ",
   titleConfig
 );
+export interface TitleProps
+  extends React.HTMLAttributes<HTMLHeadingElement>,
+    VariantProps<typeof titleVariants> {
+  asChild?: boolean;
+  order?: keyof TitleVariantsType["variants"]["order"];
+  textWrap?: keyof TitleVariantsType["variants"]["textWrap"];
+  fontFamily?: keyof TitleVariantsType["variants"]["fontFamily"];
+  align?: keyof TitleVariantsType["variants"]["align"];
+  gradient?: keyof TitleVariantsType["variants"]["gradient"];
+  gradientColors?: string;
+}

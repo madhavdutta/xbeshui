@@ -1,7 +1,6 @@
 import React from "react";
-import { FlexBoxProps } from "./flexBoxType";
 import { cn } from "../../../../utils";
-import { flexBoxVariants } from "./flexBox.config";
+import { FlexBoxProps, flexBoxVariants } from "./flexBox.config";
 
 const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
   ({ children, direction, justify, align, wrap, className, ...props }, ref) => {

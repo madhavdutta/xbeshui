@@ -1,6 +1,6 @@
-import { cva } from "class-variance-authority";
-import {radioConfigType} from './radioType'
-const radioConfig:radioConfigType={
+import { VariantProps, cva } from "class-variance-authority";
+import {RadioConfigType} from './radioType'
+const radioConfig:RadioConfigType={
     variants: {
       variant: {
         default: "rounded-none",
@@ -22,4 +22,13 @@ const radioConfig:radioConfigType={
       size: "default",
     },
   }
-export const RadioVariants = cva("grid gap-2",radioConfig );
+export const radioVariants = cva("grid gap-2",radioConfig );
+
+
+export interface RadioGroupProps
+  extends React.HTMLAttributes<HTMLTableElement>,
+    VariantProps<typeof radioVariants> {
+  variant?: keyof RadioConfigType["variants"]["variant"];
+  size?: keyof RadioConfigType["variants"]["size"];
+  disabled?: boolean;
+}

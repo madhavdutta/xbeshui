@@ -4,8 +4,8 @@ import { IconRocket } from "@tabler/icons-react"
 import { cn } from "../../../../utils/index"
 import { Stack } from "../../Layout/stack/stack"
 import { Group } from "../../Layout/group/group"
-import { alertPropsConfig } from "./alert.config"
-import { AlertPropsType } from "./alertType"
+import { AlertPropsType, alertPropsConfig } from "./alert.config"
+
 
 const AlertTitle = React.forwardRef<
   HTMLParagraphElement,

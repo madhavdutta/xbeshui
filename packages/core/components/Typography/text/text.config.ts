@@ -1,4 +1,4 @@
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 import { TextVariantsType } from "./textType";
 
 const textConfig:TextVariantsType= {
@@ -119,3 +119,17 @@ export const textVariants = cva(
   "leading-6, font-normal, text-black, text-base",
   textConfig
 );
+
+export interface TextProps
+  extends React.HTMLAttributes<HTMLParagraphElement>,
+    VariantProps<typeof textVariants> {
+  size?: keyof TextVariantsType["variants"]["size"];
+  textWrap?: keyof TextVariantsType["variants"]["textWrap"];
+  line?: keyof TextVariantsType["variants"]["line"];
+  align?: keyof TextVariantsType["variants"]["align"];
+  fontFamily?: keyof TextVariantsType["variants"]["fontFamily"];
+  textTransform?: keyof TextVariantsType["variants"]["textTransform"];
+  textOverflow?: keyof TextVariantsType["variants"]["textOverflow"];
+  lineClamp?: keyof TextVariantsType["variants"]["lineClamp"];
+  fontWeight?: keyof TextVariantsType["variants"]["fontWeight"];
+}

@@ -1,6 +1,6 @@
-import { cva } from "class-variance-authority";
-import { checkboxConfigType } from "./checkboxType";
-export const checkboxConfig: checkboxConfigType = {
+import { VariantProps, cva } from "class-variance-authority";
+import { CheckboxConfigType } from "./checkboxType";
+export const checkboxConfig: CheckboxConfigType = {
   variants: {
     variant: {
       default: "rounded-none",
@@ -34,3 +34,11 @@ export const checkboxVariants = cva(
   "peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
   checkboxConfig
 );
+
+export interface CheckboxProps extends React.HTMLAttributes<HTMLTableElement>, VariantProps<typeof checkboxVariants> {
+  label: React.ReactNode;
+  variant?: keyof CheckboxConfigType["variants"]["variant"];
+  radius?: keyof CheckboxConfigType["variants"]["radius"];
+  size?: keyof CheckboxConfigType["variants"]["size"];
+  disabled?:boolean
+}

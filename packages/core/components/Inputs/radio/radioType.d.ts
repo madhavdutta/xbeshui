@@ -1,4 +1,4 @@
-export interface radioConfigType {
+export interface RadioConfigType {
   variants: {
     variant: {
       default: string;
@@ -15,15 +15,7 @@ export interface radioConfigType {
     };
   };
   defaultVariants: {
-    variant: keyof radioConfigType["variants"]["variant"];
-    size: keyof radioConfigType["variants"]["size"];
+    variant: keyof RadioConfigType["variants"]["variant"];
+    size: keyof RadioConfigType["variants"]["size"];
   };
-}
-
-export interface radiogroupprops
-  extends React.HTMLAttributes<HTMLTableElement>,
-    VariantProps<typeof RadioVariants> {
-  variant?: keyof radioConfigType["variants"]["variant"];
-  size?: keyof radioConfigType["variants"]["size"];
-  disabled?: "default" | boolean;
 }

@@ -2,13 +2,13 @@ import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { IconCheck } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
-import { checkboxVariants } from "./checkbox.config";
-import { checkboxProps } from "./checkboxType";
+import { checkboxVariants, CheckboxProps } from "./checkbox.config";
+//import { checkboxProps } from "./checkboxType";
 import { Text } from "../../Typography/text/text";
 
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> & checkboxProps
+  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> & CheckboxProps
 >(({ className, label, radius, size, variant, disabled, ...props }, ref) => (
   <label className="flex items-center space-x-2">
     <CheckboxPrimitive.Root

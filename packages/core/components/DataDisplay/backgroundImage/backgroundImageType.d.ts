@@ -1,6 +1,6 @@
 import { VariantProps } from "class-variance-authority";
 
-export type BackgroundImageSize = {
+export type BackgroundImageSizeType = {
   default: string;
   xs: string;
   sm: string;
@@ -9,7 +9,7 @@ export type BackgroundImageSize = {
   xl: string;
 };
 
-export type BackgroundImageRadius = {
+export type BackgroundImageRadiusType = {
   none: string;
   sm: string;
   md: string;
@@ -19,7 +19,7 @@ export type BackgroundImageRadius = {
   full: string;
 };
 
-export type BackgroundImageFit = {
+export type BackgroundImageFitType = {
   contain: string;
   cover: string;
   fill: string;
@@ -27,24 +27,14 @@ export type BackgroundImageFit = {
   scaleDown: string;
 };
 
-export interface BackgroundImageVariantsConfig {
+export interface BackgroundImageVariantsConfigType {
   variants: {
-    radius: BackgroundImageRadius;
-    fit: BackgroundImageFit;
+    radius: BackgroundImageRadiusType;
+    fit: BackgroundImageFitType;
   };
   defaultVariants: {
-    radius: keyof BackgroundImageRadius;
-    fit: keyof BackgroundImageFit;
+    radius: keyof BackgroundImageRadiusType;
+    fit: keyof BackgroundImageFitType;
   };
 }
 
-export interface BackgroundImageProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof backgroundImageVariants> {
-  src: string;
-  alt?: string;
-  width?: string | number;
-  height?: string | number;
-  radius: keyof BackgroundImageRadius;
-  fit: keyof BackgroundImageFit;
-}

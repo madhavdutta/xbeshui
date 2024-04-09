@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
-import { colorInputConfigType } from "./colorInputType";
-export const colorInputConfig: colorInputConfigType = {
+import { ColorInputConfigType } from "./colorInputType";
+export const colorInputConfig: ColorInputConfigType = {
   variants: {
     variant: {
       default: "rounded-none",
@@ -34,3 +34,23 @@ export const checkboxVariants = cva(
   "peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
   colorInputConfig
 );
+
+export interface ColorInputProps
+  extends React.InputHTMLAttributes<HTMLInputElement>,
+    VariantProps<typeof checkboxVariants> {
+  label?: React.ReactNode | string;
+  description?: React.ReactNode | string;
+  placeholder?: string;
+  value?: string;
+  onChange?: (value: string) => void;
+  format?: "hex" | "rgb" | "hsl";
+  swatches?: string[];
+  swatchesPerRow?: number;
+  defaultValue?: string;
+  disabled?: boolean;
+  required?: boolean;
+  className?: string;
+  variant?: keyof ColorInputConfigType["variants"]["variant"];
+  radius?: keyof ColorInputConfigType["variants"]["radius"];
+  size?: keyof ColorInputConfigType["variants"]["size"];
+}

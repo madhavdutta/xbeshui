@@ -36,10 +36,3 @@ export interface AcionIconConfigType {
   };
 }
 
-export interface ActionIconProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof actionIconVariants> {
-  variant?: keyof AcionIconConfigType["variants"]["variant"];
-  size?: keyof AcionIconConfigType["variants"]["size"];
-  radius?: keyof AcionIconConfigType["variants"]["radius"];
-}

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
-import { titleVariants } from "./title.config";
-import { TitleProps } from "./titleType";
+import { TitleProps, titleVariants } from "./title.config";
+
 
 const Title = React.forwardRef<HTMLHeadingElement, TitleProps>(
   (

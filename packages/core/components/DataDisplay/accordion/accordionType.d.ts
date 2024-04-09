@@ -1,11 +1,11 @@
-export type AccordionVariant = {
+export type AccordionVariantType = {
   default: string;
   filled: string;
   contained: string;
   separated: string;
 };
 
-export type AccordionRadius = {
+export type AccordionRadiusType = {
   default: string;
   xs: string;
   sm: string;
@@ -14,13 +14,13 @@ export type AccordionRadius = {
   xl: string;
 };
 
-export type chevronPosition = {
+export type ChevronPositionType = {
   default: string;
   left: string;
   right: string;
 };
 
-export type chevronSize = {
+export type ChevronSizeType = {
   default: number;
   xs: number;
   sm: number;
@@ -30,17 +30,17 @@ export type chevronSize = {
   xxl: number;
 };
 
-export type AccordionVariants = {
+export type AccordionVariantsType = {
   variants: {
-    variant: AccordionVariant;
-    radius: AccordionRadius;
-    chevronPosition: chevronPosition;
-    chevronsize: chevronSize;
+    variant: AccordionVariantType;
+    radius: AccordionRadiusType;
+    chevronPosition: ChevronPositionType;
+    chevronsize: ChevronSizeType;
   };
   defaultVariants: {
-    variant: keyof AccordionVariant;
-    radius: keyof AccordionRadius;
-    chevronPosition: keyof chevronPosition;
-    chevronsize: keyof chevronSize;
+    variant: keyof AccordionVariantType;
+    radius: keyof AccordionRadiusType;
+    chevronPosition: keyof ChevronPositionType;
+    chevronsize: keyof ChevronSizeType;
   };
 };

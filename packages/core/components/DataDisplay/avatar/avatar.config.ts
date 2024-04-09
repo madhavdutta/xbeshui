@@ -1,7 +1,7 @@
-import { cva } from "class-variance-authority";
-import { AvatarVariantsConfig } from "./avatarType";
+import { VariantProps, cva } from "class-variance-authority";
+import { AvatarRadiusType, AvatarSizeType, AvatarVariantsConfigType } from "./avatarType";
 
-const avatarConfig: AvatarVariantsConfig = {
+const avatarConfig: AvatarVariantsConfigType = {
   variants: {
     radius: {
       default: "rounded-none",
@@ -28,3 +28,11 @@ const avatarConfig: AvatarVariantsConfig = {
 };
 
 export const avatarVariants = cva("", avatarConfig);
+
+export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarVariants> {
+  src?: string;
+  alt?: string;
+  fallback?: string;
+  radius?: keyof AvatarRadiusType;
+  size?: keyof AvatarSizeType;
+}

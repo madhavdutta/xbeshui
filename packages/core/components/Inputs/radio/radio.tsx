@@ -3,19 +3,21 @@ import { IconCheck } from "@tabler/icons-react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 
 import { cn } from "../../../../utils";
-import { radiogroupprops } from "./radioType";
+
 import { Text } from "../../Typography/text/text";
+import { RadioGroupProps, radioVariants } from "./radio.config";
 
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> &
-    radiogroupprops
+    RadioGroupProps
 >(({ className, variant, size, disabled, ...props }, ref) => {
   return (
     <>
       <RadioGroupPrimitive.Root
-        className={cn(variant, size, disabled, className)}
+        className={cn(radioVariants({variant, size, className}))}
+        disabled={disabled}
         {...props}
         ref={ref}
       />
@@ -28,7 +30,7 @@ const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> & {
     label: React.ReactNode;
-  } & radiogroupprops
+  } & RadioGroupProps
 >(({ className, label, size, ...props }, ref) => {
   return (
     <div className="flex items-center space-x-2">

@@ -62,15 +62,4 @@ export interface BlockQuoteVariantsType {
   };
 }
 
-export interface BlockQuoteProps
-  extends React.HTMLAttributes<HTMLParagraphElement>,
-    VariantProps<typeof blockQuoteVariants> {
-  size: keyof BlockQuoteVariantsType["variants"]["size"];
-  textWrap: keyof BlockQuoteVariantsType["variants"]["textWrap"];
-  line: keyof BlockQuoteVariantsType["variants"]["line"];
-  fontFamily: keyof BlockQuoteVariantsType["variants"]["fontFamily"];
-  color?: string; // New prop
-  cite?: string; // New prop
-  icon?: React.ReactNode; // New prop
-  mt?: string; // New prop
-}
+

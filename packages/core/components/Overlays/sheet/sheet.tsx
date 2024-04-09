@@ -3,8 +3,7 @@ import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { IconX } from "@tabler/icons-react";
 
 import { cn } from "../../../../utils";
-import { SheetContentProps } from "./sheetType";
-import { sheetVariants } from "./sheet.config";
+import { SheetContentProps, sheetVariants } from "./sheet.config";
 
 const Sheet = SheetPrimitive.Root;
 

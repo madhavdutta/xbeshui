@@ -1,11 +1,7 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
-import { tableVariants } from "./table.config";
-import type { TableProps } from "./tableType";
+import { TableProps, tableVariants } from "./table.config"; 
 import { Button } from "../../Buttons/button/button";
-
-
-
 
 const XbTable = React.forwardRef<HTMLTableElement, TableProps>(
   (

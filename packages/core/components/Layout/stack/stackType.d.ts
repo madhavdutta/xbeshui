@@ -1,7 +1,7 @@
 import { VariantProps } from "class-variance-authority";
 import { stackVariant } from "./stack.config";
 
-export interface stackVariantType {
+export interface StackVariantType {
   variants: {
     justify: {
       default: string;
@@ -30,18 +30,10 @@ export interface stackVariantType {
     };
   };
   defaultVariants: {
-    justify: keyof stackVariantType["variants"]["justify"];
-    align: keyof stackVariantType["variants"]["align"];
-    gap: keyof stackVariantType["variants"]["gap"];
+    justify: keyof StackVariantType["variants"]["justify"];
+    align: keyof StackVariantType["variants"]["align"];
+    gap: keyof StackVariantType["variants"]["gap"];
   };
 }
 
-export interface StackProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof stackVariant> {
-  asChild?: boolean;
-  justify?: keyof stackVariantType["variants"]["justify"];
-  align?: keyof stackVariantType["variants"]["align"];
-  gap?: keyof stackVariantType["variants"]["gap"];
-  grow?: boolean;
-}
+

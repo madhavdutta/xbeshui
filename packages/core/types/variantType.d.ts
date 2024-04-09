@@ -12,21 +12,6 @@ export type ButtonVariant = {
     "ghost": string;
     "link": string;
   };
-  export type ToggleVariant = {
-    "default": string;
-    "destructive": string;
-    "outline": string;
-    "secondary": string;
-    "ghost": string;
-  };
-  export type ToggleGroupVariant = {
-    default: string;
-    success: string;
-    warning: string;
-    notice: string;
-    destructive: string,
-    outline: string;
-  };
   
 // Data Display Variant Types
 export type AccordionVariant = "default" | "filled" | "contained" | "separated";

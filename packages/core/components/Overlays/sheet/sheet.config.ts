@@ -1,7 +1,8 @@
-import { cva } from "class-variance-authority";
-import { sheetVarientConfigType } from "./sheetType";
+import { VariantProps, cva } from "class-variance-authority";
+import { SheetVarientConfigType } from "./sheetType";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
 
-export const sheetVarientConfig: sheetVarientConfigType = {
+export const sheetVarientConfig: SheetVarientConfigType = {
   variants: {
     side: {
       default:
@@ -39,3 +40,13 @@ export const sheetVariants = cva(
   "fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
   sheetVarientConfig
 );
+
+export interface SheetContentProps
+  extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
+    VariantProps<typeof sheetVariants> {
+  children?: React.ReactNode;
+  className?: string;
+  side?: keyof SheetVarientConfigType["variants"]["side"];
+  size?: keyof SheetVarientConfigType["variants"]["size"];
+  fontFamily?: keyof SheetVarientConfigType["variants"]["fontFamily"];
+}

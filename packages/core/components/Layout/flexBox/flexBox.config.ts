@@ -1,4 +1,4 @@
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 import { flexBoxVariantType } from "./flexBoxType";
 const flexBoxConfig: flexBoxVariantType = {
   variants: {
@@ -40,3 +40,13 @@ const flexBoxConfig: flexBoxVariantType = {
   },
 };
 export const flexBoxVariants = cva("flex", flexBoxConfig);
+
+export interface FlexBoxProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof flexBoxVariants> {
+  children?: React.ReactNode;
+  direction?: keyof flexBoxVariantType["variants"]["direction"];
+  justify?: keyof flexBoxVariantType["variants"]["justify"];
+  align?: keyof flexBoxVariantType["variants"]["align"];
+  wrap?: keyof flexBoxVariantType["variants"]["wrap"];
+}

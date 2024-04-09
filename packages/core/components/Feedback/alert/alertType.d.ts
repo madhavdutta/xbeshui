@@ -1,4 +1,4 @@
-type AlertVariant = {
+export type AlertVariantType = {
     default: string
     destructive: string
     success: string;
@@ -7,21 +7,12 @@ type AlertVariant = {
     muted: string;
 }
 
-interface AlertVariantsType {
+export interface AlertVariantsConfigType {
     variants: {
-        variant: AlertVariant
+        variant: AlertVariantType
     }
     defaultVariants: {
-        variant: keyof AlertVariant
+        variant: keyof AlertVariantType
     }
 }
 
-interface AlertPropsType extends React.HTMLAttributes<HTMLDivElement>,  VariantProps<typeof alertVariantsConfig> {
-    id: string;
-    title?: string;
-    message?: string;
-    icon?: React.ReactNode;
-    variant?: keyof AlertVariant
-}
-
-export {AlertVariant, AlertPositions, AlertVariantsType, AlertPropsType }

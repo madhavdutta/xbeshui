@@ -1,4 +1,4 @@
-export interface switchConfigType {
+export interface SwitchConfigType {
   variants: {
     labelPosition: {
       default: string;
@@ -23,20 +23,8 @@ export interface switchConfigType {
     };
   };
   defaultVariants: {
-    labelPosition: keyof switchConfigType["variants"]["labelPosition"];
-    size: keyof switchConfigType["variants"]["size"];
-    radius: keyof switchConfigType["variants"]["radius"];
+    labelPosition: keyof SwitchConfigType["variants"]["labelPosition"];
+    size: keyof SwitchConfigType["variants"]["size"];
+    radius: keyof SwitchConfigType["variants"]["radius"];
   };
-}
-
-export interface switchProps
-  extends React.HTMLAttributes<HTMLTableElement>,
-    VariantProps<typeof switchVariants> {
-  label?: React.ReactNode;
-  description?: string;
-  bgcolor?: string;
-  labelPosition?: keyof switchConfigType["variants"]["labelPosition"];
-  size:? keyof switchConfigType["variants"]["size"];
-  radius?: keyof switchConfigType["variants"]["radius"];
-  disabled?: boolean;
 }

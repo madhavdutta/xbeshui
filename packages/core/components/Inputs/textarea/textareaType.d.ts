@@ -1,4 +1,4 @@
-export interface textareaConfigType {
+export interface TextareaConfigType {
   variants: {
     variant: {
       default: string;
@@ -34,23 +34,9 @@ export interface textareaConfigType {
     };
   };
   defaultVariants: {
-    labelPosition: keyof textareaConfigType["variants"]["labelPosition"];
-    radius: keyof textareaConfigType["variants"]["radius"];
-    variant: keyof textareaConfigType["variants"]["variant"];
-    size: keyof textareaConfigType["variants"]["size"];
+    labelPosition: keyof TextareaConfigType["variants"]["labelPosition"];
+    radius: keyof TextareaConfigType["variants"]["radius"];
+    variant: keyof TextareaConfigType["variants"]["variant"];
+    size: keyof TextareaConfigType["variants"]["size"];
   };
-}
-
-export interface textareaProps
-  extends React.HTMLAttributes<HTMLTextAreaElement>,
-    VariantProps<typeof textareaVariants> {
-  label?: React.ReactNode;
-  description?: string;
-  labelPosition?: keyof textareaConfigType["variants"]["labelPosition"];
-  radius?: keyof textareaConfigType["variants"]["radius"];
-  variant?: keyof textareaConfigType["variants"]["variant"];
-  size?: keyof textareaConfigType["variants"]["size"];
-  disabled?: boolean;
-  error?:boolean;
-  placeholder?:string;
 }

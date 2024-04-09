@@ -1,7 +1,7 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
-import { listVariants } from "./list.config";
-import { ListProps, ListItemProps } from "./listType";
+import { ListItemProps, ListProps, listVariants } from "./list.config";
+
 
 const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
   ({ className, ...props }, ref: React.Ref<HTMLLIElement>) => {

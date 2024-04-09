@@ -1,7 +1,7 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { ButtonSizeType, ButtonVariantType, ButtonRadiusType, ButtonVariantsConfigType } from "./buttonType";
+import { cva } from "class-variance-authority";
+import { ButtonVariantsConfig } from "../button/buttonType";
 
-export const ButtonConfig: ButtonVariantsConfigType = {
+export const LinkConfig: ButtonVariantsConfig = {
   variants: {
     variant: {
       default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
@@ -42,30 +42,7 @@ export const ButtonConfig: ButtonVariantsConfigType = {
     radius: "md"
   },
 };
-
 export const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
-  ButtonConfig
+  LinkConfig
 );
-
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
-  leftSection?: React.ReactNode;
-  rightSection?: React.ReactNode;
-  variant?: keyof ButtonVariantType | null;
-  size?: keyof ButtonSizeType | null;
-  href?: string;
-  target?: "_blank" | "_self" | "_parent" | "_top" | string;
-  radius?: keyof ButtonRadiusType;
-  loading?:boolean;
-}
-
-export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>, VariantProps<typeof buttonVariants> {
-  leftSection?: React.ReactNode;
-  rightSection?: React.ReactNode;
-  variant?: keyof ButtonVariantType | null;
-  size?: keyof ButtonSizeType | null;
-  href?: string;
-  target?: "_blank" | "_self" | "_parent" | "_top" | string;
-  radius?: keyof ButtonRadiusType;
-  loading?:boolean;
-}
