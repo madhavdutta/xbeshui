@@ -41,7 +41,7 @@ const groupConfig: GroupVariantType = {
     wrap: "default",
   },
 };
-export const groupVariant = cva("w-full flex flex-row", groupConfig);
+export const groupVariant = cva("bg-background text-primary-foreground w-full flex flex-row", groupConfig);
 
 export interface GroupProps
   extends React.HTMLAttributes<HTMLDivElement>,

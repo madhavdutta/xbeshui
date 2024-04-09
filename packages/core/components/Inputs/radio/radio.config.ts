@@ -22,7 +22,7 @@ const radioConfig:RadioConfigType={
       size: "default",
     },
   }
-export const radioVariants = cva("grid gap-2",radioConfig );
+export const radioVariants = cva("bg-background text-primary-foreground grid gap-2",radioConfig );
 
 
 export interface RadioGroupProps

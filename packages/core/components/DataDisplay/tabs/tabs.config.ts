@@ -39,4 +39,4 @@ const tabsConfig:TabsConfigType = {
     },
 }
 
-export const tabsVariants = cva("flex", tabsConfig );
+export const tabsVariants = cva("flex bg-background text-primary-foreground", tabsConfig );

@@ -27,7 +27,7 @@ const avatarConfig: AvatarVariantsConfigType = {
   },
 };
 
-export const avatarVariants = cva("", avatarConfig);
+export const avatarVariants = cva("bg-background text-primary-foreground", avatarConfig);
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarVariants> {
   src?: string;

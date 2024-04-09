@@ -45,7 +45,7 @@ const tagsConfig: TagsConfigType = {
   },
 };
 export const tagsVariants = cva(
-  "w-full h-9 rounded-md  text-sm" ,
+  "bg-background text-primary-foreground w-full h-9 rounded-md  text-sm" ,
   tagsConfig
 );
 

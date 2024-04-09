@@ -46,7 +46,7 @@ export const badgeVariantConfig: BadgeVariantsConfigType = {
   },
 };
 
-export const badgeVariants = cva( "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors", badgeVariantConfig);
+export const badgeVariants = cva( "bg-background text-primary-foreground inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors", badgeVariantConfig);
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {

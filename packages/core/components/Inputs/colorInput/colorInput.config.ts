@@ -1,4 +1,4 @@
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 import { ColorInputConfigType } from "./colorInputType";
 export const colorInputConfig: ColorInputConfigType = {
   variants: {
@@ -31,7 +31,7 @@ export const colorInputConfig: ColorInputConfigType = {
   },
 };
 export const checkboxVariants = cva(
-  "peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
+  "bg-background text-primary-foreground peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
   colorInputConfig
 );
 

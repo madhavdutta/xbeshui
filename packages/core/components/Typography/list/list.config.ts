@@ -39,7 +39,7 @@ const listConfig:ListVariantsType= {
   },
 }
 
-export const listVariants = cva("list-none",listConfig);
+export const listVariants = cva("bg-background text-primary-foreground list-none",listConfig);
 
 export interface ListProps
   extends React.HTMLAttributes<HTMLOListElement>,

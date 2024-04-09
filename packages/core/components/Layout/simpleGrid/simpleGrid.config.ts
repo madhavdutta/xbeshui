@@ -41,7 +41,7 @@ const simpleGridConfig: simpleGridVariantType = {
     spacing: "default",
   },
 };
-export const simpleGridVariant = cva("grid", simpleGridConfig);
+export const simpleGridVariant = cva("bg-background text-primary-foreground grid", simpleGridConfig);
 
 export interface SimpleGridProps
   extends React.HTMLAttributes<HTMLDivElement>,

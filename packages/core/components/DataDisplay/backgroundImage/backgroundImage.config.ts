@@ -25,7 +25,7 @@ export const backgroundImageVariant: BackgroundImageVariantsConfigType = {
     fit: "cover",
   },
 };
-export const backgroundImageVariants = cva("", backgroundImageVariant);
+export const backgroundImageVariants = cva("bg-background text-primary-foreground", backgroundImageVariant);
 
 export interface BackgroundImageProps
   extends React.HTMLAttributes<HTMLDivElement>,
