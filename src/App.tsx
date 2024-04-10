@@ -554,7 +554,6 @@ function App() {
   ];
   const searchable = "title";
 
-
   type PanelConfig = {
     key: string | number;
     content: React.ReactNode;
@@ -866,14 +865,14 @@ function App() {
           withPagination
           itemsPerPage={10}
         />
-        <br/>
-        <br/>
+        <br />
+        <br />
         <DataTable
-        data={dataa}
-        filters={filters}
-        columns={columns}
-        searchable={searchable}
-      />
+          data={dataa}
+          filters={filters}
+          columns={columns}
+          searchable={searchable}
+        />
         <br />
         <br />
 
@@ -1225,7 +1224,6 @@ function SearchableVideoList({ videos }) {
         </DropdownMenu>
         <br />
         <br />
-
         <ContextMenu>
           <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
             Right click here
