@@ -20,7 +20,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   ) => {
     return (
       <a
-        className={cn(buttonVariants({ variant, size }), className)}
+        className={cn(buttonVariants({ variant,radius, size }), className)}
         href={href}
         target={target}
         ref={ref}

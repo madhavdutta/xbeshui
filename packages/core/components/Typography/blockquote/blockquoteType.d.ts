@@ -1,5 +1,3 @@
-import { VariantProps } from "class-variance-authority";
-
 export interface BlockQuoteVariantsType {
   variants: {
     size: {

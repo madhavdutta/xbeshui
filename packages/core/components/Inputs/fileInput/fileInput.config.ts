@@ -1,4 +1,4 @@
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 import { FileInputConfigType } from "./fileInputType";
 
 const fileInputConfig: FileInputConfigType = {
@@ -65,7 +65,7 @@ export interface FileInputProps
   labelPosition?: keyof FileInputConfigType["variants"]["labelPosition"];
   radius?: keyof FileInputConfigType["variants"]["radius"];
   variant?: keyof FileInputConfigType["variants"]["variant"];
-  size: keyof FileInputConfigType["variants"]["size"];
+  size?: keyof FileInputConfigType["variants"]["size"];
   error?: boolean;
   disabled?: boolean;
 }

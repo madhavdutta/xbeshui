@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { VariantProps, cva } from "class-variance-authority";
 import {   TableVariantsConfigType } from "./tableType";
 
@@ -22,7 +23,7 @@ const tableConfig: TableVariantsConfigType = {
 export const tableVariants = cva("table-auto", tableConfig);
 
 export interface TableProps extends React.HTMLAttributes<HTMLTableElement>, VariantProps<typeof tableVariants> {
-  data: never[];
+  data: any[];
   children?: React.ReactNode;
   size?: keyof TableVariantsConfigType["variants"]["size"];
   footer?: React.ReactNode;

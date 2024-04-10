@@ -13,7 +13,7 @@ export interface ColorInputConfigType {
       lg: string;
       xl: string;
     };
-    size: {
+    width: {
       default: string;
       xs: string;
       sm: string;
@@ -25,7 +25,7 @@ export interface ColorInputConfigType {
   defaultVariants: {
     variant: keyof ColorInputConfigType["variants"]["variant"];
     radius: keyof ColorInputConfigType["variants"]["radius"];
-    size: keyof ColorInputConfigType["variants"]["size"];
+    width: keyof ColorInputConfigType["variants"]["width"];
   };
 }
 

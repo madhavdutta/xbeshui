@@ -47,7 +47,7 @@ export const CardVariants = cva("bg-card text-card-foreground rounded-md drop-sh
 export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof CardVariants> {
-  withBorder: boolean;
-  shadow: keyof CardShadowType;
-  radius: keyof CardRadiusType;
+  withBorder?: boolean;
+  shadow?: keyof CardShadowType;
+  radius?: keyof CardRadiusType;
 }

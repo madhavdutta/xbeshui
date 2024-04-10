@@ -1,5 +1,3 @@
-import { VariantProps } from "class-variance-authority";
-
 export type CardSizeType = {
   default: string;
   xs: string;
