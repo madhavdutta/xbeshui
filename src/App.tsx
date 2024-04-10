@@ -473,17 +473,18 @@ function App() {
   return (
     <>
       <Container fluid={false} justify="start" items="center">
-        <br />
-        <br />
-        <Title
-          order={"h1"}
-          fontFamily="sans"
-          align={"center"}
-          gradient={"bl"}
-          gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
-        >
-          Believe you can and you're halfway there{" "}
-        </Title>
+        <div style={{clear:"both"}}>
+          <Title
+            order={"h1"}
+            fontFamily={"serif"}
+            align={"right"}
+            gradient={"bl"}
+            gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
+            textWrap={"wrap"}
+            >
+            Believe you can and you're halfway there{" "}
+          </Title>
+      </div>
         <br />
         <br />
 
@@ -492,11 +493,13 @@ function App() {
         </Button>
         <br />
         <br />
+
         <Toggle variant={"outline"} size={"xs"}>
           <IconStack size={14} />
         </Toggle>
         <br />
         <br />
+
         <ToggleGroup
           type="single"
           size={"xs"}
@@ -535,12 +538,13 @@ function App() {
           Copy to clipboard
         </CopyButton>
         <br />
-        <br />
+        <br />        
         <ActionIcon>
           <IconSettings />
         </ActionIcon>
         <br />
         <br />
+        
         <Accordion
           type="multiple"
           variant="default"
@@ -564,6 +568,7 @@ function App() {
         </Accordion>
         <br />
         <br />
+
         <Avatar
           src={"https://tabler.io/packages/logo-vue.svg"}
           radius="md"
@@ -573,6 +578,7 @@ function App() {
         ></Avatar>
         <br />
         <br />
+
         <BackgroundImage
           src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
           radius="xl"
@@ -683,6 +689,7 @@ function SearchableVideoList({ videos }) {
         />
         <br />
         <br />
+
         <Alert
           className="mt-4"
           id={"abc"}
@@ -691,6 +698,7 @@ function SearchableVideoList({ videos }) {
         />
         <br />
         <br />
+  
         <Progress className="mt-4" value={20} />
         <br />
         <br />
@@ -698,6 +706,7 @@ function SearchableVideoList({ videos }) {
         <Skeleton className="mt-4  h-20" radius={"xl"} animate={"pulse"} />
         <br />
         <br />
+
         <Button
           className="mt-4"
           variant="outline"
@@ -1075,8 +1084,6 @@ function SearchableVideoList({ videos }) {
             </div>
           </DrawerContent>
         </Drawer>
-        <br />
-        <br />
 
         <Input
           placeholder="input field..."
@@ -1087,6 +1094,7 @@ function SearchableVideoList({ videos }) {
         />
         <br />
         <br />
+
         <Textarea
           className=""
           placeholder="textarea filed..."
@@ -1097,6 +1105,7 @@ function SearchableVideoList({ videos }) {
         />
         <br />
         <br />
+
         <TagsInput label="tag label" description="tag description" width="sm" />
         <br />
         <br />
@@ -1138,12 +1147,16 @@ function SearchableVideoList({ videos }) {
         <Slider />
         <br />
         <br />
+
         <p className="text-sm text-muted-foreground">
           Press{" "}
           <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
             <span className="text-xs">⌘</span>J
           </kbd>
         </p>
+        <br />
+        <br />
+
         <CommandDialog open={opened} onOpenChange={setOpen}>
           <CommandInput placeholder="Type a command or search..." />
           <CommandList>
@@ -1206,6 +1219,7 @@ function SearchableVideoList({ videos }) {
         <MultiSelect />
         <br />
         <br />
+
         <Checkbox
           id="terms"
           label={" Accept terms and conditions"}
@@ -1321,6 +1335,7 @@ function SearchableVideoList({ videos }) {
         </Tabs>
         <br />
         <br />
+
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
@@ -1328,6 +1343,7 @@ function SearchableVideoList({ videos }) {
         />
         <br />
         <br />
+
         <ColorInput
           label="Choose a color:"
           value={"#FF0000"}
@@ -1336,15 +1352,15 @@ function SearchableVideoList({ videos }) {
         />
         <br />
         <br />
+
         <ColorSwatch color={"blue"} />
-        <br />
-        <br />
         <Resizable
           panels={panelConfigs}
           className="max-w-md rounded-lg border"
         />
         <br />
         <br />
+
         <Group>
           <div className="text-black">Group1</div>
           <div className="text-black">Group2</div>
@@ -1352,6 +1368,7 @@ function SearchableVideoList({ videos }) {
         </Group>
         <br />
         <br />
+
         <Stack>
           <div className="text-black">Stack1</div>
           <div className="text-black">Stack1</div>
@@ -1360,326 +1377,10 @@ function SearchableVideoList({ videos }) {
         <br />
         <br />
 
-        <Grid className="bg-black">
-          <GridCol span={3}>
-            {" "}
-            <div className="bg-blue-500 text-white p-5">1</div>
-          </GridCol>
-          <GridCol span={6}>
-            {" "}
-            <div className="bg-blue-500 text-white p-5">1</div>
-          </GridCol>
-          <GridCol span={3}>
-            {" "}
-            <div className="bg-blue-500 text-white p-5">1</div>
-          </GridCol>
-        </Grid>
-
-        <br />
-        <br />
-
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1">
-                  <BreadcrumbEllipsis className="h-4 w-4" />
-                  <span className="sr-only">Toggle menu</span>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start">
-                  <DropdownMenuItem>Documentation</DropdownMenuItem>
-                  <DropdownMenuItem>Themes</DropdownMenuItem>
-                  <DropdownMenuItem>GitHub</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/docs/components">
-                Components
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-        <br />
-        <br />
-
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          className="rounded-md border shadow"
-        />
-
-        <br />
-        <br />
-        <Carousel className="w-full max-w-xs">
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index}>
-                <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">
-                        {index + 1}
-                      </span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-        <br />
-        <br />
-        <Collapsible
-          open={isOpen}
-          onOpenChange={setIsOpen}
-          className="w-[350px] space-y-2"
-        >
-          <div className="flex items-center justify-between space-x-4 px-4">
-            <h4 className="text-sm font-semibold">
-              @peduarte starred 3 repositories
-            </h4>
-            <CollapsibleTrigger asChild>
-              <Button variant="ghost" size="sm">
-                <IconSelect className="h-4 w-4" />
-                <span className="sr-only">Toggle</span>
-              </Button>
-            </CollapsibleTrigger>
-          </div>
-          <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-            @xbeshui/core
-          </div>
-          <CollapsibleContent className="space-y-2">
-            <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-              @xbeshui/core
-            </div>
-            <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-              @xbeshui/core
-            </div>
-          </CollapsibleContent>
-        </Collapsible>
-        <br />
-        <br />
-
-        <ScrollArea className="h-72 w-48 rounded-md border">
-          <div className="p-4">
-            <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
-            {tags.map((tag) => (
-              <>
-                <div key={tag} className="text-sm">
-                  {tag}
-                </div>
-                <Separator className="my-2" />
-              </>
-            ))}
-          </div>
-        </ScrollArea>
-        <br />
-        <br />
-        <Timeline>
-          {items.map((item, index) => (
-            <TimelineItem key={index}>
-              <Avatar
-                className="w-12 h-12 mb-3 me-3 rounded-full sm:mb-0"
-                src={item.imageUrl}
-                alt="Jese Leos image"
-              />
-              <div className="text-gray-600 dark:text-gray-400">
-                <div className="text-base font-normal">
-                  <span className="font-medium text-gray-900 dark:text-white">
-                    {item.name}
-                  </span>{" "}
-                  likes{" "}
-                  <span className="font-medium text-gray-900 dark:text-white">
-                    Bonnie Greens
-                  </span>{" "}
-                  post in{" "}
-                  <span className="font-medium text-gray-900 dark:text-white">
-                    {" "}
-                    How to start with Flowbite library
-                  </span>
-                </div>
-                <div className="text-sm font-normal">
-                  I wanted to share a webinar zeroheight
-                </div>
-                <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
-                  <svg
-                    className="w-2.5 h-2.5 me-1"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M10 .5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19ZM8.374 17.4a7.6 7.6 0 0 1-5.9-7.4c0-.83.137-1.655.406-2.441l.239.019a3.887 3.887 0 0 1 2.082 2.5 4.1 4.1 0 0 0 2.441 2.8c1.148.522 1.389 2.007.732 4.522Zm3.6-8.829a.997.997 0 0 0-.027-.225 5.456 5.456 0 0 0-2.811-3.662c-.832-.527-1.347-.854-1.486-1.89a7.584 7.584 0 0 1 8.364 2.47c-1.387.208-2.14 2.237-2.14 3.307a1.187 1.187 0 0 1-1.9 0Zm1.626 8.053-.671-2.013a1.9 1.9 0 0 1 1.771-1.757l2.032.619a7.553 7.553 0 0 1-3.132 3.151Z" />
-                  </svg>
-                  Public
-                </span>
-              </div>
-            </TimelineItem>
-          ))}
-        </Timeline>
-        <br />
-        <br />
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <li className="row-span-3">
-                    <NavigationMenuLink asChild>
-                      <a
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                        href="/"
-                      >
-                        <IconStack className="h-6 w-6" />
-                        <div className="mb-2 mt-4 text-lg font-medium">
-                          shadcn/ui
-                        </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
-                          Beautifully designed components built with Radix UI
-                          and Tailwind CSS.
-                        </p>
-                      </a>
-                    </NavigationMenuLink>
-                  </li>
-                  <NavListItem href="/docs" title="Introduction">
-                    Re-usable components built using Radix UI and Tailwind CSS.
-                  </NavListItem>
-                  <NavListItem href="/docs/installation" title="Installation">
-                    How to install dependencies and structure your app.
-                  </NavListItem>
-                  <NavListItem
-                    href="/docs/primitives/typography"
-                    title="Typography"
-                  >
-                    Styles for headings, paragraphs, lists...etc
-                  </NavListItem>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                  {components.map((component) => (
-                    <NavListItem
-                      key={component.title}
-                      title={component.title}
-                      href={component.href}
-                    >
-                      {component.description}
-                    </NavListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/docs">
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Documentation
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-        <br />
-        <br />
-        <HoverCard
-          className="flex flex-wrap"
-          triggerContent={<button>hover card: hover me</button>}
-          cardContent={
-            <>
-              {" "}
-              <div className="flex justify-between space-x-4">
-                <Avatar src="https://github.com/vercel.png" />
-
-                <div className="space-y-1">
-                  <h4 className="text-sm font-semibold">@nextjs</h4>
-                  <p className="text-sm">
-                    The React Framework – created and maintained by @vercel.
-                  </p>
-                  <div className="flex items-center pt-2">
-                    <IconCalendar className="mr-2 h-4 w-4 opacity-70" />{" "}
-                    <span className="text-xs text-muted-foreground">
-                      Joined December 2021
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </>
-          }
-        />
-        <br />
-        <br />
-        <Popover
-          trigger={<button> popover :Click me</button>}
-          content={
-            <>
-              {" "}
-              <div className="grid gap-4">
-                <div className="space-y-2">
-                  <h4 className="font-medium leading-none">Dimensions</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Set the dimensions for the layer.
-                  </p>
-                </div>
-                <div className="grid gap-2">
-                  <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="width">Width</Label>
-                    <Input
-                      id="width"
-                      defaultValue="100%"
-                      className="col-span-2 h-8"
-                    />
-                  </div>
-                  <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="maxWidth">Max. width</Label>
-                    <Input
-                      id="maxWidth"
-                      defaultValue="300px"
-                      className="col-span-2 h-8"
-                    />
-                  </div>
-                  <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="height">Height</Label>
-                    <Input
-                      id="height"
-                      defaultValue="25px"
-                      className="col-span-2 h-8"
-                    />
-                  </div>
-                  <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="maxHeight">Max. height</Label>
-                    <Input
-                      id="maxHeight"
-                      defaultValue="none"
-                      className="col-span-2 h-8"
-                    />
-                  </div>
-                </div>
-              </div>
-            </>
-          }
-          align="center"
-        />
-        <br />
-        <br />
         <XbeshThemeSwitch />
         <br />
         <br />
+
       </Container>
     </>
   );
