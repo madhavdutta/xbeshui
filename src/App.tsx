@@ -748,16 +748,20 @@ function App() {
         <br />
         <br />
 
-        <Toggle variant={"outline"} radius={"none"} size={"lg"}>
-          <IconStack size={14} />
+        <Toggle 
+          variant={"outline"} 
+          radius={"full"} 
+          size={"lg"}
+        >
+          <IconStack size={18} />
         </Toggle>
         <br />
         <br />
 
         <ToggleGroup
           type="single"
-          size={"xs"}
-          radius={"sm"}
+          size={"lg"}
+          radius={"full"}
           variant={"outline"}
         >
           <ToggleGroupItem value="bold" aria-label="Toggle bold">
@@ -778,9 +782,9 @@ function App() {
 
         <FileButton
           onFileSelect={(value) => console.log(value)}
-          variant={"default"}
+          variant={"secondary"}
           size={"lg"}
-          radius={"md"}
+          radius={"full"}
           allowedFileTypes={["image/svg+xml"]}
         >
           Upload Image
@@ -788,12 +792,13 @@ function App() {
         <br />
         <br />
 
-        <CopyButton value={"Here we go"} size="lg" radius={"md"}>
+        <CopyButton value={"Here we go"} size={"md"} radius={"full"} variant={"notice"} >
           Copy to clipboard
         </CopyButton>
         <br />
         <br />
-        <ActionIcon>
+
+        <ActionIcon size={"lg"} variant={"destructive"} radius={"full"}>
           <IconSettings />
         </ActionIcon>
         <br />
@@ -801,9 +806,10 @@ function App() {
 
         <Accordion
           type="multiple"
-          variant="default"
-          radius="lg"
-          chevronPosition="right"
+          variant={"contained"}
+          radius={"md"}
+          chevronPosition={"left"}
+          chevronsize={"sm"}
         >
           <AccordionItem value="item1">
             <AccordionTrigger>Item 1</AccordionTrigger>
@@ -825,18 +831,18 @@ function App() {
 
         <Avatar
           src={"https://tabler.io/packages/logo-vue.svg"}
-          radius="md"
-          size="md"
+          radius={"full"}
+          size={"lg"}
           alt="Mohd aakib"
-          color="blue"
+          color={"blue"}
         ></Avatar>
         <br />
         <br />
 
         <BackgroundImage
           src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
-          radius="xl"
-          fit="cover"
+          radius={"md"}
+          fit={"cover"}
           width={800}
           height={400}
         >
@@ -852,8 +858,8 @@ function App() {
 
         <Image
           src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
-          radius="xl"
-          fit="cover"
+          radius={'md'}
+          fit={"contain"}
           width={200}
           height={200}
         />
@@ -862,9 +868,10 @@ function App() {
 
         <XbTable
           data={data}
-          borderCollapse="collapse"
+          borderCollapse={"default"}
           withPagination
           itemsPerPage={10}
+          size={"default"}
         />
         <br/>
         <br/>
@@ -878,8 +885,8 @@ function App() {
         <br />
         <br />
 
-        <Card className="p-1" shadow="md">
-          <Badge variant={"default"} size={"md"} radius={"xl"}>
+        <Card className="p-1" shadow={"xl"} radius={"md"} size={"xl"} withBorder={"true"} >
+          <Badge variant={"notice"} size={"md"} radius={"xl"}>
             badge
           </Badge>
         </Card>
