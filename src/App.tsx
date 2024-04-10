@@ -481,7 +481,6 @@ function App() {
             gradient={"bl"}
             gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
             textWrap={"wrap"}
-            fontWeight={"bold"}
             >
             Believe you can and you're halfway there{" "}
           </Title>
@@ -492,7 +491,7 @@ function App() {
         <br />
         <Title
           order={"h1"}
-          fontFamily="sans"
+          fontFamily={"sans"}
           align={"center"}
           gradient={"bl"}
           gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
