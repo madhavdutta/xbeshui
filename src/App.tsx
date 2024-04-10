@@ -476,7 +476,7 @@ function App() {
         <div style={{clear:"both"}}>
           <Title
             order={"h1"}
-            fontFamily="serif"
+            fontFamily={"serif"}
             align={"right"}
             gradient={"bl"}
             gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
@@ -485,19 +485,6 @@ function App() {
             Believe you can and you're halfway there{" "}
           </Title>
       </div>
-
-
-        <br />
-        <br />
-        <Title
-          order={"h1"}
-          fontFamily={"sans"}
-          align={"center"}
-          gradient={"bl"}
-          gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
-        >
-          Believe you can and you're halfway there{" "}
-        </Title>
         <br />
         <br />
 
@@ -506,14 +493,12 @@ function App() {
         </Button>
         <br />
         <br />
-        <br /><br />
 
         <Toggle variant={"outline"} size={"xs"}>
           <IconStack size={14} />
         </Toggle>
         <br />
         <br />
-        <br /><br />
 
         <ToggleGroup
           type="single"
@@ -534,7 +519,8 @@ function App() {
             <IconUnderline size={18} stroke={1.5} />
           </ToggleGroupItem>
         </ToggleGroup>
-        <br /><br />
+        <br />
+        <br />
 
         <FileButton
           onFileSelect={(value) => console.log(value)}
@@ -545,13 +531,20 @@ function App() {
         >
           Upload Image
         </FileButton>
+        <br />
+        <br />
 
         <CopyButton value={"Here we go"} size="lg" radius={"md"}>
           Copy to clipboard
         </CopyButton>
+        <br />
+        <br />        
         <ActionIcon>
           <IconSettings />
         </ActionIcon>
+        <br />
+        <br />
+        
         <Accordion
           type="multiple"
           variant="default"
@@ -573,6 +566,8 @@ function App() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
+        <br />
+        <br />
 
         <Avatar
           src={"https://tabler.io/packages/logo-vue.svg"}
@@ -581,6 +576,8 @@ function App() {
           alt="Mohd aakib"
           color="blue"
         ></Avatar>
+        <br />
+        <br />
 
         <BackgroundImage
           src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
@@ -596,6 +593,8 @@ function App() {
             </Text>
           </div>
         </BackgroundImage>
+        <br />
+        <br />
 
         <Image
           src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
@@ -604,6 +603,8 @@ function App() {
           width={200}
           height={200}
         />
+        <br />
+        <br />
 
         <XbTable
           data={data}
@@ -611,12 +612,16 @@ function App() {
           withPagination
           itemsPerPage={10}
         />
+        <br />
+        <br />
 
         <Card className="p-1" shadow="md">
           <Badge variant={"default"} size={"md"} radius={"xl"}>
             badge
           </Badge>
         </Card>
+        <br />
+        <br />
 
         <BlockQuote cite="Nelson Mandela" icon={<IconAlertCircle />}>
           The greatest glory in living lies not in never falling, but in rising
@@ -684,6 +689,7 @@ function SearchableVideoList({ videos }) {
         />
         <br />
         <br />
+
         <Alert
           className="mt-4"
           id={"abc"}
@@ -692,6 +698,7 @@ function SearchableVideoList({ videos }) {
         />
         <br />
         <br />
+  
         <Progress className="mt-4" value={20} />
         <br />
         <br />
@@ -699,6 +706,7 @@ function SearchableVideoList({ videos }) {
         <Skeleton className="mt-4  h-20" radius={"xl"} animate={"pulse"} />
         <br />
         <br />
+
         <Button
           className="mt-4"
           variant="outline"
@@ -1086,6 +1094,7 @@ function SearchableVideoList({ videos }) {
         />
         <br />
         <br />
+
         <Textarea
           className=""
           placeholder="textarea filed..."
@@ -1096,6 +1105,7 @@ function SearchableVideoList({ videos }) {
         />
         <br />
         <br />
+
         <TagsInput label="tag label" description="tag description" width="sm" />
         <br />
         <br />
@@ -1137,13 +1147,15 @@ function SearchableVideoList({ videos }) {
         <Slider />
         <br />
         <br />
+
         <p className="text-sm text-muted-foreground">
           Press{" "}
           <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
             <span className="text-xs">⌘</span>J
           </kbd>
         </p>
-        <br /><br />
+        <br />
+        <br />
 
         <CommandDialog open={opened} onOpenChange={setOpen}>
           <CommandInput placeholder="Type a command or search..." />
@@ -1205,22 +1217,31 @@ function SearchableVideoList({ videos }) {
         <br />
 
         <MultiSelect />
+        <br />
+        <br />
+
         <Checkbox
           id="terms"
           label={" Accept terms and conditions"}
           radius="md"
           size="sm"
         />
+        <br />
+        <br />
 
         <RadioGroup size="lg" defaultValue="comfortable">
           <RadioGroupItem value="default" id="r1" label={"Default"} />
           <RadioGroupItem value="comfortable" id="r2" label={"Comfortable"} />
           <RadioGroupItem value="compact" id="r3" label={"Compact"} />
         </RadioGroup>
+        <br />
+        <br />
 
         <ActionIcon size="xs" variant="ghost">
           <IconStack size={18} />
         </ActionIcon>
+        <br />
+        <br />
 
         <AspectRatio ratio={16 / 9} className="w-full">
           <iframe
@@ -1229,6 +1250,8 @@ function SearchableVideoList({ videos }) {
             style={{ border: 0 }}
           />
         </AspectRatio>
+        <br />
+        <br />
 
         <FlexBox direction="row" justify="center" align="center">
           <div className="bg-yellow-500 text-red p-5 w-full">1</div>
@@ -1242,6 +1265,8 @@ function SearchableVideoList({ videos }) {
           <div className="bg-blue-500 text-red p-5  w-full">3</div>
           <div className="bg-blue-500 text-red p-5  w-full">3</div>
         </FlexBox>
+        <br />
+        <br />
 
         <div className="p-10">
           <SimpleGrid cols={3} spacing="lg" verticalSpacing="md">
@@ -1252,6 +1277,8 @@ function SearchableVideoList({ videos }) {
             <div className="bg-blue-500 text-red p-5">3</div>
           </SimpleGrid>
         </div>
+        <br />
+        <br />
 
         <Tabs defaultValue="account" className="w-[400px]">
           <TabsList className="grid w-full grid-cols-2">
@@ -1306,37 +1333,54 @@ function SearchableVideoList({ videos }) {
             </Card>
           </TabsContent>
         </Tabs>
+        <br />
+        <br />
+
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
         />
+        <br />
+        <br />
+
         <ColorInput
           label="Choose a color:"
           value={"#FF0000"}
           format="hex"
           radius="md"
         />
+        <br />
+        <br />
+
         <ColorSwatch color={"blue"} />
         <Resizable
           panels={panelConfigs}
           className="max-w-md rounded-lg border"
         />
+        <br />
+        <br />
+
         <Group>
           <div className="text-black">Group1</div>
           <div className="text-black">Group2</div>
           <div className="text-black">Group3</div>
         </Group>
+        <br />
+        <br />
+
         <Stack>
           <div className="text-black">Stack1</div>
           <div className="text-black">Stack1</div>
           <div className="text-black">Stack1</div>
         </Stack>
-
+        <br />
+        <br />
 
         <XbeshThemeSwitch />
         <br />
         <br />
+
       </Container>
     </>
   );
