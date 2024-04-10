@@ -734,20 +734,20 @@ function App() {
             gradient={"bl"}
             gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
             textWrap={"wrap"}
-          >
-            Believe you can and you're halfway there{" "}
+            >
+            Believe you can and you're halfway there.{" "}
           </Title>
         </div>
         <br />
         <br />
 
-        <Button radius="md" size={"xs"} variant={"default"}>
-          clickme
+        <Button radius={"md"} size={"lg"} variant={"warning"}>
+          Click Me
         </Button>
         <br />
         <br />
 
-        <Toggle variant={"outline"} size={"xs"}>
+        <Toggle variant={"outline"} radius={"none"} size={"lg"}>
           <IconStack size={14} />
         </Toggle>
         <br />
@@ -867,6 +867,7 @@ function App() {
         />
         <br />
         <br />
+  
         <DataTable
           data={dataa}
           filters={filters}
