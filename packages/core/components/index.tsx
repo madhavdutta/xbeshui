@@ -15,7 +15,7 @@ export {
 } from "./DataDisplay/accordion/accordion";
 export { Avatar } from "./DataDisplay/avatar/avatar";
 export { Badge } from "./DataDisplay/badge/badge";
-export { BackgroundImage } from "./DataDisplay/backgroundImage/backgroundImage";
+export { BackgroundImage } from "./DataDisplay/backgroundImage/backgroundimage";
 export { Image } from "./DataDisplay/image/image";
 export { DataTable } from "./DataDisplay/dataTable/dataTable";
 export { DataTablePagination } from "./DataDisplay/dataTable/dataTablePagination";

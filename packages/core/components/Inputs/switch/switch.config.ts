@@ -32,7 +32,7 @@ const switchConfig: SwitchConfigType = {
   },
 };
 
-export const switchVariants = cva("", switchConfig);
+export const switchVariants = cva("bg-background text-primary-foreground", switchConfig);
 
 export interface SwitchProps
   extends React.HTMLAttributes<HTMLTableElement>,

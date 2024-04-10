@@ -34,7 +34,7 @@ const stackConfig: StackVariantType = {
     gap: "default",
   },
 };
-export const stackVariant = cva("flex flex-col w-full", stackConfig);
+export const stackVariant = cva("bg-background text-primary-foreground flex flex-col w-full", stackConfig);
 
 export interface StackProps
   extends React.HTMLAttributes<HTMLDivElement>,

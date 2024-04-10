@@ -23,7 +23,7 @@ const imageConfig: ImageVariantsConfigType = {
     fit: "cover",
   },
 };
-export const imageVariants = cva("", imageConfig);
+export const imageVariants = cva("bg-background text-primary-foreground", imageConfig);
 
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement>, VariantProps<typeof imageVariants> {
   width?: string | number;

@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
-import { ButtonVariantsConfig } from "../button/buttonType";
+import { ButtonVariantsConfigType } from "../button/buttonType";
 
-export const LinkConfig: ButtonVariantsConfig = {
+export const LinkConfig: ButtonVariantsConfigType = {
   variants: {
     variant: {
       default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
@@ -43,6 +43,6 @@ export const LinkConfig: ButtonVariantsConfig = {
   },
 };
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
+  "bg-background text-primary-foreground inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
   LinkConfig
 );

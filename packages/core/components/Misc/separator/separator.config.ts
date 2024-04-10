@@ -53,7 +53,7 @@ export const sepratorConfig:SepratorConfigType ={
   },
 }
 
-export const sepratorVariant = cva("shrink-0 bg-border",sepratorConfig);
+export const sepratorVariant = cva("bg-background text-primary-foreground shrink-0 bg-border",sepratorConfig);
 
 
 

@@ -64,7 +64,7 @@ export const blockQuoteVariant:BlockQuoteVariantsType = {
 };
 
 export const blockQuoteVariants = cva(
-  "my-5 border-l-2 pl-6 italic text-gray-400",
+  "bg-background text-primary-foreground my-5 border-l-2 pl-6 italic text-gray-400",
   blockQuoteVariant
 );
 
