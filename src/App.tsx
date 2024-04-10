@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import "./index.css";
 import { ActionIcon } from "../packages/core/components/Buttons/actionIcon/actionIcon";
@@ -212,6 +213,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
   ColorSwatch,
+  DataTable,
   Grid,
   GridCol,
   Group,
@@ -230,6 +232,7 @@ import {
   TimelineItem,
   navigationMenuTriggerStyle,
 } from "../packages/core/components";
+import { ColumnDef } from "@tanstack/react-table";
 // import { IconCopy } from "@tabler/icons-react";
 // import { Button } from '../packages/core/components';
 
@@ -300,6 +303,257 @@ function App() {
         "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
     },
   ];
+
+  const dataa = [
+    {
+      id: "TASK-0011",
+      task: "Documentation",
+      title: "Update best practices",
+      status: "Todo",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0012",
+      task: "Documentation",
+      title: "Review documentation",
+      status: "In Progress",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0013",
+      task: "Bug",
+      title: "Fix login issue",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0014",
+      task: "Feature",
+      title: "Implement user authentication",
+      status: "Backlog",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0015",
+      task: "Bug",
+      title: "Fix navigation bar styling",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0016",
+      task: "Feature",
+      title: "Add dark mode support",
+      status: "Todo",
+      priority: "High",
+    },
+    {
+      id: "TASK-0017",
+      task: "Bug",
+      title: "Fix database query bug",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0018",
+      task: "Feature",
+      title: "Implement user profile page",
+      status: "Backlog",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0019",
+      task: "Bug",
+      title: "Fix form validation bug",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0020",
+      task: "Feature",
+      title: "Add search functionality",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0021",
+      task: "Bug",
+      title: "Fix login authentication bug",
+      status: "Todo",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0022",
+      task: "Feature",
+      title: "Implement file upload feature",
+      status: "Backlog",
+      priority: "High",
+    },
+    {
+      id: "TASK-0023",
+      task: "Bug",
+      title: "Fix broken links",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0024",
+      task: "Feature",
+      title: "Add product comparison feature",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0025",
+      task: "Bug",
+      title: "Fix login redirect issue",
+      status: "Todo",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0026",
+      task: "Feature",
+      title: "Implement search suggestions",
+      status: "Backlog",
+      priority: "High",
+    },
+    {
+      id: "TASK-0027",
+      task: "Bug",
+      title: "Fix pagination issue",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0028",
+      task: "Feature",
+      title: "Add user registration page",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0029",
+      task: "Bug",
+      title: "Fix layout issue on mobile devices",
+      status: "Todo",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0030",
+      task: "Feature",
+      title: "Implement email notification system",
+      status: "Backlog",
+      priority: "High",
+    },
+    {
+      id: "TASK-0031",
+      task: "Bug",
+      title: "Fix email delivery issue",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0032",
+      task: "Feature",
+      title: "Add subscription option",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0033",
+      task: "Bug",
+      title: "Fix 404 error page",
+      status: "Todo",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0034",
+      task: "Feature",
+      title: "Implement admin dashboard",
+      status: "Backlog",
+      priority: "High",
+    },
+    {
+      id: "TASK-0035",
+      task: "Bug",
+      title: "Fix session timeout issue",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0036",
+      task: "Feature",
+      title: "Add social media sharing buttons",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0037",
+      task: "Bug",
+      title: "Fix date formatting issue",
+      status: "Todo",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0038",
+      task: "Feature",
+      title: "Implement wishlist feature",
+      status: "Backlog",
+      priority: "High",
+    },
+    {
+      id: "TASK-0039",
+      task: "Bug",
+      title: "Fix form submission issue",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0040",
+      task: "Feature",
+      title: "Add chat support",
+      status: "Done",
+      priority: "High",
+    },
+  ];
+
+  const columns: ColumnDef<unknown>[] = [
+    {
+      accessorKey: "id",
+      header: "ID",
+      cell: ({ row }) => <div>{row.getValue("id")}</div>,
+    },
+    {
+      accessorKey: "task",
+      header: "Task",
+      cell: ({ row }) => <div>{row.getValue("task")}</div>,
+    },
+    {
+      accessorKey: "title",
+      header: "Title",
+      cell: ({ row }) => <div>{row.getValue("title")}</div>,
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ row }) => <div>{row.getValue("status")}</div>,
+    },
+    {
+      accessorKey: "priority",
+      header: "Priority",
+      cell: ({ row }) => <div>{row.getValue("priority")}</div>,
+    },
+  ];
+
+  const filters = [
+    {
+      name: "status",
+      options: ["Backlog", "Todo", "In Progress", "Done", "Cancel"],
+    },
+    { name: "priority", options: ["low", "medium", "high"] },
+  ];
+  const searchable = "title";
+
 
   type PanelConfig = {
     key: string | number;
@@ -473,7 +727,7 @@ function App() {
   return (
     <>
       <Container fluid={false} justify="start" items="center">
-        <div style={{clear:"both"}}>
+        <div style={{ clear: "both" }}>
           <Title
             order={"h1"}
             fontFamily={"sans"}
@@ -481,10 +735,10 @@ function App() {
             gradient={"bl"}
             gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
             textWrap={"wrap"}
-            >
+          >
             Believe you can and you're halfway there{" "}
           </Title>
-      </div>
+        </div>
         <br />
         <br />
 
@@ -538,13 +792,13 @@ function App() {
           Copy to clipboard
         </CopyButton>
         <br />
-        <br />        
+        <br />
         <ActionIcon>
           <IconSettings />
         </ActionIcon>
         <br />
         <br />
-        
+
         <Accordion
           type="multiple"
           variant="default"
@@ -612,6 +866,14 @@ function App() {
           withPagination
           itemsPerPage={10}
         />
+        <br/>
+        <br/>
+        <DataTable
+        data={dataa}
+        filters={filters}
+        columns={columns}
+        searchable={searchable}
+      />
         <br />
         <br />
 
@@ -698,7 +960,7 @@ function SearchableVideoList({ videos }) {
         />
         <br />
         <br />
-  
+
         <Progress className="mt-4" value={20} />
         <br />
         <br />
@@ -1281,9 +1543,13 @@ function SearchableVideoList({ videos }) {
         <br />
 
         <Tabs defaultValue="account" className="w-[400px]">
-          <TabsList variant={'underline'} className="grid w-full grid-cols-2">
-            <TabsTrigger variant={'pill'} value="account">Account</TabsTrigger>
-            <TabsTrigger variant={'pill'} value="password">Password</TabsTrigger>
+          <TabsList variant={"underline"} className="grid w-full grid-cols-2">
+            <TabsTrigger variant={"underline"} value="account">
+              Account
+            </TabsTrigger>
+            <TabsTrigger variant={"underline"} value="password">
+              Password
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="account">
             <Card>
@@ -1698,7 +1964,6 @@ function SearchableVideoList({ videos }) {
         <XbeshThemeSwitch />
         <br />
         <br />
-
       </Container>
     </>
   );
