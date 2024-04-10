@@ -169,6 +169,7 @@ export {
   NavigationMenuLink,
   NavigationMenuIndicator,
   NavigationMenuViewport,
+  NavListItem,
 } from "./Navigation/navMenu/navMenu";
 export { Pagination } from "./Navigation/pagination/pagination";
 

@@ -10,7 +10,7 @@ export * from "./core/components/Buttons/fileButton/fileButton";
 export * from "./core/components/DataDisplay/accordion/accordion";
 export * from "./core/components/DataDisplay/avatar/avatar";
 export * from "./core/components/DataDisplay/badge/badge";
-export * from "./core/components/DataDisplay/backgroundImage/backgroundImage";
+export * from "./core/components/DataDisplay/backgroundImage/backgroundimage";
 export * from "./core/components/DataDisplay/image/image";
 export * from "./core/components/DataDisplay/dataTable/dataTable";
 export * from "./core/components/DataDisplay/dataTable/dataTablePagination";

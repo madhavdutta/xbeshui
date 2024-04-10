@@ -2,7 +2,12 @@
 import "./index.css";
 import { ActionIcon } from "../packages/core/components/Buttons/actionIcon/actionIcon";
 import { Toggle } from "../packages/core/components/Buttons/toggle/toggle";
-import { IconBold, IconItalic, IconUnderline } from "@tabler/icons-react";
+import {
+  IconBold,
+  IconItalic,
+  IconSelect,
+  IconUnderline,
+} from "@tabler/icons-react";
 import {
   ToggleGroup,
   ToggleGroupItem,
@@ -11,7 +16,8 @@ import {
 import { FileButton } from "../packages/core/components/Buttons/fileButton/fileButton";
 import { CopyButton } from "../packages/core/components/Buttons/copyButton/copyButton";
 import { Avatar } from "../packages/core/components/DataDisplay/avatar/avatar";
-import { BackgroundImage } from "../packages/core/components/DataDisplay/backgroundImage/backgroundImage";
+import { Link } from "../packages/core/components/Buttons/link/link";
+import { BackgroundImage } from "../packages/core/components/DataDisplay/backgroundImage/backgroundimage";
 import { Image } from "../packages/core/components/DataDisplay/image/image";
 import { Badge } from "../packages/core/components/DataDisplay/badge/badge";
 import { XbTable } from "../packages/core/components/DataDisplay/table/table";
@@ -54,11 +60,6 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-  // CardHeader,
-  // CardFooter,
-  // CardTitle,
-  // CardDescription,
-  // CardContent,
 } from "../packages/core/components/DataDisplay/card/card";
 import React from "react";
 import {
@@ -193,11 +194,48 @@ import { XbeshThemeSwitch } from "../packages/core/components/Theme/themeSwitch/
 import { Container } from "../packages/core/components/Layout/container/container";
 import { Pagination } from "../packages/core/components/Navigation/pagination/pagination";
 import { ColorInput } from "../packages/core/components/Inputs/colorInput/colorInput";
-import { ColorSwatch, Group, Resizable } from "../packages/core/components";
+import {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  Calendar,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+  ColorSwatch,
+  Grid,
+  GridCol,
+  Group,
+  HoverCard,
+  NavListItem,
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  Popover,
+  Resizable,
+  ScrollArea,
+  Timeline,
+  TimelineItem,
+  navigationMenuTriggerStyle,
+} from "../packages/core/components";
 // import { IconCopy } from "@tabler/icons-react";
 // import { Button } from '../packages/core/components';
 
 function App() {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
   const { toast } = useToast();
   const [goal, setGoal] = React.useState(350);
   const [opened, setOpen] = React.useState(false);
@@ -224,6 +262,44 @@ function App() {
   function onClick(adjustment: number) {
     setGoal(Math.max(200, Math.min(400, goal + adjustment)));
   }
+
+  const components: { title: string; href: string; description: string }[] = [
+    {
+      title: "Alert Dialog",
+      href: "/docs/primitives/alert-dialog",
+      description:
+        "A modal dialog that interrupts the user with important content and expects a response.",
+    },
+    {
+      title: "Hover Card",
+      href: "/docs/primitives/hover-card",
+      description:
+        "For sighted users to preview content available behind a link.",
+    },
+    {
+      title: "Progress",
+      href: "/docs/primitives/progress",
+      description:
+        "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    },
+    {
+      title: "Scroll-area",
+      href: "/docs/primitives/scroll-area",
+      description: "Visually or semantically separates content.",
+    },
+    {
+      title: "Tabs",
+      href: "/docs/primitives/tabs",
+      description:
+        "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+    },
+    {
+      title: "Tooltip",
+      href: "/docs/primitives/tooltip",
+      description:
+        "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+    },
+  ];
 
   type PanelConfig = {
     key: string | number;
@@ -293,6 +369,9 @@ function App() {
   //       };
   //     }, []);
   //   };
+  const tags = Array.from({ length: 50 }).map(
+    (_, i, a) => `v1.2.0-beta.${a.length - i}`
+  );
 
   const data = [
     {
@@ -322,6 +401,7 @@ function App() {
     { id: 19, name: "Anna Harris", role: "Administrator", city: "ahmedabad" },
     { id: 20, name: "Robert Wright", role: "Supervisor", city: "hyderabad" },
   ];
+
   // const mock = {
   //   FILE_MENU_TITLE: "File",
   //   EDIT_MENU_TITLE: "Edit",
@@ -363,9 +443,38 @@ function App() {
   //   ],
   // };
 
+  const items = [
+    {
+      imageUrl:
+        "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-9.png",
+      name: "Jese Leos",
+      action: "likes Bonnie Greens post",
+      description: "I wanted to share a webinar zeroheight",
+      privacy: "Public",
+    },
+    {
+      imageUrl:
+        "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-9.png",
+      name: "Jese Leos",
+      action: "likes Bonnie Greens post",
+      description: "I wanted to share a webinar zeroheight",
+      privacy: "Public",
+    },
+    {
+      imageUrl:
+        "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-9.png",
+      name: "Jese Leos",
+      action: "likes Bonnie Greens post",
+      description: "I wanted to share a webinar zeroheight",
+      privacy: "Public",
+    },
+  ];
+
   return (
     <>
       <Container fluid={false} justify="start" items="center">
+        <br />
+        <br />
         <Title
           order={"h1"}
           fontFamily="sans"
@@ -375,12 +484,19 @@ function App() {
         >
           Believe you can and you're halfway there{" "}
         </Title>
+        <br />
+        <br />
+
         <Button radius="md" size={"xs"} variant={"default"}>
           clickme
         </Button>
+        <br />
+        <br />
         <Toggle variant={"outline"} size={"xs"}>
           <IconStack size={14} />
         </Toggle>
+        <br />
+        <br />
         <ToggleGroup
           type="single"
           size={"xs"}
@@ -400,6 +516,8 @@ function App() {
             <IconUnderline size={18} stroke={1.5} />
           </ToggleGroupItem>
         </ToggleGroup>
+        <br />
+        <br />
 
         <FileButton
           onFileSelect={(value) => console.log(value)}
@@ -410,13 +528,19 @@ function App() {
         >
           Upload Image
         </FileButton>
+        <br />
+        <br />
 
         <CopyButton value={"Here we go"} size="lg" radius={"md"}>
           Copy to clipboard
         </CopyButton>
+        <br />
+        <br />
         <ActionIcon>
           <IconSettings />
         </ActionIcon>
+        <br />
+        <br />
         <Accordion
           type="multiple"
           variant="default"
@@ -438,7 +562,8 @@ function App() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-
+        <br />
+        <br />
         <Avatar
           src={"https://tabler.io/packages/logo-vue.svg"}
           radius="md"
@@ -446,7 +571,8 @@ function App() {
           alt="Mohd aakib"
           color="blue"
         ></Avatar>
-
+        <br />
+        <br />
         <BackgroundImage
           src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
           radius="xl"
@@ -461,6 +587,8 @@ function App() {
             </Text>
           </div>
         </BackgroundImage>
+        <br />
+        <br />
 
         <Image
           src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
@@ -469,6 +597,8 @@ function App() {
           width={200}
           height={200}
         />
+        <br />
+        <br />
 
         <XbTable
           data={data}
@@ -476,17 +606,23 @@ function App() {
           withPagination
           itemsPerPage={10}
         />
+        <br />
+        <br />
 
         <Card className="p-1" shadow="md">
           <Badge variant={"default"} size={"md"} radius={"xl"}>
             badge
           </Badge>
         </Card>
+        <br />
+        <br />
 
         <BlockQuote cite="Nelson Mandela" icon={<IconAlertCircle />}>
           The greatest glory in living lies not in never falling, but in rising
           every time we fall.
         </BlockQuote>
+        <br />
+        <br />
 
         <Code>
           {`import { useState } from 'react';
@@ -505,19 +641,29 @@ function SearchableVideoList({ videos }) {
   );
 }`}{" "}
         </Code>
+        <br />
+        <br />
 
         <Label fontFamily={"mono"} fontSize={"6xl"}>
           abdcjhdbcdkjcbd
         </Label>
+        <br />
+        <br />
 
         <List type="disc" fontSize="xs" position="inside">
           <ListItem className="text-red-500">Item 1</ListItem>
           <ListItem>Item 2</ListItem>
           <ListItem>Item 3</ListItem>
         </List>
+        <br />
+        <br />
 
         <Text size="7xl">hello</Text>
+        <br />
+        <br />
         <Title order="h4"> hello</Title>
+        <br />
+        <br />
 
         <Separator
           variant="solid"
@@ -535,15 +681,23 @@ function SearchableVideoList({ videos }) {
           label="Label on the right"
           labelPosition="right"
         />
+        <br />
+        <br />
         <Alert
           className="mt-4"
           id={"abc"}
           title="hello"
           message="hey aakib, are you there?"
         />
+        <br />
+        <br />
         <Progress className="mt-4" value={20} />
+        <br />
+        <br />
 
         <Skeleton className="mt-4  h-20" radius={"xl"} animate={"pulse"} />
+        <br />
+        <br />
         <Button
           className="mt-4"
           variant="outline"
@@ -560,6 +714,8 @@ function SearchableVideoList({ videos }) {
         >
           toast
         </Button>
+        <br />
+        <br />
 
         <Dialog>
           <DialogTrigger asChild>
@@ -596,6 +752,8 @@ function SearchableVideoList({ videos }) {
             </DialogFooter>
           </DialogContent>
         </Dialog>
+        <br />
+        <br />
 
         <Menubar>
           <MenubarMenu>
@@ -686,6 +844,8 @@ function SearchableVideoList({ videos }) {
             </MenubarContent>
           </MenubarMenu>
         </Menubar>
+        <br />
+        <br />
 
         <Sheet>
           <SheetTrigger asChild>
@@ -729,6 +889,8 @@ function SearchableVideoList({ videos }) {
             </SheetFooter>
           </SheetContent>
         </Sheet>
+        <br />
+        <br />
 
         <TooltipProvider>
           <Tooltip>
@@ -740,6 +902,8 @@ function SearchableVideoList({ videos }) {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
+        <br />
+        <br />
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild className="pointer-events-auto">
@@ -788,6 +952,8 @@ function SearchableVideoList({ videos }) {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <br />
+        <br />
 
         <ContextMenu>
           <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
@@ -838,6 +1004,8 @@ function SearchableVideoList({ videos }) {
             </ContextMenuRadioGroup>
           </ContextMenuContent>
         </ContextMenu>
+        <br />
+        <br />
 
         <Drawer>
           <DrawerTrigger asChild>
@@ -907,6 +1075,8 @@ function SearchableVideoList({ videos }) {
             </div>
           </DrawerContent>
         </Drawer>
+        <br />
+        <br />
 
         <Input
           placeholder="input field..."
@@ -915,6 +1085,8 @@ function SearchableVideoList({ videos }) {
           description="Input description"
           width="xl"
         />
+        <br />
+        <br />
         <Textarea
           className=""
           placeholder="textarea filed..."
@@ -923,9 +1095,15 @@ function SearchableVideoList({ videos }) {
           description="Textarea description"
           size="xl"
         />
+        <br />
+        <br />
         <TagsInput label="tag label" description="tag description" width="sm" />
+        <br />
+        <br />
 
         <Switch label="this is switch" size="lg" radius="lg" />
+        <br />
+        <br />
 
         <FileInput
           size={"xl"}
@@ -934,6 +1112,8 @@ function SearchableVideoList({ videos }) {
           placeholder="select file.."
           radius="md"
         />
+        <br />
+        <br />
 
         <InputOTP
           maxLength={6}
@@ -952,8 +1132,12 @@ function SearchableVideoList({ videos }) {
             <InputOTPSlot index={5} />
           </InputOTPGroup>
         </InputOTP>
+        <br />
+        <br />
 
         <Slider />
+        <br />
+        <br />
         <p className="text-sm text-muted-foreground">
           Press{" "}
           <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
@@ -998,6 +1182,8 @@ function SearchableVideoList({ videos }) {
             </CommandGroup>
           </CommandList>
         </CommandDialog>
+        <br />
+        <br />
 
         <Select>
           <SelectTrigger className="w-[180px]">
@@ -1014,24 +1200,34 @@ function SearchableVideoList({ videos }) {
             </SelectGroup>
           </SelectContent>
         </Select>
+        <br />
+        <br />
 
         <MultiSelect />
+        <br />
+        <br />
         <Checkbox
           id="terms"
           label={" Accept terms and conditions"}
           radius="md"
           size="sm"
         />
+        <br />
+        <br />
 
         <RadioGroup size="lg" defaultValue="comfortable">
           <RadioGroupItem value="default" id="r1" label={"Default"} />
           <RadioGroupItem value="comfortable" id="r2" label={"Comfortable"} />
           <RadioGroupItem value="compact" id="r3" label={"Compact"} />
         </RadioGroup>
+        <br />
+        <br />
 
         <ActionIcon size="xs" variant="ghost">
           <IconStack size={18} />
         </ActionIcon>
+        <br />
+        <br />
 
         <AspectRatio ratio={16 / 9} className="w-full">
           <iframe
@@ -1040,6 +1236,8 @@ function SearchableVideoList({ videos }) {
             style={{ border: 0 }}
           />
         </AspectRatio>
+        <br />
+        <br />
 
         <FlexBox direction="row" justify="center" align="center">
           <div className="bg-yellow-500 text-red p-5 w-full">1</div>
@@ -1053,6 +1251,8 @@ function SearchableVideoList({ videos }) {
           <div className="bg-blue-500 text-red p-5  w-full">3</div>
           <div className="bg-blue-500 text-red p-5  w-full">3</div>
         </FlexBox>
+        <br />
+        <br />
 
         <div className="p-10">
           <SimpleGrid cols={3} spacing="lg" verticalSpacing="md">
@@ -1063,6 +1263,8 @@ function SearchableVideoList({ videos }) {
             <div className="bg-blue-500 text-red p-5">3</div>
           </SimpleGrid>
         </div>
+        <br />
+        <br />
 
         <Tabs defaultValue="account" className="w-[400px]">
           <TabsList className="grid w-full grid-cols-2">
@@ -1072,23 +1274,24 @@ function SearchableVideoList({ videos }) {
           <TabsContent value="account">
             <Card>
               <CardHeader>
-                <CardTitle>Password</CardTitle>
+                <CardTitle>Account</CardTitle>
                 <CardDescription>
-                  Change your password here. After saving, you'll be logged out.
+                  Make changes to your account here. Click save when you're
+                  done.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="space-y-1">
-                  <Label htmlFor="current">Current password</Label>
-                  <Input id="current" type="password" />
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" defaultValue="Pedro Duarte" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="new">New password</Label>
-                  <Input id="new" type="password" />
+                  <Label htmlFor="username">Username</Label>
+                  <Input id="username" defaultValue="@peduarte" />
                 </div>
               </CardContent>
               <CardFooter>
-                <Button>Save password</Button>
+                <Button>Save changes</Button>
               </CardFooter>
             </Card>
           </TabsContent>
@@ -1116,35 +1319,367 @@ function SearchableVideoList({ videos }) {
             </Card>
           </TabsContent>
         </Tabs>
+        <br />
+        <br />
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
         />
+        <br />
+        <br />
         <ColorInput
           label="Choose a color:"
           value={"#FF0000"}
           format="hex"
           radius="md"
         />
+        <br />
+        <br />
         <ColorSwatch color={"blue"} />
+        <br />
+        <br />
         <Resizable
           panels={panelConfigs}
           className="max-w-md rounded-lg border"
         />
+        <br />
+        <br />
         <Group>
           <div className="text-black">Group1</div>
           <div className="text-black">Group2</div>
           <div className="text-black">Group3</div>
         </Group>
+        <br />
+        <br />
         <Stack>
           <div className="text-black">Stack1</div>
           <div className="text-black">Stack1</div>
           <div className="text-black">Stack1</div>
         </Stack>
+        <br />
+        <br />
 
+        <Grid className="bg-black">
+          <GridCol span={3}>
+            {" "}
+            <div className="bg-blue-500 text-white p-5">1</div>
+          </GridCol>
+          <GridCol span={6}>
+            {" "}
+            <div className="bg-blue-500 text-white p-5">1</div>
+          </GridCol>
+          <GridCol span={3}>
+            {" "}
+            <div className="bg-blue-500 text-white p-5">1</div>
+          </GridCol>
+        </Grid>
 
+        <br />
+        <br />
+
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1">
+                  <BreadcrumbEllipsis className="h-4 w-4" />
+                  <span className="sr-only">Toggle menu</span>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start">
+                  <DropdownMenuItem>Documentation</DropdownMenuItem>
+                  <DropdownMenuItem>Themes</DropdownMenuItem>
+                  <DropdownMenuItem>GitHub</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/docs/components">
+                Components
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+        <br />
+        <br />
+
+        <Calendar
+          mode="single"
+          selected={date}
+          onSelect={setDate}
+          className="rounded-md border shadow"
+        />
+
+        <br />
+        <br />
+        <Carousel className="w-full max-w-xs">
+          <CarouselContent>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <CarouselItem key={index}>
+                <div className="p-1">
+                  <Card>
+                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                      <span className="text-4xl font-semibold">
+                        {index + 1}
+                      </span>
+                    </CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+        <br />
+        <br />
+        <Collapsible
+          open={isOpen}
+          onOpenChange={setIsOpen}
+          className="w-[350px] space-y-2"
+        >
+          <div className="flex items-center justify-between space-x-4 px-4">
+            <h4 className="text-sm font-semibold">
+              @peduarte starred 3 repositories
+            </h4>
+            <CollapsibleTrigger asChild>
+              <Button variant="ghost" size="sm">
+                <IconSelect className="h-4 w-4" />
+                <span className="sr-only">Toggle</span>
+              </Button>
+            </CollapsibleTrigger>
+          </div>
+          <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+            @xbeshui/core
+          </div>
+          <CollapsibleContent className="space-y-2">
+            <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+              @xbeshui/core
+            </div>
+            <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+              @xbeshui/core
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
+        <br />
+        <br />
+
+        <ScrollArea className="h-72 w-48 rounded-md border">
+          <div className="p-4">
+            <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
+            {tags.map((tag) => (
+              <>
+                <div key={tag} className="text-sm">
+                  {tag}
+                </div>
+                <Separator className="my-2" />
+              </>
+            ))}
+          </div>
+        </ScrollArea>
+        <br />
+        <br />
+        <Timeline>
+          {items.map((item, index) => (
+            <TimelineItem key={index}>
+              <Avatar
+                className="w-12 h-12 mb-3 me-3 rounded-full sm:mb-0"
+                src={item.imageUrl}
+                alt="Jese Leos image"
+              />
+              <div className="text-gray-600 dark:text-gray-400">
+                <div className="text-base font-normal">
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    {item.name}
+                  </span>{" "}
+                  likes{" "}
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    Bonnie Greens
+                  </span>{" "}
+                  post in{" "}
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    {" "}
+                    How to start with Flowbite library
+                  </span>
+                </div>
+                <div className="text-sm font-normal">
+                  I wanted to share a webinar zeroheight
+                </div>
+                <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <svg
+                    className="w-2.5 h-2.5 me-1"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M10 .5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19ZM8.374 17.4a7.6 7.6 0 0 1-5.9-7.4c0-.83.137-1.655.406-2.441l.239.019a3.887 3.887 0 0 1 2.082 2.5 4.1 4.1 0 0 0 2.441 2.8c1.148.522 1.389 2.007.732 4.522Zm3.6-8.829a.997.997 0 0 0-.027-.225 5.456 5.456 0 0 0-2.811-3.662c-.832-.527-1.347-.854-1.486-1.89a7.584 7.584 0 0 1 8.364 2.47c-1.387.208-2.14 2.237-2.14 3.307a1.187 1.187 0 0 1-1.9 0Zm1.626 8.053-.671-2.013a1.9 1.9 0 0 1 1.771-1.757l2.032.619a7.553 7.553 0 0 1-3.132 3.151Z" />
+                  </svg>
+                  Public
+                </span>
+              </div>
+            </TimelineItem>
+          ))}
+        </Timeline>
+        <br />
+        <br />
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                  <li className="row-span-3">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        href="/"
+                      >
+                        <IconStack className="h-6 w-6" />
+                        <div className="mb-2 mt-4 text-lg font-medium">
+                          shadcn/ui
+                        </div>
+                        <p className="text-sm leading-tight text-muted-foreground">
+                          Beautifully designed components built with Radix UI
+                          and Tailwind CSS.
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                  </li>
+                  <NavListItem href="/docs" title="Introduction">
+                    Re-usable components built using Radix UI and Tailwind CSS.
+                  </NavListItem>
+                  <NavListItem href="/docs/installation" title="Installation">
+                    How to install dependencies and structure your app.
+                  </NavListItem>
+                  <NavListItem
+                    href="/docs/primitives/typography"
+                    title="Typography"
+                  >
+                    Styles for headings, paragraphs, lists...etc
+                  </NavListItem>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  {components.map((component) => (
+                    <NavListItem
+                      key={component.title}
+                      title={component.title}
+                      href={component.href}
+                    >
+                      {component.description}
+                    </NavListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/docs">
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Documentation
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <br />
+        <br />
+        <HoverCard
+          className="flex flex-wrap"
+          triggerContent={<button>hover card: hover me</button>}
+          cardContent={
+            <>
+              {" "}
+              <div className="flex justify-between space-x-4">
+                <Avatar src="https://github.com/vercel.png" />
+
+                <div className="space-y-1">
+                  <h4 className="text-sm font-semibold">@nextjs</h4>
+                  <p className="text-sm">
+                    The React Framework – created and maintained by @vercel.
+                  </p>
+                  <div className="flex items-center pt-2">
+                    <IconCalendar className="mr-2 h-4 w-4 opacity-70" />{" "}
+                    <span className="text-xs text-muted-foreground">
+                      Joined December 2021
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </>
+          }
+        />
+        <br />
+        <br />
+        <Popover
+          trigger={<button> popover :Click me</button>}
+          content={
+            <>
+              {" "}
+              <div className="grid gap-4">
+                <div className="space-y-2">
+                  <h4 className="font-medium leading-none">Dimensions</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Set the dimensions for the layer.
+                  </p>
+                </div>
+                <div className="grid gap-2">
+                  <div className="grid grid-cols-3 items-center gap-4">
+                    <Label htmlFor="width">Width</Label>
+                    <Input
+                      id="width"
+                      defaultValue="100%"
+                      className="col-span-2 h-8"
+                    />
+                  </div>
+                  <div className="grid grid-cols-3 items-center gap-4">
+                    <Label htmlFor="maxWidth">Max. width</Label>
+                    <Input
+                      id="maxWidth"
+                      defaultValue="300px"
+                      className="col-span-2 h-8"
+                    />
+                  </div>
+                  <div className="grid grid-cols-3 items-center gap-4">
+                    <Label htmlFor="height">Height</Label>
+                    <Input
+                      id="height"
+                      defaultValue="25px"
+                      className="col-span-2 h-8"
+                    />
+                  </div>
+                  <div className="grid grid-cols-3 items-center gap-4">
+                    <Label htmlFor="maxHeight">Max. height</Label>
+                    <Input
+                      id="maxHeight"
+                      defaultValue="none"
+                      className="col-span-2 h-8"
+                    />
+                  </div>
+                </div>
+              </div>
+            </>
+          }
+          align="center"
+        />
+        <br />
+        <br />
         <XbeshThemeSwitch />
+        <br />
+        <br />
       </Container>
     </>
   );
