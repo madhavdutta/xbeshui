@@ -2,7 +2,12 @@
 import "./index.css";
 import { ActionIcon } from "../packages/core/components/Buttons/actionIcon/actionIcon";
 import { Toggle } from "../packages/core/components/Buttons/toggle/toggle";
-import { IconBold, IconItalic, IconUnderline } from "@tabler/icons-react";
+import {
+  IconBold,
+  IconItalic,
+  IconSelect,
+  IconUnderline,
+} from "@tabler/icons-react";
 import {
   ToggleGroup,
   ToggleGroupItem,
@@ -11,6 +16,7 @@ import {
 import { FileButton } from "../packages/core/components/Buttons/fileButton/fileButton";
 import { CopyButton } from "../packages/core/components/Buttons/copyButton/copyButton";
 import { Avatar } from "../packages/core/components/DataDisplay/avatar/avatar";
+import { Link } from "../packages/core/components/Buttons/link/link";
 import { BackgroundImage } from "../packages/core/components/DataDisplay/backgroundImage/backgroundimage";
 import { Image } from "../packages/core/components/DataDisplay/image/image";
 import { Badge } from "../packages/core/components/DataDisplay/badge/badge";
@@ -54,11 +60,6 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-  // CardHeader,
-  // CardFooter,
-  // CardTitle,
-  // CardDescription,
-  // CardContent,
 } from "../packages/core/components/DataDisplay/card/card";
 import React from "react";
 import {
@@ -193,11 +194,48 @@ import { XbeshThemeSwitch } from "../packages/core/components/Theme/themeSwitch/
 import { Container } from "../packages/core/components/Layout/container/container";
 import { Pagination } from "../packages/core/components/Navigation/pagination/pagination";
 import { ColorInput } from "../packages/core/components/Inputs/colorInput/colorInput";
-import { ColorSwatch, Group, Resizable } from "../packages/core/components";
+import {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  Calendar,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+  ColorSwatch,
+  Grid,
+  GridCol,
+  Group,
+  HoverCard,
+  NavListItem,
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  Popover,
+  Resizable,
+  ScrollArea,
+  Timeline,
+  TimelineItem,
+  navigationMenuTriggerStyle,
+} from "../packages/core/components";
 // import { IconCopy } from "@tabler/icons-react";
 // import { Button } from '../packages/core/components';
 
 function App() {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
   const { toast } = useToast();
   const [goal, setGoal] = React.useState(350);
   const [opened, setOpen] = React.useState(false);
@@ -224,6 +262,44 @@ function App() {
   function onClick(adjustment: number) {
     setGoal(Math.max(200, Math.min(400, goal + adjustment)));
   }
+
+  const components: { title: string; href: string; description: string }[] = [
+    {
+      title: "Alert Dialog",
+      href: "/docs/primitives/alert-dialog",
+      description:
+        "A modal dialog that interrupts the user with important content and expects a response.",
+    },
+    {
+      title: "Hover Card",
+      href: "/docs/primitives/hover-card",
+      description:
+        "For sighted users to preview content available behind a link.",
+    },
+    {
+      title: "Progress",
+      href: "/docs/primitives/progress",
+      description:
+        "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    },
+    {
+      title: "Scroll-area",
+      href: "/docs/primitives/scroll-area",
+      description: "Visually or semantically separates content.",
+    },
+    {
+      title: "Tabs",
+      href: "/docs/primitives/tabs",
+      description:
+        "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+    },
+    {
+      title: "Tooltip",
+      href: "/docs/primitives/tooltip",
+      description:
+        "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+    },
+  ];
 
   type PanelConfig = {
     key: string | number;
@@ -293,6 +369,9 @@ function App() {
   //       };
   //     }, []);
   //   };
+  const tags = Array.from({ length: 50 }).map(
+    (_, i, a) => `v1.2.0-beta.${a.length - i}`
+  );
 
   const data = [
     {
@@ -322,6 +401,7 @@ function App() {
     { id: 19, name: "Anna Harris", role: "Administrator", city: "ahmedabad" },
     { id: 20, name: "Robert Wright", role: "Supervisor", city: "hyderabad" },
   ];
+
   // const mock = {
   //   FILE_MENU_TITLE: "File",
   //   EDIT_MENU_TITLE: "Edit",
@@ -363,6 +443,33 @@ function App() {
   //   ],
   // };
 
+  const items = [
+    {
+      imageUrl:
+        "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-9.png",
+      name: "Jese Leos",
+      action: "likes Bonnie Greens post",
+      description: "I wanted to share a webinar zeroheight",
+      privacy: "Public",
+    },
+    {
+      imageUrl:
+        "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-9.png",
+      name: "Jese Leos",
+      action: "likes Bonnie Greens post",
+      description: "I wanted to share a webinar zeroheight",
+      privacy: "Public",
+    },
+    {
+      imageUrl:
+        "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-9.png",
+      name: "Jese Leos",
+      action: "likes Bonnie Greens post",
+      description: "I wanted to share a webinar zeroheight",
+      privacy: "Public",
+    },
+  ];
+
   return (
     <>
       <Container fluid={false} justify="start" items="center">
@@ -379,16 +486,34 @@ function App() {
             Believe you can and you're halfway there{" "}
           </Title>
       </div>
-        <br /><br />
+
+
+        <br />
+        <br />
+        <Title
+          order={"h1"}
+          fontFamily="sans"
+          align={"center"}
+          gradient={"bl"}
+          gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
+        >
+          Believe you can and you're halfway there{" "}
+        </Title>
+        <br />
+        <br />
 
         <Button radius="md" size={"xs"} variant={"default"}>
           clickme
         </Button>
+        <br />
+        <br />
         <br /><br />
 
         <Toggle variant={"outline"} size={"xs"}>
           <IconStack size={14} />
         </Toggle>
+        <br />
+        <br />
         <br /><br />
 
         <ToggleGroup
@@ -421,18 +546,13 @@ function App() {
         >
           Upload Image
         </FileButton>
-        <br /><br />
 
         <CopyButton value={"Here we go"} size="lg" radius={"md"}>
           Copy to clipboard
         </CopyButton>
-        <br /><br />
-
         <ActionIcon>
           <IconSettings />
         </ActionIcon>
-        <br /><br />
-
         <Accordion
           type="multiple"
           variant="default"
@@ -454,7 +574,6 @@ function App() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-        <br /><br />
 
         <Avatar
           src={"https://tabler.io/packages/logo-vue.svg"}
@@ -463,7 +582,6 @@ function App() {
           alt="Mohd aakib"
           color="blue"
         ></Avatar>
-        <br /><br />
 
         <BackgroundImage
           src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
@@ -479,7 +597,6 @@ function App() {
             </Text>
           </div>
         </BackgroundImage>
-        <br /><br />
 
         <Image
           src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
@@ -488,7 +605,6 @@ function App() {
           width={200}
           height={200}
         />
-        <br /><br />
 
         <XbTable
           data={data}
@@ -496,20 +612,19 @@ function App() {
           withPagination
           itemsPerPage={10}
         />
-        <br /><br />
 
         <Card className="p-1" shadow="md">
           <Badge variant={"default"} size={"md"} radius={"xl"}>
             badge
           </Badge>
         </Card>
-        <br /><br />
 
         <BlockQuote cite="Nelson Mandela" icon={<IconAlertCircle />}>
           The greatest glory in living lies not in never falling, but in rising
           every time we fall.
         </BlockQuote>
-        <br /><br />
+        <br />
+        <br />
 
         <Code>
           {`import { useState } from 'react';
@@ -528,25 +643,29 @@ function SearchableVideoList({ videos }) {
   );
 }`}{" "}
         </Code>
-        <br /><br />
+        <br />
+        <br />
 
         <Label fontFamily={"mono"} fontSize={"6xl"}>
           abdcjhdbcdkjcbd
         </Label>
-        <br /><br />
+        <br />
+        <br />
 
         <List type="disc" fontSize="xs" position="inside">
           <ListItem className="text-red-500">Item 1</ListItem>
           <ListItem>Item 2</ListItem>
           <ListItem>Item 3</ListItem>
         </List>
-        <br /><br />
+        <br />
+        <br />
 
         <Text size="7xl">hello</Text>
-        <br /><br />
-
+        <br />
+        <br />
         <Title order="h4"> hello</Title>
-        <br /><br />
+        <br />
+        <br />
 
         <Separator
           variant="solid"
@@ -564,22 +683,23 @@ function SearchableVideoList({ videos }) {
           label="Label on the right"
           labelPosition="right"
         />
-        <br /><br />
-
+        <br />
+        <br />
         <Alert
           className="mt-4"
           id={"abc"}
           title="hello"
           message="hey aakib, are you there?"
         />
-        <br /><br />
-
+        <br />
+        <br />
         <Progress className="mt-4" value={20} />
-        <br /><br />
+        <br />
+        <br />
 
         <Skeleton className="mt-4  h-20" radius={"xl"} animate={"pulse"} />
-        <br /><br />
-
+        <br />
+        <br />
         <Button
           className="mt-4"
           variant="outline"
@@ -596,7 +716,8 @@ function SearchableVideoList({ videos }) {
         >
           toast
         </Button>
-        <br /><br />
+        <br />
+        <br />
 
         <Dialog>
           <DialogTrigger asChild>
@@ -633,7 +754,8 @@ function SearchableVideoList({ videos }) {
             </DialogFooter>
           </DialogContent>
         </Dialog>
-        <br /><br />
+        <br />
+        <br />
 
         <Menubar>
           <MenubarMenu>
@@ -724,7 +846,8 @@ function SearchableVideoList({ videos }) {
             </MenubarContent>
           </MenubarMenu>
         </Menubar>
-        <br /><br />
+        <br />
+        <br />
 
         <Sheet>
           <SheetTrigger asChild>
@@ -768,7 +891,8 @@ function SearchableVideoList({ videos }) {
             </SheetFooter>
           </SheetContent>
         </Sheet>
-        <br /><br />
+        <br />
+        <br />
 
         <TooltipProvider>
           <Tooltip>
@@ -780,7 +904,8 @@ function SearchableVideoList({ videos }) {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <br /><br />
+        <br />
+        <br />
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild className="pointer-events-auto">
@@ -829,7 +954,8 @@ function SearchableVideoList({ videos }) {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <br /><br />
+        <br />
+        <br />
 
         <ContextMenu>
           <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
@@ -880,7 +1006,8 @@ function SearchableVideoList({ videos }) {
             </ContextMenuRadioGroup>
           </ContextMenuContent>
         </ContextMenu>
-        <br /><br />
+        <br />
+        <br />
 
         <Drawer>
           <DrawerTrigger asChild>
@@ -950,7 +1077,6 @@ function SearchableVideoList({ videos }) {
             </div>
           </DrawerContent>
         </Drawer>
-        <br /><br />
 
         <Input
           placeholder="input field..."
@@ -959,8 +1085,8 @@ function SearchableVideoList({ videos }) {
           description="Input description"
           width="xl"
         />
-        <br /><br />
-
+        <br />
+        <br />
         <Textarea
           className=""
           placeholder="textarea filed..."
@@ -969,13 +1095,15 @@ function SearchableVideoList({ videos }) {
           description="Textarea description"
           size="xl"
         />
-        <br /><br />
-
+        <br />
+        <br />
         <TagsInput label="tag label" description="tag description" width="sm" />
-        <br /><br />
+        <br />
+        <br />
 
         <Switch label="this is switch" size="lg" radius="lg" />
-        <br /><br />
+        <br />
+        <br />
 
         <FileInput
           size={"xl"}
@@ -984,8 +1112,9 @@ function SearchableVideoList({ videos }) {
           placeholder="select file.."
           radius="md"
         />
-        <br /><br />
-        
+        <br />
+        <br />
+
         <InputOTP
           maxLength={6}
           onChange={(value) => console.log(value)}
@@ -1003,11 +1132,12 @@ function SearchableVideoList({ videos }) {
             <InputOTPSlot index={5} />
           </InputOTPGroup>
         </InputOTP>
-        <br /><br />
+        <br />
+        <br />
 
         <Slider />
-        <br /><br />
-
+        <br />
+        <br />
         <p className="text-sm text-muted-foreground">
           Press{" "}
           <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
@@ -1054,7 +1184,8 @@ function SearchableVideoList({ videos }) {
             </CommandGroup>
           </CommandList>
         </CommandDialog>
-        <br /><br />
+        <br />
+        <br />
 
         <Select>
           <SelectTrigger className="w-[180px]">
@@ -1071,30 +1202,26 @@ function SearchableVideoList({ videos }) {
             </SelectGroup>
           </SelectContent>
         </Select>
-        <br /><br />
+        <br />
+        <br />
 
         <MultiSelect />
-        <br /><br />
-
         <Checkbox
           id="terms"
           label={" Accept terms and conditions"}
           radius="md"
           size="sm"
         />
-        <br /><br />
 
         <RadioGroup size="lg" defaultValue="comfortable">
           <RadioGroupItem value="default" id="r1" label={"Default"} />
           <RadioGroupItem value="comfortable" id="r2" label={"Comfortable"} />
           <RadioGroupItem value="compact" id="r3" label={"Compact"} />
         </RadioGroup>
-        <br /><br />
 
         <ActionIcon size="xs" variant="ghost">
           <IconStack size={18} />
         </ActionIcon>
-        <br /><br />
 
         <AspectRatio ratio={16 / 9} className="w-full">
           <iframe
@@ -1103,7 +1230,6 @@ function SearchableVideoList({ videos }) {
             style={{ border: 0 }}
           />
         </AspectRatio>
-        <br /><br />
 
         <FlexBox direction="row" justify="center" align="center">
           <div className="bg-yellow-500 text-red p-5 w-full">1</div>
@@ -1117,7 +1243,6 @@ function SearchableVideoList({ videos }) {
           <div className="bg-blue-500 text-red p-5  w-full">3</div>
           <div className="bg-blue-500 text-red p-5  w-full">3</div>
         </FlexBox>
-        <br /><br />
 
         <div className="p-10">
           <SimpleGrid cols={3} spacing="lg" verticalSpacing="md">
@@ -1128,7 +1253,6 @@ function SearchableVideoList({ videos }) {
             <div className="bg-blue-500 text-red p-5">3</div>
           </SimpleGrid>
         </div>
-        <br /><br />
 
         <Tabs defaultValue="account" className="w-[400px]">
           <TabsList className="grid w-full grid-cols-2">
@@ -1138,23 +1262,24 @@ function SearchableVideoList({ videos }) {
           <TabsContent value="account">
             <Card>
               <CardHeader>
-                <CardTitle>Password</CardTitle>
+                <CardTitle>Account</CardTitle>
                 <CardDescription>
-                  Change your password here. After saving, you'll be logged out.
+                  Make changes to your account here. Click save when you're
+                  done.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
                 <div className="space-y-1">
-                  <Label htmlFor="current">Current password</Label>
-                  <Input id="current" type="password" />
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" defaultValue="Pedro Duarte" />
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="new">New password</Label>
-                  <Input id="new" type="password" />
+                  <Label htmlFor="username">Username</Label>
+                  <Input id="username" defaultValue="@peduarte" />
                 </div>
               </CardContent>
               <CardFooter>
-                <Button>Save password</Button>
+                <Button>Save changes</Button>
               </CardFooter>
             </Card>
           </TabsContent>
@@ -1182,49 +1307,37 @@ function SearchableVideoList({ videos }) {
             </Card>
           </TabsContent>
         </Tabs>
-        <br /><br />
-
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
         />
-        <br /><br />
-
         <ColorInput
           label="Choose a color:"
           value={"#FF0000"}
           format="hex"
           radius="md"
         />
-        <br /><br />
-
         <ColorSwatch color={"blue"} />
-        <br /><br />
-
         <Resizable
           panels={panelConfigs}
           className="max-w-md rounded-lg border"
         />
-        <br /><br />
-
         <Group>
           <div className="text-black">Group1</div>
           <div className="text-black">Group2</div>
           <div className="text-black">Group3</div>
         </Group>
-        <br /><br />
-
         <Stack>
           <div className="text-black">Stack1</div>
           <div className="text-black">Stack1</div>
           <div className="text-black">Stack1</div>
         </Stack>
-        <br /><br />
+
 
         <XbeshThemeSwitch />
-        <br /><br />
-
+        <br />
+        <br />
       </Container>
     </>
   );
