@@ -1281,7 +1281,7 @@ function SearchableVideoList({ videos }) {
         <br />
 
         <Tabs defaultValue="account" className="w-[400px]">
-          <TabsList variant={'pill'} className="grid w-full grid-cols-2">
+          <TabsList variant={'underline'} className="grid w-full grid-cols-2">
             <TabsTrigger variant={'pill'} value="account">Account</TabsTrigger>
             <TabsTrigger variant={'pill'} value="password">Password</TabsTrigger>
           </TabsList>
