@@ -892,7 +892,7 @@ function App() {
         <br />
         <br />
 
-        <BlockQuote cite="Nelson Mandela" icon={<IconAlertCircle />}>
+        <BlockQuote cite="Nelson Mandela" icon={<IconAlertCircle />} textWrap={"wrap"} line={"xl"} align={"center"} size={"4xl"} fontFamily={"sans"}>
           The greatest glory in living lies not in never falling, but in rising
           every time we fall.
         </BlockQuote>
@@ -919,16 +919,16 @@ function SearchableVideoList({ videos }) {
         <br />
         <br />
 
-        <Label fontFamily={"mono"} fontSize={"6xl"}>
+        <Label fontFamily={"sans"} fontSize={"6xl"} fontWidth={"black"}>
           abdcjhdbcdkjcbd
         </Label>
         <br />
         <br />
 
-        <List type="disc" fontSize="xs" position="inside">
-          <ListItem className="text-red-500">Item 1</ListItem>
-          <ListItem>Item 2</ListItem>
-          <ListItem>Item 3</ListItem>
+        <List type={"disc"} fontSize={"3xl"} position={"inside"}>
+          <ListItem className="text-gray-500">Item 1</ListItem>
+          <ListItem className="text-gray-500">Item 2</ListItem>
+          <ListItem className="text-gray-500">Item 3</ListItem>
         </List>
         <br />
         <br />
