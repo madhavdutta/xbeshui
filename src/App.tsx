@@ -2055,17 +2055,17 @@ function App() {
                 src={item.imageUrl}
                 alt="Jese Leos image"
               />
-              <div className="text-gray-600 dark:text-gray-400">
+              <div className="">
                 <div className="text-base font-normal">
-                  <span className="font-medium text-gray-900 dark:text-white">
+                  <span className="font-medium">
                     {item.name}
                   </span>{" "}
                   likes{" "}
-                  <span className="font-medium text-gray-900 dark:text-white">
+                  <span className="font-medium">
                     Bonnie Greens
                   </span>{" "}
                   post in{" "}
-                  <span className="font-medium text-gray-900 dark:text-white">
+                  <span className="font-medium">
                     {" "}
                     How to start with Flowbite library
                   </span>
@@ -2146,7 +2146,7 @@ function App() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/docs">
+              <Link href="/docs" variant="link">
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Documentation
                 </NavigationMenuLink>
@@ -2158,7 +2158,7 @@ function App() {
         <br />
         <HoverCard
           className="flex flex-wrap"
-          triggerContent={<button>hover card: hover me</button>}
+          triggerContent={<button className="text-accent-foreground bg-background">hover card: hover me</button>}
           cardContent={
             <>
               {" "}
@@ -2184,7 +2184,7 @@ function App() {
         <br />
         <br />
         <Popover
-          trigger={<button> popover :Click me</button>}
+          trigger={<button className="text-accent-foreground bg-background"> popover :Click me</button>}
           content={
             <>
               {" "}
@@ -2197,35 +2197,35 @@ function App() {
                 </div>
                 <div className="grid gap-2">
                   <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="width">Width</Label>
+                    <Label htmlFor="width" className="text-sm text-muted-foreground">Width</Label>
                     <Input
                       id="width"
                       defaultValue="100%"
-                      className="col-span-2 h-8"
+                      className="col-span-2 h-8 text-muted-foreground"
                     />
                   </div>
                   <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="maxWidth">Max. width</Label>
+                    <Label htmlFor="maxWidth" className="text-sm text-muted-foreground">Max. width</Label>
                     <Input
                       id="maxWidth"
                       defaultValue="300px"
-                      className="col-span-2 h-8"
+                      className="col-span-2 h-8 text-muted-foreground"
                     />
                   </div>
                   <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="height">Height</Label>
+                    <Label htmlFor="height" className="text-sm text-muted-foreground">Height</Label>
                     <Input
                       id="height"
                       defaultValue="25px"
-                      className="col-span-2 h-8"
+                      className="col-span-2 h-8 text-muted-foreground"
                     />
                   </div>
                   <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="maxHeight">Max. height</Label>
+                    <Label htmlFor="maxHeight" className="text-sm text-muted-foreground">Max. height</Label>
                     <Input
                       id="maxHeight"
                       defaultValue="none"
-                      className="col-span-2 h-8"
+                      className="col-span-2 h-8 text-muted-foreground"
                     />
                   </div>
                 </div>

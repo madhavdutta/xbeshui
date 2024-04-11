@@ -4,12 +4,12 @@ import { TimelineItemProps, TimelineProps } from "./timelineType";
 const TimelineItem: React.FC<TimelineItemProps> = ({
   children,
   bulletPosition = 16,
-  color = "red",
+  color = "zinc",
 }) =>
   children ? (
     <li className={`relative -left-${bulletPosition}  mb-8 ms-6`}>
       <div
-        className={`items-center justify-between p-4 bg-white border border-${color}-200 rounded-lg shadow-sm sm:flex dark:bg-gray-700 dark:border-gray-600`}
+        className={`items-center justify-between p-4 text-accent-foreground border border-${color}-200 rounded-lg shadow-sm sm:flex`}
       >
         {children}
       </div>
