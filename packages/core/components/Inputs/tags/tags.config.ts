@@ -2,6 +2,11 @@ import { VariantProps, cva } from "class-variance-authority";
 import { TagsConfigType } from "./tagsType";
 const tagsConfig: TagsConfigType = {
   variants: {
+    variant: {
+      default: "none",
+      filled: "bg-gray-200",
+      unstyled: "border-0 shadow-none",
+    },
     labelPosition: {
       default: "",
       right: "",
@@ -16,18 +21,6 @@ const tagsConfig: TagsConfigType = {
       xl: "w-5/6",
       full: "w-full",
     },
-
-    variant: {
-      default: "none",
-      filled: "bg-gray-200",
-      unstyled: "border-0 shadow-none",
-    },
-    error: {
-      default: "",
-      true: "border-red-500 text-red-500",
-      false: "",
-    },
-
     radius: {
       default: "rounded-none",
       xs: "rounded-xs",
@@ -36,6 +29,12 @@ const tagsConfig: TagsConfigType = {
       lg: "rounded-lg",
       xl: "rounded-xl",
     },
+    error: {
+      default: "",
+      true: "border-red-500 text-red-500",
+      false: "",
+    },
+
   },
   defaultVariants: {
     labelPosition: "default",

@@ -7,6 +7,7 @@ export interface skeletonVariantsConfigType {
       md: string;
       lg: string;
       xl: string;
+      full: string;
     };
     animate: {
       default: string;

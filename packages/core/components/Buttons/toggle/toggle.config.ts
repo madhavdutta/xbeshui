@@ -39,7 +39,7 @@ export const toggleGroupVriantsConfig: ToggleGroupVariantsConfigType =
 {
   variants: {
     variant: {
-      default: "hover:bg-accent hover:text-accent-foreground",
+      default: "hover:bg-accent bg-primary text-forground hover:text-accent-foreground",
       success: "bg-green-600 text-white	 shadow-sm hover:bg-accent",
       warning: "bg-orange-600 text-white shadow-sm hover:bg-accent",
       notice: "bg-blue-600 text-white	 shadow-sm hover:bg-accent",

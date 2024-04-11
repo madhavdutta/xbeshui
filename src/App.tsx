@@ -734,29 +734,72 @@ function App() {
             gradient={"bl"}
             gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
             textWrap={"wrap"}
-            >
+          >
             Believe you can and you're halfway there.{" "}
           </Title>
         </div>
         <br />
+
+        <hr className="text-blue-400" style={{ color: "blue", margin: "10px", width: "100%" }} />
+        <Title
+          order={"h3"}
+          fontFamily={"sans"}
+          align={"center"}
+          gradient={"bl"}
+          gradientColors="from-green-500 from-40% via-pink-500 via-30% to-yellow-500 to-70%"
+          textWrap={"wrap"}
+          className="mb-10"
+        >
+          -Buttons-
+        </Title>
+
+        <span className="text-gray-600">Action Icon</span>
+        <ActionIcon size={"lg"} variant={"destructive"} radius={"full"}>
+          <IconSettings />
+        </ActionIcon>
         <br />
 
+        <span className="text-gray-600">Button</span>
         <Button radius={"md"} size={"lg"} variant={"warning"}>
           Click Me
         </Button>
         <br />
+
+        <span className="text-gray-600">Copy Button</span>
+        <CopyButton value={"Here we go"} size={"md"} radius={"full"} variant={"notice"} >
+          Copy to clipboard
+        </CopyButton>
         <br />
 
-        <Toggle 
-          variant={"outline"} 
-          radius={"full"} 
+        <span className="text-gray-600">File Button</span>
+        <FileButton
+          onFileSelect={(value) => console.log(value)}
+          variant={"secondary"}
+          size={"lg"}
+          radius={"full"}
+          allowedFileTypes={["image/svg+xml"]}
+        >
+          Upload Image
+        </FileButton>
+        <br />
+
+        <span className="text-gray-600">Link</span>
+        <Link href="/docs"  variant={"outline"} >
+          Documentation
+        </Link>
+        <br />
+
+        <span className="text-gray-600">Toggle</span>
+        <Toggle
+          variant={"outline"}
+          radius={"full"}
           size={"lg"}
         >
           <IconStack size={18} />
         </Toggle>
         <br />
-        <br />
 
+        <span className="text-gray-600">Toggle Group</span>
         <ToggleGroup
           type="single"
           size={"lg"}
@@ -777,32 +820,21 @@ function App() {
           </ToggleGroupItem>
         </ToggleGroup>
         <br />
-        <br />
 
-        <FileButton
-          onFileSelect={(value) => console.log(value)}
-          variant={"secondary"}
-          size={"lg"}
-          radius={"full"}
-          allowedFileTypes={["image/svg+xml"]}
+        <hr className="text-blue-400" style={{ color: "blue", margin: "10px", width: "100%" }} />
+        <Title
+          order={"h3"}
+          fontFamily={"sans"}
+          align={"center"}
+          gradient={"bl"}
+          gradientColors="from-green-500 from-40% via-pink-500 via-30% to-yellow-500 to-70%"
+          textWrap={"wrap"}
+          className="mb-10"
         >
-          Upload Image
-        </FileButton>
-        <br />
-        <br />
+          -Data Display-
+        </Title>
 
-        <CopyButton value={"Here we go"} size={"md"} radius={"full"} variant={"notice"} >
-          Copy to clipboard
-        </CopyButton>
-        <br />
-        <br />
-
-        <ActionIcon size={"lg"} variant={"destructive"} radius={"full"}>
-          <IconSettings />
-        </ActionIcon>
-        <br />
-        <br />
-
+        <span className="text-gray-600">Accordian</span>
         <Accordion
           type="multiple"
           variant={"contained"}
@@ -826,8 +858,8 @@ function App() {
           </AccordionItem>
         </Accordion>
         <br />
-        <br />
 
+        <span className="text-gray-600">Avatar</span>
         <Avatar
           src={"https://tabler.io/packages/logo-vue.svg"}
           radius={"full"}
@@ -836,8 +868,8 @@ function App() {
           color={"blue"}
         ></Avatar>
         <br />
-        <br />
 
+        <span className="text-gray-600">Background Image</span>
         <BackgroundImage
           src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
           radius={"md"}
@@ -845,16 +877,56 @@ function App() {
           width={800}
           height={400}
         >
-          <div>
-            <Text style={{ textAlign: "center" }} className="text-white mt-6">
-              BackgroundImage component can be used to add any content on image.
-              It is useful for hero headers and other similar sections
-            </Text>
-          </div>
+          <p style={{ textAlign: "center" }} className="text-white mt-6">
+            BackgroundImage component can be used to add any content on image.
+            It is useful for hero headers and other similar sections
+          </p>
         </BackgroundImage>
         <br />
+
+        <span className="text-gray-600">Badge</span>
+        <Card className="p-1" shadow={"xl"} radius={"md"} size={"xl"} withBorder={true} >
+          <Badge variant={"notice"} size={"md"} radius={"xl"}>
+            Badge
+          </Badge>
+        </Card>
         <br />
 
+        <span className="text-gray-600">Card</span>
+        <Card shadow={"xl"} size={"md"} radius={"md"} withBorder={true}>
+          <CardHeader>
+            <CardTitle>Account</CardTitle>
+            <CardDescription>
+              Make changes to your account here. Click save when you're
+              done.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="space-y-1">
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" defaultValue="Pedro Duarte" />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="username">Username</Label>
+              <Input id="username" defaultValue="@peduarte" />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button>Save changes</Button>
+          </CardFooter>
+        </Card>
+        <br />
+
+        <span className="text-gray-600">Data Table</span>
+        <DataTable
+          data={dataa}
+          filters={filters}
+          columns={columns}
+          searchable={searchable}
+        />
+        <br />
+
+        <span className="text-gray-600">Image</span>
         <Image
           src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
           radius={'md'}
@@ -863,8 +935,8 @@ function App() {
           height={200}
         />
         <br />
-        <br />
 
+        <span className="text-gray-600">Table</span>
         <XbTable
           data={data}
           borderCollapse={"default"}
@@ -873,128 +945,166 @@ function App() {
           size={"default"}
         />
         <br />
-        <br />
-  
-        <DataTable
-          data={dataa}
-          filters={filters}
-          columns={columns}
-          searchable={searchable}
-        />
-        <br />
+
+        <span className="text-gray-600" >Tabs</span>
+        <Tabs defaultValue="account" className="w-[400px]">
+          <TabsList variant={"underline"} radius={"xl"} size={"xl"} className="grid w-full grid-cols-2">
+            <TabsTrigger variant={"underline"} value="account">
+              Account
+            </TabsTrigger>
+            <TabsTrigger variant={"underline"} value="password">
+              Password
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="account">
+            <Card>
+              <CardHeader>
+                <CardTitle>Account</CardTitle>
+                <CardDescription>
+                  Make changes to your account here. Click save when you're
+                  done.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <div className="space-y-1">
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" defaultValue="Pedro Duarte" />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="username">Username</Label>
+                  <Input id="username" defaultValue="@peduarte" />
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button>Save changes</Button>
+              </CardFooter>
+            </Card>
+          </TabsContent>
+          <TabsContent value="password">
+            <Card>
+              <CardHeader>
+                <CardTitle>Password</CardTitle>
+                <CardDescription>
+                  Change your password here. After saving, you'll be logged out.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <div className="space-y-1">
+                  <Label htmlFor="current">Current password</Label>
+                  <Input id="current" type="password" />
+                </div>
+                <div className="space-y-1">
+                  <Label htmlFor="new">New password</Label>
+                  <Input id="new" type="password" />
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button>Save password</Button>
+              </CardFooter>
+            </Card>
+          </TabsContent>
+        </Tabs>
         <br />
 
-        <Card className="p-1" shadow={"xl"} radius={"md"} size={"xl"} withBorder={"true"} >
-          <Badge variant={"notice"} size={"md"} radius={"xl"}>
-            badge
-          </Badge>
-        </Card>
-        <br />
-        <br />
+        <hr className="text-blue-400" style={{ color: "blue", margin: "10px", width: "100%" }} />
+        <Title
+          order={"h3"}
+          fontFamily={"sans"}
+          align={"center"}
+          gradient={"bl"}
+          gradientColors="from-green-500 from-40% via-pink-500 via-30% to-yellow-500 to-70%"
+          textWrap={"wrap"}
+          className="mb-10"
+        >
+          -Typography-
+        </Title>
 
+        <span className="text-gray-600">BlockQuote</span>
         <BlockQuote cite="Nelson Mandela" icon={<IconAlertCircle />} textWrap={"wrap"} line={"xl"} align={"center"} size={"4xl"} fontFamily={"sans"}>
           The greatest glory in living lies not in never falling, but in rising
           every time we fall.
         </BlockQuote>
         <br />
-        <br />
 
+        <span className="text-gray-600">Code</span>
         <Code>
-          {`import { useState } from 'react';
+          {
+            `import { useState } from 'react';
 
-function SearchableVideoList({ videos }) {
-  const [searchText, setSearchText] = useState('');
-  const foundVideos = filterVideos(videos, searchText);
-  return (
-    <>
-      <SearchInput
-        value={searchText}
-        onChange={newText => setSearchText(newText)} />
-      <VideoList
-        videos={foundVideos}
-    </>
-  );
-}`}{" "}
+            function SearchableVideoList({ videos }) {
+              const [searchText, setSearchText] = useState('');
+              const foundVideos = filterVideos(videos, searchText);
+              return (
+                <>
+                  <SearchInput
+                    value={searchText}
+                    onChange={newText => setSearchText(newText)} />
+                  <VideoList
+                    videos={foundVideos}
+                </>
+              );
+            }`}
         </Code>
         <br />
-        <br />
 
-        <Label fontFamily={"sans"} fontSize={"6xl"} fontWidth={"black"}>
-          abdcjhdbcdkjcbd
+        <span className="text-gray-600">Label</span>
+        <Label fontFamily={"sans"} fontSize={"6xl"} fontWidth={"bold"}>
+          My Label
         </Label>
         <br />
-        <br />
-
+        
+        <span className="text-gray-600">List</span>
         <List type={"disc"} fontSize={"3xl"} position={"inside"}>
           <ListItem className="text-gray-500">Item 1</ListItem>
           <ListItem className="text-gray-500">Item 2</ListItem>
           <ListItem className="text-gray-500">Item 3</ListItem>
         </List>
         <br />
+        
+        <span className="text-gray-600">Text</span>
+        <Text size="7xl" textWrap={"wrap"} line={"7xl"} fontFamily={"sans"} align={"right"} textTransform={"uppercase"} textOverflow={"truncate"} lineClamp={"clamp7"} fontWeight={"bold"} className="text-gray-800">hello</Text>
         <br />
+        
+        <span className="text-gray-600">Title</span>
+        <Title 
+          order={"h1"}
+          fontFamily={"sans"}
+          align={"right"}
+          gradient={"bl"}
+          gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
+          textWrap={"wrap"}
+        > 
+          hello
+        </Title>
+        <br />
+        
+        <hr className="text-blue-400" style={{ color: "blue", margin: "10px", width: "100%" }} />
+        <Title
+          order={"h3"}
+          fontFamily={"sans"}
+          align={"center"}
+          gradient={"bl"}
+          gradientColors="from-green-500 from-40% via-pink-500 via-30% to-yellow-500 to-70%"
+          textWrap={"wrap"}
+          className="mb-10"
+        >
+          -Feedback-
+        </Title>
 
-        <Text size="7xl">hello</Text>
-        <br />
-        <br />
-        <Title order="h4"> hello</Title>
-        <br />
-        <br />
-
-        <Separator
-          variant="solid"
-          label="Label on the left"
-          labelPosition="left"
-          className="mt-4"
-        />
-        <Separator
-          className="mt-4"
-          label="Label in the center"
-          labelPosition="center"
-        />
-        <Separator
-          className="mt-4"
-          label="Label on the right"
-          labelPosition="right"
-        />
-        <br />
-        <br />
-
+        <span className="text-gray-600">Alert</span>
         <Alert
-          className="mt-4"
+          className="mt-4 text-gray-500"
           id={"abc"}
           title="hello"
           message="hey aakib, are you there?"
+          variant={"warning"}
         />
         <br />
+
+        <span className="text-gray-600">Confirm Dialog</span>
         <br />
 
-        <Progress className="mt-4" value={20} />
-        <br />
-        <br />
-
-        <Skeleton className="mt-4  h-20" radius={"xl"} animate={"pulse"} />
-        <br />
-        <br />
-
-        <Button
-          className="mt-4"
-          variant="outline"
-          onClick={() => {
-            toast({
-              title: "Scheduled: Catch up ",
-              description: "Friday, February 10, 2023 at 5:57 PM",
-              action: (
-                <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-              ),
-              variant: "outline",
-            });
-          }}
-        >
-          toast
-        </Button>
-        <br />
-        <br />
-
+        <span className="text-gray-600">Dialog</span>
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="outline">Dialog</Button>
@@ -1031,6 +1141,238 @@ function SearchableVideoList({ videos }) {
           </DialogContent>
         </Dialog>
         <br />
+
+        <span className="text-gray-600">Progress</span>
+        <Progress className="mt-4" value={20} variant={"default"} radius={"lg"} size={"sm"} striped={"default"} animated={"default"} />
+        <br />
+
+        <span className="text-gray-600">Skeleton</span>
+        <div className="flex items-center space-x-4">
+          <Skeleton className="h-12 w-12" radius={"full"} animate={"default"} />
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-[250px]" radius={"default"} animate={"pulse"}/>
+            <Skeleton className="h-4 w-[200px]" radius={"default"} animate={"pulse"} />
+          </div>
+        </div>
+        <br />
+
+        <span className="text-gray-600">Toast</span>
+        <Button
+          className="mt-4"
+          variant={"default"}
+          onClick={() => {
+            toast({
+              title: "Scheduled: Catch up ",
+              description: "Friday, February 10, 2023 at 5:57 PM",
+              action: (
+                <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+              ),
+              variant: "default",
+            });
+          }}
+        >
+          Toast
+        </Button>
+        <br />
+
+        <hr className="text-blue-400" style={{ color: "blue", margin: "10px", width: "100%" }} />
+        <Title
+          order={"h3"}
+          fontFamily={"sans"}
+          align={"center"}
+          gradient={"bl"}
+          gradientColors="from-green-500 from-40% via-pink-500 via-30% to-yellow-500 to-70%"
+          textWrap={"wrap"}
+          className="mb-10"
+        >
+          -Inputs-
+        </Title>
+
+        <span className="text-gray-600">Checkbox</span>
+        <Checkbox
+          className="text-gray-600"
+          id="terms"
+          label={" Accept terms and conditions"}
+          radius={"sm"}
+          size="sm"
+          variant={"filled"}
+        />
+        <br />
+
+        <span className="text-gray-600">Color Input</span>
+        <ColorInput
+          label="Choose a color:"
+          value={"#FF0000"}
+          format="hex"
+          variant={"outline"}
+          radius={"md"}
+          width={"xl"}
+        />
+        <br />
+
+        <span className="text-gray-600">Color Swatch</span>
+        <ColorSwatch color={"blue"} />
+        <br />
+        
+        <span className="text-gray-600">File Input</span>
+        <FileInput
+          label="Fileinput label"
+          description="Fileinput description"
+          placeholder="select file.."
+          variant={"filled"}
+          labelPosition={"right"}
+          size={"xl"}
+          radius={"md"}
+        />
+        <br />
+        
+        <span className="text-gray-600">Input OTP</span>
+        <InputOTP
+          maxLength={6}
+          onChange={(value) => console.log(value)}
+          className="mt-0"
+        >
+          <InputOTPGroup>
+            <InputOTPSlot index={0} />
+            <InputOTPSlot index={1} />
+            <InputOTPSlot index={2} />
+          </InputOTPGroup>
+          <InputOTPSeparator />
+          <InputOTPGroup>
+            <InputOTPSlot index={3} />
+            <InputOTPSlot index={4} />
+            <InputOTPSlot index={5} />
+          </InputOTPGroup>
+        </InputOTP>
+        <br />
+
+        <span className="text-gray-600">Multi Select</span>
+        <MultiSelect />
+        <br />
+
+        <span className="text-gray-600">Radio</span>
+        <Card size={"lg"} radius={"md"} shadow={"md"} withBorder={true} className="w-1/6 h-[100px] center">
+        <RadioGroup variant={"filled"} size={"xl"} defaultValue="comfortable" >
+          <RadioGroupItem value="default" id="r1" label={"Default"} />
+          <RadioGroupItem value="comfortable" id="r2" label={"Comfortable"} />
+          <RadioGroupItem value="compact" id="r3" label={"Compact"} />
+        </RadioGroup>
+        </Card>
+        <br />
+
+        <span className="text-gray-600">Range Slider</span>
+        <br /><br />
+
+        <span className="text-gray-600">Select</span>
+        <Select>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="Select a fruit" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Fruits</SelectLabel>
+              <SelectItem value="apple">Apple</SelectItem>
+              <SelectItem value="banana">Banana</SelectItem>
+              <SelectItem value="blueberry">Blueberry</SelectItem>
+              <SelectItem value="grapes">Grapes</SelectItem>
+              <SelectItem value="pineapple">Pineapple</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        <br />
+
+        <span className="text-gray-600">Spotlight</span>
+        <br /><br />
+
+        <span className="text-gray-600">Switch</span>
+        <Switch label="this is switch" size={"md"} radius={"sm"} />
+        <br /><br />
+
+        <span className="text-gray-600">Tags</span>
+        <TagsInput label="Tag Label" description="Tag Description"  />
+        <br />
+
+        <span className="text-gray-600">Textarea</span>
+        <Textarea
+          className=""
+          placeholder="textarea filed..."
+          radius="md"
+          label="Textarea label"
+          description="Textarea description"
+          size="xl"
+        />
+        <br />
+
+        <span className="text-gray-600">TextInput</span>
+        <Input />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <Separator
+          variant="solid"
+          label="Label on the left"
+          labelPosition="left"
+          className="mt-4 text-gray-700"
+        />
+        <Separator
+          className="mt-4"
+          label="Label in the center"
+          labelPosition="center"
+        />
+        <Separator
+          className="mt-4"
+          label="Label on the right"
+          labelPosition="right"
+        />
+        <br />
+       
+
+        <Resizable
+          panels={panelConfigs}
+          className="max-w-md rounded-lg border"
+        />
+
+
+
+
+
+        
         <br />
 
         <Menubar>
@@ -1353,6 +1695,11 @@ function SearchableVideoList({ videos }) {
           </DrawerContent>
         </Drawer>
 
+
+
+
+
+
         <Input
           placeholder="input field..."
           radius="md"
@@ -1363,53 +1710,17 @@ function SearchableVideoList({ videos }) {
         <br />
         <br />
 
-        <Textarea
-          className=""
-          placeholder="textarea filed..."
-          radius="md"
-          label="Textarea label"
-          description="Textarea description"
-          size="xl"
-        />
+        
+        <br />
+
+
+        <br />
+
+        
         <br />
         <br />
 
-        <TagsInput label="tag label" description="tag description" width="sm" />
-        <br />
-        <br />
-
-        <Switch label="this is switch" size="lg" radius="lg" />
-        <br />
-        <br />
-
-        <FileInput
-          size={"xl"}
-          label="Fileinput label"
-          description="Fileinput description"
-          placeholder="select file.."
-          radius="md"
-        />
-        <br />
-        <br />
-
-        <InputOTP
-          maxLength={6}
-          onChange={(value) => console.log(value)}
-          className="mt-0"
-        >
-          <InputOTPGroup>
-            <InputOTPSlot index={0} />
-            <InputOTPSlot index={1} />
-            <InputOTPSlot index={2} />
-          </InputOTPGroup>
-          <InputOTPSeparator />
-          <InputOTPGroup>
-            <InputOTPSlot index={3} />
-            <InputOTPSlot index={4} />
-            <InputOTPSlot index={5} />
-          </InputOTPGroup>
-        </InputOTP>
-        <br />
+       
         <br />
 
         <Slider />
@@ -1466,43 +1777,16 @@ function SearchableVideoList({ videos }) {
         <br />
         <br />
 
-        <Select>
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Select a fruit" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Fruits</SelectLabel>
-              <SelectItem value="apple">Apple</SelectItem>
-              <SelectItem value="banana">Banana</SelectItem>
-              <SelectItem value="blueberry">Blueberry</SelectItem>
-              <SelectItem value="grapes">Grapes</SelectItem>
-              <SelectItem value="pineapple">Pineapple</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-        <br />
+        
         <br />
 
-        <MultiSelect />
-        <br />
+
         <br />
 
-        <Checkbox
-          id="terms"
-          label={" Accept terms and conditions"}
-          radius="md"
-          size="sm"
-        />
-        <br />
-        <br />
+        
 
-        <RadioGroup size="lg" defaultValue="comfortable">
-          <RadioGroupItem value="default" id="r1" label={"Default"} />
-          <RadioGroupItem value="comfortable" id="r2" label={"Comfortable"} />
-          <RadioGroupItem value="compact" id="r3" label={"Compact"} />
-        </RadioGroup>
-        <br />
+
+        
         <br />
 
         <ActionIcon size="xs" variant="ghost">
@@ -1616,21 +1900,7 @@ function SearchableVideoList({ videos }) {
         <br />
         <br />
 
-        <ColorInput
-          label="Choose a color:"
-          value={"#FF0000"}
-          format="hex"
-          radius="md"
-        />
-        <br />
-        <br />
-
-        <ColorSwatch color={"blue"} />
-        <Resizable
-          panels={panelConfigs}
-          className="max-w-md rounded-lg border"
-        />
-        <br />
+       
         <br />
 
         <Group>
