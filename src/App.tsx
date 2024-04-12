@@ -784,8 +784,8 @@ function App() {
         <br />
 
         <span className="text-gray-600">Link</span>
-        <Link href="/docs"  variant={"outline"} >
-          Documentation
+        <Link href="/docs" variant={"outline"} >
+          -Documentation-
         </Link>
         <br />
 
