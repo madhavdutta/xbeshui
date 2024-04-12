@@ -93,6 +93,7 @@ export const ColorInput: React.FC<ColorInputProps> = ({
               size={16}
               stroke={1.5}
               onClick={handleEyeDropperClick}
+              className="text-secondary-foreground"
             />
           }
           leftSection={<ColorSwatch color={value} />}

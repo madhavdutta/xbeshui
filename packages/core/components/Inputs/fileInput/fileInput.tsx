@@ -75,7 +75,7 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
             {label && (
               <label
                 className={cn(
-                  "flex items-center gap-2 mb-1 text-sm font-normal",
+                  "flex items-center gap-2 mb-1 text-sm text-secondary-foreground font-normal",
                   labelPosition === "left" && "flex-row-reverse"
                 )}
               >
@@ -85,7 +85,7 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
             {description && (
               <div
                 className={cn(
-                  "flex items-center gap-2 mb-1 text-sm text-gray-400  font-normal",
+                  "flex items-center gap-2 mb-1 text-sm text-muted-foreground font-normal",
                   labelPosition === "left" && "flex-row-reverse"
                 )}
               >
@@ -97,7 +97,7 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
         <div className="flex items-center w-full relative">
           {leftSection && (
             <div
-              className="absolute left-0 inset-y-0 flex items-center justify-center"
+              className="absolute left-0 inset-y-0 text-secondary-foreground flex items-center justify-center"
               style={{ width: leftSectionWidth }}
             >
               {leftSection}
@@ -128,7 +128,7 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
           />
           {rightSection && (
             <div
-              className="absolute right-0 inset-y-0 flex items-center justify-center"
+              className="absolute right-0 inset-y-0 text-secondary-foreground flex items-center justify-center"
               style={{ width: rightSectionWidth }}
             >
               {rightSection}

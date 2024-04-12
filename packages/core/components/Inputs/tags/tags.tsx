@@ -55,7 +55,7 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsProps>(
     };
 
     return (
-      <div className="flex flex-col w-full relative">
+      <div className="flex flex-col  w-full relative">
         {label && (
           <label
             className={cn(
@@ -76,7 +76,7 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsProps>(
             {description}
           </div>
         )}
-        <div className="flex items-center flex-wrap gap-2 border rounded-md p-2">
+        <div className="flex items-center flex-wrap gap-2 border border-input rounded-md p-2">
           {tags.map((tag, index) => (
             <Badge
               key={index}

@@ -52,7 +52,7 @@ const titleConfig: TitleVariantsType = {
 };
 
 export const titleVariants = cva(
-  "bg-background text-primary-foreground scroll-m-20 font-normal tracking-tight ",
+  "bg-background text-secondary-foreground scroll-m-20 font-normal tracking-tight ",
   titleConfig
 );
 export interface TitleProps

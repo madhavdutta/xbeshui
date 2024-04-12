@@ -42,7 +42,7 @@ const cardConfig:CardVariantsConfigType= {
   },
 }
 
-export const CardVariants = cva("bg-background text-primary-foreground bg-card text-card-foreground rounded-md drop-shadow border w-auto margin-auto p-2", cardConfig);
+export const CardVariants = cva("bg-background text-primary-foreground bg-card text-card-foreground rounded-md drop-shadow border border-input w-auto margin-auto p-2", cardConfig);
 
 export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,

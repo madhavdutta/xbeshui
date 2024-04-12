@@ -46,7 +46,7 @@ const labelConfig: labelVariantsType = {
   },
 };
 const labelVariants = cva(
-  "bg-background text-primary-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+  "bg-background  text-secondary-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
   labelConfig
 );
 

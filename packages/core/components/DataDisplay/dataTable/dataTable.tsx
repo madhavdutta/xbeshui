@@ -87,10 +87,10 @@ export const DataTable = <T,>({
                 <Group
                   justify="flexStart"
                   gap={"xxs"}
-                  className="border-dotted border-2 p-2 px-3 rounded-md text-xs leading-5"
+                  className="border-dotted border-input border-2 p-2 px-3 rounded-md text-xs leading-5"
                 >
-                  <IconCirclePlus stroke={1.5} size={18} />
-                  {filter.name.charAt(0).toUpperCase() + filter.name.slice(1)}
+                  <IconCirclePlus stroke={1.5} size={18} className="text-secondary-foreground " />
+                 <Text  size="xs">{filter.name.charAt(0).toUpperCase() + filter.name.slice(1)}</Text> 
                 </Group>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
@@ -144,7 +144,7 @@ export const DataTable = <T,>({
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-md border border-input text-secondary-foreground">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

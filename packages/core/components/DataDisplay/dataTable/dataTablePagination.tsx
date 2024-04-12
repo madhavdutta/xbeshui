@@ -20,7 +20,7 @@ export function DataTablePagination<TData>({
   pageSizeOptions = [10, 20, 30, 40, 50],
 }: DataTablePaginationProps<TData>) {
   return (
-    <div className="flex w-full flex-col items-center justify-between gap-4 overflow-auto px-2 py-1 sm:flex-row sm:gap-8">
+    <div className="flex w-full  text-secondary-foreground  flex-col items-center justify-between gap-4 overflow-auto px-2 py-1 sm:flex-row sm:gap-8">
       <div className="flex-1 whitespace-nowrap text-sm text-muted-foreground">
         {table.getFilteredSelectedRowModel().rows.length} of{" "}
         {table.getFilteredRowModel().rows.length} row(s) selected.
@@ -58,7 +58,7 @@ export function DataTablePagination<TData>({
             onClick={() => table.setPageIndex(0)}
             disabled={!table.getCanPreviousPage()}
           >
-            <IconChevronsLeft className="size-4" aria-hidden="true" />
+            <IconChevronsLeft className="size-4 text-secondary-foreground " aria-hidden="true" />
           </Button>
           <Button
             aria-label="Go to previous page"
@@ -67,7 +67,7 @@ export function DataTablePagination<TData>({
             onClick={() => console.log(table.previousPage())}
             disabled={!table.getCanPreviousPage()}
           >
-            <IconChevronLeft className="size-4" aria-hidden="true" />
+            <IconChevronLeft className="size-4 text-secondary-foreground " aria-hidden="true" />
           </Button>
           <Button
             aria-label="Go to next page"
@@ -76,7 +76,7 @@ export function DataTablePagination<TData>({
             onClick={() => console.log(table.nextPage())} // getting undefined in the cons
             disabled={!table.getCanNextPage()}
           >
-            <IconChevronRight className="size-4" aria-hidden="true" />
+            <IconChevronRight className="size-4 text-secondary-foreground " aria-hidden="true" />
           </Button>
           <Button
             aria-label="Go to last page"
@@ -85,7 +85,7 @@ export function DataTablePagination<TData>({
             onClick={() => table.setPageIndex(table.getPageCount() - 1)}
             disabled={!table.getCanNextPage()}
           >
-            <IconChevronsRight className="size-4" aria-hidden="true" />
+            <IconChevronsRight className="size-4 text-secondary-foreground " aria-hidden="true" />
           </Button>
         </div>
       </div>

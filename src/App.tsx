@@ -1221,7 +1221,7 @@ function App() {
           placeholder="select file.."
           variant={"filled"}
           labelPosition={"right"}
-          size={"xl"}
+          width={"xl"}
           radius={"md"}
         />
         <br />

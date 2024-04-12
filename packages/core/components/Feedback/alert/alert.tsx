@@ -13,7 +13,7 @@ const AlertTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h5
     ref={ref}
-    className={cn("mb-1 font-medium leading-none tracking-tight", className)}
+    className={cn("mb-1 font-medium text-secondary-foreground  leading-none tracking-tight", className)}
     {...props}
   />
 ))
@@ -25,7 +25,7 @@ const AlertDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("text-sm [&_p]:leading-relaxed", className)}
+    className={cn("text-sm text-secondary-foreground  [&_p]:leading-relaxed", className)}
     {...props}
   />
 ))
@@ -42,7 +42,7 @@ const Alert = React.forwardRef<
     {...props}
   >
     <Group gap="xs">
-    {icon || <IconRocket size={24} />}
+    {icon || <IconRocket className="text-secondary-foreground " size={24} />}
     <Stack justify="center">
     <AlertTitle>{title}</AlertTitle>
     <AlertDescription>

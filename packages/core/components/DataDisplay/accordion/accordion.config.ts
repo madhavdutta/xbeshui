@@ -5,9 +5,9 @@ const accordionVariant: AccordionVariantsType = {
   variants: {
     variant: {
       default: "",
-      filled: "bg-gray-200",
-      contained: "border border-gray-200 rounded-md",
-      separated: "border-t border-b border-gray-200",
+      filled: "border-input",
+      contained: "border border-input rounded-md",
+      separated: "border-t border-b border-input",
     },
     radius: {
       default: "rounded-none",
@@ -40,4 +40,4 @@ const accordionVariant: AccordionVariantsType = {
   },
 };
 
-export const accordionVariants = cva("bg-background text-primary-foreground w-full", accordionVariant);
+export const accordionVariants = cva("bg-background text-primary-foreground border-input w-full", accordionVariant);
