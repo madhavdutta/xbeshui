@@ -6,9 +6,9 @@ export const badgeVariantConfig: BadgeVariantsConfigType = {
   variants: {
     variant: {
       default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
-      success: "bg-green-600 text-white	 shadow-sm hover:bg-accent",
-      warning: "bg-orange-600 text-white shadow-sm hover:bg-accent",
-      notice: "bg-blue-600 text-white	 shadow-sm hover:bg-accent",
+      success: "bg-green-600 text-white	 shadow-sm hover:bg-green/90",
+      warning: "bg-orange-600 text-white shadow-sm hover:bg-orange/90",
+      notice: "bg-blue-600 text-white	 shadow-sm hover:bg-blue/90",
       destructive:
         "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
       outline:
@@ -46,7 +46,7 @@ export const badgeVariantConfig: BadgeVariantsConfigType = {
   },
 };
 
-export const badgeVariants = cva( "bg-background text-primary-foreground inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors", badgeVariantConfig);
+export const badgeVariants = cva( "bg-foreground text-primary-foreground inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors", badgeVariantConfig);
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {

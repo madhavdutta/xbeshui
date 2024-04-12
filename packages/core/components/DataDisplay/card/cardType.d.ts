@@ -17,6 +17,7 @@ export type CardRadiusType = {
 };
 export type CardShadowType = {
   default: string;
+  none: string;
   xs: string;
   sm: string;
   md: string;

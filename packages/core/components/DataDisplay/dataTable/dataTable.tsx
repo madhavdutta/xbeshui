@@ -72,6 +72,7 @@ export const DataTable = <T,>({
       <div className="flex items-center gap-3 py-4">
         <Input
           placeholder={`Filter ${searchable}...`}
+          radius="md"
           value={
             (table.getColumn(searchable)?.getFilterValue() as string) ?? ""
           }

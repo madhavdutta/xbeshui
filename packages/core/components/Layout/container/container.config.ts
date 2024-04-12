@@ -30,13 +30,14 @@ const containerConfig: ContainerVariantType = {
       stretch: "items-stretch",
     },
     size: {
-      default: "max-w-none",
-      xs: "max-w-xs",
-      sm: "max-w-sm",
-      md: "max-w-md",
-      lg: "max-w-lg",
-      xl: "max-w-xl",
-      xxl: "max-w-xxl",
+      default: "w-9/12",
+      xs: "w-4/12",
+      sm: "w-5/12",
+      md: "w-6/12",
+      lg: "w-7/12",
+      xl: "w-8/12",
+      xxl: "w-9/12",
+      full:"w-screen"
     },
   },
   defaultVariants: {

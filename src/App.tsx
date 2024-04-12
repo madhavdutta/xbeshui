@@ -108,7 +108,6 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "../packages/core/components/Inputs/inputOtp/inputOtp";
-import { MultiSelect } from "../packages/core/components/Inputs/multiSelect/multiSelect";
 
 import {
   Menubar,
@@ -184,7 +183,7 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "../packages/core/components/Inputs/radio/radio";
-import { AspectRatio } from "../packages/core/components/Layout/aspectRatio/aspectRatio";
+// import { AspectRatio } from "../packages/core/components/Layout/aspectRatio/aspectRatio";
 import {
   Tabs,
   TabsContent,
@@ -226,7 +225,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   Popover,
-  Resizable,
   ScrollArea,
   Timeline,
   TimelineItem,
@@ -554,56 +552,56 @@ function App() {
   ];
   const searchable = "title";
 
-  type PanelConfig = {
-    key: string | number;
-    content: React.ReactNode;
-    resizable?: boolean;
-    defaultSize?: number; // Note the addition here
-    direction?: "horizontal" | "vertical";
-    nestedPanels?: PanelConfig[]; // Allow nested panels
-  };
-  const panelConfigs: PanelConfig[] = [
-    {
-      key: "panel1",
-      content: (
-        <div className="flex h-[200px] items-center justify-center p-6">
-          <span className="font-semibold">One</span>
-        </div>
-      ),
-      resizable: true,
-      defaultSize: 50,
-    },
-    {
-      key: "panel2",
-      content: (
-        <div className="flex h-full items-center justify-center p-6">
-          <span className="font-semibold">Two</span>
-        </div>
-      ),
-      nestedPanels: [
-        {
-          key: "nested1",
-          content: (
-            <div className="flex h-full items-center justify-center p-6">
-              <span className="font-semibold">Three</span>
-            </div>
-          ),
-          resizable: true,
-          defaultSize: 50,
-        },
-        {
-          key: "nested2",
-          content: (
-            <div className="flex h-full items-center justify-center p-6">
-              <span className="font-semibold">four</span>
-            </div>
-          ),
-          defaultSize: 75,
-        },
-      ],
-      direction: "vertical",
-    },
-  ];
+  // type PanelConfig = {
+  //   key: string | number;
+  //   content: React.ReactNode;
+  //   resizable?: boolean;
+  //   defaultSize?: number; // Note the addition here
+  //   direction?: "horizontal" | "vertical";
+  //   nestedPanels?: PanelConfig[]; // Allow nested panels
+  // };
+  // const panelConfigs: PanelConfig[] = [
+  //   {
+  //     key: "panel1",
+  //     content: (
+  //       <div className="flex h-[200px] items-center justify-center p-6">
+  //         <span className="font-semibold">One</span>
+  //       </div>
+  //     ),
+  //     resizable: true,
+  //     defaultSize: 50,
+  //   },
+  //   {
+  //     key: "panel2",
+  //     content: (
+  //       <div className="flex h-full items-center justify-center p-6">
+  //         <span className="font-semibold">Two</span>
+  //       </div>
+  //     ),
+  //     nestedPanels: [
+  //       {
+  //         key: "nested1",
+  //         content: (
+  //           <div className="flex h-full items-center justify-center p-6">
+  //             <span className="font-semibold">Three</span>
+  //           </div>
+  //         ),
+  //         resizable: true,
+  //         defaultSize: 50,
+  //       },
+  //       {
+  //         key: "nested2",
+  //         content: (
+  //           <div className="flex h-full items-center justify-center p-6">
+  //             <span className="font-semibold">four</span>
+  //           </div>
+  //         ),
+  //         defaultSize: 75,
+  //       },
+  //     ],
+  //     direction: "vertical",
+  //   },
+  // ];
 
   //   const [count, setCount] = useState(0)
   //   var randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -725,12 +723,12 @@ function App() {
 
   return (
     <>
-      <Container fluid={false} justify="start" items="center">
+      <Container fluid={false} size="xxl" p="md" justify="start" items="center">
         <div style={{ clear: "both" }}>
           <Title
             order={"h1"}
             fontFamily={"sans"}
-            align={"right"}
+            align={"center"}
             gradient={"bl"}
             gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
             textWrap={"wrap"}
@@ -805,22 +803,34 @@ function App() {
 
         <span className="text-gray-600">Toggle Group</span>
         <ToggleGroup
-          type="single"
+          type="multiple"
           size={"lg"}
           radius={"full"}
           variant={"outline"}
         >
           <ToggleGroupItem value="bold" aria-label="Toggle bold">
-            <IconBold size={18} stroke={1.5} className="text-secondary-foreground" />
+            <IconBold
+              size={18}
+              stroke={1.5}
+              className="text-secondary-foreground"
+            />
           </ToggleGroupItem>
           <ToggleGroupItem value="italic" aria-label="Toggle italic">
-            <IconItalic size={18} stroke={1.5} className="text-secondary-foreground" />
+            <IconItalic
+              size={18}
+              stroke={1.5}
+              className="text-secondary-foreground"
+            />
           </ToggleGroupItem>
           <ToggleGroupItem
             value="strikethrough"
             aria-label="Toggle strikethrough"
           >
-            <IconUnderline size={18} stroke={1.5} className="text-secondary-foreground" />
+            <IconUnderline
+              size={18}
+              stroke={1.5}
+              className="text-secondary-foreground"
+            />
           </ToggleGroupItem>
         </ToggleGroup>
         <br />
@@ -1046,7 +1056,7 @@ function App() {
           textWrap={"wrap"}
           line={"xl"}
           align={"center"}
-          size={"4xl"}
+          size={"xl"}
           fontFamily={"sans"}
         >
           The greatest glory in living lies not in never falling, but in rising
@@ -1082,15 +1092,15 @@ function App() {
 
         <span className="text-gray-600">List</span>
         <List type={"disc"} fontSize={"3xl"} position={"inside"}>
-          <ListItem className="text-gray-500">Item 1</ListItem>
-          <ListItem className="text-gray-500">Item 2</ListItem>
-          <ListItem className="text-gray-500">Item 3</ListItem>
+          <ListItem>Item 1</ListItem>
+          <ListItem>Item 2</ListItem>
+          <ListItem>Item 3</ListItem>
         </List>
         <br />
 
         <span className="text-gray-600">Text</span>
         <Text
-          size="7xl"
+          size="2xl"
           textWrap={"wrap"}
           line={"7xl"}
           fontFamily={"sans"}
@@ -1099,7 +1109,6 @@ function App() {
           textOverflow={"truncate"}
           lineClamp={"clamp7"}
           fontWeight={"bold"}
-          className="text-gray-800"
         >
           hello
         </Text>
@@ -1140,7 +1149,6 @@ function App() {
           id={"abc"}
           title="hello"
           message="hey aakib, are you there?"
-          variant={"warning"}
         />
         <br />
 
@@ -1281,7 +1289,6 @@ function App() {
           label="Fileinput label"
           description="Fileinput description"
           placeholder="select file.."
-          variant={"filled"}
           labelPosition={"right"}
           width={"xl"}
           radius={"md"}
@@ -1376,7 +1383,7 @@ function App() {
 
         <span className="text-gray-600">TextInput</span>
         <Input />
-{/* 
+        {/* 
         <Separator
           variant="solid"
           label="Label on the left"
@@ -1793,27 +1800,11 @@ function App() {
           </CommandList>
         </CommandDialog>
         <br />
-        <br />
-
-        <br />
-
-        <br />
-
-        <br />
 
         <ActionIcon size="xs" variant="ghost">
           <IconStack size={18} />
         </ActionIcon>
-        <br />
-        <br />
 
-        <AspectRatio ratio={16 / 9} className="w-full">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.3063874233135!2d-74.04668908358428!3d40.68924937933441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25090129c363d%3A0x40c6a5770d25022b!2sStatue%20of%20Liberty%20National%20Monument!5e0!3m2!1sen!2sru!4v1644262070010!5m2!1sen!2sru"
-            title="Google map"
-            style={{ border: 0 }}
-          />
-        </AspectRatio>
         <br />
         <br />
 
@@ -1913,20 +1904,22 @@ function App() {
         <br />
 
         <br />
-
-        <Group>
-          <div className="text-black">Group1</div>
-          <div className="text-black">Group2</div>
-          <div className="text-black">Group3</div>
-        </Group>
+        <Card>
+          <Group>
+            <div className="text-black">Group1</div>
+            <div className="text-black">Group2</div>
+            <div className="text-black">Group3</div>
+          </Group>
+        </Card>
         <br />
         <br />
-
-        <Stack>
-          <div className="text-black">Stack1</div>
-          <div className="text-black">Stack1</div>
-          <div className="text-black">Stack1</div>
-        </Stack>
+        <Card>
+          <Stack>
+            <div className="text-black">Stack1</div>
+            <div className="text-black">Stack1</div>
+            <div className="text-black">Stack1</div>
+          </Stack>
+        </Card>
         <br />
         <br />
 
@@ -1996,8 +1989,8 @@ function App() {
             {Array.from({ length: 5 }).map((_, index) => (
               <CarouselItem key={index}>
                 <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <Card shadow="none">
+                    <CardContent className="flex aspect-square items-center justify-center p-6 shadow-none">
                       <span className="text-4xl font-semibold">
                         {index + 1}
                       </span>
@@ -2022,7 +2015,11 @@ function App() {
               @peduarte starred 3 repositories
             </Text>
             <CollapsibleTrigger asChild>
-              <Button variant="ghost" size="sm" className="text-secondary-foreground">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-secondary-foreground"
+              >
                 <IconSelect className="h-4 w-4" />
                 <span className="sr-only">Toggle</span>
               </Button>
@@ -2045,7 +2042,9 @@ function App() {
 
         <ScrollArea className="h-72 w-48 rounded-md border">
           <div className="p-4">
-            <h4 className="mb-4 text-sm text-secondary-foreground font-medium leading-none">Tags</h4>
+            <h4 className="mb-4 text-sm text-secondary-foreground font-medium leading-none">
+              Tags
+            </h4>
             {tags.map((tag) => (
               <>
                 <div key={tag} className="text-sm text-secondary-foreground">

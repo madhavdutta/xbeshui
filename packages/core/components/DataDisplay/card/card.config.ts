@@ -22,6 +22,7 @@ const cardConfig:CardVariantsConfigType= {
     },
     shadow: {
       default: "drop-shadow",
+      none:"drop-shadow-none",
       xs: "drop-shadow",
       sm: "drop-shadow-sm",
       md: "drop-shadow-md",
@@ -42,7 +43,7 @@ const cardConfig:CardVariantsConfigType= {
   },
 }
 
-export const CardVariants = cva("bg-background text-primary-foreground bg-card text-card-foreground rounded-md drop-shadow border border-input w-auto margin-auto p-2", cardConfig);
+export const CardVariants = cva("bg-background text-secondary-foreground bg-card text-card-foreground rounded-md  border border-input w-auto margin-auto p-2", cardConfig);
 
 export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,

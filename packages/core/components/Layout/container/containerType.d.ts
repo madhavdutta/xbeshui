@@ -34,6 +34,7 @@ export interface ContainerVariantType {
       lg: string;
       xl: string;
       xxl: string;
+      full:string;
     };
   };
 

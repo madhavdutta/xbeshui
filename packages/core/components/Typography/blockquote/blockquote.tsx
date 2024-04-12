@@ -19,7 +19,7 @@ const BlockQuote = React.forwardRef<HTMLParagraphElement, BlockQuoteProps>(
         ref={ref} 
         {...props}
       >
-        {icon && <>{icon}</>}
+        {icon && <div className="flex flex-start">{icon}</div>}
         {props.children}
         {cite && <footer>- {cite}</footer>}
       </div>

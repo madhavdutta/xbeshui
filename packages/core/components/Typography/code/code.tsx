@@ -6,15 +6,15 @@ import { CodeProps } from "./codeType";
 
 
 const Code = React.forwardRef<HTMLPreElement, CodeProps>(
-  ({ className, color = "gray", ...props }, ref) => {
+  ({ className, ...props }, ref) => {
     const tailwindClasses = `
-            ${color === "gray" ? "bg-gray-100" : `bg-${color}-100`}
+            bg-input
             block
             w-full
             p-4
             pl-10
             relative
-            text-gray-500
+            text-muted-foreground
             text-left
         `;
 
@@ -37,10 +37,10 @@ const Code = React.forwardRef<HTMLPreElement, CodeProps>(
           </pre>
         </code>
         <button
-          className="absolute top-0 right-0 m-2 p-1 rounded  text-gray-800 hover:bg-gray-300"
+          className="absolute top-0 right-0 m-2 p-1 rounded  text-secondary-foreground"
           onClick={copyToClipboard}
         >
-          {copied ? <IconCheck size={16} /> : <IconCopy size={16} />}
+          {copied ? <IconCheck className="text-secondary-foreground" size={16} /> : <IconCopy className="text-secondary-foreground"  size={16} />}
         </button>
       </div>
     );

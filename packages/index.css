@@ -66,3 +66,8 @@
         --ring: 240 4.9% 83.9%;
     }
 }
+
+body {
+    color: hsl(var(--foreground));
+    background-color: hsl(var(--background));
+  }
