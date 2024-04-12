@@ -4,14 +4,14 @@ import { ButtonVariantsConfigType } from "../button/buttonType";
 export const LinkConfig: ButtonVariantsConfigType = {
   variants: {
     variant: {
-      default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+      default: "bg-background text-primary-foreground shadow hover:bg-primary/90",
       success: "bg-green-600 text-white	 shadow-sm hover:bg-green/90",
       warning: "bg-orange-600 text-white shadow-sm hover:bg-orange/90",
       notice: "bg-blue-600 text-white	 shadow-sm hover:bg-blue/90",
       destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
-      outline: "border border-input bg-background shadow-sm hover:bg-accent text-accent-foreground hover:text-accent-foreground",
+      outline: "border border-input shadow-sm text-accent-foreground hover:bg-accent hover:text-white",
       secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-      ghost: "hover:bg-accent hover:text-accent-foreground",
+      ghost: "text-accent-foreground hover:bg-accent hover:text-accent-foreground",
       link: "text-primary underline-offset-4 hover:underline",
     },
     size: {
@@ -43,6 +43,6 @@ export const LinkConfig: ButtonVariantsConfigType = {
   },
 };
 export const buttonVariants = cva(
-  "bg-background text-primary-foreground inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
   LinkConfig
 );
