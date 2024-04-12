@@ -11,7 +11,7 @@ export interface FileInputConfigType {
       right: string;
       left: string;
     };
-    size: {
+    width: {
       default: string;
       xs: string;
       sm: string;
@@ -39,6 +39,6 @@ export interface FileInputConfigType {
     labelPosition: keyof FileInputConfigType["variants"]["labelPosition"];
     radius: keyof FileInputConfigType["variants"]["radius"];
     variant: keyof FileInputConfigType["variants"]["variant"];
-    size: keyof FileInputConfigType["variants"]["size"];
+    width: keyof FileInputConfigType["variants"]["width"];
   };
 }

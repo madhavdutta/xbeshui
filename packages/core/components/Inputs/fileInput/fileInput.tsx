@@ -15,7 +15,7 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
       leftSectionWidth = 40,
       rightSectionWidth = 40,
       label,
-      size,
+      width,
       error,
       description,
       labelPosition,
@@ -116,7 +116,7 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
             ref={ref}
             type="text"
             className={cn(
-              fileInputVariants({ variant, size, error, radius, className })
+              fileInputVariants({ variant, width, error, radius, className })
             )}
             value={selectedFile?.name || ""}
             onClick={() => hiddenInputRef.current?.click()}

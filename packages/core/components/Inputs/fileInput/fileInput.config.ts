@@ -14,7 +14,7 @@ const fileInputConfig: FileInputConfigType = {
       right: "",
       left: "",
     },
-    size: {
+    width: {
       default: "w-4/6",
       xs: "w-3/12",
       sm: "w-4/12",
@@ -42,7 +42,7 @@ const fileInputConfig: FileInputConfigType = {
     labelPosition: "default",
     radius: "default",
     variant: "default",
-    size: "default",
+    width: "default",
   },
 };
 
@@ -65,7 +65,7 @@ export interface FileInputProps
   labelPosition?: keyof FileInputConfigType["variants"]["labelPosition"];
   radius?: keyof FileInputConfigType["variants"]["radius"];
   variant?: keyof FileInputConfigType["variants"]["variant"];
-  size?: keyof FileInputConfigType["variants"]["size"];
+  width?: keyof FileInputConfigType["variants"]["width"];
   error?: boolean;
   disabled?: boolean;
 }

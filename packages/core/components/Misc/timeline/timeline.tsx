@@ -9,7 +9,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   children ? (
     <li className={`relative -left-${bulletPosition}  mb-8 ms-6`}>
       <div
-        className={`items-center justify-between p-4 text-accent-foreground border border-${color}-200 rounded-lg shadow-sm sm:flex`}
+        className={`items-center justify-between p-4 text-accent-foreground border bg-border-foreground rounded-lg shadow-sm sm:flex`}
       >
         {children}
       </div>
