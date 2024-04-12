@@ -44,7 +44,7 @@ export const ButtonConfig: ButtonVariantsConfigType = {
 };
 
 export const buttonVariants = cva(
-  "bg-background text-primary-foreground inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
+  "bg-background text-secondary-foreground inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
   ButtonConfig
 );
 

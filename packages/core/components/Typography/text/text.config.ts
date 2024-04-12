@@ -116,7 +116,7 @@ const textConfig:TextVariantsType= {
 }
 
 export const textVariants = cva(
-  "bg-background text-primary-foreground leading-6, font-normal, text-black, text-base",
+  "bg-background text-secondary-foreground leading-6 font-normal text-base",
   textConfig
 );
 

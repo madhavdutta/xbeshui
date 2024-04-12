@@ -740,7 +740,10 @@ function App() {
         </div>
         <br />
 
-        <hr className="text-blue-400" style={{ color: "blue", margin: "10px", width: "100%" }} />
+        <hr
+          className="text-blue-400"
+          style={{ color: "blue", margin: "10px", width: "100%" }}
+        />
         <Title
           order={"h3"}
           fontFamily={"sans"}
@@ -766,7 +769,12 @@ function App() {
         <br />
 
         <span className="text-gray-600">Copy Button</span>
-        <CopyButton value={"Here we go"} size={"md"} radius={"full"} variant={"notice"} >
+        <CopyButton
+          value={"Here we go"}
+          size={"md"}
+          radius={"full"}
+          variant={"notice"}
+        >
           Copy to clipboard
         </CopyButton>
         <br />
@@ -784,17 +792,13 @@ function App() {
         <br />
 
         <span className="text-gray-600">Link</span>
-        <Link href="/docs" variant={"outline"} >
+        <Link href="/docs" variant={"outline"}>
           -Documentation-
         </Link>
         <br />
 
         <span className="text-gray-600">Toggle</span>
-        <Toggle
-          variant={"outline"}
-          radius={"full"}
-          size={"lg"}
-        >
+        <Toggle variant={"outline"} radius={"full"} size={"lg"}>
           <IconStack size={18} />
         </Toggle>
         <br />
@@ -821,7 +825,10 @@ function App() {
         </ToggleGroup>
         <br />
 
-        <hr className="text-blue-400" style={{ color: "blue", margin: "10px", width: "100%" }} />
+        <hr
+          className="text-blue-400"
+          style={{ color: "blue", margin: "10px", width: "100%" }}
+        />
         <Title
           order={"h3"}
           fontFamily={"sans"}
@@ -885,7 +892,13 @@ function App() {
         <br />
 
         <span className="text-gray-600">Badge</span>
-        <Card className="p-1" shadow={"xl"} radius={"md"} size={"xl"} withBorder={true} >
+        <Card
+          className="p-1"
+          shadow={"xl"}
+          radius={"md"}
+          size={"xl"}
+          withBorder={true}
+        >
           <Badge variant={"notice"} size={"md"} radius={"xl"}>
             Badge
           </Badge>
@@ -897,8 +910,7 @@ function App() {
           <CardHeader>
             <CardTitle>Account</CardTitle>
             <CardDescription>
-              Make changes to your account here. Click save when you're
-              done.
+              Make changes to your account here. Click save when you're done.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
@@ -929,7 +941,7 @@ function App() {
         <span className="text-gray-600">Image</span>
         <Image
           src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-6.png"
-          radius={'md'}
+          radius={"md"}
           fit={"contain"}
           width={200}
           height={200}
@@ -946,9 +958,14 @@ function App() {
         />
         <br />
 
-        <span className="text-gray-600" >Tabs</span>
+        <span className="text-gray-600">Tabs</span>
         <Tabs defaultValue="account" className="w-[400px]">
-          <TabsList variant={"underline"} radius={"xl"} size={"xl"} className="grid w-full grid-cols-2">
+          <TabsList
+            variant={"underline"}
+            radius={"xl"}
+            size={"xl"}
+            className="grid w-full grid-cols-2"
+          >
             <TabsTrigger variant={"underline"} value="account">
               Account
             </TabsTrigger>
@@ -1006,7 +1023,10 @@ function App() {
         </Tabs>
         <br />
 
-        <hr className="text-blue-400" style={{ color: "blue", margin: "10px", width: "100%" }} />
+        <hr
+          className="text-blue-400"
+          style={{ color: "blue", margin: "10px", width: "100%" }}
+        />
         <Title
           order={"h3"}
           fontFamily={"sans"}
@@ -1020,7 +1040,15 @@ function App() {
         </Title>
 
         <span className="text-gray-600">BlockQuote</span>
-        <BlockQuote cite="Nelson Mandela" icon={<IconAlertCircle />} textWrap={"wrap"} line={"xl"} align={"center"} size={"4xl"} fontFamily={"sans"}>
+        <BlockQuote
+          cite="Nelson Mandela"
+          icon={<IconAlertCircle />}
+          textWrap={"wrap"}
+          line={"xl"}
+          align={"center"}
+          size={"4xl"}
+          fontFamily={"sans"}
+        >
           The greatest glory in living lies not in never falling, but in rising
           every time we fall.
         </BlockQuote>
@@ -1028,8 +1056,7 @@ function App() {
 
         <span className="text-gray-600">Code</span>
         <Code>
-          {
-            `import { useState } from 'react';
+          {`import { useState } from 'react';
 
             function SearchableVideoList({ videos }) {
               const [searchText, setSearchText] = useState('');
@@ -1052,7 +1079,7 @@ function App() {
           My Label
         </Label>
         <br />
-        
+
         <span className="text-gray-600">List</span>
         <List type={"disc"} fontSize={"3xl"} position={"inside"}>
           <ListItem className="text-gray-500">Item 1</ListItem>
@@ -1060,25 +1087,41 @@ function App() {
           <ListItem className="text-gray-500">Item 3</ListItem>
         </List>
         <br />
-        
+
         <span className="text-gray-600">Text</span>
-        <Text size="7xl" textWrap={"wrap"} line={"7xl"} fontFamily={"sans"} align={"right"} textTransform={"uppercase"} textOverflow={"truncate"} lineClamp={"clamp7"} fontWeight={"bold"} className="text-gray-800">hello</Text>
+        <Text
+          size="7xl"
+          textWrap={"wrap"}
+          line={"7xl"}
+          fontFamily={"sans"}
+          align={"right"}
+          textTransform={"uppercase"}
+          textOverflow={"truncate"}
+          lineClamp={"clamp7"}
+          fontWeight={"bold"}
+          className="text-gray-800"
+        >
+          hello
+        </Text>
         <br />
-        
+
         <span className="text-gray-600">Title</span>
-        <Title 
+        <Title
           order={"h1"}
           fontFamily={"sans"}
           align={"right"}
           gradient={"bl"}
           gradientColors="from-pink-500 from-10% via-sky-500 via-30% to-red-500 to-90%"
           textWrap={"wrap"}
-        > 
+        >
           hello
         </Title>
         <br />
-        
-        <hr className="text-blue-400" style={{ color: "blue", margin: "10px", width: "100%" }} />
+
+        <hr
+          className="text-blue-400"
+          style={{ color: "blue", margin: "10px", width: "100%" }}
+        />
         <Title
           order={"h3"}
           fontFamily={"sans"}
@@ -1143,15 +1186,31 @@ function App() {
         <br />
 
         <span className="text-gray-600">Progress</span>
-        <Progress className="mt-4" value={20} variant={"default"} radius={"lg"} size={"sm"} striped={"default"} animated={"default"} />
+        <Progress
+          className="mt-4"
+          value={20}
+          variant={"default"}
+          radius={"lg"}
+          size={"sm"}
+          striped={"default"}
+          animated={"default"}
+        />
         <br />
 
         <span className="text-gray-600">Skeleton</span>
         <div className="flex items-center space-x-4">
           <Skeleton className="h-12 w-12" radius={"full"} animate={"default"} />
           <div className="space-y-2">
-            <Skeleton className="h-4 w-[250px]" radius={"default"} animate={"pulse"}/>
-            <Skeleton className="h-4 w-[200px]" radius={"default"} animate={"pulse"} />
+            <Skeleton
+              className="h-4 w-[250px]"
+              radius={"default"}
+              animate={"pulse"}
+            />
+            <Skeleton
+              className="h-4 w-[200px]"
+              radius={"default"}
+              animate={"pulse"}
+            />
           </div>
         </div>
         <br />
@@ -1175,7 +1234,10 @@ function App() {
         </Button>
         <br />
 
-        <hr className="text-blue-400" style={{ color: "blue", margin: "10px", width: "100%" }} />
+        <hr
+          className="text-blue-400"
+          style={{ color: "blue", margin: "10px", width: "100%" }}
+        />
         <Title
           order={"h3"}
           fontFamily={"sans"}
@@ -1213,7 +1275,7 @@ function App() {
         <span className="text-gray-600">Color Swatch</span>
         <ColorSwatch color={"blue"} />
         <br />
-        
+
         <span className="text-gray-600">File Input</span>
         <FileInput
           label="Fileinput label"
@@ -1221,11 +1283,11 @@ function App() {
           placeholder="select file.."
           variant={"filled"}
           labelPosition={"right"}
-          size={"xl"}
+          width={"xl"}
           radius={"md"}
         />
         <br />
-        
+
         <span className="text-gray-600">Input OTP</span>
         <InputOTP
           maxLength={6}
@@ -1251,17 +1313,24 @@ function App() {
         <br />
 
         <span className="text-gray-600">Radio</span>
-        <Card size={"lg"} radius={"md"} shadow={"md"} withBorder={true} className="w-1/6 h-[100px] center">
-        <RadioGroup variant={"filled"} size={"xl"} defaultValue="comfortable" >
-          <RadioGroupItem value="default" id="r1" label={"Default"} />
-          <RadioGroupItem value="comfortable" id="r2" label={"Comfortable"} />
-          <RadioGroupItem value="compact" id="r3" label={"Compact"} />
-        </RadioGroup>
+        <Card
+          size={"lg"}
+          radius={"md"}
+          shadow={"md"}
+          withBorder={true}
+          className="w-1/6 h-[100px] center"
+        >
+          <RadioGroup variant={"filled"} size={"xl"} defaultValue="comfortable">
+            <RadioGroupItem value="default" id="r1" label={"Default"} />
+            <RadioGroupItem value="comfortable" id="r2" label={"Comfortable"} />
+            <RadioGroupItem value="compact" id="r3" label={"Compact"} />
+          </RadioGroup>
         </Card>
         <br />
 
         <span className="text-gray-600">Range Slider</span>
-        <br /><br />
+        <br />
+        <br />
 
         <span className="text-gray-600">Select</span>
         <Select>
@@ -1282,14 +1351,16 @@ function App() {
         <br />
 
         <span className="text-gray-600">Spotlight</span>
-        <br /><br />
+        <br />
+        <br />
 
         <span className="text-gray-600">Switch</span>
         <Switch label="this is switch" size={"md"} radius={"sm"} />
-        <br /><br />
+        <br />
+        <br />
 
         <span className="text-gray-600">Tags</span>
-        <TagsInput label="Tag Label" description="Tag Description"  />
+        <TagsInput label="Tag Label" description="Tag Description" />
         <br />
 
         <span className="text-gray-600">Textarea</span>
@@ -1305,44 +1376,6 @@ function App() {
 
         <span className="text-gray-600">TextInput</span>
         <Input />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <Separator
           variant="solid"
@@ -1361,19 +1394,12 @@ function App() {
           labelPosition="right"
         />
         <br />
-       
 
         <Resizable
           panels={panelConfigs}
           className="max-w-md rounded-lg border"
         />
 
-
-
-
-
-        
-     
         <br />
 
         <Menubar>
@@ -1696,11 +1722,6 @@ function App() {
           </DrawerContent>
         </Drawer>
 
-
-
-
-
-
         <Input
           placeholder="input field..."
           radius="md"
@@ -1711,17 +1732,13 @@ function App() {
         <br />
         <br />
 
-        
         <br />
 
-
         <br />
 
-        
         <br />
         <br />
 
-       
         <br />
 
         <Slider />
@@ -1778,16 +1795,10 @@ function App() {
         <br />
         <br />
 
-        
         <br />
 
-
         <br />
 
-        
-
-
-        
         <br />
 
         <ActionIcon size="xs" variant="ghost">
@@ -1901,7 +1912,6 @@ function App() {
         <br />
         <br />
 
-       
         <br />
 
         <Group>
@@ -2007,25 +2017,25 @@ function App() {
           onOpenChange={setIsOpen}
           className="w-[350px] space-y-2"
         >
-          <div className="flex items-center justify-between space-x-4 px-4">
-            <h4 className="text-sm font-semibold">
+          <div className="flex items-center justify-between space-x-4">
+            <Text size="base" className="">
               @peduarte starred 3 repositories
-            </h4>
+            </Text>
             <CollapsibleTrigger asChild>
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="text-secondary-foreground">
                 <IconSelect className="h-4 w-4" />
                 <span className="sr-only">Toggle</span>
               </Button>
             </CollapsibleTrigger>
           </div>
-          <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+          <div className="rounded-md border border-input text-secondary-foreground px-4 py-2 font-mono text-sm shadow-sm">
             @xbeshui/core
           </div>
           <CollapsibleContent className="space-y-2">
-            <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+            <div className="rounded-md border border-input text-secondary-foreground px-4 py-2 font-mono text-sm shadow-sm">
               @xbeshui/core
             </div>
-            <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
+            <div className="rounded-md border border-input text-secondary-foreground px-4 py-2 font-mono text-sm shadow-sm">
               @xbeshui/core
             </div>
           </CollapsibleContent>
@@ -2035,13 +2045,13 @@ function App() {
 
         <ScrollArea className="h-72 w-48 rounded-md border">
           <div className="p-4">
-            <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
+            <h4 className="mb-4 text-sm text-secondary-foreground font-medium leading-none">Tags</h4>
             {tags.map((tag) => (
               <>
-                <div key={tag} className="text-sm">
+                <div key={tag} className="text-sm text-secondary-foreground">
                   {tag}
                 </div>
-                <Separator className="my-2" />
+                <Separator className="my-2 border-input" />
               </>
             ))}
           </div>
@@ -2058,14 +2068,8 @@ function App() {
               />
               <div className="">
                 <div className="text-base font-normal">
-                  <span className="font-medium">
-                    {item.name}
-                  </span>{" "}
-                  likes{" "}
-                  <span className="font-medium">
-                    Bonnie Greens
-                  </span>{" "}
-                  post in{" "}
+                  <span className="font-medium">{item.name}</span> likes{" "}
+                  <span className="font-medium">Bonnie Greens</span> post in{" "}
                   <span className="font-medium">
                     {" "}
                     How to start with Flowbite library
@@ -2096,7 +2100,7 @@ function App() {
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-              <NavigationMenuContent className="bg-background">
+              <NavigationMenuContent className="border-none">
                 <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
@@ -2159,7 +2163,11 @@ function App() {
         <br />
         <HoverCard
           className="flex flex-wrap"
-          triggerContent={<button className="text-accent-foreground bg-background">hover card: hover me</button>}
+          triggerContent={
+            <button className="text-accent-foreground bg-background">
+              hover card: hover me
+            </button>
+          }
           cardContent={
             <>
               {" "}
@@ -2185,7 +2193,12 @@ function App() {
         <br />
         <br />
         <Popover
-          trigger={<button className="text-accent-foreground bg-background"> popover :Click me</button>}
+          trigger={
+            <button className="text-accent-foreground bg-background">
+              {" "}
+              popover :Click me
+            </button>
+          }
           content={
             <>
               {" "}
@@ -2198,7 +2211,12 @@ function App() {
                 </div>
                 <div className="grid gap-2">
                   <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="width" className="text-sm text-muted-foreground">Width</Label>
+                    <Label
+                      htmlFor="width"
+                      className="text-sm text-muted-foreground"
+                    >
+                      Width
+                    </Label>
                     <Input
                       id="width"
                       defaultValue="100%"
@@ -2206,7 +2224,12 @@ function App() {
                     />
                   </div>
                   <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="maxWidth" className="text-sm text-muted-foreground">Max. width</Label>
+                    <Label
+                      htmlFor="maxWidth"
+                      className="text-sm text-muted-foreground"
+                    >
+                      Max. width
+                    </Label>
                     <Input
                       id="maxWidth"
                       defaultValue="300px"
@@ -2214,7 +2237,12 @@ function App() {
                     />
                   </div>
                   <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="height" className="text-sm text-muted-foreground">Height</Label>
+                    <Label
+                      htmlFor="height"
+                      className="text-sm text-muted-foreground"
+                    >
+                      Height
+                    </Label>
                     <Input
                       id="height"
                       defaultValue="25px"
@@ -2222,7 +2250,12 @@ function App() {
                     />
                   </div>
                   <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="maxHeight" className="text-sm text-muted-foreground">Max. height</Label>
+                    <Label
+                      htmlFor="maxHeight"
+                      className="text-sm text-muted-foreground"
+                    >
+                      Max. height
+                    </Label>
                     <Input
                       id="maxHeight"
                       defaultValue="none"

@@ -133,7 +133,7 @@ const CarouselContent = React.forwardRef<
   const { carouselRef, orientation } = useCarousel();
 
   return (
-    <div ref={carouselRef} className="overflow-hidden">
+    <div ref={carouselRef} className="overflow-hidden border border-input">
       <div
         ref={ref}
         className={cn(
@@ -221,7 +221,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <IconChevronRight className="h-4 w-4" />
+      <IconChevronRight width={16} height={16} className="" />
       <span className="sr-only">Next slide</span>
     </Button>
   );

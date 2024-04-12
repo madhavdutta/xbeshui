@@ -36,7 +36,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {label && (
               <label
                 className={cn(
-                  "flex items-center gap-2 mb-1 text-sm font-normal text-red-500",
+                  "flex items-center text-secondary-foreground gap-2 mb-1 text-sm font-normal text-red-500",
                   labelPosition === "left" && "flex-row-reverse"
                 )}
               >
@@ -94,7 +94,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             disabled={disabled}
             className={cn(
-              inputVariants({ variant, error, width, radius, className })
+              inputVariants({ variant, error, width, radius, className } )
             )}
             style={{
               paddingLeft: `${paddingLeft}px`,
@@ -103,7 +103,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           />
           {rightSection && (
             <div
-              className="absolute right-0 inset-y-0 flex items-center justify-center"
+              className="absolute right-0 inset-y-0  flex items-center justify-center"
               style={{ width: rightSectionWidth }}
             >
               {rightSection}
