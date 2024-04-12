@@ -9,7 +9,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   children ? (
     <li className={`relative -left-${bulletPosition}  mb-8 ms-6`}>
       <div
-        className={`items-center justify-between p-4 text-accent-foreground border bg-border-foreground rounded-lg shadow-sm sm:flex`}
+        className={`items-center justify-between p-4 text-secondary-foreground border border-input rounded-lg shadow-sm sm:flex`}
       >
         {children}
       </div>
@@ -24,7 +24,7 @@ const Timeline: React.FC<TimelineProps> = ({
   color = "gray",
 }) => (
   <ol
-    className={`relative  border-l-${lineWidth} border-${color}-500 dark:border-${color}-700`}
+    className={`relative border-input  border-l-${lineWidth} border-${color}-500 dark:border-${color}-700`}
   >
     {children}
   </ol>
