@@ -40,4 +40,4 @@ const accordionVariant: AccordionVariantsType = {
   },
 };
 
-export const accordionVariants = cva("bg-background text-primary-foreground border-input w-full", accordionVariant);
+export const accordionVariants = cva("bg-background text-secondary-foreground  border-input w-full", accordionVariant);

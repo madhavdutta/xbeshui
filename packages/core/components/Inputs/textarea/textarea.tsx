@@ -53,7 +53,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps >(
             {label && (
               <label
                 className={cn(
-                  "flex items-center gap-2 mb-1 text-sm font-normal",
+                  "flex items-center gap-2 text-secondary-foreground mb-1 text-sm font-normal",
                   labelPosition === "left" && "flex-row-reverse"
                 )}
               >
@@ -63,7 +63,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps >(
             {description && (
               <div
                 className={cn(
-                  "flex items-center gap-2 mb-1 text-sm text-gray-400  font-normal",
+                  "flex items-center gap-2 mb-1  text-sm text-muted-foreground font-normal",
                   labelPosition === "left" && "flex-row-reverse"
                 )}
               >

@@ -60,7 +60,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {label && (
               <label
                 className={cn(
-                  "flex items-center gap-2 mb-1 text-sm font-normal",
+                  "flex items-center gap-2 mb-1 text-secondary-foreground text-sm font-normal",
                   labelPosition === "left" && "flex-row-reverse"
                 )}
               >
@@ -70,7 +70,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {description && (
               <div
                 className={cn(
-                  "flex items-center gap-2 mb-1 text-sm text-gray-400  font-normal",
+                  "flex items-center gap-2 mb-1 text-sm text-muted-foreground  font-normal",
                   labelPosition === "left" && "flex-row-reverse"
                 )}
               >

@@ -1308,8 +1308,8 @@ function App() {
         </InputOTP>
         <br />
 
-        <span className="text-gray-600">Multi Select</span>
-        <MultiSelect />
+        {/* <span className="text-gray-600">Multi Select</span>
+        <MultiSelect /> */}
         <br />
 
         <span className="text-gray-600">Radio</span>
@@ -1376,12 +1376,12 @@ function App() {
 
         <span className="text-gray-600">TextInput</span>
         <Input />
-
+{/* 
         <Separator
           variant="solid"
           label="Label on the left"
           labelPosition="left"
-          className="mt-4 text-gray-700"
+          className="mt-4"
         />
         <Separator
           className="mt-4"
@@ -1392,13 +1392,13 @@ function App() {
           className="mt-4"
           label="Label on the right"
           labelPosition="right"
-        />
+        /> */}
         <br />
-
+        {/* <span className="text-gray-600">Resizable</span>
         <Resizable
           panels={panelConfigs}
-          className="max-w-md rounded-lg border"
-        />
+          className="max-w-md border-input"
+        /> */}
 
         <br />
 
