@@ -741,8 +741,8 @@ function App() {
         <br />
 
         <hr
-          className="text-blue-400"
-          style={{ color: "blue", margin: "10px", width: "100%" }}
+          className="text-blue-400 border-input"
+          style={{ margin: "10px", width: "100%" }}
         />
         <Title
           order={"h3"}
@@ -799,7 +799,7 @@ function App() {
 
         <span className="text-gray-600">Toggle</span>
         <Toggle variant={"outline"} radius={"full"} size={"lg"}>
-          <IconStack size={18} />
+          <IconStack size={18} className="text-secondary-foreground" />
         </Toggle>
         <br />
 
@@ -811,23 +811,23 @@ function App() {
           variant={"outline"}
         >
           <ToggleGroupItem value="bold" aria-label="Toggle bold">
-            <IconBold size={18} stroke={1.5} />
+            <IconBold size={18} stroke={1.5} className="text-secondary-foreground" />
           </ToggleGroupItem>
           <ToggleGroupItem value="italic" aria-label="Toggle italic">
-            <IconItalic size={18} stroke={1.5} />
+            <IconItalic size={18} stroke={1.5} className="text-secondary-foreground" />
           </ToggleGroupItem>
           <ToggleGroupItem
             value="strikethrough"
             aria-label="Toggle strikethrough"
           >
-            <IconUnderline size={18} stroke={1.5} />
+            <IconUnderline size={18} stroke={1.5} className="text-secondary-foreground" />
           </ToggleGroupItem>
         </ToggleGroup>
         <br />
 
         <hr
-          className="text-blue-400"
-          style={{ color: "blue", margin: "10px", width: "100%" }}
+          className="text-blue-400 border-input"
+          style={{ margin: "10px", width: "100%" }}
         />
         <Title
           order={"h3"}
@@ -1602,7 +1602,7 @@ function App() {
         <br />
         <br />
         <ContextMenu>
-          <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+          <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center text-secondary-foreground rounded-md border border-dashed border-input text-sm">
             Right click here
           </ContextMenuTrigger>
           <ContextMenuContent className="w-64">
@@ -1678,7 +1678,7 @@ function App() {
                     <span className="sr-only">Decrease</span>
                   </Button>
                   <div className="flex-1 text-center">
-                    <div className="text-7xl font-bold tracking-tighter">
+                    <div className="text-7xl text-secondary-foreground font-bold tracking-tighter">
                       {goal}
                     </div>
                     <div className="text-[0.70rem] uppercase text-muted-foreground">
@@ -1713,7 +1713,7 @@ function App() {
                 </div>
               </div>
               <DrawerFooter>
-                <Button>Submit</Button>
+                <Button className="default">Submit</Button>
                 <DrawerClose asChild>
                   <Button variant="outline">Cancel</Button>
                 </DrawerClose>
