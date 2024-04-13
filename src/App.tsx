@@ -1325,7 +1325,7 @@ function App() {
           radius={"md"}
           shadow={"md"}
           withBorder={true}
-          className="w-1/6 h-[100px] center"
+          className="w-1/2 h-[100px] center"
         >
           <RadioGroup variant={"filled"} size={"xl"} defaultValue="comfortable">
             <RadioGroupItem value="default" id="r1" label={"Default"} />
@@ -1562,7 +1562,7 @@ function App() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild className="pointer-events-auto">
             <Avatar radius="full">
-              <IconUser />
+              <IconUser className="text-secondary-foreground" />
             </Avatar>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56">

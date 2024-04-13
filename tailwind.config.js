@@ -1,12 +1,14 @@
+/** @type {import('tailwindcss').Config} */
+
 import xBeshTheme from "./packages/core/types/xBeshTheme"
 
 export default {
   darkMode: ["dark"],
-  // purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   content: [
     "./packages/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
+  // purge: ['./src/**/*.{js,ts,jsx,tsx}'],
   prefix: "",
   theme: {
     fontFamily: xBeshTheme.fontFamily,
