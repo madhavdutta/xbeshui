@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { appShellProps, appShellVariant } from "./appShell.config";
 import { cn } from "../../../../utils";
 
@@ -17,21 +17,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
     },
     ref
   ) => {
-    const [mainHeight, setMainHeight] = useState<number>(window.innerHeight - 160);
-
-    useEffect(() => {
-      const handleResize = () => {
-        if (layout === "default") setMainHeight(window.innerHeight - 160);
-        else setMainHeight(window.innerHeight - 100);
-      };
-
-      window.addEventListener("resize", handleResize);
-
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, []);
-
+   
     return (
       layout === "default" ? (
         <div
@@ -43,21 +29,21 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           ref={ref}
         >
           <div className="w-full flex flex-row justify-between h-screen">
-            {Navbar ? variant === "default" ? (
+            {Navbar ? (variant === "default" ? (
               <nav
-                className={`w-24 fixed left-0 top-0 bottom-0 h-screen hidden sm:hidden md:flex lg:flex p-2 ${withBorder ? "border-r" : ""
+                className={`w-24 fixed left-0 bg-red-200 top-0 bottom-0 h-screen hidden sm:hidden md:flex lg:flex p-2 ${withBorder ? "border-r" : ""
                   }  `}
                 aria-label="Sidenav"
               >
                 <Navbar />
               </nav>
             ) : <nav
-              className={`h-screen hidden sm:hidden md:flex lg:flex  ${withBorder ? "border-r" : ""
+              className={`w-96 fixed bg-red-200 h-screen hidden sm:hidden md:flex lg:flex  ${withBorder ? "border-r" : ""
                 }  `}
               aria-label="Sidenav"
             >
               <Navbar />
-            </nav> : null}
+            </nav>) : null}
             <div className={`w-full h-screen  ml-0 sm:ml-0 md:ml-24 ${Navbar ? 'md:ml-24': 'md:ml-0'}`}>
               {Header && (
                 <header
@@ -109,32 +95,24 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
               </header>
             )}
             <div className="flex flex-row justify-between">
-              {Navbar ? variant === "default" ? (
+              {Navbar ? (variant === "default") ? (
                 <nav
                   className={`w-24 fixed left-0 ${Header ? 'top-20': 'top-0'} bottom-0 h-screen hidden sm:hidden md:flex lg:flex p-2 ${withBorder ? "border-r" : ""
                     }  `}
-                  aria-label="Sidenav"
-                  
                 >
                   <Navbar />
                 </nav>
               ) : <nav
-                className={` w-96 h-screen hidden sm:hidden md:flex lg:flex  ${withBorder ? "border-r" : ""
-                  }  `}
-                aria-label="Sidenav"
-               
-              >
+                className={`w-72 fixed  p-2 fixed left-0 ${Header ? 'top-20': 'top-0'} bottom-0 h-screen hidden sm:hidden md:flex lg:flex  ${withBorder ? "border-r" : ""}`}>
                 <Navbar />
               </nav> : null}
-              <main className={`w-full py-20 h-auto ml-0 sm:ml-0 ${Header ? 'pt-20': 'pt-0'} ${Navbar ? 'md:ml-24': 'md:ml-0'} md:ml-24 mr-0  ${Aside ? 'lg:mr-96': 'lg:mr-0'}`}>
+              <main className={`w-full py-20 h-auto ml-0 sm:ml-0 ${Header ? 'pt-20': 'pt-0'} ${Navbar ? (variant==="inner" ? 'md:ml-72': 'md:ml-24') : 'md:ml-0'} ml-0 mr-0  ${Aside ? 'lg:mr-96': 'lg:mr-0'}`}>
                 {props.children}
               </main>
               {Aside && (
                 <aside
                   className={`w-96 fixed right-0 bottom-0 lg:flex hidden p-2 ${Header ? 'top-20': 'top-0'} ${withBorder ? "border-l" : ""
                     }`}
-                  aria-label="Sidebar"
-                  id=""
                 >
                   <Aside />
                 </aside>

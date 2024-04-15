@@ -81,7 +81,7 @@ const Navbar = () => {
 
 const App = () => {
   return (
-    <AppShell layout='default' variant='default' Header={Header} Footer={Footer} Aside={Aside} Navbar={Navbar} withBorder>
+    <AppShell layout='default' variant="inner" Header={Header} Footer={Footer} Navbar={Navbar} Aside={Aside} withBorder>
 
 
       Where does it come from?
