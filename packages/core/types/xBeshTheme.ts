@@ -2,10 +2,10 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 
 const xBeshTheme = {
     screens: {
-        sm: '640px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1280px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
         '2xl': '1536px'
     },
     container: {
@@ -34,6 +34,7 @@ const xBeshTheme = {
         '100': '1'
     },
     colors: {
+        transparent: 'transparent',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -73,7 +74,6 @@ const xBeshTheme = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
     },
-
     keyframes: {
         'accordion-down': {
             from: { height: '0' },

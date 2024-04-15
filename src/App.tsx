@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+
 import "./index.css";
 import { ActionIcon } from "../packages/core/components/Buttons/actionIcon/actionIcon";
 import { Toggle } from "../packages/core/components/Buttons/toggle/toggle";
@@ -1199,6 +1199,7 @@ function App() {
           value={20}
           variant={"default"}
           radius={"lg"}
+          bgColor="bg-teal-500"
           size={"sm"}
           striped={"default"}
           animated={"default"}
@@ -1225,7 +1226,7 @@ function App() {
 
         <span className="text-gray-600">Toast</span>
         <Button
-          className="mt-4"
+          className="mt-4 sm:p-[30px] p-0 sm:flex hidden"
           variant={"default"}
           onClick={() => {
             toast({
