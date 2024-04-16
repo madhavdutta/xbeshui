@@ -3,9 +3,9 @@ import { AppShell } from "../packages/core/components/Layout/appShell/appshell";
 
 const Header = () => {
   return (
-    <div className="flex h-full flex-wrap justify-between items-center bg-red-100">
-      <div className="flex justify-start items-center">
-        <a href="#" className="flex items-center justify-between mr-4 ml-14 md:ml-0">
+    <div className="flex flex-wrap justify-between">
+      <div className="flex justify-start">
+        <a href="#" className="flex justify-between mr-2">
           <img src="/xbeshui.png" className="mr-3 h-8" alt="xbeshui Logo" />
         </a>
       </div>
@@ -14,7 +14,7 @@ const Header = () => {
 };
 
 const Footer = () => {
-  return <footer className="bg-zinc-100 h-full">Footer</footer>;
+  return <footer>Footer</footer>;
 };
 
 const Aside = () => {
