@@ -2,19 +2,7 @@ import React from "react";
 import { appShellProps, appShellVariant } from "./appShell.config";
 import { cn } from "../../../../utils";
 import { IconMenu2 } from "@tabler/icons-react";
-import {
-  Button,
-  Input,
-  Label,
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "../..";
+import { Sheet } from "../../Overlays/sheet/sheet";
 
 const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
   (
@@ -31,8 +19,6 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
     },
     ref
   ) => {
-
-    
     return layout === "default" ? (
       <div
         className={cn(
@@ -87,28 +73,26 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
                   Aside ? "lg:right-96" : "lg:right-0"
                 }  min-h-20 ${withBorder ? "border-b" : ""}`}
               >
-                {/* Sheet */}
-                <Sheet>
-                  <SheetTrigger asChild>
-                    <button
-                      data-drawer-target="drawer-navigation"
-                      data-drawer-toggle="drawer-navigation"
-                      aria-controls="drawer-navigation"
-                      className="p-2 fixed top-5 md:left-0 left-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-50 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                    >
-                      <IconMenu2 stroke={1.5} />
-                      <span className="sr-only">Toggle sidebar</span>
-                    </button>
-                  </SheetTrigger>
-                  <SheetContent key={4}>
-                    <SheetHeader>
-                      <SheetTitle>Menu</SheetTitle>
-                      <SheetDescription>
-                      </SheetDescription>
-                    </SheetHeader>
-                  </SheetContent>
+                <Sheet
+                  Trigger={
+                    <>
+                      {" "}
+                      <button
+                        data-drawer-target="drawer-navigation"
+                        data-drawer-toggle="drawer-navigation"
+                        aria-controls="drawer-navigation"
+                        className="p-2 fixed top-5 md:left-0 left-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-50 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                      >
+                        <IconMenu2 stroke={1.5} />
+                        <span className="sr-only">Toggle sidebar</span>
+                      </button>
+                    </>
+                  }
+                  onClose={() => console.log("closed")}
+                  title="Menu"
+                >
+                  anbsxshjahjbxsjhx
                 </Sheet>
-                {/* Sheet */}
 
                 <Header />
               </header>
