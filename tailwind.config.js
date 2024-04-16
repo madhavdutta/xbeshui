@@ -1,12 +1,9 @@
-import xBeshTheme from "./packages/core/types/xBeshTheme"
+import xBeshTheme from "./packages/core/types/xBeshTheme";
 
 export default {
   darkMode: ["dark"],
   // purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  content: [
-    "./packages/**/*.{js,ts,jsx,tsx}",
-    "./src/**/*.{js,ts,jsx,tsx}"
-  ],
+  content: ["./packages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
   prefix: "",
   theme: {
     fontFamily: xBeshTheme.fontFamily,
@@ -26,5 +23,6 @@ export default {
     require("@tailwindcss/forms"),
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/container-queries"),
+    require("tailwindcss/colors"),
   ],
-}
+};

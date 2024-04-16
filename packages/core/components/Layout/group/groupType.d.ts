@@ -1,5 +1,4 @@
-import { VariantProps } from "class-variance-authority";
-import { groupVariant } from "./group.config";
+
 
 export interface GroupVariantType {
   variants: {

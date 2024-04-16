@@ -1,5 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 
+
 const xBeshTheme = {
     screens: {
         sm: '640px',
