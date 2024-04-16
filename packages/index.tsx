@@ -1,5 +1,5 @@
 import "./index.css";
-
+export * from "./core/types/index";
 export * from "./core/components/Buttons/button/button";
 export * from "./core/components/Buttons/toggle/toggleGroup";
 export * from "./core/components/Buttons/toggle/toggle";

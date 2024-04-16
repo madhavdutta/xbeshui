@@ -1,14 +1,24 @@
+/** @type {import('tailwindcss').Config} */
+
+import theme from "tailwindcss/defaultTheme";
 import xBeshTheme from "./packages/core/types/xBeshTheme";
 
 export default {
   darkMode: ["dark"],
-  // purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   content: ["./packages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
+  // purge: ['./src/**/*.{js,ts,jsx,tsx}'],
   prefix: "",
   theme: {
     fontFamily: xBeshTheme.fontFamily,
-    screens: xBeshTheme.screens,
+    screens: {
+      sm: xBeshTheme.screens.sm,
+      md: xBeshTheme.screens.md,
+      lg: xBeshTheme.screens.lg,
+      xl: xBeshTheme.screens.xl,
+      "2xl": xBeshTheme.screens["2xl"],
+    },
     container: xBeshTheme.container,
+    colors: theme.colors,
     extend: {
       colors: xBeshTheme.colors,
       borderRadius: xBeshTheme.borderRadius,

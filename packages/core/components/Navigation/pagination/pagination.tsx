@@ -6,7 +6,7 @@ import {
 } from "@tabler/icons-react";
 
 import { cn } from "../../../../utils";
-import { ButtonProps } from "../../Buttons/button/buttonType";
+import { ButtonProps } from "../../Buttons/button/button.config";
 import { buttonVariants } from "../../Buttons/button/button.config";
 import { Page, PaginationProps } from "./paginationType";
 

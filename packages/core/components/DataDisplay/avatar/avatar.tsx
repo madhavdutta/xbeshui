@@ -43,7 +43,7 @@ const Avatar = React.forwardRef<
         ) : (
          <AvatarPrimitive.Fallback
             style={colorStyle}
-            className='flex h-full w-full items-center bg-gray-100 justify-center'
+            className='flex h-full w-full items-center bg-input justify-center'
           >
            {children || initials || <IconUserCircle color="gray" size={25} />}
           </AvatarPrimitive.Fallback>
