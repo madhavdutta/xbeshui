@@ -5,7 +5,37 @@ import { IconX } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
 import { SheetContentProps, sheetVariants } from "./sheet.config";
 
-const Sheet = SheetPrimitive.Root;
+interface CustomSheetProps extends SheetContentProps {
+  Trigger?: React.ReactNode;
+  onClose?: () => void;
+  title?: string;
+  children?: React.ReactNode;
+}
+const Sheet: React.FC<CustomSheetProps> = ({
+  Trigger,
+  onClose,
+  title,
+  children,
+  side,
+  size,
+}) => {
+  return (
+    <SheetMain>
+      <SheetTrigger>{Trigger}</SheetTrigger>
+      <SheetPortal>
+        <SheetOverlay />
+        <SheetContent size={size} side={side}>
+          <SheetTitle>{title}</SheetTitle>
+          {children}
+          <SheetClose onClick={onClose}>Close</SheetClose>
+        </SheetContent>
+      </SheetPortal>
+    </SheetMain>
+  );
+};
+Sheet.displayName = "CustomSheet";
+
+const SheetMain = SheetPrimitive.Root;
 
 const SheetTrigger = SheetPrimitive.Trigger;
 
@@ -102,6 +132,7 @@ const SheetDescription = React.forwardRef<
 SheetDescription.displayName = SheetPrimitive.Description.displayName;
 
 export {
+  SheetMain,
   Sheet,
   SheetPortal,
   SheetOverlay,

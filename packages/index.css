@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .focus\:outline-none {
+      outline: 0;
+    }
+  }
+  
+  /* Your other CSS */
+  input {
+    @apply focus:outline-none;
+  }
+  
+  
 @layer base {
     :root {
         --background: 0 0% 100%;
