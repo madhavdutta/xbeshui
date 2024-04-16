@@ -74,6 +74,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
                 }  min-h-20 ${withBorder ? "border-b" : ""}`}
               >
                 <Sheet
+                  side="left"
                   Trigger={
                     <>
                       {" "}

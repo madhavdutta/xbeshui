@@ -5,7 +5,7 @@ import { IconX } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
 import { SheetContentProps, sheetVariants } from "./sheet.config";
 
-interface CustomSheetProps {
+interface CustomSheetProps extends SheetContentProps {
   Trigger?: React.ReactNode;
   onClose?: () => void;
   title?: string;
@@ -16,13 +16,15 @@ const Sheet: React.FC<CustomSheetProps> = ({
   onClose,
   title,
   children,
+  side,
+  size,
 }) => {
   return (
     <SheetMain>
       <SheetTrigger>{Trigger}</SheetTrigger>
       <SheetPortal>
         <SheetOverlay />
-        <SheetContent>
+        <SheetContent size={size} side={side}>
           <SheetTitle>{title}</SheetTitle>
           {children}
           <SheetClose onClick={onClose}>Close</SheetClose>
