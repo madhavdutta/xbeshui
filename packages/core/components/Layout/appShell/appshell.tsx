@@ -86,7 +86,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
                   onClose={() => console.log("closed")}
                   title="Header Sheet"
                 >
-                  anbsxshjahjbxsjhx
+                  {Navbar && <Navbar />}
                 </Sheet>
 
                 <Header />

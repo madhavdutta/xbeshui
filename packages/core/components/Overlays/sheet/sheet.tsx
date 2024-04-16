@@ -5,13 +5,13 @@ import { IconX } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
 import { SheetContentProps, sheetVariants } from "./sheet.config";
 
-interface CustomSheetProps extends SheetContentProps {
+interface SheetProps extends SheetContentProps {
   Trigger?: React.ReactNode;
   onClose?: () => void;
   title?: string;
   children?: React.ReactNode;
 }
-const Sheet: React.FC<CustomSheetProps> = ({
+const Sheet: React.FC<SheetProps> = ({
   Trigger,
   onClose,
   title,
@@ -25,15 +25,19 @@ const Sheet: React.FC<CustomSheetProps> = ({
       <SheetPortal>
         <SheetOverlay />
         <SheetContent size={size} side={side}>
-          <SheetTitle>{title}</SheetTitle>
+      <div className="flex flex-row justify-between items-center">
+      {title && <SheetTitle >{title}</SheetTitle>}
+          {/* <SheetClose onClick={onClose}>Close</SheetClose> */}
+      </div>
+          
           {children}
-          <SheetClose onClick={onClose}>Close</SheetClose>
+          
         </SheetContent>
       </SheetPortal>
     </SheetMain>
   );
 };
-Sheet.displayName = "CustomSheet";
+Sheet.displayName = "Sheet";
 
 const SheetMain = SheetPrimitive.Root;
 
@@ -66,7 +70,7 @@ const SheetContent = React.forwardRef<
     <SheetOverlay />
     <SheetPrimitive.Content
       ref={ref}
-      className={cn(sheetVariants({ side, size }), className)}
+      className={cn(sheetVariants({ side, size }), 'p-[0.6rem]', className)}
       {...props}
     >
       {children}
@@ -113,7 +117,7 @@ const SheetTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Title
     ref={ref}
-    className={cn("text-lg font-semibold text-foreground", className)}
+    className={cn("text-md font-semibold text-foreground", className)}
     {...props}
   />
 ));
