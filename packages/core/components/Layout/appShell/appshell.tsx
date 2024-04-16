@@ -73,13 +73,10 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
                   className="flex items-center"
                   Trigger={
                     <>
-                      {" "}
-                      <button
-                        className="p-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-50 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                      >
+                      <div className="p-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-50 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                         <IconMenu2 stroke={1.5} />
                         <span className="sr-only">Toggle sidebar</span>
-                      </button>
+                      </div>
                     </>
                   }
                   onClose={() => console.log("closed")}

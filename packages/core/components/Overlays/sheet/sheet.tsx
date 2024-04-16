@@ -10,41 +10,41 @@ interface SheetProps extends SheetContentProps {
   onClose?: () => void;
   title?: string;
   children?: React.ReactNode;
+  ref?: React.Ref<HTMLButtonElement>;
 }
+
 const Sheet: React.FC<SheetProps> = ({
   Trigger,
   onClose,
   title,
   children,
   side,
-  size,
+  size
 }) => {
   return (
     <SheetMain>
-      <SheetTrigger asChild>{Trigger}</SheetTrigger>
+     <SheetTrigger>
+  {Trigger}
+</SheetTrigger>
       <SheetPortal>
         <SheetOverlay />
         <SheetContent size={size} side={side}>
-      <div className="flex flex-row justify-between items-center">
-      {title && <SheetTitle >{title}</SheetTitle>}
-          <SheetClose onClick={onClose}>Close</SheetClose>
-      </div>
-          
+          <div className="flex flex-row justify-between items-center">
+            {title && <SheetTitle>{title}</SheetTitle>}
+            <SheetClose onClick={onClose}>Close</SheetClose>
+          </div>
           {children}
-          
         </SheetContent>
       </SheetPortal>
     </SheetMain>
   );
 };
+
 Sheet.displayName = "Sheet";
 
 const SheetMain = SheetPrimitive.Root;
-
 const SheetTrigger = SheetPrimitive.Trigger;
-
 const SheetClose = SheetPrimitive.Close;
-
 const SheetPortal = SheetPrimitive.Portal;
 
 const SheetOverlay = React.forwardRef<
