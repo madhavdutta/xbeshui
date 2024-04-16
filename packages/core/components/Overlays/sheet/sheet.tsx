@@ -21,7 +21,7 @@ const Sheet: React.FC<CustomSheetProps> = ({
 }) => {
   return (
     <SheetMain>
-      <SheetTrigger>{Trigger}</SheetTrigger>
+      <SheetTrigger asChild>{Trigger}</SheetTrigger>
       <SheetPortal>
         <SheetOverlay />
         <SheetContent size={size} side={side}>

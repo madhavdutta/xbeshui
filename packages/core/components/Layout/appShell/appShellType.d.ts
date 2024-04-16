@@ -1,6 +1,3 @@
-import { VariantProps } from "class-variance-authority";
-import { stackVariant } from "./stack.config";
-
 export interface AppShellVariantType {
     variants: {
         variant: {

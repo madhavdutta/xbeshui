@@ -194,6 +194,7 @@ export {
 
 export {
   Drawer,
+  DrawerMain,
   DrawerPortal,
   DrawerOverlay,
   DrawerTrigger,
@@ -254,6 +255,7 @@ export {
 
 export {
   Sheet,
+  SheetMain,
   SheetPortal,
   SheetOverlay,
   SheetTrigger,
