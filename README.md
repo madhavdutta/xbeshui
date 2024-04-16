@@ -45,6 +45,7 @@ Our UI Kit draws inspiration from the [Shadcn](https://ui.shadcn.com/) UI. The D
 ## Contributors
 [Mohd Aakib](https://github.com/mohdaakib)
 [Milan Thakur](https://github.com/xbmilan)
+[Mahesh Sharma](https://github.com/maheshsharmma1987)
 
 ## License
 Licensed under the [MIT license](https://github.com/madhavdutta/xbesh-ui-kit-docs/blob/version1/LICENCE.md).
