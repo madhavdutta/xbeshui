@@ -37,16 +37,16 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
       <div
         className={cn(
           appShellVariant({ layout, variant, className }),
-          "w-full h-screen  overflow-auto bg-background text-primary"
+          "w-full h-full  overflow-auto bg-background text-primary"
         )}
         {...props}
         ref={ref}
       >
-        <div className="w-full flex flex-row justify-between h-screen">
+        <div className="w-full flex flex-row justify-between h-full">
           {Navbar ? (
             variant === "default" ? (
               <nav
-                className={`w-24 fixed left-0 top-0 bottom-0 h-screen hidden sm:hidden md:flex lg:flex ${
+                className={`w-24 fixed left-0 top-0 bottom-0 h-full hidden sm:hidden md:flex lg:flex ${
                   withBorder ? "border-r" : ""
                 }  `}
                 aria-label="Sidenav"
@@ -55,7 +55,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
               </nav>
             ) : (
               <nav
-                className={`w-72 fixed h-screen hidden sm:hidden md:flex lg:flex  ${
+                className={`w-72 fixed h-full hidden sm:hidden md:flex lg:flex  ${
                   withBorder ? "border-r" : ""
                 }  `}
                 aria-label="Sidenav"
@@ -65,7 +65,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
             )
           ) : null}
           <div
-            className={`w-full h-screen  ml-0 sm:ml-0 ${
+            className={`w-full h-full  ml-0 sm:ml-0 ${
               Navbar ? "md:ml-24" : "md:ml-0"
             } ${
               Navbar
@@ -142,7 +142,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           </div>
           {Aside && (
             <aside
-              className={`w-96 fixed right-0 top-0 bottom-0 h-screen lg:flex hidden ${
+              className={`w-96 fixed right-0 top-0 bottom-0 h-full lg:flex hidden ${
                 withBorder ? "border-l" : ""
               }`}
               aria-label="Sidebar"
@@ -157,12 +157,12 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
       <div
         className={cn(
           appShellVariant({ layout, variant, className }),
-          "w-full h-screen overflow-auto bg-background text-primary"
+          "w-full h-full overflow-auto bg-background text-primary"
         )}
         {...props}
         ref={ref}
       >
-        <div className="w-full flex flex-col h-screen">
+        <div className="w-full flex flex-col h-full">
           {Header && (
             <header
               className={`h-20 fixed top-0 bg-background w-full ${
@@ -178,7 +178,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
                 <nav
                   className={`w-24 fixed left-0 ${
                     Header ? "top-20" : "top-0"
-                  } bottom-0 h-screen hidden sm:hidden md:flex lg:flex ${
+                  } bottom-0 h-full hidden sm:hidden md:flex lg:flex ${
                     withBorder ? "border-r" : ""
                   }  `}
                 >
@@ -188,7 +188,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
                 <nav
                   className={`w-72 fixed fixed left-0 ${
                     Header ? "top-20" : "top-0"
-                  } bottom-0 h-screen hidden sm:hidden md:flex lg:flex  ${
+                  } bottom-0 h-full hidden sm:hidden md:flex lg:flex  ${
                     withBorder ? "border-r" : ""
                   }`}
                 >

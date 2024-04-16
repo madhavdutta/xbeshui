@@ -3,7 +3,7 @@ import { AppShell } from "../packages/core/components/Layout/appShell/appshell";
 
 const Header = () => {
   return (
-    <div className="flex h-full flex-wrap justify-between items-center bg-red-100">
+    <div className="flex h-full flex-wrap justify-between items-center">
       <div className="flex justify-start items-center">
         <a href="#" className="flex items-center justify-between mr-4 ml-14 md:ml-0">
           <img src="/xbeshui.png" className="mr-3 h-8" alt="xbeshui Logo" />
@@ -14,15 +14,15 @@ const Header = () => {
 };
 
 const Footer = () => {
-  return <footer className="bg-zinc-100 h-full">Footer</footer>;
+  return <footer className=" h-full">Footer</footer>;
 };
 
 const Aside = () => {
-  return <aside className="bg-zinc-100 w-full">Aside</aside>;
+  return <aside className=" w-full">Aside</aside>;
 };
 
 const Navbar = () => {
-  return <nav className="bg-zinc-100 w-full">Navbar</nav>;
+  return <nav className=" w-full">Navbar</nav>;
 };
 
 const App = () => {
@@ -36,7 +36,7 @@ const App = () => {
       Aside={Aside}
       withBorder
     >
-      <div className="bg-zinc-100">
+      <div>
      
       Where does it come from? Contrary to popular belief, Lorem Ipsum is not
       simply random text. It has roots in a piece of classical Latin literature
