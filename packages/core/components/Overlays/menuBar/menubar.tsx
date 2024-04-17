@@ -4,6 +4,84 @@ import { IconCheck, IconChevronRight, IconDots } from "@tabler/icons-react";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { cn } from "../../../../utils";
 
+type MenuBarItem = {
+  label?: string;
+  shortcut?: string;
+  disabled?: boolean;
+  type?: "normal" | "checkbox" | "radio" | "submenu";
+  submenu?: { label?: string; type?: string; value?: string }[];
+  inset?: boolean;
+  checked?: boolean;
+  value?: string;
+};
+
+type Menu = {
+  label: string;
+  items: MenuBarItem[];
+};
+
+type MenubarProps = {
+  menus: Menu[];
+};
+
+const Menubar = ({ menus }: MenubarProps) => {
+  return (
+    <div>
+      <MenubarMain>
+        {menus.map((menu, index) => (
+          <MenubarMenu key={index}>
+            <MenubarTrigger>{menu.label}</MenubarTrigger>
+            <MenubarContent>
+              {menu.items.map((item, itemIndex) => (
+                <React.Fragment key={itemIndex}>
+                  {item.type === "normal" && (
+                    <MenubarItem inset={item.inset} disabled={item.disabled}>
+                      {item.label}
+                      {item.shortcut && (
+                        <MenubarShortcut>{item.shortcut}</MenubarShortcut>
+                      )}
+                    </MenubarItem>
+                  )}
+                  {item.type === "checkbox" && (
+                    <MenubarCheckboxItem checked={!!item.checked}>
+                      {item.label}
+                    </MenubarCheckboxItem>
+                  )}
+                  {item.type === "submenu" && (
+                    <MenubarSub>
+                      <MenubarSubTrigger>{item.label}</MenubarSubTrigger>
+                      <MenubarSubContent>
+                        {item.submenu?.map((subItem, subIndex) => (
+                          <MenubarItem key={subIndex}>
+                            {subItem.label}
+                          </MenubarItem>
+                        ))}
+                      </MenubarSubContent>
+                    </MenubarSub>
+                  )}
+                  {item.type === "radio" && (
+                    <MenubarRadioGroup value={item.value}>
+                      {item?.submenu?.map((subItem, subIndex) => (
+                        <MenubarRadioItem
+                          key={subIndex}
+                          value={subItem?.value ?? ""}
+                        >
+                          {subItem.label}
+                        </MenubarRadioItem>
+                      ))}
+                    </MenubarRadioGroup>
+                  )}
+                </React.Fragment>
+              ))}
+            </MenubarContent>
+          </MenubarMenu>
+        ))}
+      </MenubarMain>
+    </div>
+  );
+};
+Menubar.displayname = "Menubar";
+
 // interface MenuType {
 //   className: string;
 //   mock: any;
@@ -166,7 +244,7 @@ const MenubarSub = MenubarPrimitive.Sub;
 
 const MenubarRadioGroup = MenubarPrimitive.RadioGroup;
 
-const Menubar = React.forwardRef<
+const MenubarMain = React.forwardRef<
   React.ElementRef<typeof MenubarPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Root>
 >(({ className, ...props }, ref) => (
@@ -179,7 +257,7 @@ const Menubar = React.forwardRef<
     {...props}
   />
 ));
-Menubar.displayName = MenubarPrimitive.Root.displayName;
+MenubarMain.displayName = MenubarPrimitive.Root.displayName;
 
 const MenubarTrigger = React.forwardRef<
   React.ElementRef<typeof MenubarPrimitive.Trigger>,
@@ -369,6 +447,7 @@ MenubarShortcut.displayname = "MenubarShortcut";
 export {
   // Menu,
   Menubar,
+  MenubarMain,
   MenubarMenu,
   MenubarTrigger,
   MenubarContent,

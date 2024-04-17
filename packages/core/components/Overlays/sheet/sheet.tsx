@@ -31,7 +31,7 @@ const Sheet: React.FC<SheetProps> = ({
         <SheetContent size={size} side={side}>
           <div className="flex flex-row justify-between items-center">
             {title && <SheetTitle>{title}</SheetTitle>}
-            <SheetClose onClick={onClose}>Close</SheetClose>
+            <SheetClose onClick={onClose}></SheetClose>
           </div>
           {children}
         </SheetContent>

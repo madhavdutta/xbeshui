@@ -48,7 +48,7 @@ const containerConfig: ContainerVariantType = {
   },
 };
 
-export const containerVariant = cva("flex flex-col bg-background text-primary-foreground container mx-auto p-8 max-w-none", containerConfig);
+export const containerVariant = cva("flex flex-col container mx-auto p-8 max-w-none", containerConfig);
 
 export interface ContainerProps
   extends React.HTMLAttributes<HTMLDivElement>,

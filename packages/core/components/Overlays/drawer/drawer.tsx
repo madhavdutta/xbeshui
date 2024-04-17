@@ -25,7 +25,7 @@ const Drawer: React.FC<DrawerProps> = ({
 }) => {
   return (
     <DrawerMain>
-      <DrawerTrigger asChild>{Trigger}</DrawerTrigger>
+      <DrawerTrigger>{Trigger}</DrawerTrigger>
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
