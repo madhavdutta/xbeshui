@@ -59,7 +59,7 @@ const Switch = React.forwardRef<
             "pointer-events-none block rounded-full bg-background shadow-lg ring-0 transition-transform",
             thumbSize,
             thumbRadius,
-            "data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
+            "data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0"
           )}
         />
       </SwitchPrimitives.Root>

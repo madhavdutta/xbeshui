@@ -25,6 +25,7 @@ export interface GridProps {
   columns?: number;
   overflow?: "visible" | "hidden";
   className?: string;
+  wrap?:'wrap'|'nowrap'
   justify?:
     | "flex-start"
     | "flex-end"

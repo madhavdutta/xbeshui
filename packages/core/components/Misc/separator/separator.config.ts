@@ -19,7 +19,7 @@ export const sepratorConfig:SepratorConfigType ={
     orientation: {
       default: "h-[1px] w-full",
       horizontal: "h-[1px] w-full",
-      vertical: "h-full w-[1px]",
+      vertical: "h-96 w-[1px]",
     },
     labelSize: {
       default: "text-base",
