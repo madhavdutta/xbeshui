@@ -1,82 +1,49 @@
+"use client";
+
 import * as React from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
-
 import { cn } from "../../../../utils";
 import { buttonVariants } from "../../Buttons/button/button.config";
-import { AlertDialogWrapperProps, ConfirmOptions } from "./confirmDialogType";
 
-const AlertDialogWrapper: React.FC<AlertDialogWrapperProps> = ({
-  isOpen,
-  onOpenChange,
-  options,
-  onConfirm,
-  onCancel,
-}) => {
-  const handleClose = () => {
-    onOpenChange(false);
-    onCancel();
-  };
+interface AlertdialogProps {
+  trigger?: React.ReactNode;
+  title?: string;
+  description?: string;
+  cancel?: string;
+  submit?: string;
+  onSubmit?: () => void;
+}
 
+const ConirmDialog = ({
+  trigger,
+  title,
+  description,
+  cancel,
+  submit,
+  onSubmit,
+}: AlertdialogProps) => {
   return (
-    <AlertDialog open={isOpen} onOpenChange={onOpenChange}>
+    <AlertDialog>
+      <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>{options.title}</AlertDialogTitle>
+          <AlertDialogTitle>{title}</AlertDialogTitle>
+          <AlertDialogDescription>{description}</AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogDescription>{options.children}</AlertDialogDescription>
-        <div className="flex gap-4 justify-end">
-          <AlertDialogAction onClick={onConfirm}>
-            {options.labels.confirm}
-          </AlertDialogAction>
-          <AlertDialogCancel onClick={handleClose}>
-            {options.labels.cancel}
-          </AlertDialogCancel>
-        </div>
+        <AlertDialogFooter>
+          <AlertDialogCancel>{cancel}</AlertDialogCancel>
+          <AlertDialogAction onClick={onSubmit}>{submit}</AlertDialogAction>
+        </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   );
 };
-
-const useConfirmDialog = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [options, setOptions] = React.useState<ConfirmOptions | null>(null);
-
-  const openConfirmDialog = (confirmOptions: ConfirmOptions) => {
-    setOptions(confirmOptions);
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-    setOptions(null);
-  };
-
-  const handleConfirm = () => {
-    options?.onConfirm();
-    handleClose();
-  };
-
-  const handleCancel = () => {
-    handleClose();
-  };
-
-  return {
-    openConfirmDialog,
-    ConfirmDialog: () =>
-      isOpen &&
-      options && (
-        <AlertDialogWrapper
-          isOpen={isOpen}
-          onOpenChange={setIsOpen}
-          options={options}
-          onConfirm={handleConfirm}
-          onCancel={handleCancel}
-        />
-      ),
-  };
-};
+ConirmDialog.displayname = "ConirmDialog";
 
 const AlertDialog = AlertDialogPrimitive.Root;
+
+const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
+
 const AlertDialogPortal = AlertDialogPrimitive.Portal;
 
 const AlertDialogOverlay = React.forwardRef<
@@ -146,7 +113,7 @@ const AlertDialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Title
     ref={ref}
-    className={cn("text-lg font-semibold font-sans", className)}
+    className={cn("text-lg font-semibold", className)}
     {...props}
   />
 ));
@@ -158,7 +125,7 @@ const AlertDialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Description
     ref={ref}
-    className={cn("text-sm font-sans text-muted-foreground", className)}
+    className={cn("text-sm text-muted-foreground", className)}
     {...props}
   />
 ));
@@ -193,4 +160,17 @@ const AlertDialogCancel = React.forwardRef<
 ));
 AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName;
 
-export { useConfirmDialog };
+export {
+  ConirmDialog,
+  AlertDialog,
+  AlertDialogPortal,
+  AlertDialogOverlay,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogAction,
+  AlertDialogCancel,
+};

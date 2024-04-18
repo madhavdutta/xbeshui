@@ -74,7 +74,7 @@ export {
 } from "./Feedback/toast/toast";
 export { useToast, toast } from "./Feedback/toast/use-toast";
 
-export { useConfirmDialog } from "./Feedback/confirmDialog/confirmDialog";
+export { ConirmDialog } from "./Feedback/confirmDialog/confirmDialog";
 export {
   Dialog,
   DialogPortal,
