@@ -6,11 +6,11 @@ const cardConfig:CardVariantsConfigType= {
   variants: {
     size: {
       default: "w-auto",
-      xs: "w-xs",
-      sm: "w-sm",
-      md: "w-md",
-      lg: "w-lg",
-      xl: "w-xl",
+      xs: "w-1/4",
+      sm: "w-1/3",
+      md: "w-2/5",
+      lg: "w-1/2",
+      xl: "w-3/5",
     },
     radius: {
       default: "rounded-none",
@@ -43,7 +43,7 @@ const cardConfig:CardVariantsConfigType= {
   },
 }
 
-export const CardVariants = cva("bg-background text-secondary-foreground bg-card text-card-foreground rounded-md  border border-input w-auto margin-auto p-2", cardConfig);
+export const CardVariants = cva("bg-background text-secondary-foreground bg-card text-card-foreground rounded-md  border border-input w-auto margin-auto", cardConfig);
 
 export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,

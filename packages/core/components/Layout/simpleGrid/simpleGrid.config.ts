@@ -49,7 +49,7 @@ export interface SimpleGridProps
   children?: React.ReactNode;
   className?: string;
   cols: keyof simpleGridVariantType["variants"]["cols"];
-  verticalSpacing: keyof simpleGridVariantType["variants"]["verticalSpacing"];
-  spacing: keyof simpleGridVariantType["variants"]["spacing"];
+  verticalSpacing?: keyof simpleGridVariantType["variants"]["verticalSpacing"];
+  spacing?: keyof simpleGridVariantType["variants"]["spacing"];
 }
 

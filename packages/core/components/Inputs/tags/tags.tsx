@@ -76,7 +76,12 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsProps>(
             {description}
           </div>
         )}
-        <div className="flex items-center flex-wrap gap-2 border border-input rounded-md p-2">
+        <div
+          className={cn(
+            tagsVariants({ variant, error, width, radius, className }),
+            "flex items-center flex-wrap gap-1 border border-input rounded-md p-2"
+          )}
+        >
           {tags.map((tag, index) => (
             <Badge
               key={index}
