@@ -52,4 +52,3 @@ export interface ProgressProps extends VariantProps<typeof progressVariants> {
   striped?: keyof progressVariantConfigType["variants"]["striped"];
   animated?: keyof progressVariantConfigType["variants"]["animated"];
 }
-
