@@ -1,16 +1,13 @@
 import * as React from "react";
-
-// Utility to concatenate class names
-
 import { cn } from "../../../../utils";
-import { inputVariants, InputProps } from "./textInput.config";
+import { InputProps, inputVariants } from "../textInput/textInput.config";
+import { IconEye, IconEyeOff } from "@tabler/icons-react";
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       className,
       leftSection,
-      rightSection,
       leftSectionWidth = 40,
       rightSectionWidth = 40,
       label,
@@ -25,14 +22,26 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+    const [passwordVisible, setPasswordVisible] = React.useState(false);
+
+    const togglePasswordVisibility = () => {
+      setPasswordVisible((prev) => !prev);
+    };
+
+    const inputType = passwordVisible ? "text" : "password";
+    const eyeIcon = passwordVisible ? (
+      <IconEyeOff color="gray" size={18} />
+    ) : (
+      <IconEye color="gray" size={18} />
+    );
+
     const paddingLeft = leftSection ? leftSectionWidth + 12 : 12;
-    const paddingRight = rightSection ? rightSectionWidth + 12 : 12;
+    const paddingRight = rightSectionWidth + 12;
 
     return (
       <div className="flex flex-col w-full">
         {error ? (
           <>
-            {" "}
             {label && (
               <label
                 className={cn(
@@ -56,7 +65,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           </>
         ) : (
           <>
-            {" "}
             {label && (
               <label
                 className={cn(
@@ -93,6 +101,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {...props}
             ref={ref}
             disabled={disabled}
+            type={inputType}
             className={cn(
               inputVariants({ variant, error, width, radius, className })
             )}
@@ -101,20 +110,20 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               paddingRight: `${paddingRight}px`,
             }}
           />
-          {rightSection && (
-            <div
-              className="absolute right-0 inset-y-0  flex items-center justify-center"
-              style={{ width: rightSectionWidth }}
-            >
-              {rightSection}
-            </div>
-          )}
+
+          <div
+            className="absolute right-0 inset-y-0  flex items-center justify-center"
+            style={{ width: rightSectionWidth, cursor: "pointer" }}
+            onClick={togglePasswordVisibility}
+          >
+            {eyeIcon}
+          </div>
         </div>
       </div>
     );
   }
 );
 
-Input.displayName = "Input";
+PasswordInput.displayName = "PasswordInput";
 
-export { Input };
+export { PasswordInput };

@@ -74,7 +74,7 @@ export {
 } from "./Feedback/toast/toast";
 export { useToast, toast } from "./Feedback/toast/use-toast";
 
-export { useConfirmDialog } from "./Feedback/confirmDialog/confirmDialog";
+export { ConirmDialog } from "./Feedback/confirmDialog/confirmDialog";
 export {
   Dialog,
   DialogPortal,
@@ -94,6 +94,7 @@ export { ColorInput } from "./Inputs/colorInput/colorInput";
 export { ColorSwatch } from "./Inputs/colorSwatch/colorSwatch";
 export { Input } from "./Inputs/textInput/textInput";
 export { FileInput } from "./Inputs/fileInput/fileInput";
+export {PasswordInput} from  "./Inputs/passwordInput/passwordInput";
 export {
   InputOTP,
   InputOTPGroup,
@@ -194,6 +195,7 @@ export {
 
 export {
   Drawer,
+  DrawerMain,
   DrawerPortal,
   DrawerOverlay,
   DrawerTrigger,
@@ -254,6 +256,7 @@ export {
 
 export {
   Sheet,
+  SheetMain,
   SheetPortal,
   SheetOverlay,
   SheetTrigger,

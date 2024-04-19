@@ -1,10 +1,55 @@
 import * as React from "react";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import useEmblaCarousel from "embla-carousel-react";
-import { CarouselContextProps, CarouselProps, CarouselApi } from "./carouselType";
+import {
+  CarouselContextProps,
+  CarouselProps,
+  CarouselApi,
+} from "./carouselType";
 
 import { cn } from "../../../../utils";
 import { Button } from "../../Buttons/button/button";
+type CarouselItemType = {
+  type?: "image" | "text" | "video";
+  content?: string;
+};
+
+const carouseldemo = (carouselData: CarouselItemType[]) => {
+  return (
+    <CarouselMain className="w-full max-w-xs">
+      <CarouselContent>
+        {carouselData.map((item, index) => (
+          <CarouselItem key={index}>
+            <div>
+              {item.type === "image" && (
+                <img
+                src={item.content}
+                style={{ maxWidth: "100%", maxHeight: "100%", objectFit: 'contain' }}
+                alt={`Slide ${index + 1}`}
+              />
+              )}
+              {item.type === "text" && (
+                <span className="text-4xl font-semibold">{item.content}</span>
+              )}
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </CarouselMain>
+  );
+};
+
+type CarouselPropss = {
+  carouselData: CarouselItemType[];
+};
+
+const Carousel = (carouselData: CarouselPropss) => {
+  return carouseldemo(carouselData.carouselData);
+};
+
+Carousel.displayName = "Carousel";
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
 
@@ -18,7 +63,7 @@ function useCarousel() {
   return context;
 }
 
-const Carousel = React.forwardRef<
+const CarouselMain = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & CarouselProps
 >(
@@ -124,7 +169,7 @@ const Carousel = React.forwardRef<
     );
   }
 );
-Carousel.displayName = "Carousel";
+CarouselMain.displayName = "CarouselMain";
 
 const CarouselContent = React.forwardRef<
   HTMLDivElement,
@@ -221,7 +266,11 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <IconChevronRight width={16} height={16}  className="h-4 w-4 text-secondary-foreground"  />
+      <IconChevronRight
+        width={16}
+        height={16}
+        className="h-4 w-4 text-secondary-foreground"
+      />
       <span className="sr-only">Next slide</span>
     </Button>
   );

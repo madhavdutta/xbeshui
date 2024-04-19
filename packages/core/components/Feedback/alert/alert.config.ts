@@ -4,10 +4,10 @@ import { AlertVariantsConfigType, AlertVariantType } from "./alertType";
 const AlertVariantConfig:AlertVariantType = {
     default: "bg-background text-foreground",
     destructive: "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
-    success: "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
-    warning: "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
-    notice: "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
-    muted: "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
+    success: "border-green/50 text-green dark:border-green [&>svg]:text-green",
+    warning: "border-orange/50 text-orange dark:border-orange [&>svg]:text-orange",
+    notice: "border-blue/50 text-blue dark:border-blue [&>svg]:text-blue",
+    muted: "border-muted/50 text-muted dark:border-muted [&>svg]:text-muted",
 }
 
 const alertVariantsConfig:AlertVariantsConfigType = {

@@ -3,16 +3,64 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
 import { cn } from "../../../../utils";
 
+interface Tooltiptype {
+  trigger: React.ReactNode;
+  content: React.ReactNode;
+  sideOffset?: number;
+  duration?: number; // Added duration prop
+}
+
+const Tooltip = ({
+  trigger,
+  content,
+  sideOffset,
+  duration = 1,
+}: Tooltiptype) => {
+  const [visible, setVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    let timeout: number;
+
+    if (visible) {
+      timeout = setTimeout(() => {
+        setVisible(false);
+      }, duration * 1000);
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [visible, duration]);
+
+  return (
+    <TooltipProvider>
+      <TooltipMain>
+        <TooltipTrigger
+          asChild
+          onMouseEnter={() => setVisible(true)}
+          onMouseLeave={() => setVisible(false)}
+        >
+          {trigger}
+        </TooltipTrigger>
+        {visible && (
+          <TooltipContent sideOffset={sideOffset}>{content}</TooltipContent>
+        )}
+      </TooltipMain>
+    </TooltipProvider>
+  );
+};
+Tooltip.displayName = "Tooltip";
+
 const TooltipProvider = TooltipPrimitive.Provider;
 
-const Tooltip = TooltipPrimitive.Root;
+const TooltipMain = TooltipPrimitive.Root;
 
 const TooltipTrigger = TooltipPrimitive.Trigger;
 
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
->(({ className, sideOffset = 4, ...props }, ref) => (
+>(({ className, sideOffset, ...props }, ref) => (
   <TooltipPrimitive.Content
     ref={ref}
     sideOffset={sideOffset}
@@ -25,4 +73,10 @@ const TooltipContent = React.forwardRef<
 ));
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };
+export {
+  Tooltip,
+  TooltipMain,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+};
