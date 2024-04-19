@@ -7,14 +7,6 @@ const notificationTimelineVariantConfig: notificationTimelineVariantConfigType =
       variant: {
         default: "",
       },
-      // bulletSize: {
-      //   default: "",
-      //   xs: "w-1 h-1",
-      //   sm: "w-2 h-2",
-      //   md: "w-4 h-4",
-      //   lg: "w-5 h-5 -start-3",
-      //   xl: "w-8 h-8",
-      // },
       lineWidth: {
         default: "border-s-2",
         none: "boorder-s-0",
@@ -26,7 +18,6 @@ const notificationTimelineVariantConfig: notificationTimelineVariantConfigType =
     },
     defaultVariants: {
       variant: "default",
-      // bulletSize: "default",
       lineWidth: "default",
     },
   };

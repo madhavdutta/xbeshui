@@ -19,6 +19,7 @@ import { Select } from "../packages/core/components/Inputs/select/select";
 import { ColorInput } from "../packages/core/components/Inputs/colorInput/colorInput";
 import { NotificationTimeline } from "../packages/core/components/Misc/notificationTimeline/notificationTimeLine";
 import { PasswordInput } from "../packages/core/components/Inputs/passwordInput/passwordInput";
+import { Group, Separator, Stack } from "../packages/core/components";
 
 type MenuItem = {
   label?: string;
@@ -719,13 +720,63 @@ const App = () => {
         bulletSize={"4"}
         activeItem={7}
       />
-      <br/>
-      <br/>
-      <PasswordInput radius="md"/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      <br />
+      <br />
+      <PasswordInput radius="md" />
+      <br />
+      <br />
+      <Separator label="left" labelPosition="left" />
+      <br />
+      <br />
+      <Separator
+        label={
+          <>
+            <Button variant={"outline"} radius="full">
+              more
+            </Button>
+          </>
+        }
+        labelPosition="center"
+      />
+      <br />
+      <br />
+      <Separator label="right" labelPosition="right" />
+      <br />
+      <br />
+      <div>
+        <div className="space-y-1">
+          <h4 className="text-sm font-medium leading-none">xBesh UI</h4>
+          <p className="text-sm text-muted-foreground">
+            An open-source UI component library.
+          </p>
+        </div>
+        <Separator className="my-4" />
+        <div className="flex h-5 items-center space-x-4 text-sm">
+          <div>Blog</div>
+          <Separator orientation="vertical" />
+          <div>Docs</div>
+          <Separator orientation="vertical" />
+          <div>Source</div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <Group gap="xl">
+        <Button variant="default">First</Button>
+        <Button variant="default">Second</Button>
+        <Button variant="default">Third</Button>
+      </Group>
+      <br />
+      <br />
+      <div className="h-[700px]">
+        <Stack align="itemEnd" justify="spaceBetween" gap="md">
+          <Button variant="default">1</Button>
+          <Button variant="default">2</Button>
+          <Button variant="default">3</Button>
+        </Stack>
+      </div>
+      <br />
+      <br />
     </Container>
   );
 };

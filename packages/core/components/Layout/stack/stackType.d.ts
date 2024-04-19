@@ -1,6 +1,3 @@
-import { VariantProps } from "class-variance-authority";
-import { stackVariant } from "./stack.config";
-
 export interface StackVariantType {
   variants: {
     justify: {
@@ -20,13 +17,12 @@ export interface StackVariantType {
     };
     gap: {
       default: string;
-      xxs: string;
+      none: string;
       xs: string;
       sm: string;
       md: string;
       lg: string;
       xl: string;
-      xxl: string;
     };
   };
   defaultVariants: {
@@ -35,5 +31,3 @@ export interface StackVariantType {
     gap: keyof StackVariantType["variants"]["gap"];
   };
 }
-
-

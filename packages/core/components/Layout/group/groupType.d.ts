@@ -1,5 +1,3 @@
-
-
 export interface GroupVariantType {
   variants: {
     justify: {
@@ -15,13 +13,12 @@ export interface GroupVariantType {
     };
     gap: {
       default: string;
-      xxs: string;
+      none: string;
       xs: string;
       sm: string;
       md: string;
       lg: string;
       xl: string;
-      xxl: string;
     };
     wrap: {
       default: string;
@@ -41,5 +38,3 @@ export interface GroupVariantType {
     wrap: keyof GroupVariantType["variants"]["wrap"];
   };
 }
-
-

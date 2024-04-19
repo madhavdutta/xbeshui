@@ -45,7 +45,7 @@ const NotificationTimeline: React.FC<NotificationTimelineProps> = ({
           <li key={index} className={cn("mb-10 ms-4")}>
             <div
               className={cn(
-                `absolute w-${bulletSize} h-${bulletSize} bg-gray-400 rounded-full mt-1.5 -ml-0.6 -start-${
+                `absolute w-${bulletSize} h-${bulletSize} bg-gray-400 rounded-full mt-1.5 -start-${
                   bulletSize && parseInt(bulletSize) / 2
                 } border border-white dark:border-gray-900 dark:bg-slate-100`,
                 index < activeItem && "bg-black"
