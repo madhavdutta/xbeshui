@@ -19,6 +19,7 @@ const notificationTimelineVariantConfig: notificationTimelineVariantConfigType =
     defaultVariants: {
       variant: "default",
       lineWidth: "default",
+
     },
   };
 
@@ -38,7 +39,7 @@ export interface NotificationTimelineProps
   extends VariantProps<typeof notificationTimelineVariants> {
   data: TimelineItem[];
   variant?: keyof notificationTimelineVariantConfigType["variants"]["variant"];
-  bulletSize?: "2" | "3" | "4" | "5" | "6";
+  bulletSize?: "2"|"3"|"4"|"5"|"6"
   lineWidth?: keyof notificationTimelineVariantConfigType["variants"]["lineWidth"];
   activeItem?: number;
 }

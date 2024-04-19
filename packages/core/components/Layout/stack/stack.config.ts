@@ -42,6 +42,7 @@ export interface StackProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof stackVariant> {
   asChild?: boolean;
+  height?:number;
   justify?: keyof StackVariantType["variants"]["justify"];
   align?: keyof StackVariantType["variants"]["align"];
   gap?: keyof StackVariantType["variants"]["gap"];

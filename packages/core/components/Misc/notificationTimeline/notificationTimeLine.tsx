@@ -42,15 +42,14 @@ const NotificationTimeline: React.FC<NotificationTimelineProps> = ({
         )}
       >
         {displayedItems.map((item, index) => (
-          <li key={index} className={cn("mb-10 ms-4")}>
+          <li key={index} className={cn("mb-10 relative")}>
             <div
               className={cn(
-                `absolute w-${bulletSize} h-${bulletSize} bg-gray-400 rounded-full mt-1.5 -start-${
-                  bulletSize && parseInt(bulletSize) / 2
-                } border border-white dark:border-gray-900 dark:bg-slate-100`,
+                `absolute -left-[0.6rem] top-0 w-${bulletSize} h-${bulletSize}  bg-gray-400 rounded-full border border-white dark:border-gray-900 dark:bg-slate-100`,
                 index < activeItem && "bg-black"
               )}
             ></div>
+            <div className="ms-4">
             <p className="text-sm font-medium pb-2">{item.label}</p>
             {item.title && (
               <p className="text-base font-semibold text-gray-900 dark:text-white">
@@ -65,6 +64,7 @@ const NotificationTimeline: React.FC<NotificationTimelineProps> = ({
                 {item.desc}
               </p>
             )}
+            </div>
           </li>
         ))}
       </ol>

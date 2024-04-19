@@ -716,7 +716,7 @@ const App = () => {
       <br />
       <NotificationTimeline
         data={roadmapData}
-        lineWidth="sm"
+        lineWidth='sm'
         bulletSize={"4"}
         activeItem={7}
       />
@@ -768,8 +768,8 @@ const App = () => {
       </Group>
       <br />
       <br />
-      <div className="h-[700px]">
-        <Stack align="itemEnd" justify="spaceBetween" gap="md">
+      <div >
+        <Stack height={500} align="itemEnd" justify="spaceBetween" gap="md">
           <Button variant="default">1</Button>
           <Button variant="default">2</Button>
           <Button variant="default">3</Button>
