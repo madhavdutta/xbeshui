@@ -9,6 +9,7 @@ const accordionVariant: AccordionVariantsType = {
       contained: "border border-input rounded-md",
       separated: "border-t border-b border-input",
     },
+
     radius: {
       default: "rounded-none",
       xs: "rounded-xs",
