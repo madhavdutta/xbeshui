@@ -3,8 +3,97 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
 import { cn } from "../../../../utils";
 import { IconChevronDown } from "@tabler/icons-react";
+import { Link } from "@radix-ui/react-navigation-menu";
 
-const NavigationMenu = React.forwardRef<
+type NavigationMenuItem = {
+  title?: string;
+  href?: string;
+  description?: string;
+  special?: boolean;
+};
+
+type NavigationMenuSection = {
+  title?: string;
+  items?: NavigationMenuItem[];
+  href?: string;
+  dropdown: boolean;
+};
+
+type NavigationMenuProps = {
+  sections: NavigationMenuSection[];
+};
+
+const NavigationMenu: React.FC<NavigationMenuProps> = ({ sections }) => {
+  return (
+    <NavigationMenuMain>
+      <NavigationMenuList>
+        {sections.map(
+          (section, index) =>
+            section.dropdown && (
+              <NavigationMenuItem key={index}>
+                <NavigationMenuTrigger>{section.title}</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    {/* Special first item */}
+                    {section?.items?.map(
+                      (item, itemIndex) =>
+                        item.special && (
+                          <li className="row-span-3" key={itemIndex}>
+                            <NavigationMenuLink asChild>
+                              <a
+                                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                                href={item.href}
+                              >
+                                <img
+                                  src="https://xbesh.dev/logo.png"
+                                  className="h-6 w-6"
+                                />
+                                <div className="mb-2 mt-4 text-lg font-medium">
+                                  {item.title}
+                                </div>
+                                <p className="text-sm leading-tight text-muted-foreground">
+                                  {item.description}
+                                </p>
+                              </a>
+                            </NavigationMenuLink>
+                          </li>
+                        )
+                    )}
+                    {section.items?.map(
+                      (item, itemIndex) =>
+                        !item.special && (
+                          <NavListItem
+                            key={itemIndex}
+                            href={item.href}
+                            title={item.title}
+                          >
+                            {item.description}
+                          </NavListItem>
+                        )
+                    )}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            )
+        )}
+        {sections.map(
+          (items, itemindex) =>
+            !items.dropdown && (
+              <NavigationMenuItem key={itemindex}>
+                <Link href={items.href}>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    {items.title}
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            )
+        )}
+      </NavigationMenuList>
+    </NavigationMenuMain>
+  );
+};
+
+const NavigationMenuMain = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
 >(({ className, children, ...props }, ref) => (
@@ -143,6 +232,7 @@ NavListItem.displayName = "NavListItem";
 export {
   navigationMenuTriggerStyle,
   NavigationMenu,
+  NavigationMenuMain,
   NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuContent,

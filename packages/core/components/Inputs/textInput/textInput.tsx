@@ -94,7 +94,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             disabled={disabled}
             className={cn(
-              inputVariants({ variant, error, width, radius, className } )
+              inputVariants({ variant, error, width, radius, className })
             )}
             style={{
               paddingLeft: `${paddingLeft}px`,

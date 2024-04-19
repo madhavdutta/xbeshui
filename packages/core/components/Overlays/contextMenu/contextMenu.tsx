@@ -1,29 +1,104 @@
-import * as React from "react"
-import * as ContextMenuPrimitive from "@radix-ui/react-context-menu"
-import {
-  IconCheck,
-  IconChevronRight,
-  IconDots,
-} from "@tabler/icons-react";
+import * as React from "react";
+import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
+import { IconCheck, IconChevronRight, IconDots } from "@tabler/icons-react";
 
 import { cn } from "../../../../utils";
+interface ContextMenuItemConfig {
+  type: "item" | "sub" | "separator" | "checkbox" | "radio";
+  label?: string;
+  shortcut?: string;
+  disabled?: boolean;
+  inset?: boolean;
+  checked?: boolean;
+  value?: string;
+  items?: ContextMenuItemConfig[];
+}
 
-const ContextMenu = ContextMenuPrimitive.Root
+type ContextMenuPropsType = {
+  menuConfig: ContextMenuItemConfig[];
+};
 
-const ContextMenuTrigger = ContextMenuPrimitive.Trigger
+const ContextMenu: React.FC<ContextMenuPropsType> = ({ menuConfig }) => {
+  return (
+    <ContextMenuMain>
+      <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
+        Right click here
+      </ContextMenuTrigger>
+      <ContextMenuContent className="w-64">
+        {menuConfig.map((item, index) => (
+          <React.Fragment key={index}>
+            {item.type === "item" && (
+              <ContextMenuItem disabled={item.disabled} inset>
+                {item.label}
+                {item.shortcut && (
+                  <ContextMenuShortcut>{item.shortcut}</ContextMenuShortcut>
+                )}
+              </ContextMenuItem>
+            )}
+            {item.type === "sub" && (
+              <ContextMenuSub>
+                <ContextMenuSubTrigger inset>
+                  {item.label}
+                </ContextMenuSubTrigger>
+                <ContextMenuSubContent className="w-48">
+                  {item.items?.map((subItem, subIndex) => (
+                    <React.Fragment key={subIndex}>
+                      {subItem.type === "separator" ? (
+                        <ContextMenuSeparator />
+                      ) : (
+                        <ContextMenuItem>{subItem.label}</ContextMenuItem>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </ContextMenuSubContent>
+              </ContextMenuSub>
+            )}
+            {item.type === "separator" && <ContextMenuSeparator />}
+            {item.type === "checkbox" && (
+              <ContextMenuCheckboxItem checked={item.checked}>
+                {item.label}
+                {item.shortcut && (
+                  <ContextMenuShortcut>{item.shortcut}</ContextMenuShortcut>
+                )}
+              </ContextMenuCheckboxItem>
+            )}
+            {item.type === "radio" && (
+              <ContextMenuRadioGroup value={item.value}>
+                <ContextMenuLabel inset>{item.label}</ContextMenuLabel>
+                <ContextMenuSeparator />
+                {item.items?.map((radioItem, radioIndex) => (
+                  <ContextMenuRadioItem
+                    key={radioIndex}
+                    value={radioItem.value || ""}
+                  >
+                    {radioItem.label}
+                  </ContextMenuRadioItem>
+                ))}
+              </ContextMenuRadioGroup>
+            )}
+          </React.Fragment>
+        ))}
+      </ContextMenuContent>
+    </ContextMenuMain>
+  );
+};
 
-const ContextMenuGroup = ContextMenuPrimitive.Group
+const ContextMenuMain = ContextMenuPrimitive.Root;
 
-const ContextMenuPortal = ContextMenuPrimitive.Portal
+const ContextMenuTrigger = ContextMenuPrimitive.Trigger;
 
-const ContextMenuSub = ContextMenuPrimitive.Sub
+const ContextMenuGroup = ContextMenuPrimitive.Group;
 
-const ContextMenuRadioGroup = ContextMenuPrimitive.RadioGroup
+const ContextMenuPortal = ContextMenuPrimitive.Portal;
+
+const ContextMenuSub = ContextMenuPrimitive.Sub;
+
+const ContextMenuRadioGroup = ContextMenuPrimitive.RadioGroup;
 
 const ContextMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.SubTrigger>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubTrigger> & {
-    inset?: boolean
+    inset?: boolean;
   }
 >(({ className, inset, children, ...props }, ref) => (
   <ContextMenuPrimitive.SubTrigger
@@ -38,8 +113,8 @@ const ContextMenuSubTrigger = React.forwardRef<
     {children}
     <IconChevronRight className="ml-auto h-4 w-4" />
   </ContextMenuPrimitive.SubTrigger>
-))
-ContextMenuSubTrigger.displayName = ContextMenuPrimitive.SubTrigger.displayName
+));
+ContextMenuSubTrigger.displayName = ContextMenuPrimitive.SubTrigger.displayName;
 
 const ContextMenuSubContent = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.SubContent>,
@@ -53,8 +128,8 @@ const ContextMenuSubContent = React.forwardRef<
     )}
     {...props}
   />
-))
-ContextMenuSubContent.displayName = ContextMenuPrimitive.SubContent.displayName
+));
+ContextMenuSubContent.displayName = ContextMenuPrimitive.SubContent.displayName;
 
 const ContextMenuContent = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Content>,
@@ -70,13 +145,13 @@ const ContextMenuContent = React.forwardRef<
       {...props}
     />
   </ContextMenuPrimitive.Portal>
-))
-ContextMenuContent.displayName = ContextMenuPrimitive.Content.displayName
+));
+ContextMenuContent.displayName = ContextMenuPrimitive.Content.displayName;
 
 const ContextMenuItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Item> & {
-    inset?: boolean
+    inset?: boolean;
   }
 >(({ className, inset, ...props }, ref) => (
   <ContextMenuPrimitive.Item
@@ -88,8 +163,8 @@ const ContextMenuItem = React.forwardRef<
     )}
     {...props}
   />
-))
-ContextMenuItem.displayName = ContextMenuPrimitive.Item.displayName
+));
+ContextMenuItem.displayName = ContextMenuPrimitive.Item.displayName;
 
 const ContextMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.CheckboxItem>,
@@ -111,9 +186,9 @@ const ContextMenuCheckboxItem = React.forwardRef<
     </span>
     {children}
   </ContextMenuPrimitive.CheckboxItem>
-))
+));
 ContextMenuCheckboxItem.displayName =
-  ContextMenuPrimitive.CheckboxItem.displayName
+  ContextMenuPrimitive.CheckboxItem.displayName;
 
 const ContextMenuRadioItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.RadioItem>,
@@ -134,13 +209,13 @@ const ContextMenuRadioItem = React.forwardRef<
     </span>
     {children}
   </ContextMenuPrimitive.RadioItem>
-))
-ContextMenuRadioItem.displayName = ContextMenuPrimitive.RadioItem.displayName
+));
+ContextMenuRadioItem.displayName = ContextMenuPrimitive.RadioItem.displayName;
 
 const ContextMenuLabel = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Label> & {
-    inset?: boolean
+    inset?: boolean;
   }
 >(({ className, inset, ...props }, ref) => (
   <ContextMenuPrimitive.Label
@@ -152,8 +227,8 @@ const ContextMenuLabel = React.forwardRef<
     )}
     {...props}
   />
-))
-ContextMenuLabel.displayName = ContextMenuPrimitive.Label.displayName
+));
+ContextMenuLabel.displayName = ContextMenuPrimitive.Label.displayName;
 
 const ContextMenuSeparator = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Separator>,
@@ -164,8 +239,8 @@ const ContextMenuSeparator = React.forwardRef<
     className={cn("-mx-1 my-1 h-px bg-border", className)}
     {...props}
   />
-))
-ContextMenuSeparator.displayName = ContextMenuPrimitive.Separator.displayName
+));
+ContextMenuSeparator.displayName = ContextMenuPrimitive.Separator.displayName;
 
 const ContextMenuShortcut = ({
   className,
@@ -179,12 +254,13 @@ const ContextMenuShortcut = ({
       )}
       {...props}
     />
-  )
-}
-ContextMenuShortcut.displayName = "ContextMenuShortcut"
+  );
+};
+ContextMenuShortcut.displayName = "ContextMenuShortcut";
 
 export {
   ContextMenu,
+  ContextMenuMain,
   ContextMenuTrigger,
   ContextMenuContent,
   ContextMenuItem,
@@ -199,4 +275,4 @@ export {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuRadioGroup,
-}
+};
