@@ -7,13 +7,13 @@ import {
 
 import { Button } from "../../Buttons/button/button";
 import {
-  Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
 } from "../../index";
 import { DataTablePaginationProps } from "./dataTableType";
+import { SelectMain } from "../../Inputs/select/select";
 
 export function DataTablePagination<TData>({
   table,
@@ -28,7 +28,7 @@ export function DataTablePagination<TData>({
       <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6 lg:gap-8">
         <div className="flex items-center space-x-2">
           <p className="whitespace-nowrap text-sm font-medium">Rows per page</p>
-          <Select
+          <SelectMain
             value={`${table.getState().pagination.pageSize}`}
             onValueChange={(value) => {
               table.setPageSize(Number(value));
@@ -44,7 +44,7 @@ export function DataTablePagination<TData>({
                 </SelectItem>
               ))}
             </SelectContent>
-          </Select>
+          </SelectMain>
         </div>
         <div className="flex w-[100px] items-center justify-center text-sm font-medium">
           Page {table.getState().pagination.pageIndex + 1} of{" "}
@@ -58,7 +58,10 @@ export function DataTablePagination<TData>({
             onClick={() => table.setPageIndex(0)}
             disabled={!table.getCanPreviousPage()}
           >
-            <IconChevronsLeft className="size-4 text-secondary-foreground " aria-hidden="true" />
+            <IconChevronsLeft
+              className="size-4 text-secondary-foreground "
+              aria-hidden="true"
+            />
           </Button>
           <Button
             aria-label="Go to previous page"
@@ -67,7 +70,10 @@ export function DataTablePagination<TData>({
             onClick={() => console.log(table.previousPage())}
             disabled={!table.getCanPreviousPage()}
           >
-            <IconChevronLeft className="size-4 text-secondary-foreground " aria-hidden="true" />
+            <IconChevronLeft
+              className="size-4 text-secondary-foreground "
+              aria-hidden="true"
+            />
           </Button>
           <Button
             aria-label="Go to next page"
@@ -76,7 +82,10 @@ export function DataTablePagination<TData>({
             onClick={() => console.log(table.nextPage())} // getting undefined in the cons
             disabled={!table.getCanNextPage()}
           >
-            <IconChevronRight className="size-4 text-secondary-foreground " aria-hidden="true" />
+            <IconChevronRight
+              className="size-4 text-secondary-foreground "
+              aria-hidden="true"
+            />
           </Button>
           <Button
             aria-label="Go to last page"
@@ -85,7 +94,10 @@ export function DataTablePagination<TData>({
             onClick={() => table.setPageIndex(table.getPageCount() - 1)}
             disabled={!table.getCanNextPage()}
           >
-            <IconChevronsRight className="size-4 text-secondary-foreground " aria-hidden="true" />
+            <IconChevronsRight
+              className="size-4 text-secondary-foreground "
+              aria-hidden="true"
+            />
           </Button>
         </div>
       </div>

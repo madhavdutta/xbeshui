@@ -77,6 +77,7 @@ export { useToast, toast } from "./Feedback/toast/use-toast";
 export { ConirmDialog } from "./Feedback/confirmDialog/confirmDialog";
 export {
   Dialog,
+  DialogMain,
   DialogPortal,
   DialogOverlay,
   DialogTrigger,
@@ -94,7 +95,7 @@ export { ColorInput } from "./Inputs/colorInput/colorInput";
 export { ColorSwatch } from "./Inputs/colorSwatch/colorSwatch";
 export { Input } from "./Inputs/textInput/textInput";
 export { FileInput } from "./Inputs/fileInput/fileInput";
-export {PasswordInput} from  "./Inputs/passwordInput/passwordInput";
+export { PasswordInput } from "./Inputs/passwordInput/passwordInput";
 export {
   InputOTP,
   InputOTPGroup,
@@ -106,6 +107,7 @@ export { Slider } from "./Inputs/rangeSlider/rangeSlider";
 export { RadioGroup, RadioGroupItem } from "./Inputs/radio/radio";
 export {
   Select,
+  SelectMain,
   SelectGroup,
   SelectValue,
   SelectTrigger,
@@ -162,6 +164,7 @@ export { Timeline, TimelineItem } from "./Misc/timeline/timeline";
 // All Navigation core components are exported from this file
 export {
   navigationMenuTriggerStyle,
+  NavigationMenuMain,
   NavigationMenu,
   NavigationMenuList,
   NavigationMenuItem,
@@ -177,6 +180,7 @@ export { Pagination } from "./Navigation/pagination/pagination";
 // All Overlays core components are exported from this file
 export {
   ContextMenu,
+  ContextMenuMain,
   ContextMenuTrigger,
   ContextMenuContent,
   ContextMenuItem,
@@ -209,6 +213,7 @@ export {
 
 export {
   DropdownMenu,
+  DropdownMenuMain,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -228,6 +233,7 @@ export { HoverCard } from "./Overlays/hoverCard/hoverCard";
 
 export {
   Menubar,
+  MenubarMain,
   MenubarMenu,
   MenubarTrigger,
   MenubarContent,
@@ -270,6 +276,7 @@ export {
 
 export {
   Tooltip,
+  TooltipMain,
   TooltipTrigger,
   TooltipContent,
   TooltipProvider,
