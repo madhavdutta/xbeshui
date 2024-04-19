@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "../packages/core/components/Layout/container/container";
 import {
   Accordion,
@@ -21,15 +21,11 @@ import { FlexBox } from "../packages/core/components/Layout/flexBox/flexBox";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
-  CardHeader,
 } from "../packages/core/components/DataDisplay/card/card";
 import { Image } from "../packages/core/components/DataDisplay/image/image";
 import { Badge } from "../packages/core/components/DataDisplay/badge/badge";
 const App = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <Container className="py-6 flex flex-col gap-8">
       <Accordion

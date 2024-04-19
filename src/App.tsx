@@ -6,7 +6,7 @@ import { Container } from "../packages/core/components/Layout/container/containe
 import { Drawer } from "../packages/core/components/Overlays/drawer/drawer";
 import { Menubar } from "../packages/core/components/Overlays/menuBar/menubar";
 import { Button } from "../packages/core/components/Buttons/button/button";
-import { IconSelector } from "@tabler/icons-react";
+import { Icon360View, IconSelector } from "@tabler/icons-react";
 import { Collapsible } from "../packages/core/components/Misc/collapsible/collapsible";
 import { Sheet } from "../packages/core/components/Overlays/sheet/sheet";
 import { NavigationMenu } from "../packages/core/components/Navigation/navMenu/navMenu";
@@ -777,6 +777,9 @@ const App = () => {
       </div>
       <br />
       <br />
+      <div>
+      <Button leftSection={<Icon360View/>} rightSection={<Icon360View/>}>submit</Button>
+      </div>
     </Container>
   );
 };
