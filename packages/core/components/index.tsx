@@ -94,6 +94,7 @@ export { ColorInput } from "./Inputs/colorInput/colorInput";
 export { ColorSwatch } from "./Inputs/colorSwatch/colorSwatch";
 export { Input } from "./Inputs/textInput/textInput";
 export { FileInput } from "./Inputs/fileInput/fileInput";
+export {PasswordInput} from  "./Inputs/passwordInput/passwordInput";
 export {
   InputOTP,
   InputOTPGroup,

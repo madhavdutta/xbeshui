@@ -17,7 +17,8 @@ import { Label } from "../packages/core/components/Typography/label/label";
 import { ConirmDialog } from "../packages/core/components/Feedback/confirmDialog/confirmDialog";
 import { Select } from "../packages/core/components/Inputs/select/select";
 import { ColorInput } from "../packages/core/components/Inputs/colorInput/colorInput";
-
+import { NotificationTimeline } from "../packages/core/components/Misc/notificationTimeline/notificationTimeLine";
+import { PasswordInput } from "../packages/core/components/Inputs/passwordInput/passwordInput";
 
 type MenuItem = {
   label?: string;
@@ -448,8 +449,160 @@ const App = () => {
     },
   ];
 
-  
-  
+  type RoadmapItem = {
+    label: string;
+    date: string;
+    title?: string;
+    desc?: string;
+  };
+
+  const roadmapData: RoadmapItem[] = [
+    {
+      label: "v1.0.0",
+      date: "16 April, 2024",
+      title: "Tailwind Color fixes",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.0.1",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.0.2",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.0.3",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.0.4",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.0.5",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.0.6",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.0.7",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.0.8",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.0.9",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.1.0",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.1.1",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.1.2",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.1.3",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.1.4",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.1.5",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.1.6",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.1.7",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.1.8",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.1.9",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.2.0",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.2.1",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.2.2",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+    {
+      label: "v1.2.3",
+      date: "21 Feb, 2024",
+      title: "Initial release",
+      desc: "Components included:\nButtons, Carousels, Cards, Dropdown Menus, Select Menus",
+    },
+  ];
+
   return (
     <Container>
       <br />
@@ -560,7 +713,19 @@ const App = () => {
       <ColorInput />
       <br />
       <br />
-   
+      <NotificationTimeline
+        data={roadmapData}
+        lineWidth="sm"
+        bulletSize={"4"}
+        activeItem={7}
+      />
+      <br/>
+      <br/>
+      <PasswordInput radius="md"/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </Container>
   );
 };
