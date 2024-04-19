@@ -18,14 +18,13 @@ const stackConfig: StackVariantType = {
       stretch: "items-stretch",
     },
     gap: {
-      default: "gap-0",
-      xxs: "gap-2",
-      xs: "gap-8",
-      sm: "gap-12",
-      md: "gap-16",
-      lg: "gap-20",
-      xl: "gap-24",
-      xxl: "gap-28",
+      default: "gap-2",
+      none: "gap-0",
+      xs: "gap-2",
+      sm: "gap-4",
+      md: "gap-6",
+      lg: "gap-8",
+      xl: "gap-12",
     },
   },
   defaultVariants: {
@@ -34,12 +33,16 @@ const stackConfig: StackVariantType = {
     gap: "default",
   },
 };
-export const stackVariant = cva("bg-background text-primary-foreground flex flex-col w-full", stackConfig);
+export const stackVariant = cva(
+  "bg-background text-primary-foreground flex flex-col w-full",
+  stackConfig
+);
 
 export interface StackProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof stackVariant> {
   asChild?: boolean;
+  height?:number;
   justify?: keyof StackVariantType["variants"]["justify"];
   align?: keyof StackVariantType["variants"]["align"];
   gap?: keyof StackVariantType["variants"]["gap"];

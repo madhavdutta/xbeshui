@@ -15,7 +15,6 @@ import {
   Text,
   Button,
   Input,
-  DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -33,6 +32,7 @@ import {
 import { DataTablePagination } from "./dataTablePagination";
 import { IconCirclePlus } from "@tabler/icons-react";
 import { DataTableProps } from "./dataTableType";
+import { DropdownMenuMain } from "../../Overlays/dropdownMenu/dropdownMenu";
 
 export const DataTable = <T,>({
   data,
@@ -83,15 +83,21 @@ export const DataTable = <T,>({
         />
         {filters &&
           filters.map((filter) => (
-            <DropdownMenu key={filter.name}>
+            <DropdownMenuMain key={filter.name}>
               <DropdownMenuTrigger>
                 <Group
                   justify="flexStart"
-                  gap={"xxs"}
+                  gap={"xs"}
                   className="border-dotted border-input border-2 p-2 px-3 rounded-md text-xs leading-5"
                 >
-                  <IconCirclePlus stroke={1.5} size={18} className="text-secondary-foreground " />
-                 <Text  size="xs">{filter.name.charAt(0).toUpperCase() + filter.name.slice(1)}</Text> 
+                  <IconCirclePlus
+                    stroke={1.5}
+                    size={18}
+                    className="text-secondary-foreground "
+                  />
+                  <Text size="xs">
+                    {filter.name.charAt(0).toUpperCase() + filter.name.slice(1)}
+                  </Text>
                 </Group>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
@@ -114,10 +120,10 @@ export const DataTable = <T,>({
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenuMain>
           ))}
 
-        <DropdownMenu>
+        <DropdownMenuMain>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
               <Text size="xs">View</Text>{" "}
@@ -143,7 +149,7 @@ export const DataTable = <T,>({
                 );
               })}
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenuMain>
       </div>
       <div className="rounded-md border border-input text-secondary-foreground">
         <Table>

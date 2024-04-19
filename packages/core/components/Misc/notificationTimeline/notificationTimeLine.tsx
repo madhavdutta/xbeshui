@@ -1,80 +1,87 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import { Button } from "../../Buttons/button/button";
+import { cn } from "../../../../utils";
+import {
+  NotificationTimelineProps,
+  notificationTimelineVariants,
+} from "./notiicationTimeLine.config";
 
-export interface TimelineItem {
-  label: string;
-  date: string;
-  title?: string;
-  desc?: string;
-}
+const NotificationTimeline: React.FC<NotificationTimelineProps> = ({
+  data = [],
+  variant,
+  lineWidth,
+  bulletSize,
+  activeItem = 0,
+}) => {
+  const [startIndex, setStartIndex] = useState(0);
 
-interface NotificationTimelineProps {
-  data: TimelineItem[];
-  lineWidth?: number;
-  bullet?: string;
-}
+  const displayedItems = useMemo(
+    () => data.slice(0, startIndex + 10),
+    [data, startIndex]
+  );
 
+  const showAll = displayedItems.length === data.length;
 
-export const NotificationTimeline = ({
-  data,
-}: NotificationTimelineProps) => {
-  const [displayedItems, setDisplayedItems] = useState(data.slice(0, 10)); // Initially display 10 items
-  const [startIndex, setStartIndex] = useState(10); // Index to start loading new items from
-  const [disableButton, setDisableButton] = useState(true);
   const addMoreItems = () => {
-    const nextItems = data.slice(startIndex, startIndex + 10);
+    const nextItems = data.slice(startIndex + 10, startIndex + 20);
     if (nextItems.length > 0) {
-      setDisplayedItems((prevItems) => [...prevItems, ...nextItems]);
       setStartIndex((prevIndex) => prevIndex + 10);
     }
   };
 
-  useEffect(() => {
-    if (displayedItems.length === data.length) {
-      setDisableButton(true);
-    } else {
-      setDisableButton(false);
-    }
-  }, [displayedItems]);
+  const showLessItems = () => {
+    setStartIndex(0);
+  };
 
   return (
     <div className="">
       <ol
-        className={`relative max-w-5xl mx-auto border-l-4 border-slate-300 dark:border-slate-400`}
+        className={cn(
+          "relative max-w-5xl mx-auto border-l-4 border-slate-300 dark:border-slate-400 ",
+          notificationTimelineVariants({ lineWidth, variant })
+        )}
       >
-        {displayedItems &&
-          displayedItems.map((item: TimelineItem, index: number) => {
-            return (
-              <li key={index} className="mb-10 ms-4">
-                <div className="absolute w-3 h-3 bg-gray-400 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-slate-100"></div>
-                <p className="text-sm font-medium pb-2">{item.label}</p>
-                {item.title && (
-                  <p className="text-base font-semibold text-gray-900 dark:text-white">
-                    {item.title}
-                  </p>
-                )}
-                <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-slate-400">
-                  {item.date}
-                </time>
-                {item.desc && (
-                  <p className="mb-4 text-sm font-normal text-gray-500 dark:text-gray-400">
-                    {item.desc}
-                  </p>
-                )}
-              </li>
-            );
-          })}
+        {displayedItems.map((item, index) => (
+          <li key={index} className={cn("mb-10 relative")}>
+            <div
+              className={cn(
+                `absolute -left-[0.6rem] top-0 w-${bulletSize} h-${bulletSize}  bg-gray-400 rounded-full border border-white dark:border-gray-900 dark:bg-slate-100`,
+                index < activeItem && "bg-black"
+              )}
+            ></div>
+            <div className="ms-4">
+            <p className="text-sm font-medium pb-2">{item.label}</p>
+            {item.title && (
+              <p className="text-base font-semibold text-gray-900 dark:text-white">
+                {item.title}
+              </p>
+            )}
+            <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-slate-400">
+              {item.date}
+            </time>
+            {item.desc && (
+              <p className="mb-4 text-sm font-normal text-gray-500 dark:text-gray-400">
+                {item.desc}
+              </p>
+            )}
+            </div>
+          </li>
+        ))}
       </ol>
       <div className="relative max-w-5xl mx-auto">
-        <Button
-          disabled={disableButton}
-          className=""
-          onClick={addMoreItems}
-          variant="outline"
-        >
-          More...
-        </Button>
+        {!showAll && (
+          <Button className="" onClick={addMoreItems} variant="outline">
+            More...
+          </Button>
+        )}
+        {showAll && (
+          <Button className="" onClick={showLessItems} variant="outline">
+            Show Less
+          </Button>
+        )}
       </div>
     </div>
   );
 };
+NotificationTimeline.displayName = "NotificationTimeline";
+export { NotificationTimeline };
