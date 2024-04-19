@@ -51,6 +51,7 @@ export * from "./core/components/Inputs/spotlight/spotlight";
 export * from "./core/components/Inputs/tags/tags";
 export * from "./core/components/Inputs/switch/switch";
 export * from "./core/components/Inputs/textarea/textarea";
+export * from "./core/components/Inputs/passwordInput/passwordInput";
 
 export * from "./core/components/Misc/breadcrumb/breadcrumb";
 export * from "./core/components/Misc/calendar/calendar";
@@ -59,6 +60,7 @@ export * from "./core/components/Misc/collapsible/collapsible";
 export * from "./core/components/Misc/scrollArea/scrollArea";
 export * from "./core/components/Misc/separator/separator";
 export * from "./core/components/Misc/timeline/timeline";
+export * from "./core/components/Misc/notificationTimeline/notificationTimeLine";
 
 export * from "./core/components/Navigation/navMenu/navMenu";
 export * from "./core/components/Navigation/pagination/pagination";

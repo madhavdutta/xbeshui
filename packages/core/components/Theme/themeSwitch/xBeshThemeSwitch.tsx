@@ -3,11 +3,12 @@ import { useTheme } from  "../xBeshTheme/xBeshThemeProvider"
 
 import {
   Button,
-  DropdownMenu,
+  DropdownMenuMain,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../../index"
+
 
 // import { fontSans } from "./xBeshThemeProvider"
 
@@ -15,7 +16,7 @@ export function XbeshThemeSwitch() {
   const { setTheme } = useTheme()
 
   return (
-    <DropdownMenu>
+    <DropdownMenuMain>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="default">
           <IconSun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -34,6 +35,6 @@ export function XbeshThemeSwitch() {
           System
         </DropdownMenuItem>
       </DropdownMenuContent>
-    </DropdownMenu>
+    </DropdownMenuMain>
   )
 }
