@@ -3,6 +3,7 @@ import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react"
 import { DayPicker } from "react-day-picker"
 
 import { cn } from "../../../../utils";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 // import { buttonVariants } from "../../Buttons/button/button";
 
 
@@ -14,6 +15,7 @@ function Calendar({
   showOutsideDays = true,
   ...props
 }: CalendarProps) {
+  useXbeshProviderCheck();
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}

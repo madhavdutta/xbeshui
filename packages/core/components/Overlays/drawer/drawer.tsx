@@ -3,6 +3,7 @@ import { Drawer as DrawerPrimitive } from "vaul";
 
 import { cn } from "../../../../utils";
 import { Button } from "../../Buttons/button/button";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface DrawerProps {
   Trigger?: React.ReactNode;
@@ -23,6 +24,7 @@ const Drawer: React.FC<DrawerProps> = ({
   footer,
   withcloseButton = true,
 }) => {
+  useXbeshProviderCheck();
   return (
     <DrawerMain>
       <DrawerTrigger>{Trigger}</DrawerTrigger>

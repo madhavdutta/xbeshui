@@ -3,6 +3,7 @@ import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { IconCheck, IconChevronRight, IconDots } from "@tabler/icons-react";
 
 import { cn } from "../../../../utils";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 type MenuItem = {
   label?: string;
   items?: MenuItem[];
@@ -18,6 +19,7 @@ interface DropdownMenuProps {
 }
 
 const DropdownMenu = ({ menuItems, trigger }: DropdownMenuProps) => {
+  useXbeshProviderCheck();
   return (
     <DropdownMenuMain>
       <DropdownMenuTrigger asChild>{trigger}</DropdownMenuTrigger>

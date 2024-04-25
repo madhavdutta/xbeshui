@@ -2,6 +2,7 @@ import * as React from "react";
 import { cn } from "../../../../utils";
 import { InputProps, inputVariants } from "../textInput/textInput.config";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
   (
@@ -22,6 +23,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+    useXbeshProviderCheck();
     const [passwordVisible, setPasswordVisible] = React.useState(false);
 
     const togglePasswordVisibility = () => {

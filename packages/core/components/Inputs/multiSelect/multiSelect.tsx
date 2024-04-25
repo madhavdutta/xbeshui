@@ -1,8 +1,7 @@
-"use client";
-
 import * as React from "react";
 import {  Command as CommandPrimitive } from "cmdk";
 import { Badge } from "../..";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 type Framework = Record<"value" | "label", string>;
 
@@ -42,6 +41,7 @@ const FRAMEWORKS = [
 ] satisfies Framework[];
 
 export function MultiSelect() {
+  useXbeshProviderCheck();
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState<Framework[]>([FRAMEWORKS[4]]);

@@ -2,6 +2,7 @@ import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import { cn } from "../../../../utils";
 import { DynamicPopoverProps } from "./popoverType";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Popover: React.FC<DynamicPopoverProps> = ({
   trigger,
@@ -11,6 +12,7 @@ const Popover: React.FC<DynamicPopoverProps> = ({
   align = "center",
   sideOffset = 4,
 }) => {
+  useXbeshProviderCheck();
   return (
     <>
       {childern ? (

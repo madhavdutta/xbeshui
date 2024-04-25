@@ -1,10 +1,9 @@
-"use client";
-
 import * as React from "react";
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 import { VariantProps } from "class-variance-authority";
 import { toggleVariants } from "./toggle.config";
 import { cn } from "../../../../utils";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const ToggleGroupContext = React.createContext<
   VariantProps<typeof toggleVariants>
@@ -17,7 +16,9 @@ const ToggleGroup = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> &
     VariantProps<typeof toggleVariants>
->(({ className, variant, size, children, ...props }, ref) => (
+>(({ className, variant, size, children, ...props }, ref) => {
+  useXbeshProviderCheck();
+  return (
   <ToggleGroupPrimitive.Root
     ref={ref}
     className={cn("flex items-center justify-center gap-1", className)}
@@ -27,7 +28,8 @@ const ToggleGroup = React.forwardRef<
       {children}
     </ToggleGroupContext.Provider>
   </ToggleGroupPrimitive.Root>
-));
+  );
+});
 
 ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName;
 

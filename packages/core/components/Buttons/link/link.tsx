@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import { cn } from "../../../../utils";
 import { LinkProps, buttonVariants } from "../button/button.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   (
@@ -18,6 +19,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     },
     ref
   ) => {
+    useXbeshProviderCheck();
     return (
       <a
         className={cn(buttonVariants({ variant,radius, size }), className)}

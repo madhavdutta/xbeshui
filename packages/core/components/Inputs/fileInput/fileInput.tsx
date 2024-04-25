@@ -4,6 +4,7 @@ import * as React from "react";
 
 import { cn } from "../../../../utils";
 import { FileInputProps, fileInputVariants } from "./fileInput.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
   (
@@ -26,6 +27,7 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
     },
     ref
   ) => {
+    useXbeshProviderCheck();
     const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
     const paddingLeft = leftSection ? leftSectionWidth + 12 : 12;
     const paddingRight = rightSection ? rightSectionWidth + 12 : 12;

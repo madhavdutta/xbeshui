@@ -6,6 +6,7 @@ import { cn } from "../../../../utils";
 
 import { Text } from "../../Typography/text/text";
 import { RadioGroupProps, radioVariants } from "./radio.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 
 const RadioGroup = React.forwardRef<
@@ -13,6 +14,7 @@ const RadioGroup = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> &
     RadioGroupProps
 >(({ className, variant, size, disabled, ...props }, ref) => {
+  useXbeshProviderCheck();
   return (
     <>
       <RadioGroupPrimitive.Root
@@ -32,6 +34,7 @@ const RadioGroupItem = React.forwardRef<
     label: React.ReactNode;
   } & RadioGroupProps
 >(({ className, label, size, ...props }, ref) => {
+  useXbeshProviderCheck();
   return (
     <div className="flex items-center space-x-2">
       <RadioGroupPrimitive.Item

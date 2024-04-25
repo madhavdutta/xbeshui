@@ -1,17 +1,20 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
 import { CardProps, CardVariants } from "./card.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, radius, shadow, size, withBorder, ...props }, ref) => (
+  ({ className, radius, shadow, size, withBorder, ...props }, ref) => {
+    useXbeshProviderCheck();
+    return (
     <div
       ref={ref}
       className={cn(CardVariants({ radius, shadow, size, withBorder }), className)}
       {...props}
     />
-  )
-);
+  )});
+
 Card.displayName = "Card";
 
 const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(

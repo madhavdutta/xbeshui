@@ -1,9 +1,11 @@
 import { forwardRef } from "react";
 import { cn } from "../../../../utils";
 import { BadgeProps, badgeVariants } from "./badge.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Badge = forwardRef<HTMLDivElement, BadgeProps>(
   ({ className, variant, size, leftSection, radius, rightSection, children, ...props }, ref) => {
+    useXbeshProviderCheck();
     return (
       <div
         className={cn(badgeVariants({ variant, size, radius }), className)}

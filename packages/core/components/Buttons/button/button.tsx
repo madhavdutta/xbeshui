@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import { cn } from "../../../../utils";
 import { ButtonProps, buttonVariants } from "./button.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -16,6 +17,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
+    useXbeshProviderCheck();
     return (
       <button
         className={cn(buttonVariants({ variant, size, radius }), className)}

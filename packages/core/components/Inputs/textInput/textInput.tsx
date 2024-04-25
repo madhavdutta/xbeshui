@@ -4,6 +4,7 @@ import * as React from "react";
 
 import { cn } from "../../../../utils";
 import { inputVariants, InputProps } from "./textInput.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
@@ -25,6 +26,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
+    useXbeshProviderCheck();
     const paddingLeft = leftSection ? leftSectionWidth + 12 : 12;
     const paddingRight = rightSection ? rightSectionWidth + 12 : 12;
 

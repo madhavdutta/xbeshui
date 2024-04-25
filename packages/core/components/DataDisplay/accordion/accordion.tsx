@@ -4,12 +4,15 @@ import { IconChevronDown } from "@tabler/icons-react";
 import { type VariantProps } from "class-variance-authority";
 import { cn } from "../../../../utils";
 import { accordionVariants } from "./accordion.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Accordion = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> &
     VariantProps<typeof accordionVariants>
->(({ className, variant, radius, chevronPosition, ...props }, ref) => (
+>(({ className, variant, radius, chevronPosition, ...props }, ref) => {
+  useXbeshProviderCheck();
+  return (
   <AccordionPrimitive.Root
     ref={ref}
     // Ensure the `type` prop is forwarded to the AccordionPrimitive.Root
@@ -19,7 +22,9 @@ const Accordion = React.forwardRef<
     )}
     {...props}
   />
-));
+  );
+});
+
 Accordion.displayName = "Accordion";
 
 const AccordionItem = React.forwardRef<

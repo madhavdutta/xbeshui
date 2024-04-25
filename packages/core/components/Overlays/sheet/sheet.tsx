@@ -4,6 +4,7 @@ import { IconX } from "@tabler/icons-react";
 
 import { cn } from "../../../../utils";
 import { SheetContentProps, sheetVariants } from "./sheet.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface SheetProps extends SheetContentProps {
   Trigger?: React.ReactNode;
@@ -21,11 +22,12 @@ const Sheet: React.FC<SheetProps> = ({
   side,
   size
 }) => {
+  useXbeshProviderCheck();
   return (
     <SheetMain>
-     <SheetTrigger>
-  {Trigger}
-</SheetTrigger>
+      <SheetTrigger>
+        {Trigger}
+      </SheetTrigger>
       <SheetPortal>
         <SheetOverlay />
         <SheetContent size={size} side={side}>

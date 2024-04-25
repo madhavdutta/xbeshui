@@ -3,12 +3,15 @@ import { cn } from "../../../../utils";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { labelVariants } from "./label.config";
 import { VariantProps } from "class-variance-authority";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Label = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
     VariantProps<typeof labelVariants>
->(({ className, fontFamily, fontSize, fontWidth, ...props }, ref) => (
+>(({ className, fontFamily, fontSize, fontWidth, ...props }, ref) => {
+  useXbeshProviderCheck();
+  return(
   <LabelPrimitive.Root
     ref={ref}
     className={cn(
@@ -17,7 +20,7 @@ const Label = React.forwardRef<
     )}
     {...props}
   />
-));
+)});
 Label.displayName = LabelPrimitive.Root.displayName;
 
 export { Label };

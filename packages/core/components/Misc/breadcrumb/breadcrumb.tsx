@@ -12,10 +12,16 @@ import {
   BreadcrumbSeparatorProps,
   BreadcrumbEllipsisProps,
 } from "./breadcrumbType";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 // Breadcrumb Container
 const Breadcrumb = React.forwardRef<HTMLElement, BreadcrumbProps>(
-  ({ ...props }, ref) => <nav ref={ref} aria-label="breadcrumb" {...props} />
+  ({ ...props }, ref) => 
+  { 
+    useXbeshProviderCheck();
+    return (
+    <nav ref={ref} aria-label="breadcrumb" {...props} />
+  )}
 );
 Breadcrumb.displayName = "Breadcrumb";
 

@@ -1,10 +1,9 @@
-"use client";
-
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 //import { X } from "lucide-react"
 import { IconX } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface DialogContentConfig {
   title?: string;
@@ -23,6 +22,7 @@ const Dialog = ({
   withFooter,
   footerContent,
 }: DialogContentConfig) => {
+  useXbeshProviderCheck();
   return (
     <DialogMain>
       <DialogTrigger asChild>{trigger}</DialogTrigger>

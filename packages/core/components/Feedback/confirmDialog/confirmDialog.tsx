@@ -1,9 +1,8 @@
-"use client";
-
 import * as React from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { cn } from "../../../../utils";
 import { buttonVariants } from "../../Buttons/button/button.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface AlertdialogProps {
   trigger?: React.ReactNode;
@@ -22,6 +21,7 @@ const ConirmDialog = ({
   submit,
   onSubmit,
 }: AlertdialogProps) => {
+  useXbeshProviderCheck();
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>

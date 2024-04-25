@@ -3,6 +3,7 @@ import * as React from "react";
 import { IconCheck, IconChevronRight, IconDots } from "@tabler/icons-react";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { cn } from "../../../../utils";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 type MenuBarItem = {
   label?: string;
@@ -25,6 +26,7 @@ type MenubarProps = {
 };
 
 const Menubar = ({ menus }: MenubarProps) => {
+  useXbeshProviderCheck();
   return (
     <div>
       <MenubarMain>

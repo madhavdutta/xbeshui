@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
 import { TitleProps, titleVariants } from "./title.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 
 const Title = React.forwardRef<HTMLHeadingElement, TitleProps>(
@@ -17,6 +18,7 @@ const Title = React.forwardRef<HTMLHeadingElement, TitleProps>(
     },
     ref: React.Ref<HTMLParagraphElement>
   ) => {
+    useXbeshProviderCheck();
     return (
       <p
         className={cn(

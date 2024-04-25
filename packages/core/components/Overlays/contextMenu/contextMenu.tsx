@@ -3,6 +3,7 @@ import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
 import { IconCheck, IconChevronRight, IconDots } from "@tabler/icons-react";
 
 import { cn } from "../../../../utils";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 interface ContextMenuItemConfig {
   type: "item" | "sub" | "separator" | "checkbox" | "radio";
   label?: string;
@@ -19,6 +20,7 @@ type ContextMenuPropsType = {
 };
 
 const ContextMenu: React.FC<ContextMenuPropsType> = ({ menuConfig }) => {
+  useXbeshProviderCheck();
   return (
     <ContextMenuMain>
       <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">

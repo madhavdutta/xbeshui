@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "../../../../utils";
 import { FlexBoxProps, flexBoxVariants } from "./flexBox.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
   ({ children, direction, justify, align, wrap, className, ...props }, ref) => {
+    useXbeshProviderCheck();
+    
     const [gap, setGap] = useState(getGap());
 
     function getGap() {

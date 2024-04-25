@@ -33,6 +33,7 @@ import { DataTablePagination } from "./dataTablePagination";
 import { IconCirclePlus } from "@tabler/icons-react";
 import { DataTableProps } from "./dataTableType";
 import { DropdownMenuMain } from "../../Overlays/dropdownMenu/dropdownMenu";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 export const DataTable = <T,>({
   data,
@@ -40,6 +41,7 @@ export const DataTable = <T,>({
   columns,
   searchable,
 }: DataTableProps<T>) => {
+  useXbeshProviderCheck();
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []

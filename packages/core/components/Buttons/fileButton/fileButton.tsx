@@ -2,6 +2,7 @@ import * as React from "react";
 import { Button } from "../button/button";
 import { ButtonConfig } from "../button/button.config";
 import { List, ListItem } from "../..";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 
 interface FileButtonProps {
@@ -15,6 +16,7 @@ interface FileButtonProps {
 
 const FileButton = React.forwardRef<HTMLButtonElement, FileButtonProps>(
   ({ children, onFileSelect, variant, size, radius, allowedFileTypes }, ref) => {
+    useXbeshProviderCheck();
     const fileInputRef = React.useRef<HTMLInputElement>(null);
     const [filesData, setFilesData] = React.useState<File[]>([]);
 

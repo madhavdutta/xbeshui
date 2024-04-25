@@ -9,12 +9,14 @@ import {
 
 import { cn } from "../../../../utils";
 import { Button } from "../../Buttons/button/button";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 type CarouselItemType = {
   type?: "image" | "text" | "video";
   content?: string;
 };
 
 const carouseldemo = (carouselData: CarouselItemType[]) => {
+  useXbeshProviderCheck();
   return (
     <CarouselMain className="w-full max-w-xs">
       <CarouselContent>

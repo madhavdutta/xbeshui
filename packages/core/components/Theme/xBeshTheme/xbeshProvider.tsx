@@ -11,6 +11,7 @@ import { XBeshThemeProvider } from './xBeshThemeProvider';
 interface XBeshUIContextType {
   error: Error | null;
   handleError: (error: Error) => void;
+  clearError: () => void;
 }
 
 export const XbeshUIContext = createContext<XBeshUIContextType | undefined>(undefined);
@@ -23,7 +24,18 @@ export const useXbeshUI = () => {
   return context;
 };
 
-export const XbeshProvider: React.FC<{ children: ReactNode, storageKey: string, defaultTheme: "system" | "dark" | "light" }> = ({ children, storageKey, defaultTheme }) => {
+export const useXbeshProviderCheck = () => {
+  const context = useContext(XbeshUIContext);
+  if (context === undefined) {
+    throw new Error('XbeshProvider is not present in the component tree.');
+  }
+};
+
+export const XbeshProvider: React.FC<{
+  children: ReactNode;
+  storageKey: string;
+  defaultTheme: 'system' | 'dark' | 'light';
+}> = ({ children, storageKey, defaultTheme }) => {
   const [error, setError] = useState<Error | null>(null);
 
   const handleError = (error: Error) => {
@@ -36,11 +48,12 @@ export const XbeshProvider: React.FC<{ children: ReactNode, storageKey: string, 
   const contextValue: XBeshUIContextType = {
     error,
     handleError,
+    clearError,
   };
 
   return (
     <XbeshUIContext.Provider value={contextValue}>
-      <XBeshThemeProvider defaultTheme={defaultTheme} storageKey={storageKey} >
+      <XBeshThemeProvider defaultTheme={defaultTheme} storageKey={storageKey}>
         {error ? <ErrorDisplay error={error} clearError={clearError} /> : null}
         {children}
       </XBeshThemeProvider>
