@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "../packages/core/components/Layout/container/container";
 import {
   Accordion,
@@ -18,20 +18,38 @@ import { Title } from "../packages/core/components/Typography/title/title";
 import { Grid, GridCol } from "../packages/core/components/Layout/grid/grid";
 import { SimpleGrid } from "../packages/core/components/Layout/simpleGrid/simpleGrid";
 import { FlexBox } from "../packages/core/components/Layout/flexBox/flexBox";
+import { Textarea } from "../packages/core/components/Inputs/textarea/textarea";
+import { ActionIcon } from "../packages/core/components/Buttons/actionIcon/actionIcon";
+import { FileButton } from "../packages/core/components/Buttons/fileButton/fileButton";
+import { CopyButton } from "../packages/core/components/Buttons/copyButton/copyButton";
+import { Toggle } from "../packages/core/components/Buttons/toggle/toggle";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
-  CardHeader,
 } from "../packages/core/components/DataDisplay/card/card";
 import { Image } from "../packages/core/components/DataDisplay/image/image";
 import { Badge } from "../packages/core/components/DataDisplay/badge/badge";
+import { IconSettings } from "@tabler/icons-react";
 const App = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <Container className="py-6 flex flex-col gap-8">
+      <div>
+        <CopyButton variant="default">CopyButton</CopyButton>
+      </div>
+      <FileButton variant="default" onFileSelect={function (files: File[] | null): void {
+        throw new Error("Function not implemented.");
+      } }>FileButton</FileButton>
+      <div className="flex gap-4">
+        <Button variant={"default"}>Button</Button>
+        <Button variant={"success"}>Button</Button>
+        <Button variant={"warning"}>Button</Button>
+        <Button variant={"notice"}>Button</Button>
+        <Button variant={"destructive"}>Button</Button>
+        <Button variant={"outline"}>Button</Button>
+        <Button variant={"secondary"}>Button</Button>
+        <Button variant={"ghost"}>Button</Button>
+      </div>
       <Accordion
         type="multiple"
         variant="default"
@@ -130,8 +148,10 @@ const App = () => {
         <div className="bg-red-500 h-10 w-60">3</div>
         <div className="bg-red-500 h-10 w-60">3</div>
       </FlexBox>
-      <Card size={"sm"} radius="sm" shadow="none" withBorder>
-        <Image src="/images/card-bg.png" alt="" width="auto" fit="contain" />
+      <Card size={'md'} radius="sm" shadow="none" withBorder>
+        <div className="sm:h-72 h-56 overflow-hidden">
+          <Image src="/images/card-bg3.jpg" alt="" width="auto" fit="contain" />
+        </div>
         <div className="flex flex-row justify-between p-4">
           <Title order={"h6"}>Title name</Title>
           <Badge size="xs" className="bg-orange-500">
@@ -162,6 +182,12 @@ const App = () => {
         <div className="bg-orange-400">4</div>
         <div className="bg-pink-400">5</div>
       </SimpleGrid>
+
+      <Textarea label="label" variant={"filled"}  />
+
+      <ActionIcon size="default" radius="md" variant="destructive">
+        <IconSettings/>
+      </ActionIcon>
     </Container>
   );
 };

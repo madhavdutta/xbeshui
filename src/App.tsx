@@ -6,7 +6,7 @@ import { Container } from "../packages/core/components/Layout/container/containe
 import { Drawer } from "../packages/core/components/Overlays/drawer/drawer";
 import { Menubar } from "../packages/core/components/Overlays/menuBar/menubar";
 import { Button } from "../packages/core/components/Buttons/button/button";
-import { IconSelector } from "@tabler/icons-react";
+import { Icon360View, IconSelector } from "@tabler/icons-react";
 import { Collapsible } from "../packages/core/components/Misc/collapsible/collapsible";
 import { Sheet } from "../packages/core/components/Overlays/sheet/sheet";
 import { NavigationMenu } from "../packages/core/components/Navigation/navMenu/navMenu";
@@ -154,44 +154,44 @@ const App = () => {
   const carouselData: CarouselItemType[] = [
     {
       type: "image",
-      content: "https://source.unsplash.com/random/1",
+      content: "https://source.unsplash.com/random/1"
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/2",
+      content: "https://source.unsplash.com/random/2"
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/3",
+      content: "https://source.unsplash.com/random/3"
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/4",
+      content: "https://source.unsplash.com/random/4"
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/5",
+      content: "https://source.unsplash.com/random/5"
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/6",
+      content: "https://source.unsplash.com/random/6"
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/7",
+      content: "https://source.unsplash.com/random/7"
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/8",
+      content: "https://source.unsplash.com/random/8"
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/9",
+      content: "https://source.unsplash.com/random/9"
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/10",
-    },
+      content: "https://source.unsplash.com/random/10"
+    }
   ];
 
   const data = {
@@ -606,8 +606,6 @@ const App = () => {
 
   return (
     <Container>
-      <br />
-      <br />
       <Drawer
         Trigger={<Button>Open drawer</Button>}
         title="Drawer title"
@@ -616,23 +614,17 @@ const App = () => {
       >
         //Drawer content
       </Drawer>
-      <br />
-      <br />
       <DropdownMenu
         menuItems={menuItems}
         trigger={<Button>dropdownmenu</Button>}
       />
-      <br />
-      <br />
       <Tooltip
         trigger={<Button>tooltip</Button>}
         content={<p>hey what's up</p>}
       />
-      <br />
-      <br />
+
       <Carousel carouselData={carouselData} />
-      <br />
-      <br />
+
       <div>
         <Collapsible
           isOpen={isOpen}
@@ -646,11 +638,9 @@ const App = () => {
           }
         />
       </div>
-      <br />
-      <br />
+
       <Menubar menus={menus} />
-      <br />
-      <br />
+
       <Sheet
         side="left"
         Trigger={<Button>Open sheet</Button>}
@@ -777,6 +767,9 @@ const App = () => {
       </div>
       <br />
       <br />
+      <div>
+      <Button leftSection={<Icon360View/>} rightSection={<Icon360View/>}>submit</Button>
+      </div>
     </Container>
   );
 };
