@@ -19,7 +19,19 @@ import { Select } from "../packages/core/components/Inputs/select/select";
 import { ColorInput } from "../packages/core/components/Inputs/colorInput/colorInput";
 import { NotificationTimeline } from "../packages/core/components/Misc/notificationTimeline/notificationTimeLine";
 import { PasswordInput } from "../packages/core/components/Inputs/passwordInput/passwordInput";
-import { Group, Separator, Stack } from "../packages/core/components";
+import {
+  Badge,
+  Card,
+  CardContent,
+  CardFooter,
+  Group,
+  Resizable,
+  Separator,
+  Stack,
+  Title,
+  Image,
+  Text,
+} from "../packages/core/components";
 
 type MenuItem = {
   label?: string;
@@ -154,44 +166,44 @@ const App = () => {
   const carouselData: CarouselItemType[] = [
     {
       type: "image",
-      content: "https://source.unsplash.com/random/1"
+      content: "https://source.unsplash.com/random/1",
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/2"
+      content: "https://source.unsplash.com/random/2",
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/3"
+      content: "https://source.unsplash.com/random/3",
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/4"
+      content: "https://source.unsplash.com/random/4",
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/5"
+      content: "https://source.unsplash.com/random/5",
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/6"
+      content: "https://source.unsplash.com/random/6",
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/7"
+      content: "https://source.unsplash.com/random/7",
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/8"
+      content: "https://source.unsplash.com/random/8",
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/9"
+      content: "https://source.unsplash.com/random/9",
     },
     {
       type: "image",
-      content: "https://source.unsplash.com/random/10"
-    }
+      content: "https://source.unsplash.com/random/10",
+    },
   ];
 
   const data = {
@@ -604,6 +616,58 @@ const App = () => {
     },
   ];
 
+  type PanelConfig = {
+    key: string | number;
+    content: React.ReactNode;
+    resizable?: boolean;
+    defaultSize?: number;
+    direction?: "horizontal" | "vertical";
+    nestedPanels?: PanelConfig[];
+  };
+
+  const panelConfigs: PanelConfig[] = [
+    {
+      key: "panel1",
+      content: (
+        <div className="flex h-[200px] items-center justify-center p-6">
+          <span className="font-semibold">One</span>
+        </div>
+      ),
+      resizable: true,
+      defaultSize: 50,
+    },
+    {
+      key: "panel2",
+      content: (
+        <div className="flex h-full items-center justify-center p-6">
+          <span className="font-semibold">Two</span>
+        </div>
+      ),
+      nestedPanels: [
+        {
+          key: "nested1",
+          content: (
+            <div className="flex h-full items-center justify-center p-6">
+              <span className="font-semibold">Three</span>
+            </div>
+          ),
+          resizable: true,
+          defaultSize: 50,
+        },
+        {
+          key: "nested2",
+          content: (
+            <div className="flex h-full items-center justify-center p-6">
+              <span className="font-semibold">four</span>
+            </div>
+          ),
+          defaultSize: 75,
+        },
+      ],
+      direction: "vertical",
+    },
+  ];
+
   return (
     <Container>
       <Drawer
@@ -706,7 +770,7 @@ const App = () => {
       <br />
       <NotificationTimeline
         data={roadmapData}
-        lineWidth='sm'
+        lineWidth="sm"
         bulletSize={"4"}
         activeItem={7}
       />
@@ -758,7 +822,7 @@ const App = () => {
       </Group>
       <br />
       <br />
-      <div >
+      <div>
         <Stack height={500} align="itemEnd" justify="spaceBetween" gap="md">
           <Button variant="default">1</Button>
           <Button variant="default">2</Button>
@@ -768,7 +832,46 @@ const App = () => {
       <br />
       <br />
       <div>
-      <Button leftSection={<Icon360View/>} rightSection={<Icon360View/>}>submit</Button>
+        <Button leftSection={<Icon360View />} rightSection={<Icon360View />}>
+          submit
+        </Button>
+        <br />
+        <br />
+        <Resizable panels={panelConfigs} />
+        <br />
+        <br />
+        <Card size={"md"} radius="sm" shadow="none" withBorder>
+          <div className="sm:h-72 h-56 overflow-hidden">
+            <Image
+              src="/images/card-bg3.jpg"
+              alt=""
+              width="auto"
+              fit="contain"
+            />
+          </div>
+          <div className="flex flex-row justify-between p-4">
+            <Title order={"h6"}>Title name</Title>
+            <Badge size="xs" className="bg-orange-500">
+              on sale
+            </Badge>
+          </div>
+          <CardContent className="flex flex-col gap-4">
+            <Text className="text-gray-500">
+              Make changes to your account here. Click save when you are done.
+            </Text>
+            <div>
+              <Input placeholder={"Pedro Duarte"} radius="md" />
+              <Input placeholder={"@pedro"} radius="md" className="mt-2" />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button variant={"default"} size={"default"}>
+              Book Now
+            </Button>
+          </CardFooter>
+        </Card>
+        <br />
+        <br />
       </div>
     </Container>
   );
