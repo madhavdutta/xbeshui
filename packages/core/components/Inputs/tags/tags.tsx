@@ -4,6 +4,7 @@ import { cn } from "../../../../utils";
 import { Badge } from "../../DataDisplay/badge/badge";
 
 import { tagsVariants, TagsProps } from "./tags.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const TagsInput = React.forwardRef<HTMLInputElement, TagsProps>(
   (
@@ -25,6 +26,7 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsProps>(
     },
     ref
   ) => {
+    useXbeshProviderCheck();
     const [tags, setTags] = useState<string[]>(data || []);
     const [inputValue, setInputValue] = useState("");
 

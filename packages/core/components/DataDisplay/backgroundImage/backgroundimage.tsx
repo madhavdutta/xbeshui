@@ -1,6 +1,7 @@
 import React from "react";
 import { cn } from "../../../../utils";
 import { BackgroundImageProps, backgroundImageVariants } from "./backgroundImage.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const BackgroundImage: React.FC<BackgroundImageProps> = ({
   src,
@@ -23,7 +24,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({
     backgroundRepeat: "no-repeat",
     position: "relative", // Ensure children are positioned relative to this div
   } as React.CSSProperties;
-
+  useXbeshProviderCheck();
   return (
     <div
       className={cn(backgroundImageVariants({ radius, fit }), className)}

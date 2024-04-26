@@ -8,11 +8,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../../index"
+import { useXbeshProviderCheck } from "../xBeshTheme/xbeshProvider";
 
 
 // import { fontSans } from "./xBeshThemeProvider"
 
 export function XbeshThemeSwitch() {
+  useXbeshProviderCheck();
   const { setTheme } = useTheme()
 
   return (

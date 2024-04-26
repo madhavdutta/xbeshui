@@ -5,6 +5,7 @@ import {ColorSwatch} from "../colorSwatch/colorSwatch";
 import { IconColorPicker } from "@tabler/icons-react";
 import { Input } from "../..";
 import { ColorInputProps } from "./colorInput.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 
 export const ColorInput: React.FC<ColorInputProps> = ({
@@ -19,6 +20,7 @@ export const ColorInput: React.FC<ColorInputProps> = ({
   required = false,
   className,
 }) => {
+  useXbeshProviderCheck();
   const [value, setValue] = useState<string>(controlledValue || defaultValue);
   const [showColorPicker, setShowColorPicker] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);

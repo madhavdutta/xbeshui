@@ -6,6 +6,7 @@ import * as ToastPrimitives from "@radix-ui/react-toast"
 import { cn } from "../../../../utils";
 import { toastVariants } from "./toast.config";
 import { VariantProps } from "class-variance-authority";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const ToastProvider = ToastPrimitives.Provider
 
@@ -31,6 +32,7 @@ const Toast = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
     VariantProps<typeof toastVariants>
 >(({ className, variant, ...props }, ref) => {
+  useXbeshProviderCheck();
   return (
     <ToastPrimitives.Root
       ref={ref}

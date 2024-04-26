@@ -4,6 +4,7 @@ import { cva } from "class-variance-authority";
 import { cn } from "../../../../utils";
 import { IconChevronDown } from "@tabler/icons-react";
 import { Link } from "@radix-ui/react-navigation-menu";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 type NavigationMenuItem = {
   title?: string;
@@ -24,6 +25,7 @@ type NavigationMenuProps = {
 };
 
 const NavigationMenu: React.FC<NavigationMenuProps> = ({ sections }) => {
+  useXbeshProviderCheck();
   return (
     <NavigationMenuMain>
       <NavigationMenuList>

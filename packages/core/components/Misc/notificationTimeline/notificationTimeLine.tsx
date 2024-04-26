@@ -5,6 +5,7 @@ import {
   NotificationTimelineProps,
   notificationTimelineVariants,
 } from "./notiicationTimeLine.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const NotificationTimeline: React.FC<NotificationTimelineProps> = ({
   data = [],
@@ -13,6 +14,7 @@ const NotificationTimeline: React.FC<NotificationTimelineProps> = ({
   bulletSize,
   activeItem = 0,
 }) => {
+  useXbeshProviderCheck();
   const [startIndex, setStartIndex] = useState(0);
 
   const displayedItems = useMemo(

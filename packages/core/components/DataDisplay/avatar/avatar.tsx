@@ -2,6 +2,7 @@ import React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { cn, getInitials } from "../../../../utils";
 import { AvatarProps, avatarVariants } from "./avatar.config";import { IconUserCircle } from "@tabler/icons-react";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
@@ -11,6 +12,7 @@ const Avatar = React.forwardRef<
     { className, src, alt, radius, size,fallback, children, color, ...props },
     ref
   ) => {
+    useXbeshProviderCheck();
     const initials = getInitials(alt ?? "");
    
   

@@ -14,6 +14,7 @@ import {
   CommandItem,
 } from "../spotlight/spotlight";
 import { cn } from "../../../../utils";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface DataType {
   value: string;
@@ -25,17 +26,18 @@ interface ComboboxDemoProps {
 }
 
 const ComboBox = ({ data }: ComboboxDemoProps) => {
+  useXbeshProviderCheck();
   const [opened, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
   return (
     <Popovermain open={opened} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button variant="outline" rightSection ={   <IconSelect className="ml-2 h-4 w-4 shrink-0 opacity-50" />} className="w-[200px] justify-between">
+        <Button variant="outline" rightSection={<IconSelect className="ml-2 h-4 w-4 shrink-0 opacity-50" />} className="w-[200px] justify-between">
           {value
             ? data.find((framework) => framework.value === value)?.label
             : "Select framework..."}
-       
+
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">

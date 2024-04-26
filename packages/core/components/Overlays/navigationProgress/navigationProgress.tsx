@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from "react";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 type ProgressbarProps = {
   target?: React.RefObject<HTMLElement>;
@@ -6,6 +7,7 @@ type ProgressbarProps = {
 };
 
 export const NavigaionProgress = ({ target, className }: ProgressbarProps) => {
+  useXbeshProviderCheck();
   const [progress, setProgress] = useState(0);
 
   useLayoutEffect(() => {

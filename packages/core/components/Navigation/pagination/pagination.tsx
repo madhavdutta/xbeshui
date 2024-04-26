@@ -9,6 +9,7 @@ import { cn } from "../../../../utils";
 import { ButtonProps } from "../../Buttons/button/button.config";
 import { buttonVariants } from "../../Buttons/button/button.config";
 import { Page, PaginationProps } from "./paginationType";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const generatePages = (currentPage: number, totalPages: number): Page[] => {
   const pages: Page[] = [];
@@ -81,6 +82,7 @@ const Pagination: React.FC<PaginationProps> = ({
   totalPages,
   onPageChange,
 }) => {
+  useXbeshProviderCheck();
   const pages = generatePages(currentPage, totalPages);
 
   return (

@@ -1,5 +1,6 @@
 import React from "react";
 import { GutterType, GridProps, GridColProps } from "./gridType";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const getValueForViewport = (
   value: number | GutterType,
@@ -43,6 +44,7 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
     },
     ref
   ) => {
+    useXbeshProviderCheck();
     const gutterValue =
       typeof gutter === "number" ? gutter : getValueForViewport(gutter, theme);
     const gridStyle: React.CSSProperties = {

@@ -5,6 +5,7 @@ import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { cn } from "../../../../utils";
 import { VariantProps } from "class-variance-authority";
 import { tabsVariants } from "./tabs.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Tabs = TabsPrimitive.Root;
 
@@ -12,7 +13,9 @@ const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> &
     VariantProps<typeof tabsVariants>
->(({ className, variant, ...props }, ref) => (
+>(({ className, variant, ...props }, ref) => {
+  useXbeshProviderCheck();
+  return (
   <TabsPrimitive.List
     ref={ref}
     className={cn(
@@ -27,7 +30,9 @@ const TabsList = React.forwardRef<
     )}
     {...props}
   />
-));
+  )
+});
+
 TabsList.displayName = TabsPrimitive.List.displayName;
 
 const TabsTrigger = React.forwardRef<

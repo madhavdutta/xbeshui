@@ -5,6 +5,7 @@ import { cn } from "../../../../utils/index"
 import { Stack } from "../../Layout/stack/stack"
 import { Group } from "../../Layout/group/group"
 import { AlertPropsType, alertPropsConfig } from "./alert.config"
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider"
 
 
 const AlertTitle = React.forwardRef<
@@ -34,7 +35,9 @@ AlertDescription.displayName = "AlertDescription"
 const Alert = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof alertPropsConfig> & AlertPropsType
->(({ className, variant, title, message, icon,  ...props }, ref) => (
+>(({ className, variant, title, message, icon,  ...props }, ref) => {
+  useXbeshProviderCheck();
+  return (
   <div
     ref={ref}
     role="alert"
@@ -51,7 +54,7 @@ const Alert = React.forwardRef<
     </Stack>
     </Group>
   </div>
-))
+)})
 
 
 Alert.displayName = "Alert"

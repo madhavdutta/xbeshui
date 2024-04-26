@@ -1,4 +1,5 @@
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 type CollapsibleDemoProps = {
   trigger?: React.ReactNode;
@@ -13,6 +14,7 @@ const Collapsible = ({
   setIsOpen,
   trigger,
 }: CollapsibleDemoProps) => {
+  useXbeshProviderCheck();
   return (
     <CollapsibleMain
       open={isOpen}

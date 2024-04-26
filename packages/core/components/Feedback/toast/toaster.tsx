@@ -1,3 +1,4 @@
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 import {
   Toast,
   ToastClose,
@@ -9,6 +10,7 @@ import {
 import { useToast } from "./use-toast"
 
 export function Toaster() {
+  useXbeshProviderCheck();
   const { toasts } = useToast()
 
   return (

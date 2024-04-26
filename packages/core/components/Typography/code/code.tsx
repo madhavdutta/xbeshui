@@ -3,10 +3,13 @@ import { cn } from "../../../../utils";
 import { IconCheck, IconCopy } from "@tabler/icons-react";
 import { codeVariants } from "./code.config";
 import { CodeProps } from "./codeType";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 
 const Code = React.forwardRef<HTMLPreElement, CodeProps>(
   ({ className, ...props }, ref) => {
+    useXbeshProviderCheck();
+    
     const tailwindClasses = `
             bg-input
             block

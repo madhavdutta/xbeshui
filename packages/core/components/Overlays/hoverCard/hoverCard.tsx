@@ -3,6 +3,7 @@ import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 
 import { cn } from "../../../../utils";
 import { HoverCardProps } from "./hoverType";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const HoverCard: React.FC<HoverCardProps> = ({
   triggerContent,
@@ -11,6 +12,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
   sideOffset = 4,
   className,
 }) => {
+  useXbeshProviderCheck();
   return (
     <div className={className}>
       <HoverCardPrimitive.Root>

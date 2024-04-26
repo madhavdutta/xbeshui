@@ -2,6 +2,7 @@ import * as React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
 import { cn } from "../../../../utils";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface Tooltiptype {
   trigger: React.ReactNode;
@@ -16,6 +17,7 @@ const Tooltip = ({
   sideOffset,
   duration = 1,
 }: Tooltiptype) => {
+  useXbeshProviderCheck();
   const [visible, setVisible] = React.useState(false);
 
   React.useEffect(() => {

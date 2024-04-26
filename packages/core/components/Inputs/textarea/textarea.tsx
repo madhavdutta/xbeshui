@@ -3,6 +3,7 @@ import * as React from "react";
 import { cn } from "../../../../utils";
 
 import { textareaVariants, TextareaProps } from "./textarea.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps >(
   (
@@ -21,6 +22,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps >(
     },
     ref
   ) => {
+    useXbeshProviderCheck();
     return (
       <div className='grid w-full'>
         {error ? (

@@ -4,11 +4,14 @@ import * as SwitchPrimitives from "@radix-ui/react-switch";
 import { cn } from "../../../../utils";
 import { switchVariants, SwitchProps } from "./switch.config";
 import { Text } from "../../Typography/text/text";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Switch = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> & SwitchProps
 >(({ className, size, radius, label, disabled, ...props }, ref) => {
+  useXbeshProviderCheck();
+  
   const thumbSize =
     size === "default"
       ? "h-4 w-5"

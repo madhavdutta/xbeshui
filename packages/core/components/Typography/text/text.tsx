@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
 import { TextProps, textVariants } from "./text.config";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
   (
@@ -18,6 +19,7 @@ const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
     },
     ref: React.Ref<HTMLParagraphElement>
   ) => {
+    useXbeshProviderCheck();
     return (
       <p
         className={cn(

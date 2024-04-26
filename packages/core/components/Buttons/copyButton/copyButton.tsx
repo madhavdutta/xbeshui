@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Button, } from "../..";
 import { ButtonConfig } from "../button/button.config";
 import { IconCheck, IconCopy } from "@tabler/icons-react";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface CopyButtonType {
     value?: string;
@@ -14,6 +15,7 @@ interface CopyButtonType {
 
 const CopyButton = React.forwardRef<HTMLButtonElement, CopyButtonType>(
     ({className, children, variant, size, radius, value }, ref) => {
+        useXbeshProviderCheck();
         const [copied, setCopied] = React.useState(false);
 
         useEffect(() => {

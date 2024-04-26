@@ -3,6 +3,7 @@ import { appShellProps, appShellVariant } from "./appShell.config";
 import { cn } from "../../../../utils";
 import { IconMenu2 } from "@tabler/icons-react";
 import { Sheet } from "../../Overlays/sheet/sheet";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
   (
@@ -19,6 +20,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
     },
     ref
   ) => {
+    useXbeshProviderCheck();
     return layout === "default" ? (
       <div
         className={cn(

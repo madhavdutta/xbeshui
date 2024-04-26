@@ -8,6 +8,7 @@ import {
 import * as SelectPrimitive from "@radix-ui/react-select";
 
 import { cn } from "../../../../utils";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 interface SelectConfigItem {
   title: string;
   items: { label: string; value: string }[];
@@ -27,6 +28,7 @@ const Select = ({
   onChange,
   width = "280px",
 }: SelectProps) => {
+  useXbeshProviderCheck();
   return (
     <SelectMain onValueChange={onChange}>
       <SelectTrigger className={`w-[${width}]`}>
