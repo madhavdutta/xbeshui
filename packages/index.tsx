@@ -62,6 +62,7 @@ export * from "./core/components/Misc/separator/separator";
 export * from "./core/components/Misc/timeline/timeline";
 export * from "./core/components/Misc/notificationTimeline/notificationTimeLine";
 
+export * from "./core/components/Misc/ifElse/ifElse";
 export * from "./core/components/Navigation/navMenu/navMenu";
 export * from "./core/components/Navigation/pagination/pagination";
 
