@@ -6,6 +6,17 @@ import { cn } from "../../../../utils";
 import { accordionVariants } from "./accordion.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
+interface AccordionComponent<T extends React.ElementType = typeof AccordionPrimitive.Root>
+  extends React.ForwardRefExoticComponent<
+    Omit<React.ComponentPropsWithoutRef<T>, "ref"> &
+      VariantProps<typeof accordionVariants> &
+      React.RefAttributes<HTMLDivElement>
+  > {
+  Item: typeof AccordionItem;
+  Trigger: typeof AccordionTrigger;
+  Content: typeof AccordionContent;
+}
+
 const Accordion = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> &
@@ -13,17 +24,16 @@ const Accordion = React.forwardRef<
 >(({ className, variant, radius, chevronPosition, ...props }, ref) => {
   useXbeshProviderCheck();
   return (
-  <AccordionPrimitive.Root
-    ref={ref}
-    // Ensure the `type` prop is forwarded to the AccordionPrimitive.Root
-    className={cn(
-      className,
-      accordionVariants({ variant, radius, chevronPosition })
-    )}
-    {...props}
-  />
+    <AccordionPrimitive.Root
+      ref={ref}
+      className={cn(
+        className,
+        accordionVariants({ variant, radius, chevronPosition })
+      )}
+      {...props}
+    />
   );
-});
+}) as AccordionComponent;
 
 Accordion.displayName = "Accordion";
 
@@ -37,6 +47,7 @@ const AccordionItem = React.forwardRef<
     {...props}
   />
 ));
+
 AccordionItem.displayName = "AccordionItem";
 
 const AccordionTrigger = React.forwardRef<
@@ -48,7 +59,7 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 items-center text-secondary-foreground  px-4 justify-between py-4 text-sm  font-medium transition-all ",
+        "flex flex-1 items-center text-secondary-foreground px-4 justify-between py-4 text-sm font-medium transition-all ",
         accordionVariants({ chevronPosition, chevronsize }),
         className
       )}
@@ -61,6 +72,7 @@ const AccordionTrigger = React.forwardRef<
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ));
+
 AccordionTrigger.displayName = "AccordionTrigger";
 
 const AccordionContent = React.forwardRef<
@@ -75,6 +87,11 @@ const AccordionContent = React.forwardRef<
     <div className={cn("pb-4 pt-0", className)}>{children}</div>
   </AccordionPrimitive.Content>
 ));
+
 AccordionContent.displayName = "AccordionContent";
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+(Accordion as AccordionComponent).Item = AccordionItem;
+(Accordion as AccordionComponent).Trigger = AccordionTrigger;
+(Accordion as AccordionComponent).Content = AccordionContent;
+
+export { Accordion };

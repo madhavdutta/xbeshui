@@ -2,6 +2,7 @@
 export interface labelVariantsType {
   variants: {
     fontSize: {
+      default: string;
       xs: string;
       sm: string;
       base: string;
@@ -17,11 +18,13 @@ export interface labelVariantsType {
       "9xl": string;
     };
     fontFamily: {
+      default: string;
       sans: string;
       serif: string;
       mono: string;
     };
-    fontWidth: {
+    fontWeight: {
+      default: string;
       normal: string;
       thin: string;
       light: string;
@@ -35,7 +38,7 @@ export interface labelVariantsType {
   defaultVariants: {
     fontSize: keyof labelVariantsType["variants"]["fontSize"];
     fontFamily: keyof labelVariantsType["variants"]["fontFamily"];
-    fontWidth: keyof labelVariantsType["variants"]["fontWidth"];
+    fontWeight: keyof labelVariantsType["variants"]["fontWeight"];
   };
 }
 

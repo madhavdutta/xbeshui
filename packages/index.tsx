@@ -47,7 +47,7 @@ export * from "./core/components/Inputs/multiSelect/multiSelect";
 export * from "./core/components/Inputs/rangeSlider/rangeSlider";
 export * from "./core/components/Inputs/radio/radio";
 export * from "./core/components/Inputs/select/select";
-export * from "./core/components/Inputs/spotlight/spotlight";
+export * from "./core/components/Inputs/command/command";
 export * from "./core/components/Inputs/tags/tags";
 export * from "./core/components/Inputs/switch/switch";
 export * from "./core/components/Inputs/textarea/textarea";

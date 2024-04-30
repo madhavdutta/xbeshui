@@ -20,6 +20,7 @@ const Avatar = React.forwardRef<
 
 
     return (
+      <div className={size}>
       <AvatarPrimitive.Root
         ref={ref}
         className={cn(
@@ -45,12 +46,13 @@ const Avatar = React.forwardRef<
         ) : (
          <AvatarPrimitive.Fallback
             style={colorStyle}
-            className='flex h-full w-full items-center bg-input justify-center'
+            className='flex h-full w-full items-center bg-background text-foreground border rounded-full justify-center'
           >
            {children || initials || <IconUserCircle color="gray" size={25} />}
           </AvatarPrimitive.Fallback>
         )}
       </AvatarPrimitive.Root>
+      </div>
     );
   }
 );

@@ -1,44 +1,25 @@
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-//import { X } from "lucide-react"
 import { IconX } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-interface DialogContentConfig {
-  title?: string;
-  description?: string;
-  mainContent?: React.ReactNode;
-  trigger?: React.ReactNode;
-  withFooter?: React.ReactNode;
-  footerContent?: React.ReactNode;
+interface DialogComponent<T extends React.ElementType = typeof DialogPrimitive.Root>
+  extends React.ForwardRefExoticComponent<
+    Omit<React.ComponentPropsWithoutRef<T>, "ref"> & React.RefAttributes<React.ElementRef<T>>
+  > {
+  Trigger: typeof DialogTrigger;
+  Portal: typeof DialogPortal;
+  Overlay: typeof DialogOverlay;
+  Close: typeof DialogClose;
+  Content: typeof DialogContent;
+  Header: typeof DialogHeader;
+  Footer: typeof DialogFooter;
+  Title: typeof DialogTitle;
+  Description: typeof DialogDescription;
 }
 
-const Dialog = ({
-  title,
-  description,
-  mainContent,
-  trigger,
-  withFooter,
-  footerContent,
-}: DialogContentConfig) => {
-  useXbeshProviderCheck();
-  return (
-    <DialogMain>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          {title && <DialogTitle>{title}</DialogTitle>}
-          {description && <DialogDescription>{description}</DialogDescription>}
-        </DialogHeader>
-        {mainContent}
-        {withFooter && <DialogFooter>{footerContent}</DialogFooter>}
-      </DialogContent>
-    </DialogMain>
-  );
-};
-
-const DialogMain = DialogPrimitive.Root;
+const Dialog = DialogPrimitive.Root as DialogComponent;
 
 const DialogTrigger = DialogPrimitive.Trigger;
 
@@ -53,12 +34,13 @@ const DialogOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       className
     )}
     {...props}
   />
 ));
+
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
 const DialogContent = React.forwardRef<
@@ -83,34 +65,39 @@ const DialogContent = React.forwardRef<
     </DialogPrimitive.Content>
   </DialogPortal>
 ));
+
 DialogContent.displayName = DialogPrimitive.Content.displayName;
 
-const DialogHeader = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+const DialogHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
   <div
+    ref={ref}
     className={cn(
       "flex flex-col space-y-1.5 text-secondary-foreground text-center sm:text-left",
       className
     )}
     {...props}
   />
-);
+));
+
 DialogHeader.displayName = "DialogHeader";
 
-const DialogFooter = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+const DialogFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
   <div
+    ref={ref}
     className={cn(
       "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
       className
     )}
     {...props}
   />
-);
+));
+
 DialogFooter.displayName = "DialogFooter";
 
 const DialogTitle = React.forwardRef<
@@ -126,6 +113,7 @@ const DialogTitle = React.forwardRef<
     {...props}
   />
 ));
+
 DialogTitle.displayName = DialogPrimitive.Title.displayName;
 
 const DialogDescription = React.forwardRef<
@@ -138,18 +126,17 @@ const DialogDescription = React.forwardRef<
     {...props}
   />
 ));
+
 DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
-export {
-  Dialog,
-  DialogMain,
-  DialogPortal,
-  DialogOverlay,
-  DialogClose,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogFooter,
-  DialogTitle,
-  DialogDescription,
-};
+(Dialog as DialogComponent).Trigger = DialogTrigger;
+(Dialog as DialogComponent).Portal = DialogPortal;
+(Dialog as DialogComponent).Overlay = DialogOverlay;
+(Dialog as DialogComponent).Close = DialogClose;
+(Dialog as DialogComponent).Content = DialogContent;
+(Dialog as DialogComponent).Header = DialogHeader;
+(Dialog as DialogComponent).Footer = DialogFooter;
+(Dialog as DialogComponent).Title = DialogTitle;
+(Dialog as DialogComponent).Description = DialogDescription;
+
+export { Dialog };

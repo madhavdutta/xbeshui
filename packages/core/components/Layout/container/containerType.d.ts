@@ -27,21 +27,20 @@ export interface ContainerVariantType {
       stretch: string;
     };
     size: {
-      default: string;
-      xs: string;
+      base: string;
       sm: string;
       md: string;
       lg: string;
       xl: string;
-      xxl: string;
       full:string;
     };
   };
 
   defaultVariants: {
-    justify: keyof ContainerVariantType["variants"]["justify"];
-    size: keyof ContainerVariantType["variants"]["size"];
-    p: keyof ContainerVariantType["variants"]["p"];
-    itemsJustify: keyof ContainerVariantType["variants"]["items"];
+    justify?: keyof ContainerVariantType["variants"]["justify"];
+    size?: keyof ContainerVariantType["variants"]["size"];
+    p?: keyof ContainerVariantType["variants"]["p"];
+    items?: keyof ContainerVariantType["variants"]["items"]; // Use 'items' instead of 'itemsJustify'
+    withBorder?: boolean;
   };
 }

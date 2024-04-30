@@ -1,50 +1,19 @@
 import * as React from "react";
-import {  Command as CommandPrimitive } from "cmdk";
+import { Command as CommandPrimitive } from "cmdk";
 import { Badge } from "../..";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 type Framework = Record<"value" | "label", string>;
 
-const FRAMEWORKS = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
-  },
-  {
-    value: "wordpress",
-    label: "WordPress",
-  },
-  {
-    value: "express.js",
-    label: "Express.js",
-  },
-  {
-    value: "nest.js",
-    label: "Nest.js",
-  }
-] satisfies Framework[];
+interface MultiSelectProps {
+  frameworks: Framework[];
+}
 
-export function MultiSelect() {
+const MultiSelect = ({ frameworks = [] }: MultiSelectProps) => {
   useXbeshProviderCheck();
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState<Framework[]>([FRAMEWORKS[4]]);
+  const [selected, setSelected] = React.useState<Framework[]>([]);
   const [inputValue, setInputValue] = React.useState("");
 
   const handleUnselect = React.useCallback((framework: Framework) => {
@@ -69,8 +38,8 @@ export function MultiSelect() {
       input.blur();
     }
   }, [inputValue]);
+  const selectables = (frameworks || []).filter(framework => !selected.some(s => s.value === framework.value));
 
-  const selectables = FRAMEWORKS.filter(framework => !selected.some(s => s.value === framework.value));
 
   return (
     <CommandPrimitive onKeyDown={handleKeyDown} className="overflow-visible bg-transparent">
@@ -119,4 +88,6 @@ export function MultiSelect() {
       )}
     </CommandPrimitive>
   );
-}
+};
+
+export { MultiSelect };

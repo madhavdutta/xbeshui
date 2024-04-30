@@ -24,11 +24,12 @@ export interface appShellProps
     VariantProps<typeof appShellVariant> {
     variant?: keyof AppShellVariantType["variants"]["variant"];
     layout?: keyof AppShellVariantType["variants"]["layout"];
-    Header?: React.FC;
-    Footer?: React.FC;
-    Navbar?: React.FC;
-    Aside?: React.FC;
+    Header?: React.ReactNode;
+    Footer?: React.ReactNode;
+    Navbar?: React.ReactNode;
+    Aside?: React.ReactNode;
     viewPort?: {headerHeight: number, footerHeight: number, asideWidth: number, navbarWidth: number}
     withBorder?: boolean;
+    fixedHeader?:boolean;
     children?: React.ReactNode;
 }

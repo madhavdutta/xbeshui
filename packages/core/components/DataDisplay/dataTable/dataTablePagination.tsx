@@ -6,14 +6,8 @@ import {
 } from "@tabler/icons-react";
 
 import { Button } from "../../Buttons/button/button";
-import {
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../../index";
 import { DataTablePaginationProps } from "./dataTableType";
-import { SelectMain } from "../../Inputs/select/select";
+import { Select } from "../../Inputs/select/select";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 export function DataTablePagination<TData>({
@@ -30,23 +24,23 @@ export function DataTablePagination<TData>({
       <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6 lg:gap-8">
         <div className="flex items-center space-x-2">
           <p className="whitespace-nowrap text-sm font-medium">Rows per page</p>
-          <SelectMain
+          <Select
             value={`${table.getState().pagination.pageSize}`}
             onValueChange={(value) => {
               table.setPageSize(Number(value));
             }}
           >
-            <SelectTrigger className="h-8 w-[70px]">
-              <SelectValue placeholder={table.getState().pagination.pageSize} />
-            </SelectTrigger>
-            <SelectContent side="top">
+            <Select.Trigger className="h-8 w-[70px]">
+              <Select.Value placeholder={table.getState().pagination.pageSize} />
+            </Select.Trigger>
+            <Select.Content side="top">
               {pageSizeOptions.map((pageSize) => (
-                <SelectItem key={pageSize} value={`${pageSize}`}>
+                <Select.Item key={pageSize} value={`${pageSize}`}>
                   {pageSize}
-                </SelectItem>
+                </Select.Item>
               ))}
-            </SelectContent>
-          </SelectMain>
+            </Select.Content>
+          </Select>
         </div>
         <div className="flex w-[100px] items-center justify-center text-sm font-medium">
           Page {table.getState().pagination.pageIndex + 1} of{" "}

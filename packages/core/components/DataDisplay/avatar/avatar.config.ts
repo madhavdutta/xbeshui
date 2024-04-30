@@ -13,12 +13,12 @@ const avatarConfig: AvatarVariantsConfigType = {
       full: "rounded-full",
     },
     size: {
-      default: "h-10 w-10",
-      xs: "h-6 w-6",
-      sm: "h-8 w-8",
-      md: "h-10 w-10",
-      lg: "h-14 w-14",
-      xl: "h-20 w-20",
+      default: "h-10 w-10 text-sm",
+      xs: "h-8 w-8 text-xs",
+      sm: "h-10 w-10 text-xs",
+      md: "h-12 w-12 text-sm",
+      lg: "h-14 w-14 text-md",
+      xl: "h-20 w-20 text-xl",
     },
   },
   defaultVariants: {
@@ -27,7 +27,7 @@ const avatarConfig: AvatarVariantsConfigType = {
   },
 };
 
-export const avatarVariants = cva("bg-background text-primary-foreground", avatarConfig);
+export const avatarVariants = cva("bg-background text-foreground", avatarConfig);
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarVariants> {
   src?: string;

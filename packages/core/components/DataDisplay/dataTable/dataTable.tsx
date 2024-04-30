@@ -15,11 +15,8 @@ import {
   Text,
   Button,
   Input,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuCheckboxItem,
   Group,
+  DropdownMenu,
 } from "../..";
 import {
   Table,
@@ -32,7 +29,6 @@ import {
 import { DataTablePagination } from "./dataTablePagination";
 import { IconCirclePlus } from "@tabler/icons-react";
 import { DataTableProps } from "./dataTableType";
-import { DropdownMenuMain } from "../../Overlays/dropdownMenu/dropdownMenu";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 export const DataTable = <T,>({
@@ -85,10 +81,10 @@ export const DataTable = <T,>({
         />
         {filters &&
           filters.map((filter) => (
-            <DropdownMenuMain key={filter.name}>
-              <DropdownMenuTrigger>
+            <DropdownMenu key={filter.name}>
+              <DropdownMenu.Trigger>
                 <Group
-                  justify="flexStart"
+                  justify="left"
                   gap={"xs"}
                   className="border-dotted border-input border-2 p-2 px-3 rounded-md text-xs leading-5"
                 >
@@ -101,44 +97,44 @@ export const DataTable = <T,>({
                     {filter.name.charAt(0).toUpperCase() + filter.name.slice(1)}
                   </Text>
                 </Group>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem
+              </DropdownMenu.Trigger>
+              <DropdownMenu.Content align="end">
+                <DropdownMenu.Item
                   key="all"
                   onClick={() =>
                     table.getColumn(filter.name)?.setFilterValue(null)
                   }
                 >
                   All
-                </DropdownMenuItem>
+                </DropdownMenu.Item>
                 {filter.options.map((option) => (
-                  <DropdownMenuItem
+                  <DropdownMenu.Item
                     key={option}
                     onClick={() =>
                       table.getColumn(filter.name)?.setFilterValue(option)
                     }
                   >
                     {option}
-                  </DropdownMenuItem>
+                  </DropdownMenu.Item>
                 ))}
-              </DropdownMenuContent>
-            </DropdownMenuMain>
+              </DropdownMenu.Content>
+            </DropdownMenu>
           ))}
 
-        <DropdownMenuMain>
-          <DropdownMenuTrigger asChild>
+        <DropdownMenu>
+          <DropdownMenu.Trigger asChild>
             <Button variant="outline" className="ml-auto">
               <Text size="xs">View</Text>{" "}
               <IconChevronDown stroke={1.5} className="ml-2 h-4 w-4" />
             </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          </DropdownMenu.Trigger>
+          <DropdownMenu.Content align="end">
             {table
               .getAllColumns()
               .filter((column) => column.getCanHide())
               .map((column) => {
                 return (
-                  <DropdownMenuCheckboxItem
+                  <DropdownMenu.CheckboxItem
                     key={column.id}
                     className="capitalize"
                     checked={column.getIsVisible()}
@@ -147,11 +143,11 @@ export const DataTable = <T,>({
                     }
                   >
                     {column.id}
-                  </DropdownMenuCheckboxItem>
+                  </DropdownMenu.CheckboxItem>
                 );
               })}
-          </DropdownMenuContent>
-        </DropdownMenuMain>
+          </DropdownMenu.Content>
+        </DropdownMenu>
       </div>
       <div className="rounded-md border border-input text-secondary-foreground">
         <Table>

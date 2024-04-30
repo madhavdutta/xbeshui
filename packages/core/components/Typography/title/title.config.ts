@@ -4,7 +4,7 @@ import { TitleVariantsType } from "./titleType";
 const titleConfig: TitleVariantsType = {
   variants: {
     order: {
-      h1: "text-6xl leading-12 font-bold",
+      h1: "text-6xl leading-14 font-bold",
       h2: "text-5xl leading-10 font-semibold",
       h3: "text-4xl leading-9 font-semibold",
       h4: "text-3xl leading-9 font-semibold",
@@ -52,7 +52,7 @@ const titleConfig: TitleVariantsType = {
 };
 
 export const titleVariants = cva(
-  "bg-background text-secondary-foreground scroll-m-20 font-normal tracking-tight ",
+  "font-normal",
   titleConfig
 );
 export interface TitleProps

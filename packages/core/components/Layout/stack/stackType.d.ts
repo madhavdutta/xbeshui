@@ -2,17 +2,17 @@ export interface StackVariantType {
   variants: {
     justify: {
       default: string;
-      flexStart: string;
+      top: string;
       center: string;
       spaceBetween: string;
-      flexEnd: string;
+      bottom: string;
       spaceAround: string;
     };
     align: {
       default: string;
-      itemStart: string;
+      left: string;
       center: string;
-      itemEnd: string;
+      right: string;
       stretch: string;
     };
     gap: {

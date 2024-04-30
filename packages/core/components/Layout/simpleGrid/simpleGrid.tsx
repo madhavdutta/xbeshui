@@ -3,22 +3,25 @@ import { cn } from "../../../../utils";
 import { SimpleGridProps, simpleGridVariant } from "./simpleGrid.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-const SimpleGrid = React.forwardRef<HTMLDivElement, SimpleGridProps>(
-  ({ cols, spacing="md", verticalSpacing='md', children, className }, ref) => {
-    const gridStyles = {
-      gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
-    };
+const SimpleGrid = React.forwardRef<HTMLDivElement, SimpleGridProps> (
+  ({ cols, spacing = "base", verticalSpacing = "base", children, className }, ref) => {
     useXbeshProviderCheck();
+
+    const colsValue = typeof cols === "object" ? Object.entries(cols).map(([breakpoint, count]) => {
+      return breakpoint === "base" ? `grid-cols-${count}` : `${breakpoint}:grid-cols-${count}`;
+    }).join(" ") : `grid-cols-${cols}`;
+
     return (
       <div
-        style={gridStyles}
         ref={ref}
         className={cn(
+          "grid w-full",
           simpleGridVariant({
             spacing,
             verticalSpacing,
             className,
-          })
+          }),
+          colsValue
         )}
       >
         {children}
@@ -26,6 +29,7 @@ const SimpleGrid = React.forwardRef<HTMLDivElement, SimpleGridProps>(
     );
   }
 );
+
 SimpleGrid.displayName = "SimpleGrid";
 
 export { SimpleGrid };

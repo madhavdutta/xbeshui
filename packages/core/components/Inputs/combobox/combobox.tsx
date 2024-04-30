@@ -12,7 +12,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
-} from "../spotlight/spotlight";
+} from "../command/command";
 import { cn } from "../../../../utils";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 

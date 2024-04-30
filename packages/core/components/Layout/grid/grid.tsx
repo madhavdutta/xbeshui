@@ -31,6 +31,15 @@ const theme = {
   gutterBase: 16,
 };
 
+interface GridComponent<T extends React.ElementType = "div">
+  extends React.ForwardRefExoticComponent<
+    Omit<React.ComponentPropsWithoutRef<T>, "ref"> &
+      GridProps &
+      React.RefAttributes<HTMLDivElement>
+  > {
+  Col: typeof GridCol;
+}
+
 const Grid = React.forwardRef<HTMLDivElement, GridProps>(
   (
     {
@@ -62,14 +71,13 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
       </div>
     );
   }
-);
+) as GridComponent;
 
 const GridCol = React.forwardRef<HTMLDivElement, GridColProps>(
   ({ children, span, offset = 0, order = 0, style, className }) => {
     const spanValue = getValueForViewport(span, theme);
     const offsetValue = getValueForViewport(offset, theme);
     const orderValue = getValueForViewport(order, theme);
-
     const colStyle: React.CSSProperties = {
       gridColumn: `span ${spanValue}`,
       marginLeft: `${offsetValue * theme.gutterBase}px`, // Example calculation, adjust as needed
@@ -85,4 +93,6 @@ const GridCol = React.forwardRef<HTMLDivElement, GridColProps>(
   }
 );
 
-export { Grid, GridCol };
+(Grid as GridComponent).Col = GridCol;
+
+export { Grid };

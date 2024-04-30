@@ -5,12 +5,14 @@ import { toggleVariants } from "./toggle.config";
 import { cn } from "../../../../utils";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-const ToggleGroupContext = React.createContext<
-  VariantProps<typeof toggleVariants>
->({
-  size: "default",
-  variant: "default",
-});
+interface ToggleGroupComponent<T extends React.ElementType = typeof ToggleGroupPrimitive.Root>
+  extends React.ForwardRefExoticComponent<
+    Omit<React.ComponentPropsWithoutRef<T>, "ref"> &
+      VariantProps<typeof toggleVariants> &
+      React.RefAttributes<React.ElementRef<T>>
+  > {
+  Item: typeof ToggleGroupItem;
+}
 
 const ToggleGroup = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Root>,
@@ -19,17 +21,19 @@ const ToggleGroup = React.forwardRef<
 >(({ className, variant, size, children, ...props }, ref) => {
   useXbeshProviderCheck();
   return (
-  <ToggleGroupPrimitive.Root
-    ref={ref}
-    className={cn("flex items-center justify-center gap-1", className)}
-    {...props}
-  >
-    <ToggleGroupContext.Provider value={{ variant, size }}>
+    <ToggleGroupPrimitive.Root
+      ref={ref}
+      className={cn(
+        "flex items-center justify-center gap-1",
+        toggleVariants({ variant, size }),
+        className
+      )}
+      {...props}
+    >
       {children}
-    </ToggleGroupContext.Provider>
-  </ToggleGroupPrimitive.Root>
+    </ToggleGroupPrimitive.Root>
   );
-});
+}) as ToggleGroupComponent;
 
 ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName;
 
@@ -38,17 +42,11 @@ const ToggleGroupItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> &
     VariantProps<typeof toggleVariants>
 >(({ className, children, variant, size, radius, ...props }, ref) => {
-  const context = React.useContext(ToggleGroupContext);
-
   return (
     <ToggleGroupPrimitive.Item
       ref={ref}
       className={cn(
-        toggleVariants({
-          variant: context.variant || variant,
-          size: context.size || size,
-          radius: context.radius || radius,
-        }),
+        toggleVariants({ variant, size, radius }),
         className
       )}
       {...props}
@@ -60,4 +58,6 @@ const ToggleGroupItem = React.forwardRef<
 
 ToggleGroupItem.displayName = ToggleGroupPrimitive.Item.displayName;
 
-export { ToggleGroup, ToggleGroupItem };
+(ToggleGroup as ToggleGroupComponent).Item = ToggleGroupItem;
+
+export { ToggleGroup };

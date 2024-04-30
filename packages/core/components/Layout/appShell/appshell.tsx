@@ -17,11 +17,11 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
       Aside,
       Navbar,
       withBorder,
+      fixedHeader,
       ...props
     },
     ref
   ) => {
-
     useXbeshProviderCheck();
 
     const renderNavbar = () => (
@@ -31,7 +31,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
             } ${variant === "default" ? "w-16 left-0 top-0 bottom-0" : "w-72"}`}
           aria-label="Sidenav"
         >
-          {Navbar && <Navbar />}
+          {Navbar && Navbar}
         </nav>
         <></>
       </IfElse>
@@ -40,13 +40,16 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
     const renderHeader = () => (
       <IfElse condition={!!Header}>
         <header
-          className={`h-16 fixed top-0 bg-background flex items-center ${withBorder ? "border-b" : ""
-            } left-0 sm:left-0 ${Navbar
-              ? variant === "inner"
-                ? "md:left-72"
-                : "md:left-16"
-              : "md:left-0"
-            } right-0 ${Aside ? "lg:right-96" : "lg:right-0"}`}
+          className={`h-16 top-0 ${fixedHeader ? "fixed" :""}  flex items-center ${withBorder ? "border-b" : ""
+            } left-0 sm:left-0 ${layout === "default"
+              ? Navbar
+                ? variant === "inner"
+                  ? "md:left-72"
+                  : "md:left-16"
+                : "md:left-0"
+              : (Navbar ? (variant == "inner" ? "md:left-72" : "md:left-16") : "md:left-0")
+
+            } ${Aside ? (fixedHeader? "md:right-96" : "md:mr-96") : "md:right-0"}`}
         >
           <Sheet
             side="left"
@@ -60,13 +63,14 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
             onClose={() => console.log("closed")}
             title="Menu"
           >
-            <IfElse condition={!!Navbar}>
-              {Navbar && <Navbar />}
+            {/* <IfElse condition={!!Navbar}>
+              {renderNavbar()}
               <></>
-            </IfElse>
+            </IfElse> */}
+          {Navbar && Navbar}
           </Sheet>
 
-          {Header && <Header />}
+          <div className="w-full">{Header && Header}</div>
         </header>
         <></>
       </IfElse>
@@ -74,8 +78,8 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
 
     const renderMain = () => (
       <main
-        className={`mr-0 ${Aside ? "lg:mr-96" : "lg:mr-0"} ${Header ? "pt-20" : "pt-0"
-          } ${Footer ? "pb-20" : "pb-0"} px-0`}
+        className={`h-screen mr-0 ${Aside ? "md:mr-96" : "md:mr-0"} ${Header ? (fixedHeader ? "pt-20" : "pt-4") : "pt-0"
+          } ${Footer ? "pb-20" : "pb-0"} px-0 ${(variant == "default" && layout == "alt") ? "md:ml-16" : "md:ml-0"} ${(variant == "inner" && layout == "alt") ? "md:ml-72" : "md:ml-0"}`}
       >
         {props.children}
       </main>
@@ -84,7 +88,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
     const renderFooter = () => (
       <IfElse condition={!!Footer}>
         <footer
-          className={`h-16 flex items-center bg-background fixed bottom-0 ${withBorder ? "border-t" : ""
+          className={`h-16 flex items-center fixed bottom-0 ${withBorder ? "border-t" : ""
             } left-0 sm:left-0 ${Navbar
               ? variant === "inner"
                 ? "md:left-72"
@@ -92,7 +96,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
               : "md:left-0"
             } right-0 ${Aside ? "lg:right-96" : "lg:right-0"}`}
         >
-          {Footer && <Footer />}
+          {Footer && Footer}
         </footer>
         <></>
       </IfElse>
@@ -105,7 +109,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
             }`}
           aria-label="Sidebar"
         >
-          {Aside && <Aside />}
+          {Aside && Aside}
         </aside>
         <></>
       </IfElse>
@@ -115,7 +119,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
       <div
         className={cn(
           appShellVariant({ layout, variant, className }),
-          "w-full h-screen overflow-auto bg-background text-primary"
+          "w-full h-screen overflow-auto text-primary"
         )}
         {...props}
         ref={ref}
@@ -125,10 +129,10 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
             {renderNavbar()}
             <div
               className={`w-full h-full ml-0 sm:ml-0 ${Navbar
-                ? variant === "inner"
-                  ? "md:ml-72"
-                  : "md:ml-16"
-                : "md:ml-0"
+                  ? variant === "inner"
+                    ? "md:ml-72"
+                    : "md:ml-16"
+                  : "md:ml-0"
                 }`}
             >
               {renderHeader()}
@@ -137,6 +141,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
             </div>
             {renderAside()}
           </div>
+
           <div className="w-full flex flex-col h-screen">
             {renderHeader()}
             <div className="flex flex-row justify-between">

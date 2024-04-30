@@ -9,13 +9,13 @@ const Label = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
     VariantProps<typeof labelVariants>
->(({ className, fontFamily, fontSize, fontWidth, ...props }, ref) => {
+>(({ className, fontFamily, fontSize, fontWeight, ...props }, ref) => {
   useXbeshProviderCheck();
   return(
   <LabelPrimitive.Root
     ref={ref}
     className={cn(
-      labelVariants({ fontFamily, fontSize, fontWidth }),
+      labelVariants({ fontFamily, fontSize, fontWeight }),
       className
     )}
     {...props}
