@@ -1,49 +1,61 @@
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
+import React from "react";
 
-type CollapsibleDemoProps = {
-  trigger?: React.ReactNode;
-  data: { title: string; items: string[] };
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-};
+interface CollapsibleItemConfig {
+  title: string;
+  items: string[];
+}
 
-const Collapsible = ({
-  data,
-  isOpen,
-  setIsOpen,
-  trigger,
-}: CollapsibleDemoProps) => {
-  useXbeshProviderCheck();
+interface CollapsibleProps extends React.ComponentProps<typeof CollapsiblePrimitive.Root> {
+  data: CollapsibleItemConfig;
+}
+
+interface CollapsibleComponent<T extends React.ElementType = typeof CollapsiblePrimitive.Root> extends React.ForwardRefExoticComponent<
+  Omit<React.ComponentPropsWithoutRef<T>, "ref"> & React.RefAttributes<React.ElementRef<T>>
+> {
+  Trigger: typeof CollapsibleTrigger;
+  Content: typeof CollapsibleContent;
+}
+
+const CollapsibleWrapper = React.forwardRef<HTMLDivElement, CollapsibleProps>(
+  ({ data, ...props }, ref) => {
+    useXbeshProviderCheck();
+
+    return (
+      <CollapsiblePrimitive.Root ref={ref} {...props}>
+        <div className="flex items-center justify-between space-x-4 px-4">
+          <h4 className="text-sm font-semibold">{data.title}</h4>
+          <CollapsibleTrigger asChild>
+            <button type="button">Toggle</button>
+          </CollapsibleTrigger>
+        </div>
+        <CollapsibleContent data={data} />
+      </CollapsiblePrimitive.Root>
+    );
+  }
+);
+
+const CollapsibleTrigger: React.FC<React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleTrigger>> = (props) => (
+  <CollapsiblePrimitive.CollapsibleTrigger {...props} />
+);
+
+const CollapsibleContent: React.FC<{ data: CollapsibleItemConfig }> = ({ data }) => {
   return (
-    <CollapsibleMain
-      open={isOpen}
-      onOpenChange={setIsOpen}
-      className="w-[350px] space-y-2"
-    >
-      <div className="flex items-center justify-between space-x-4 px-4">
-        <h4 className="text-sm font-semibold">{data.title}</h4>
-        <CollapsibleTrigger asChild>{trigger}</CollapsibleTrigger>
-      </div>
-      <CollapsibleContent className="space-y-2">
-        {data.items.map((item, index) => (
-          <div
-            key={index}
-            className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm"
-          >
-            {item}
-          </div>
-        ))}
-      </CollapsibleContent>
-    </CollapsibleMain>
+    <CollapsiblePrimitive.CollapsibleContent className="space-y-2">
+      {data.items.map((item, index) => (
+        <div
+          key={index}
+          className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm"
+        >
+          {item}
+        </div>
+      ))}
+    </CollapsiblePrimitive.CollapsibleContent>
   );
 };
-Collapsible.displayname = "Collapsible";
 
-const CollapsibleMain = CollapsiblePrimitive.Root;
+(CollapsibleWrapper as CollapsibleComponent).Trigger = CollapsibleTrigger;
+(CollapsibleWrapper as CollapsibleComponent).Content = CollapsibleContent;
 
-const CollapsibleTrigger = CollapsiblePrimitive.CollapsibleTrigger;
-
-const CollapsibleContent = CollapsiblePrimitive.CollapsibleContent;
-
-export { Collapsible, CollapsibleMain, CollapsibleTrigger, CollapsibleContent };
+export { CollapsibleWrapper as Collapsible };
