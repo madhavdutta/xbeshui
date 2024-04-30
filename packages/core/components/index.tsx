@@ -16,7 +16,6 @@ export { DataTable } from "./DataDisplay/dataTable/dataTable";
 export { DataTablePagination } from "./DataDisplay/dataTable/dataTablePagination";
 export { Tabs } from "./DataDisplay/tabs/tabs";
 export {
-  XbTable,
   Table,
   TableHeader,
   TableBody,
@@ -94,100 +93,24 @@ export { Separator } from "./Misc/separator/separator";
 export { Timeline, TimelineItem } from "./Misc/timeline/timeline";
 export { IfElse } from "./Misc/ifElse/ifElse";
 // All Navigation core components are exported from this file
-export {
-  navigationMenuTriggerStyle,
-  NavigationMenuMain,
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuContent,
-  NavigationMenuTrigger,
-  NavigationMenuLink,
-  NavigationMenuIndicator,
-  NavigationMenuViewport,
-  NavListItem,
-} from "./Navigation/navMenu/navMenu";
+export {NavigationMenu} from "./Navigation/navMenu/navMenu";
 export { Pagination } from "./Navigation/pagination/pagination";
 
 // All Overlays core components are exported from this file
-export {
-  ContextMenu,
-  ContextMenuMain,
-  ContextMenuTrigger,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuCheckboxItem,
-  ContextMenuRadioItem,
-  ContextMenuLabel,
-  ContextMenuSeparator,
-  ContextMenuShortcut,
-  ContextMenuGroup,
-  ContextMenuPortal,
-  ContextMenuSub,
-  ContextMenuSubContent,
-  ContextMenuSubTrigger,
-  ContextMenuRadioGroup,
-} from "./Overlays/contextMenu/contextMenu";
+export {ContextMenu, type ContextMenuItemConfig} from "./Overlays/contextMenu/contextMenu";
 
-export {
-  Drawer,
-  DrawerMain,
-  DrawerPortal,
-  DrawerOverlay,
-  DrawerTrigger,
-  DrawerClose,
-  DrawerContent,
-  DrawerHeader,
-  DrawerFooter,
-  DrawerTitle,
-  DrawerDescription,
-} from "./Overlays/drawer/drawer";
+export {Drawer} from "./Overlays/drawer/drawer";
 
 export {DropdownMenu} from "./Overlays/dropdownMenu/dropdownMenu";
 export { HoverCard } from "./Overlays/hoverCard/hoverCard";
 
-export {
-  Menubar,
-  MenubarMain,
-  MenubarMenu,
-  MenubarTrigger,
-  MenubarContent,
-  MenubarItem,
-  MenubarSeparator,
-  MenubarLabel,
-  MenubarCheckboxItem,
-  MenubarRadioGroup,
-  MenubarRadioItem,
-  MenubarPortal,
-  MenubarSubContent,
-  MenubarSubTrigger,
-  MenubarGroup,
-  MenubarSub,
-  MenubarShortcut,
-} from "./Overlays/menuBar/menubar";
+export {Menubar} from "./Overlays/menuBar/menubar";
 
 export { NavigaionProgress } from "./Overlays/navigationProgress/navigationProgress";
 
-export {
-  Popover,
-  Popovermain,
-  PopoverTrigger,
-  PopoverContent,
-} from "./Overlays/popover/popover";
+export {Popover} from "./Overlays/popover/popover";
 
-export {
-  Sheet,
-  SheetMain,
-  SheetPortal,
-  SheetOverlay,
-  SheetTrigger,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetFooter,
-  SheetTitle,
-  SheetDescription,
-} from "./Overlays/sheet/sheet";
+export {Sheet} from "./Overlays/sheet/sheet";
 
 export {Tooltip} from "./Overlays/tooltip/tooltip";
 
@@ -197,7 +120,7 @@ export { Title } from "./Typography/title/title";
 export { Text } from "./Typography/text/text";
 export { BlockQuote } from "./Typography/blockquote/blockquote";
 export { Code } from "./Typography/code/code";
-export { List, ListItem } from "./Typography/list/list";
+export { List } from "./Typography/list/list";
 
 // All Theme core components are exported from this file
 export { XbeshProvider } from "./Theme/xBeshTheme/xbeshProvider";

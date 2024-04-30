@@ -4,6 +4,7 @@ import { IconCheck, IconChevronRight, IconDots } from "@tabler/icons-react";
 
 import { cn } from "../../../../utils";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
+
 interface ContextMenuItemConfig {
   type: "item" | "sub" | "separator" | "checkbox" | "radio";
   label?: string;
@@ -15,87 +16,59 @@ interface ContextMenuItemConfig {
   items?: ContextMenuItemConfig[];
 }
 
-type ContextMenuPropsType = {
-  menuConfig: ContextMenuItemConfig[];
-};
 
-const ContextMenu: React.FC<ContextMenuPropsType> = ({ menuConfig }) => {
+interface ContextMenuProps extends ContextMenuPrimitive.ContextMenuProps {
+  menuConfig: ContextMenuItemConfig[];
+}
+
+interface ContextMenuComponent<T extends React.ElementType = typeof ContextMenuPrimitive.Root> extends React.ForwardRefExoticComponent<
+  Omit<React.ComponentPropsWithoutRef<T>, "ref"> & React.RefAttributes<React.ElementRef<T>>
+> {
+  Trigger: typeof ContextMenuTrigger;
+  Content: React.FC<ContextMenuProps & React.ComponentProps<typeof ContextMenuPrimitive.Content>>;
+  SubTrigger: typeof ContextMenuSubTrigger;
+  SubContent: typeof ContextMenuSubContent;
+  Item: typeof ContextMenuItem;
+  CheckboxItem: typeof ContextMenuCheckboxItem;
+  RadioItem: typeof ContextMenuRadioItem;
+  Label: typeof ContextMenuLabel;
+  Separator: typeof ContextMenuSeparator;
+  Shortcut: typeof ContextMenuShortcut;
+}
+
+const ContextMenu = ContextMenuPrimitive.Root as ContextMenuComponent;
+
+const ContextMenuTrigger: React.FC<React.ComponentProps<typeof ContextMenuPrimitive.Trigger>> = (props) => (
+  <ContextMenuPrimitive.Trigger {...props} />
+);
+
+const ContextMenuContent: React.FC<React.ComponentProps<typeof ContextMenuPrimitive.Content> & ContextMenuProps> = ({
+  menuConfig,
+  ...props
+}) => {
   useXbeshProviderCheck();
+
   return (
-    <ContextMenuMain>
-      <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
-        Right click here
-      </ContextMenuTrigger>
-      <ContextMenuContent className="w-64">
+    <ContextMenuPrimitive.Portal>
+      <ContextMenuPrimitive.Content
+        className={cn(
+          "z-50 min-w-[8rem] overflow-hidden rounded-md border border-input bg-popover p-1 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2"
+        )}
+        {...props}
+      >
         {menuConfig.map((item, index) => (
           <React.Fragment key={index}>
-            {item.type === "item" && (
-              <ContextMenuItem disabled={item.disabled} inset>
-                {item.label}
-                {item.shortcut && (
-                  <ContextMenuShortcut>{item.shortcut}</ContextMenuShortcut>
-                )}
-              </ContextMenuItem>
-            )}
-            {item.type === "sub" && (
-              <ContextMenuSub>
-                <ContextMenuSubTrigger inset>
-                  {item.label}
-                </ContextMenuSubTrigger>
-                <ContextMenuSubContent className="w-48">
-                  {item.items?.map((subItem, subIndex) => (
-                    <React.Fragment key={subIndex}>
-                      {subItem.type === "separator" ? (
-                        <ContextMenuSeparator />
-                      ) : (
-                        <ContextMenuItem>{subItem.label}</ContextMenuItem>
-                      )}
-                    </React.Fragment>
-                  ))}
-                </ContextMenuSubContent>
-              </ContextMenuSub>
-            )}
-            {item.type === "separator" && <ContextMenuSeparator />}
-            {item.type === "checkbox" && (
-              <ContextMenuCheckboxItem checked={item.checked}>
-                {item.label}
-                {item.shortcut && (
-                  <ContextMenuShortcut>{item.shortcut}</ContextMenuShortcut>
-                )}
-              </ContextMenuCheckboxItem>
-            )}
-            {item.type === "radio" && (
-              <ContextMenuRadioGroup value={item.value}>
-                <ContextMenuLabel inset>{item.label}</ContextMenuLabel>
-                <ContextMenuSeparator />
-                {item.items?.map((radioItem, radioIndex) => (
-                  <ContextMenuRadioItem
-                    key={radioIndex}
-                    value={radioItem.value || ""}
-                  >
-                    {radioItem.label}
-                  </ContextMenuRadioItem>
-                ))}
-              </ContextMenuRadioGroup>
-            )}
-          </React.Fragment>
+          {item.type === "separator" ? (
+            <ContextMenuSeparator />
+          ) : (
+            <ContextMenuItem>{item.label}</ContextMenuItem>
+          )}
+        </React.Fragment>
         ))}
-      </ContextMenuContent>
-    </ContextMenuMain>
+      </ContextMenuPrimitive.Content>
+    </ContextMenuPrimitive.Portal>
   );
 };
-
-const ContextMenuMain = ContextMenuPrimitive.Root;
-
-const ContextMenuTrigger = ContextMenuPrimitive.Trigger;
-
-const ContextMenuGroup = ContextMenuPrimitive.Group;
-
-const ContextMenuPortal = ContextMenuPrimitive.Portal;
-
-const ContextMenuSub = ContextMenuPrimitive.Sub;
-
-const ContextMenuRadioGroup = ContextMenuPrimitive.RadioGroup;
 
 const ContextMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.SubTrigger>,
@@ -132,23 +105,6 @@ const ContextMenuSubContent = React.forwardRef<
   />
 ));
 ContextMenuSubContent.displayName = ContextMenuPrimitive.SubContent.displayName;
-
-const ContextMenuContent = React.forwardRef<
-  React.ElementRef<typeof ContextMenuPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Content>
->(({ className, ...props }, ref) => (
-  <ContextMenuPrimitive.Portal>
-    <ContextMenuPrimitive.Content
-      ref={ref}
-      className={cn(
-        "z-50 min-w-[8rem] overflow-hidden rounded-md border border-input bg-popover p-1 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-        className
-      )}
-      {...props}
-    />
-  </ContextMenuPrimitive.Portal>
-));
-ContextMenuContent.displayName = ContextMenuPrimitive.Content.displayName;
 
 const ContextMenuItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Item>,
@@ -189,8 +145,7 @@ const ContextMenuCheckboxItem = React.forwardRef<
     {children}
   </ContextMenuPrimitive.CheckboxItem>
 ));
-ContextMenuCheckboxItem.displayName =
-  ContextMenuPrimitive.CheckboxItem.displayName;
+ContextMenuCheckboxItem.displayName = ContextMenuPrimitive.CheckboxItem.displayName;
 
 const ContextMenuRadioItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.RadioItem>,
@@ -260,21 +215,15 @@ const ContextMenuShortcut = ({
 };
 ContextMenuShortcut.displayName = "ContextMenuShortcut";
 
-export {
-  ContextMenu,
-  ContextMenuMain,
-  ContextMenuTrigger,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuCheckboxItem,
-  ContextMenuRadioItem,
-  ContextMenuLabel,
-  ContextMenuSeparator,
-  ContextMenuShortcut,
-  ContextMenuGroup,
-  ContextMenuPortal,
-  ContextMenuSub,
-  ContextMenuSubContent,
-  ContextMenuSubTrigger,
-  ContextMenuRadioGroup,
-};
+(ContextMenu as ContextMenuComponent).Trigger = ContextMenuTrigger;
+(ContextMenu as ContextMenuComponent).Content = ContextMenuContent;
+(ContextMenu as ContextMenuComponent).SubTrigger = ContextMenuSubTrigger;
+(ContextMenu as ContextMenuComponent).SubContent = ContextMenuSubContent;
+(ContextMenu as ContextMenuComponent).Item = ContextMenuItem;
+(ContextMenu as ContextMenuComponent).CheckboxItem = ContextMenuCheckboxItem;
+(ContextMenu as ContextMenuComponent).RadioItem = ContextMenuRadioItem;
+(ContextMenu as ContextMenuComponent).Label = ContextMenuLabel;
+(ContextMenu as ContextMenuComponent).Separator = ContextMenuSeparator;
+(ContextMenu as ContextMenuComponent).Shortcut = ContextMenuShortcut;
+
+export { ContextMenu, type ContextMenuItemConfig };

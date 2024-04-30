@@ -1,8 +1,7 @@
 import { VariantProps, cva } from "class-variance-authority";
 import { ListVariantsType } from "./listType";
 
-
-const listConfig:ListVariantsType= {
+const listConfig: ListVariantsType = {
   variants: {
     type: {
       default: "list-none",
@@ -37,21 +36,25 @@ const listConfig:ListVariantsType= {
     fontSize: "default",
     position: "default",
   },
-}
+};
 
-export const listVariants = cva("bg-background  text-secondary-foreground list-none",listConfig);
+export const listVariants = cva(
+  "text-foreground list-none",
+  listConfig
+);
 
 export interface ListProps
   extends React.HTMLAttributes<HTMLOListElement>,
     VariantProps<typeof listVariants> {
   asChild?: boolean;
-  type?: keyof ListVariantsType["variants"]["type"];
-  fontSize?: keyof ListVariantsType["variants"]["fontSize"];
-  position?: keyof ListVariantsType["variants"]["position"];
+  type: keyof typeof listConfig.variants.type;
+  fontSize?: keyof typeof listConfig.variants.fontSize;
+  position?: keyof typeof listConfig.variants.position;
   children?: React.ReactNode;
 }
 
-export interface ListItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
+export interface ListItemProps
+  extends React.LiHTMLAttributes<HTMLLIElement> {
   children: React.ReactNode;
   className?: string;
 }

@@ -18,7 +18,7 @@ const NavbarUI = ({ headerItem, navItem, footerItem }: NavItemProps) => {
           {navItem.map((item, index) => {
             return (
               <Tooltip key={index}>
-                <Tooltip.Trigger>
+                <Tooltip.Trigger asChild>
                   <a href={item.link} key={index}>
                     <Group gap="xs">
                       <div className="flex h-9 w-9 items-center justify-center rounded-lg hover:bg-accent ease-in duration-200 cursor-pointer text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8">

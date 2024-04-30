@@ -70,6 +70,8 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           {Navbar && Navbar}
           </Sheet>
 
+          
+
           <div className="w-full">{Header && Header}</div>
         </header>
         <></>

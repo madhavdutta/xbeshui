@@ -24,24 +24,43 @@ type NavigationMenuProps = {
   sections: NavigationMenuSection[];
 };
 
-const NavigationMenu: React.FC<NavigationMenuProps> = ({ sections }) => {
+interface NavigationMenuComponent<T extends React.ElementType = typeof NavigationMenuPrimitive.Root>
+  extends React.ForwardRefExoticComponent<
+    Omit<React.ComponentPropsWithoutRef<T>, "ref"> &
+      React.RefAttributes<React.ElementRef<T>>
+  > {
+  Main: typeof NavigationMenuMain;
+  List: typeof NavigationMenuList;
+  Item: typeof NavigationMenuItem;
+  Trigger: typeof NavigationMenuTrigger;
+  Content: typeof NavigationMenuContent;
+  Link: typeof NavigationMenuLink;
+  Viewport: typeof NavigationMenuViewport;
+  Indicator: typeof NavigationMenuIndicator;
+}
+
+const NavigationMenu = React.forwardRef<
+  React.ElementRef<typeof NavigationMenuPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root> &
+    NavigationMenuProps
+>(({ sections, ...props }, ref) => {
   useXbeshProviderCheck();
   return (
-    <NavigationMenuMain>
-      <NavigationMenuList>
+    <NavigationMenu.Main ref={ref} {...props}>
+      <NavigationMenu.List>
         {sections.map(
           (section, index) =>
             section.dropdown && (
-              <NavigationMenuItem key={index}>
-                <NavigationMenuTrigger>{section.title}</NavigationMenuTrigger>
-                <NavigationMenuContent>
+              <NavigationMenu.Item key={index}>
+                <NavigationMenu.Trigger>{section.title}</NavigationMenu.Trigger>
+                <NavigationMenu.Content>
                   <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                     {/* Special first item */}
                     {section?.items?.map(
                       (item, itemIndex) =>
                         item.special && (
                           <li className="row-span-3" key={itemIndex}>
-                            <NavigationMenuLink asChild>
+                            <NavigationMenu.Link asChild>
                               <a
                                 className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                                 href={item.href}
@@ -57,7 +76,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ sections }) => {
                                   {item.description}
                                 </p>
                               </a>
-                            </NavigationMenuLink>
+                            </NavigationMenu.Link>
                           </li>
                         )
                     )}
@@ -74,26 +93,30 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ sections }) => {
                         )
                     )}
                   </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+                </NavigationMenu.Content>
+              </NavigationMenu.Item>
             )
         )}
         {sections.map(
           (items, itemindex) =>
             !items.dropdown && (
-              <NavigationMenuItem key={itemindex}>
+              <NavigationMenu.Item key={itemindex}>
                 <Link href={items.href}>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <NavigationMenu.Link
+                    className={navigationMenuTriggerStyle()}
+                  >
                     {items.title}
-                  </NavigationMenuLink>
+                  </NavigationMenu.Link>
                 </Link>
-              </NavigationMenuItem>
+              </NavigationMenu.Item>
             )
         )}
-      </NavigationMenuList>
-    </NavigationMenuMain>
+      </NavigationMenu.List>
+    </NavigationMenu.Main>
   );
-};
+}) as NavigationMenuComponent;
+
+NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName;
 
 const NavigationMenuMain = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -108,10 +131,10 @@ const NavigationMenuMain = React.forwardRef<
     {...props}
   >
     {children}
-    <NavigationMenuViewport />
+    <NavigationMenu.Viewport />
   </NavigationMenuPrimitive.Root>
 ));
-NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName;
+NavigationMenuMain.displayName = NavigationMenuPrimitive.Root.displayName;
 
 const NavigationMenuList = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.List>,
@@ -211,7 +234,7 @@ const NavListItem = React.forwardRef<
 >(({ className, title, children, ...props }, ref) => {
   return (
     <li>
-      <NavigationMenuLink asChild>
+      <NavigationMenu.Link asChild>
         <a
           ref={ref}
           className={cn(
@@ -225,22 +248,19 @@ const NavListItem = React.forwardRef<
             {children}
           </p>
         </a>
-      </NavigationMenuLink>
+      </NavigationMenu.Link>
     </li>
   );
 });
 NavListItem.displayName = "NavListItem";
 
-export {
-  navigationMenuTriggerStyle,
-  NavigationMenu,
-  NavigationMenuMain,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuContent,
-  NavigationMenuTrigger,
-  NavigationMenuLink,
-  NavigationMenuIndicator,
-  NavigationMenuViewport,
-  NavListItem,
-};
+(NavigationMenu as NavigationMenuComponent).Main = NavigationMenuMain;
+(NavigationMenu as NavigationMenuComponent).List = NavigationMenuList;
+(NavigationMenu as NavigationMenuComponent).Item = NavigationMenuItem;
+(NavigationMenu as NavigationMenuComponent).Trigger = NavigationMenuTrigger;
+(NavigationMenu as NavigationMenuComponent).Content = NavigationMenuContent;
+(NavigationMenu as NavigationMenuComponent).Link = NavigationMenuLink;
+(NavigationMenu as NavigationMenuComponent).Viewport = NavigationMenuViewport;
+(NavigationMenu as NavigationMenuComponent).Indicator = NavigationMenuIndicator;
+
+export { NavigationMenu };
