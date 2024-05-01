@@ -23,16 +23,21 @@ const Separator = React.forwardRef<
     ref
   ) => {
     useXbeshProviderCheck();
-
-    // Define the margin class name based on label position
     const marginClass =
-      labelPosition === "left" ? "mr-2" : labelPosition === "right" ? "ml-2" : "mx-auto";
+      labelPosition === "left"
+        ? "mr-2"
+        : labelPosition === "right"
+        ? "ml-2"
+        : "mx-auto";
 
     if (label) {
       return (
         <div className="flex items-center relative">
-          {labelPosition !== "center" && label && (
-            <Text size={labelSize} className={cn(marginClass, "whitespace-nowrap")}>
+          {labelPosition === "left" && label && (
+            <Text
+              size={labelSize}
+              className={cn(marginClass, "whitespace-nowrap")}
+            >
               {label}
             </Text>
           )}
@@ -48,10 +53,18 @@ const Separator = React.forwardRef<
               {...props}
             />
           </div>
+          {labelPosition === "right" && label && (
+            <Text
+              size={labelSize}
+              className={cn(marginClass, "whitespace-nowrap")}
+            >
+              {label}
+            </Text>
+          )}
           {labelPosition === "center" && label && (
             <Text
               size={labelSize}
-              className="absolute left-1/2 transform -translate-x-1/2 bg-white px-2 whitespace-nowrap"
+              className="absolute left-1/2 transform -translate-x-1/2  px-0.5 whitespace-nowrap"
             >
               {label}
             </Text>

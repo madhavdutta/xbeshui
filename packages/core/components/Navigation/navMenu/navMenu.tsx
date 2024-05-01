@@ -263,4 +263,4 @@ NavListItem.displayName = "NavListItem";
 (NavigationMenu as NavigationMenuComponent).Viewport = NavigationMenuViewport;
 (NavigationMenu as NavigationMenuComponent).Indicator = NavigationMenuIndicator;
 
-export { NavigationMenu };
+export { NavigationMenu,NavListItem };

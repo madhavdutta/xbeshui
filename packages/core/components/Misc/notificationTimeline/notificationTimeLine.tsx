@@ -52,20 +52,20 @@ const NotificationTimeline: React.FC<NotificationTimelineProps> = ({
               )}
             ></div>
             <div className="ms-4">
-            <p className="text-sm font-medium pb-2">{item.label}</p>
-            {item.title && (
-              <p className="text-base font-semibold text-gray-900 dark:text-white">
-                {item.title}
-              </p>
-            )}
-            <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-slate-400">
-              {item.date}
-            </time>
-            {item.desc && (
-              <p className="mb-4 text-sm font-normal text-gray-500 dark:text-gray-400">
-                {item.desc}
-              </p>
-            )}
+              <p className="text-sm font-medium pb-2">{item.label}</p>
+              {item.title && (
+                <p className="text-base font-semibold text-gray-900 dark:text-white">
+                  {item.title}
+                </p>
+              )}
+              <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-slate-400">
+                {item.date}
+              </time>
+              {item.desc && (
+                <p className="mb-4 text-sm font-normal text-gray-500 dark:text-gray-400">
+                  {item.desc}
+                </p>
+              )}
             </div>
           </li>
         ))}
