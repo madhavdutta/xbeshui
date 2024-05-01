@@ -40,7 +40,7 @@ export { Dialog } from "./Feedback/dialog/dialog";
 export { Checkbox } from "./Inputs/checkbox/checkbox";
 export { ColorInput } from "./Inputs/colorInput/colorInput";
 export { ColorSwatch } from "./Inputs/colorSwatch/colorSwatch";
-export { Input } from "./Inputs/textInput/textInput";
+export { TextInput } from "./Inputs/textInput/textInput";
 export { FileInput } from "./Inputs/fileInput/fileInput";
 export { PasswordInput } from "./Inputs/passwordInput/passwordInput";
 export { InputOTP } from "./Inputs/inputOtp/inputOtp";
@@ -49,7 +49,7 @@ export { RangeSlider } from "./Inputs/rangeSlider/rangeSlider";
 export { RadioGroup, RadioGroupItem } from "./Inputs/radio/radio";
 export { Select } from "./Inputs/select/select";
 export { Command} from "./Inputs/command/command";
-export { TagsInput } from "./Inputs/tags/tags";
+export { TagsInput } from "./Inputs/tagsinput/tagsinput";
 export { Switch } from "./Inputs/switch/switch";
 export { Textarea } from "./Inputs/textarea/textarea";
 // All Misc core components are exported from this file

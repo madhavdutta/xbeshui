@@ -14,7 +14,7 @@ import { IconChevronDown } from "@tabler/icons-react";
 import {
   Text,
   Button,
-  Input,
+  TextInput,
   Group,
   DropdownMenu,
 } from "../..";
@@ -68,7 +68,7 @@ export const DataTable = <T,>({
   return (
     <div className="w-full">
       <div className="flex items-center gap-3 py-4">
-        <Input
+        <TextInput
           placeholder={`Filter ${searchable}...`}
           radius="md"
           value={
@@ -86,7 +86,7 @@ export const DataTable = <T,>({
                 <Group
                   justify="left"
                   gap={"xs"}
-                  className="border-dotted border-input border-2 p-2 px-3 rounded-md text-xs leading-5"
+                  className="border-dotted border-input border-2 p-2 px-3 rounded-sm text-xs leading-5"
                 >
                   <IconCirclePlus
                     stroke={1.5}
@@ -149,7 +149,7 @@ export const DataTable = <T,>({
           </DropdownMenu.Content>
         </DropdownMenu>
       </div>
-      <div className="rounded-md border border-input text-secondary-foreground">
+      <div className="rounded-sm border border-input text-secondary-foreground">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

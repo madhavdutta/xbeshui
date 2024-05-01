@@ -20,7 +20,7 @@ const alertVariantsConfig:AlertVariantsConfigType = {
 };
 
 const alertPropsConfig = cva(
-    "bg-background text-secondary-foreground static w-full z-10 rounded-lg border border-input px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground [&>svg~*]:pl-7",
+    "bg-background text-secondary-foreground static w-full z-10 rounded-sm border border-input px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground [&>svg~*]:pl-7",
     alertVariantsConfig
 );
 

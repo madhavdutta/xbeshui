@@ -6,7 +6,7 @@ import { cn } from "../../../../utils";
 import { inputVariants, InputProps } from "./textInput.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+const TextInput = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       className,
@@ -117,6 +117,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Input.displayName = "Input";
+TextInput.displayName = "TextInput";
 
-export { Input };
+export { TextInput };

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { SketchPicker, ColorResult } from "react-color";
 import {ColorSwatch} from "../colorSwatch/colorSwatch";
 import { IconColorPicker } from "@tabler/icons-react";
-import { Input } from "../..";
+import { TextInput } from "../..";
 import { ColorInputProps } from "./colorInput.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
@@ -84,7 +84,7 @@ export const ColorInput: React.FC<ColorInputProps> = ({
   return (
     <div className={className}>
       <div>
-        <Input
+        <TextInput
           label={label}
           description={description}
           ref={inputRef}

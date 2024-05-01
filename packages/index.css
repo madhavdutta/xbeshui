@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +8,7 @@
 
 @layer base {
   :root {
-    --font-sans: "Inter", sans-serif;
+    --font-sans: "DM Sans", sans-serif;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -26,7 +28,13 @@
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
+    --radius-sm: 0.35rem;
     --radius: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.25rem;
+    --radius-2xl: 1.5rem;
+    --radius-3xl: 1.75rem;
 
     *, ::before, ::after {
       border-color: hsl(var(--border));
@@ -34,7 +42,7 @@
   }
 
   .dark {
-    --font-sans: "Inter", sans-serif;
+    --font-sans: "DM Sans", sans-serif;
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -54,12 +62,18 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+    --radius-sm: 0.35rem;
+    --radius: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.25rem;
+    --radius-2xl: 1.5rem;
+    --radius-3xl: 1.75rem;
 
     *, ::before, ::after {
       border-color: hsl(var(--border));
     }
   }
-
 }
 
 @layer components {
@@ -68,11 +82,15 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    font-variation-settings: "slnt" 0;
+    font-variation-settings: 'slnt' 0;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    font-smooth: always;
+    font-kerning: normal;
+    font-feature-settings: "kern";
   }
 }
 
@@ -90,6 +108,11 @@
   .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+  }
+
+  ::selection {
+    background-color: hsl(var(--primary)); /* Set background color using CSS variable */
+    color: hsl(var(--primary-foreground)); /* Set text color using CSS variable */
   }
 
   input {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import {
   Stack,
-  Input,
+  TextInput,
   Group,
   XbeshThemeSwitch,
   AppShell,
@@ -35,7 +35,7 @@ import { IconBox, IconDeviceAnalytics, IconHome, IconMinus, IconPlus, IconSearch
 
 const App = () => {
   const [goal, setGoal] = React.useState(350)
- 
+
   function onClick(adjustment: number) {
     setGoal(Math.max(200, Math.min(400, goal + adjustment)))
   }
@@ -79,102 +79,102 @@ const App = () => {
   ];
 
 
-const data = [
-  {
-    goal: 400,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 278,
-  },
-  {
-    goal: 189,
-  },
-  {
-    goal: 239,
-  },
-  {
-    goal: 300,
-  },
-  {
-    goal: 200,
-  },
-  {
-    goal: 278,
-  },
-  {
-    goal: 189,
-  },
-  {
-    goal: 349,
-  },
-]
- 
-const menuConfig: ContextMenuItemConfig[] = [
-  {
-    type: 'item',
-    label: 'Copy',
-    shortcut: 'Ctrl+C',
-  },
-  {
-    type: 'item',
-    label: 'Paste',
-    shortcut: 'Ctrl+V',
-  },
-  {
-    type: 'separator',
-  },
-  {
-    type: 'sub',
-    label: 'More Options',
-    items: [
-      {
-        type: 'item',
-        label: 'Option 1',
-      },
-      {
-        type: 'item',
-        label: 'Option 2',
-      },
-    ],
-  },
-  {
-    type: 'checkbox',
-    label: 'Checkbox',
-    checked: true,
-  },
-  {
-    type: 'radio',
-    label: 'Radio Group',
-    value: 'option1',
-    items: [
-      {
-        type: 'radio',
-        label: 'Option 1',
-        value: 'option1',
-      },
-      {
-        type: 'radio',
-        label: 'Option 2',
-        value: 'option2',
-      },
-    ],
-  },
-];
+  const data = [
+    {
+      goal: 400,
+    },
+    {
+      goal: 300,
+    },
+    {
+      goal: 200,
+    },
+    {
+      goal: 300,
+    },
+    {
+      goal: 200,
+    },
+    {
+      goal: 278,
+    },
+    {
+      goal: 189,
+    },
+    {
+      goal: 239,
+    },
+    {
+      goal: 300,
+    },
+    {
+      goal: 200,
+    },
+    {
+      goal: 278,
+    },
+    {
+      goal: 189,
+    },
+    {
+      goal: 349,
+    },
+  ]
+
+  const menuConfig: ContextMenuItemConfig[] = [
+    {
+      type: 'item',
+      label: 'Copy',
+      shortcut: 'Ctrl+C',
+    },
+    {
+      type: 'item',
+      label: 'Paste',
+      shortcut: 'Ctrl+V',
+    },
+    {
+      type: 'separator',
+    },
+    {
+      type: 'sub',
+      label: 'More Options',
+      items: [
+        {
+          type: 'item',
+          label: 'Option 1',
+        },
+        {
+          type: 'item',
+          label: 'Option 2',
+        },
+      ],
+    },
+    {
+      type: 'checkbox',
+      label: 'Checkbox',
+      checked: true,
+    },
+    {
+      type: 'radio',
+      label: 'Radio Group',
+      value: 'option1',
+      items: [
+        {
+          type: 'radio',
+          label: 'Option 1',
+          value: 'option1',
+        },
+        {
+          type: 'radio',
+          label: 'Option 2',
+          value: 'option2',
+        },
+      ],
+    },
+  ];
 
   const HeaderUI = () => {
-    
+
     return <Group className={"w-full h-full px-10 py-4"} justify="spaceBetween">
 
       <Breadcrumb>
@@ -195,11 +195,11 @@ const menuConfig: ContextMenuItemConfig[] = [
 
       <Group className="w-96">
         <XbeshThemeSwitch />
-        <Input leftSection={<IconSearch size={16} stroke={.5} />} placeholder="Type here to search" width="full" />
+        <TextInput leftSection={<IconSearch size={16} stroke={.5} />} placeholder="Type here to search" width="full" />
 
         <DropdownMenu>
           <DropdownMenu.Trigger>
-            <Avatar size="sm" radius="full" alt="madhav dutta" />
+            <Avatar size="sm" radius="default" alt="madhav dutta" />
 
           </DropdownMenu.Trigger>
           <DropdownMenu.Content>
@@ -310,7 +310,7 @@ const menuConfig: ContextMenuItemConfig[] = [
                     <Select.Content>
                       <Select.Group>
                         <Select.Label>Group Label</Select.Label>
-                        <Select.Item value="option1">Option 1</Select.Item>
+                        <Select.Item value="option1">Option 1 Option 1 Option 1 Option 1 </Select.Item>
                         <Select.Item value="option2">Option 2</Select.Item>
                         <Select.Separator />
                         <Select.Item value="option3">Option 3</Select.Item>
@@ -352,12 +352,12 @@ const menuConfig: ContextMenuItemConfig[] = [
                   {/* Card footer */}
                 </Card.Footer>
               </Card>
-              {/* <Toast>
+              <Toast>
                 <Toast.Title>Toast Title</Toast.Title>
                 <Toast.Description>Toast Description</Toast.Description>
                 <Toast.Action altText="action">Action</Toast.Action>
                 <Toast.Close />
-              </Toast> */}
+              </Toast>
               {/* <Dialog>
                 <Dialog.Trigger>Open Dialog</Dialog.Trigger>
                 <Dialog.Content>
@@ -376,14 +376,14 @@ const menuConfig: ContextMenuItemConfig[] = [
                 <List.Item>List Item 3</List.Item>
               </List>
 
-              <Popover>
+              {/* <Popover>
                 <Popover.Trigger>
                   Open Popover
                 </Popover.Trigger>
                 <Popover.Content>
                   <div>Popover Content</div>
                 </Popover.Content>
-              </Popover>
+              </Popover> */}
 
               {/* <Menubar>
                 <Menubar.Menu>
@@ -406,70 +406,70 @@ const menuConfig: ContextMenuItemConfig[] = [
                 
               </Menubar> */}
 
-            <Drawer>
-      <Drawer.Trigger asChild>
-        <Button variant="outline">Open Drawer</Button>
-      </Drawer.Trigger>
-      <Drawer.Content>
-        <div className="mx-auto w-full max-w-sm">
-          <Drawer.Header>
-            <Drawer.Title>Move Goal</Drawer.Title>
-            <Drawer.Description>Set your daily activity goal.</Drawer.Description>
-          </Drawer.Header>
-          <div className="p-4 pb-0">
-            <div className="flex items-center justify-center space-x-2">
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 shrink-0 rounded-full"
-                onClick={() => onClick(-10)}
-                disabled={goal <= 200}
-              >
-                <IconMinus className="h-4 w-4" />
-                <span className="sr-only">Decrease</span>
-              </Button>
-              <div className="flex-1 text-center">
-                <div className="text-7xl font-bold tracking-tighter">
-                  {goal}
-                </div>
-                <div className="text-[0.70rem] uppercase text-muted-foreground">
-                  Calories/day
-                </div>
-              </div>
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 shrink-0 rounded-full"
-                onClick={() => onClick(10)}
-                disabled={goal >= 400}
-              >
-                <IconPlus className="h-4 w-4" />
-                <span className="sr-only">Increase</span>
-              </Button>
-            </div>
-            <div className="mt-3 h-[120px]">
-              <Container fluid>
-               
-             
-              </Container>
-            </div>
-          </div>
-          <Drawer.Footer>
-            <Button>Submit</Button>
-            <Drawer.Close asChild>
-              <Button variant="outline">Cancel</Button>
-            </Drawer.Close>
-          </Drawer.Footer>
-        </div>
-      </Drawer.Content>
-    </Drawer>
+              <Drawer>
+                <Drawer.Trigger asChild>
+                  <Button variant="outline">Open Drawer</Button>
+                </Drawer.Trigger>
+                <Drawer.Content>
+                  <div className="mx-auto w-full max-w-sm">
+                    <Drawer.Header>
+                      <Drawer.Title>Move Goal</Drawer.Title>
+                      <Drawer.Description>Set your daily activity goal.</Drawer.Description>
+                    </Drawer.Header>
+                    <div className="p-4 pb-0">
+                      <div className="flex items-center justify-center space-x-2">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="h-8 w-8 shrink-0 rounded-full"
+                          onClick={() => onClick(-10)}
+                          disabled={goal <= 200}
+                        >
+                          <IconMinus className="h-4 w-4" />
+                          <span className="sr-only">Decrease</span>
+                        </Button>
+                        <div className="flex-1 text-center">
+                          <div className="text-7xl font-bold tracking-tighter">
+                            {goal}
+                          </div>
+                          <div className="text-[0.70rem] uppercase text-muted-foreground">
+                            Calories/day
+                          </div>
+                        </div>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="h-8 w-8 shrink-0 rounded-full"
+                          onClick={() => onClick(10)}
+                          disabled={goal >= 400}
+                        >
+                          <IconPlus className="h-4 w-4" />
+                          <span className="sr-only">Increase</span>
+                        </Button>
+                      </div>
+                      <div className="mt-3 h-[120px]">
+                        <Container fluid>
 
-    <ContextMenu>
-  <ContextMenu.Trigger>Open Context Menu</ContextMenu.Trigger>
-  <ContextMenu.Content menuConfig={menuConfig}>
-    asdsddasd
-  </ContextMenu.Content>
-</ContextMenu>
+
+                        </Container>
+                      </div>
+                    </div>
+                    <Drawer.Footer>
+                      <Button>Submit</Button>
+                      <Drawer.Close asChild>
+                        <Button variant="outline">Cancel</Button>
+                      </Drawer.Close>
+                    </Drawer.Footer>
+                  </div>
+                </Drawer.Content>
+              </Drawer>
+
+              <ContextMenu>
+                <ContextMenu.Trigger>Open Context Menu</ContextMenu.Trigger>
+                <ContextMenu.Content menuConfig={menuConfig}>
+                  asdsddasd
+                </ContextMenu.Content>
+              </ContextMenu>
             </Group>
 
           </Stack>

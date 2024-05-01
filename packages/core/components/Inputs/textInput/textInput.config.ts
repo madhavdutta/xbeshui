@@ -23,7 +23,7 @@ const inputConfig: InputConfigType = {
       full: "w-full",
     },
     radius: {
-      default: "rounded-md",
+      default: "rounded-sm",
       xs: "rounded-xs",
       sm: "rounded-sm",
       md: "rounded-md",

@@ -27,7 +27,7 @@ const cardConfig: CardVariantsConfigType = {
       xl: "p-8",
     },
     radius: {
-      default: "rounded-md",
+      default: "rounded-sm",
       xs: "rounded-xs",
       sm: "rounded-sm",
       md: "rounded-md",

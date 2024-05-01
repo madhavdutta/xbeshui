@@ -49,12 +49,12 @@ const TabsList = React.forwardRef<
       ref={ref}
       className={cn(
         variant === "outline"
-          ? "w-full inline-flex h-[38px] rounded-md bg-transparent text-foreground border-b border-gray-300 rounded-none"
+          ? "w-full inline-flex h-[38px] rounded-sm bg-transparent text-foreground border-b border-gray-300 rounded-none"
           : variant === "pill"
-          ? "w-full inline-flex h-10 rounded-md bg-muted p-1 text-muted-foreground"
+          ? "w-full inline-flex h-10 rounded-sm bg-muted p-1 text-muted-foreground"
           : variant === "underline"
-          ? "w-full inline-flex h-[38px] rounded-md bg-transparent text-foreground border-b-2 border-input rounded-none"
-          : "w-full inline-flex h-[38px] rounded-md bg-transparent text-foreground border-b-2 border-input rounded-none",
+          ? "w-full inline-flex h-[38px] rounded-sm bg-transparent text-foreground border-b-2 border-input rounded-none"
+          : "w-full inline-flex h-[38px] rounded-sm bg-transparent text-foreground border-b-2 border-input rounded-none",
         className
       )}
       {...props}

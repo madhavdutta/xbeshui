@@ -46,7 +46,7 @@ const CollapsibleContent: React.FC<{ data: CollapsibleItemConfig }> = ({ data })
       {data.items.map((item, index) => (
         <div
           key={index}
-          className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm"
+          className="rounded-sm border px-4 py-2 font-mono text-sm shadow-sm"
         >
           {item}
         </div>

@@ -43,7 +43,7 @@ const MultiSelect = ({ frameworks = [] }: MultiSelectProps) => {
 
   return (
     <CommandPrimitive onKeyDown={handleKeyDown} className="overflow-visible bg-transparent">
-      <div className="group w-96 border border-input px-3 py-2 text-sm rounded-md">
+      <div className="group w-96 border border-input px-3 py-2 text-sm rounded-sm">
         <div className="flex gap-1 flex-wrap">
           {selected.map((framework) => (
             <Badge key={framework.value} variant="secondary">
@@ -69,7 +69,7 @@ const MultiSelect = ({ frameworks = [] }: MultiSelectProps) => {
         </div>
       </div>
       {open && selectables.length > 0 && (
-        <div className="absolute w-full z-10 top-0 rounded-md border bg-popover text-popover-foreground shadow-md outline-none animate-in">
+        <div className="absolute w-full z-10 top-0 rounded-sm border bg-popover text-popover-foreground shadow-md outline-none animate-in">
           <CommandPrimitive.Group className="h-full overflow-auto">
             {selectables.map((framework) => (
               <CommandPrimitive.Item
