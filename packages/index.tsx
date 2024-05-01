@@ -86,3 +86,6 @@ export * from "./core/components/Typography/list/list";
 export * from "./core/components/Theme/xBeshTheme/xbeshProvider";
 export * from "./core/components/Theme/xBeshTheme/xBeshThemeProvider";
 export * from "./core/components/Theme/themeSwitch/xBeshThemeSwitch";
+
+export * from "./core/components/Inputs/combobox/combobox";
+export * from "./core/ui/appshell/navbar/navbarui"
