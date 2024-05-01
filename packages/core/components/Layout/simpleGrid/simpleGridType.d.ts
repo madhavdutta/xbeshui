@@ -1,6 +1,3 @@
-import { VariantProps } from "class-variance-authority";
-import { simpleGridVariant } from "./simpleGrid.config";
-
 export interface simpleGridVariantType {
   variants: {
     cols: {

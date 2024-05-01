@@ -5,7 +5,7 @@ npm pack
 
 # Step 2: Move the generated file to the desired location and replace the existing file with the new one
 generated_file="xbeshui-core-1.1.5.tgz"  # Replace "xbeshui-core-1.1.5.tgz" with the actual name of the generated file
-desired_location="../xbos/"    # Replace "/path/to/desired/location" with the desired location
+desired_location="../xbCommunity/"    # Replace "/path/to/desired/location" with the desired location
 
 # Check if the desired location exists
 if [ ! -d "$desired_location" ]; then
