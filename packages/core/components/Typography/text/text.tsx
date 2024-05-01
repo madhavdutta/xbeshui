@@ -15,6 +15,7 @@ const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
       lineClamp,
       textTransform,
       textOverflow,
+      fontWeight,
       ...props
     },
     ref: React.Ref<HTMLParagraphElement>
@@ -32,6 +33,7 @@ const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
             align,
             textTransform,
             textOverflow,
+            fontWeight,
             className,
           })
         )}

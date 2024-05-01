@@ -1,19 +1,33 @@
 import { VariantProps, cva } from "class-variance-authority";
 import { CardRadiusType, CardShadowType, CardVariantsConfigType } from "./cardType";
 
+export interface CardOwnProps extends React.HTMLAttributes<HTMLDivElement> {
+  header?: {
+    title?: string;
+    description?: React.ReactNode;
+  },
+  footer?: React.ReactNode;
+  children?: React.ReactNode;
+}
 
-const cardConfig:CardVariantsConfigType= {
+export interface CardProps extends CardOwnProps, VariantProps<typeof CardVariants> {
+  withBorder?: boolean;
+  shadow?: keyof CardShadowType;
+  radius?: keyof CardRadiusType;
+}
+
+const cardConfig: CardVariantsConfigType = {
   variants: {
-    size: {
-      default: "w-auto",
-      xs: "w-1/4",
-      sm: "w-1/3",
-      md: "w-2/5",
-      lg: "w-1/2",
-      xl: "w-3/5",
+    padding: {
+      default: "p-4",
+      xs: "p-2.5",
+      sm: "p-3",
+      md: "p-4",
+      lg: "p-5",
+      xl: "p-8",
     },
     radius: {
-      default: "rounded-none",
+      default: "rounded-sm",
       xs: "rounded-xs",
       sm: "rounded-sm",
       md: "rounded-md",
@@ -21,13 +35,13 @@ const cardConfig:CardVariantsConfigType= {
       xl: "rounded-xl",
     },
     shadow: {
-      default: "drop-shadow",
-      none:"drop-shadow-none",
-      xs: "drop-shadow",
-      sm: "drop-shadow-sm",
-      md: "drop-shadow-md",
-      lg: "drop-shadow-lg",
-      xl: "drop-shadow-xl",
+      default: "shadow",
+      none: "shadow-none",
+      xs: "shadow-xs",
+      sm: "shadow-sm",
+      md: "shadow-md",
+      lg: "shadow-lg",
+      xl: "shadow-xl",
     },
     withBorder: {
       default: "",
@@ -36,19 +50,11 @@ const cardConfig:CardVariantsConfigType= {
     },
   },
   defaultVariants: {
-    size: "default",
+    padding: "default",
     radius: "default",
     shadow: "default",
     withBorder: false,
   },
-}
+};
 
-export const CardVariants = cva("bg-background w-auto text-secondary-foreground bg-card text-card-foreground rounded-md  border border-input margin-auto", cardConfig);
-
-export interface CardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof CardVariants> {
-  withBorder?: boolean;
-  shadow?: keyof CardShadowType;
-  radius?: keyof CardRadiusType;
-}
+export const CardVariants = cva("bg-card text-card-foreground", cardConfig);

@@ -53,7 +53,7 @@ export const sepratorConfig:SepratorConfigType ={
   },
 }
 
-export const sepratorVariant = cva("bg-background text-primary-foreground shrink-0 bg-border",sepratorConfig);
+export const separatorVariant = cva("shrink-0 bg-border",sepratorConfig);
 
 
 
@@ -65,4 +65,4 @@ export type SeparatorProps = {
   labelSize?: keyof SepratorConfigType["variants"]["labelSize"];
   labelPosition?: keyof SepratorConfigType["variants"]["labelPosition"];
 } & React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root> &
-  VariantProps<typeof sepratorVariant>;
+  VariantProps<typeof separatorVariant>;

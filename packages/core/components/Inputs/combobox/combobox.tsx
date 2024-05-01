@@ -1,18 +1,8 @@
 import * as React from "react";
 import { IconSelect, IconCheck } from "@tabler/icons-react";
-import {
-  PopoverContent,
-  PopoverTrigger,
-  Popovermain,
-} from "../../Overlays/popover/popover";
+import {Popover} from "../../Overlays/popover/popover";
 import { Button } from "../../Buttons/button/button";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from "../spotlight/spotlight";
+import { Command} from "../command/command";
 import { cn } from "../../../../utils";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
@@ -31,22 +21,22 @@ const ComboBox = ({ data }: ComboboxDemoProps) => {
   const [value, setValue] = React.useState("");
 
   return (
-    <Popovermain open={opened} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
+    <Popover open={opened} onOpenChange={setOpen}>
+      <Popover.Trigger asChild>
         <Button variant="outline" rightSection={<IconSelect className="ml-2 h-4 w-4 shrink-0 opacity-50" />} className="w-[200px] justify-between">
           {value
             ? data.find((framework) => framework.value === value)?.label
             : "Select framework..."}
 
         </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      </Popover.Trigger>
+      <Popover.Content className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="Search framework..." className="h-9" />
-          <CommandEmpty>No framework found.</CommandEmpty>
-          <CommandGroup>
+          <Command.Input placeholder="Search framework..." className="h-9" />
+          <Command.Empty>No framework found.</Command.Empty>
+          <Command.Group>
             {data.map((framework) => (
-              <CommandItem
+              <Command.Item
                 key={framework.value}
                 value={framework.value}
                 onSelect={(currentValue) => {
@@ -61,12 +51,12 @@ const ComboBox = ({ data }: ComboboxDemoProps) => {
                     value === framework.value ? "opacity-100" : "opacity-0"
                   )}
                 />
-              </CommandItem>
+              </Command.Item>
             ))}
-          </CommandGroup>
+          </Command.Group>
         </Command>
-      </PopoverContent>
-    </Popovermain>
+      </Popover.Content>
+    </Popover>
   );
 };
 ComboBox.displayname = "ComboBox";

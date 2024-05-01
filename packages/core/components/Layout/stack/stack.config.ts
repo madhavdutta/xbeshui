@@ -3,18 +3,18 @@ import { StackVariantType } from "./stackType";
 const stackConfig: StackVariantType = {
   variants: {
     justify: {
-      default: "justify-start",
-      flexStart: "justify-start",
+      default: "",
+      top: "justify-start",
       center: "justify-center",
       spaceBetween: "justify-between",
-      flexEnd: "justify-end",
+      bottom: "justify-end",
       spaceAround: "justify-around",
     },
     align: {
-      default: "items-start",
-      itemStart: "items-start",
+      default: "",
+      left: "items-start",
       center: "items-center",
-      itemEnd: "items-end",
+      right: "items-end",
       stretch: "items-stretch",
     },
     gap: {
@@ -28,13 +28,13 @@ const stackConfig: StackVariantType = {
     },
   },
   defaultVariants: {
-    justify: "flexStart",
-    align: "itemStart",
+    justify: "default",
+    align: "default",
     gap: "default",
   },
 };
 export const stackVariant = cva(
-  "bg-background text-primary-foreground flex flex-col w-full",
+  "text-foreground flex flex-col",
   stackConfig
 );
 

@@ -1,4 +1,4 @@
-export interface TagsConfigType {
+export interface TagsinputConfigType {
   variants: {
     variant: {
       default: string;
@@ -34,10 +34,10 @@ export interface TagsConfigType {
     };
   };
   defaultVariants: {
-    labelPosition: keyof TagsConfigType["variants"]["labelPosition"];
-    radius: keyof TagsConfigType["variants"]["radius"];
-    variant: keyof TagsConfigType["variants"]["variant"];
-    width: keyof TagsConfigType["variants"]["width"];
+    labelPosition: keyof TagsinputConfigType["variants"]["labelPosition"];
+    radius: keyof TagsinputConfigType["variants"]["radius"];
+    variant: keyof TagsinputConfigType["variants"]["variant"];
+    width: keyof TagsinputConfigType["variants"]["width"];
   };
 }
 

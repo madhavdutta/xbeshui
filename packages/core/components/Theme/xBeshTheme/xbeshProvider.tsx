@@ -7,6 +7,8 @@
 
 import React, { createContext, useState, ReactNode, useContext } from 'react';
 import { XBeshThemeProvider } from './xBeshThemeProvider';
+import { ToastProvider } from '../../Feedback/toast/toast';
+import { Tooltip } from '../../Overlays/tooltip/tooltip';
 
 interface XBeshUIContextType {
   error: Error | null;
@@ -54,8 +56,14 @@ export const XbeshProvider: React.FC<{
   return (
     <XbeshUIContext.Provider value={contextValue}>
       <XBeshThemeProvider defaultTheme={defaultTheme} storageKey={storageKey}>
+      <ToastProvider>
+      <Tooltip.Provider>
         {error ? <ErrorDisplay error={error} clearError={clearError} /> : null}
+        <div className="bg-background text-foreground">
         {children}
+        </div>
+        </Tooltip.Provider>
+        </ToastProvider>
       </XBeshThemeProvider>
     </XbeshUIContext.Provider>
   );

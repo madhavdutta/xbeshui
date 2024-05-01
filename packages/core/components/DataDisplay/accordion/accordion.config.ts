@@ -6,7 +6,7 @@ const accordionVariant: AccordionVariantsType = {
     variant: {
       default: "",
       filled: "border-input",
-      contained: "border border-input rounded-md",
+      contained: "border border-input rounded-sm",
       separated: "border-t border-b border-input",
     },
 

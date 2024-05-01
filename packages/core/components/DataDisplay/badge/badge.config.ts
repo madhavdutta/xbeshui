@@ -19,10 +19,10 @@ export const badgeVariantConfig: BadgeVariantsConfigType = {
       link: "text-primary underline-offset-4 hover:underline",
     },
     size: {
-      default: "rounded-md h-8 px-4 text-sm",
-      xs: "rounded-md h-6 px-2 text-xs",
-      sm: "rounded-md h-8 px-3 text-xs",
-      md: "rounded-md h-8 px-4 text-sm",
+      default: "rounded-sm h-8 px-4 text-sm",
+      xs: "rounded-sm h-6 px-2 text-xs",
+      sm: "rounded-sm h-8 px-3 text-xs",
+      md: "rounded-sm h-8 px-4 text-sm",
       lg: "rounded-md h-8 px-4 text-md",
       "compact-xs": "rounded-sm px-1 text-xs",
       "compact-sm": "rounded-sm px-1 text-sm",
@@ -42,11 +42,11 @@ export const badgeVariantConfig: BadgeVariantsConfigType = {
   defaultVariants: {
     variant: "default",
     size: "default",
-    radius: "md",
+    radius: "sm",
   },
 };
 
-export const badgeVariants = cva( "bg-foreground text-primary-foreground inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors", badgeVariantConfig);
+export const badgeVariants = cva( "bg-foreground text-primary-foreground inline-flex items-center justify-center whitespace-nowrap rounded-sm text-sm font-medium transition-colors", badgeVariantConfig);
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {

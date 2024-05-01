@@ -1,36 +1,65 @@
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
-
-// import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../../utils";
 import { VariantProps } from "class-variance-authority";
 import { tabsVariants } from "./tabs.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-const Tabs = TabsPrimitive.Root;
+interface TabsProps {
+  variant?: "outline" | "pill" | "underline";
+}
 
-const TabsList = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.List>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> &
+interface TabsComponent<T extends React.ElementType = typeof TabsPrimitive.Root>
+  extends React.ForwardRefExoticComponent<
+    Omit<React.ComponentPropsWithoutRef<T>, "ref"> &
+      TabsProps &
+      VariantProps<typeof tabsVariants> &
+      React.RefAttributes<HTMLDivElement>
+  > {
+  TabsList: typeof TabsList;
+  TabsTrigger: typeof TabsTrigger;
+  TabsContent: typeof TabsContent;
+}
+
+const Tabs = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root> &
+    TabsProps &
     VariantProps<typeof tabsVariants>
 >(({ className, variant, ...props }, ref) => {
   useXbeshProviderCheck();
   return (
-  <TabsPrimitive.List
-    ref={ref}
-    className={cn(
-      variant === "outline"
-        ? "inline-flex h-[38px] items-center justify-center rounded-md bg-transparent text-muted-foreground border-b border-gray-300 rounded-none"
-        : variant === "pill"
-        ? "inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground"
-        : variant === "underline"
-        ? "inline-flex h-[38px] items-center justify-center rounded-md bg-transparent text-muted-foreground border-b-2 border-input rounded-none"
-        : "inline-flex h-[38px] items-center justify-center rounded-md bg-transparent text-muted-foreground border-b-2 border-input rounded-none",
-      className
-    )}
-    {...props}
-  />
-  )
+    <TabsPrimitive.Root
+      ref={ref}
+      className={cn("flex-col", className)}
+      {...props}
+    />
+  );
+}) as TabsComponent;
+
+const TabsList = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.List>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> &
+    TabsProps &
+    VariantProps<typeof tabsVariants>
+>(({ className, variant, ...props }, ref) => {
+  useXbeshProviderCheck();
+  return (
+    <TabsPrimitive.List
+      ref={ref}
+      className={cn(
+        variant === "outline"
+          ? "w-full inline-flex h-[38px] rounded-sm bg-transparent text-foreground border-b border-gray-300 rounded-none"
+          : variant === "pill"
+          ? "w-full inline-flex h-10 rounded-sm bg-muted p-1 text-muted-foreground"
+          : variant === "underline"
+          ? "w-full inline-flex h-[38px] rounded-sm bg-transparent text-foreground border-b-2 border-input rounded-none"
+          : "w-full inline-flex h-[38px] rounded-sm bg-transparent text-foreground border-b-2 border-input rounded-none",
+        className
+      )}
+      {...props}
+    />
+  );
 });
 
 TabsList.displayName = TabsPrimitive.List.displayName;
@@ -38,6 +67,7 @@ TabsList.displayName = TabsPrimitive.List.displayName;
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> &
+    TabsProps &
     VariantProps<typeof tabsVariants>
 >(({ className, variant, ...props }, ref) => (
   <TabsPrimitive.Trigger
@@ -55,6 +85,7 @@ const TabsTrigger = React.forwardRef<
     {...props}
   />
 ));
+
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
 const TabsContent = React.forwardRef<
@@ -70,6 +101,11 @@ const TabsContent = React.forwardRef<
     {...props}
   />
 ));
+
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
-export { Tabs, TabsList, TabsTrigger, TabsContent };
+(Tabs as TabsComponent).TabsList = TabsList;
+(Tabs as TabsComponent).TabsTrigger = TabsTrigger;
+(Tabs as TabsComponent).TabsContent = TabsContent;
+
+export { Tabs };

@@ -3,17 +3,22 @@ import xBeshTheme from './packages/core/types/xBeshTheme';
 
 export default {
   darkMode: ['dark'],
-  content: ['./packages/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./packages/**//*.{js,ts,jsx,tsx}', './src/**//*.{js,ts,jsx,tsx}'],
+  options: {
+    safelist: xBeshTheme.safelist,
+  },
   theme: {
     extend: {
       fontFamily: xBeshTheme.fontFamily,
       screens: xBeshTheme.screens,
       container: xBeshTheme.container,
       colors: xBeshTheme.colors,
+      spacing: xBeshTheme.spacing,
+      opacity: xBeshTheme.opacity,
       borderRadius: xBeshTheme.borderRadius,
+      boxShadow: xBeshTheme.boxShadow,
       keyframes: xBeshTheme.keyframes,
       animation: xBeshTheme.animation,
-      opacity: xBeshTheme.opacity,
     },
   },
   plugins: [

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button } from "../button/button";
 import { ButtonConfig } from "../button/button.config";
-import { List, ListItem } from "../..";
+import { List } from "../..";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 
@@ -62,9 +62,9 @@ const FileButton = React.forwardRef<HTMLButtonElement, FileButtonProps>(
         <Button variant={variant} radius={radius} size={size} onClick={handleClick} ref={ref}>
           {children}
         </Button>
-        <List>
+        <List type="default">
           {filesData.map((fileData, index) => (
-            <ListItem key={index}>{fileData.name}</ListItem>
+            <List.Item key={index}>{fileData.name}</List.Item>
           ))}
         </List>
       </div>

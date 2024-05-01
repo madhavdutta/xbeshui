@@ -1,55 +1,49 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { simpleGridVariantType } from "./simpleGridType";
+import { cva } from "class-variance-authority";
+import { SimpleGridVariantType } from "./simpleGridType";
 
-const simpleGridConfig: simpleGridVariantType = {
+const simpleGridConfig: SimpleGridVariantType = {
   variants: {
     cols: {
-      default: 1,
-      1: 1,
-      2: 2,
-      3: 3,
-      4: 4,
-      5: 5,
-      6: 6,
-      7: 7,
-      8: 8,
-      9: 9,
-      10: 10,
-      11: 11,
-      12: 12,
+      base: 1,
+      sm: 2,
+      md: 3,
+      lg: 4,
+      xl: 5,
     },
     verticalSpacing: {
-      default: "gap-y-6",
-      xs: "gap-y-2",
-      sm: "gap-y-4",
-      md: "gap-y-6",
-      lg: "gap-y-8",
-      xl: "gap-y-10",
+      base: "gap-y-4",
+      sm: "gap-y-6",
+      md: "gap-y-8",
+      lg: "gap-y-10",
+      xl: "gap-y-12",
     },
     spacing: {
-      default: "gap-x-6",
-      xs: "gap-x-2",
-      sm: "gap-x-4",
-      md: "gap-x-6",
-      lg: "gap-x-8",
-      xl: "gap-x-10",
+      base: "gap-x-4",
+      sm: "gap-x-6",
+      md: "gap-x-8",
+      lg: "gap-x-10",
+      xl: "gap-x-12",
     },
   },
   defaultVariants: {
-    cols: "default",
-    verticalSpacing: "default",
-    spacing: "default",
+    cols: "base",
+    verticalSpacing: "base",
+    spacing: "base",
   },
 };
-export const simpleGridVariant = cva("bg-background text-primary-foreground grid", simpleGridConfig);
+
+export const simpleGridVariant = cva("grid", simpleGridConfig);
+
+interface BreakpointCols {
+  cols?: Partial<Record<keyof typeof simpleGridConfig.variants.cols, number>>;
+}
 
 export interface SimpleGridProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof simpleGridVariant> {
+    Omit<BreakpointCols, "cols"> {
   children?: React.ReactNode;
   className?: string;
-  cols: keyof simpleGridVariantType["variants"]["cols"];
-  verticalSpacing?: keyof simpleGridVariantType["variants"]["verticalSpacing"];
-  spacing?: keyof simpleGridVariantType["variants"]["spacing"];
+  cols?: Partial<Record<keyof typeof simpleGridConfig.variants.cols, number>>;
+  verticalSpacing?: keyof SimpleGridVariantType["variants"]["verticalSpacing"];
+  spacing?: keyof SimpleGridVariantType["variants"]["spacing"];
 }
-

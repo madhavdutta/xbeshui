@@ -1,10 +1,10 @@
-import { VariantProps, cva } from "class-variance-authority";
 import { ContainerVariantType } from "./containerType";
+import { cva } from "class-variance-authority";
 
-const containerConfig: ContainerVariantType = {
+export const containerConfig: ContainerVariantType = {
   variants: {
     p: {
-      default: "p-0",
+      default: "p-4",
       none: "p-0",
       xs: "p-1",
       sm: "p-2",
@@ -30,33 +30,48 @@ const containerConfig: ContainerVariantType = {
       stretch: "items-stretch",
     },
     size: {
-      default: "w-9/12",
-      xs: "w-4/12",
-      sm: "w-5/12",
-      md: "w-6/12",
-      lg: "w-7/12",
-      xl: "w-8/12",
-      xxl: "w-9/12",
-      full:"w-screen"
+      base: "w-full",
+      sm: "w-2/5",
+      md: "w-3/6",
+      lg: "w-3/4",
+      xl: "w-4/5",
+      full: "w-screen",
     },
   },
   defaultVariants: {
     justify: "default",
-    size: "default",
+    size: "base",
     p: "default",
-    itemsJustify: "default",
+    items: "default",
+    withBorder: false,
   },
 };
 
-export const containerVariant = cva("flex flex-col container mx-auto p-8 max-w-none", containerConfig);
+export const containerVariant = cva("flex flex-col mx-auto p-8 max-w-none", containerConfig);
+
+export interface BreakpointCols {
+  cols?: Partial<Record<keyof typeof containerConfig.variants.size, number>>;
+}
+
+export interface SizeProps {
+  sm?: string;
+  md?: string;
+  lg?: string;
+  xl?: string;
+  base?: string;
+  full?: string;
+}
 
 export interface ContainerProps
   extends React.HTMLAttributes<HTMLDivElement>,
-  VariantProps<typeof containerVariant> {
+    Omit<BreakpointCols, "size">,
+    Partial<ContainerVariantType> {
   justify?: keyof ContainerVariantType["variants"]["justify"];
-  size?: keyof ContainerVariantType["variants"]["size"];
   p?: keyof ContainerVariantType["variants"]["p"];
+  items?: keyof ContainerVariantType["variants"]["items"];
   itemsJustify?: keyof ContainerVariantType["variants"]["items"];
   asChild?: boolean;
+  size?: keyof ContainerVariantType["variants"]["size"] | SizeProps;
   fluid?: boolean;
+  withBorder?: boolean;
 }

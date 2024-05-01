@@ -4,10 +4,10 @@ const groupConfig: GroupVariantType = {
   variants: {
     justify: {
       default: "",
-      flexStart: "justify-start",
+      left: "justify-start",
       center: "justify-center",
       spaceBetween: "justify-between",
-      flexEnd: "justify-end",
+      right: "justify-end",
       spaceAround: "justify-around",
     },
     align: {
@@ -40,7 +40,7 @@ const groupConfig: GroupVariantType = {
     wrap: "default",
   },
 };
-export const groupVariant = cva("bg-background text-primary-foreground w-full flex flex-row", groupConfig);
+export const groupVariant = cva("text-foreground w-full flex flex-row", groupConfig);
 
 export interface GroupProps
   extends React.HTMLAttributes<HTMLDivElement>,

@@ -1,5 +1,10 @@
+// breadcrumbType.d.ts
+
+import React from "react";
+
 // Types for Breadcrumb components
 type BreadcrumbProps = React.ComponentPropsWithoutRef<"nav"> & {
+  data?: { link: string; label: string }[];
   separator?: React.ReactNode;
 };
 

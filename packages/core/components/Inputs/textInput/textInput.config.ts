@@ -23,7 +23,7 @@ const inputConfig: InputConfigType = {
       full: "w-full",
     },
     radius: {
-      default: "rounded-none",
+      default: "rounded-sm",
       xs: "rounded-xs",
       sm: "rounded-sm",
       md: "rounded-md",
@@ -45,7 +45,7 @@ const inputConfig: InputConfigType = {
 };
 
 export const inputVariants = cva(
-  "bg-background text-secondary-foreground w-full h-9 rounded-md border border-input bg-transparent text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+  "bg-background text-foreground w-full h-9 border border-input text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
   inputConfig
 );
 

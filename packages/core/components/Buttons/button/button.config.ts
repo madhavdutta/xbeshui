@@ -15,12 +15,12 @@ export const ButtonConfig: ButtonVariantsConfigType = {
       link: "text-primary underline-offset-4 hover:underline",
     },
     size: {
-      default: "rounded-md h-8 px-4 text-sm",
-      xs: "rounded-md h-6 px-2 text-xs",
-      sm: "rounded-md h-8 px-3 text-xs",
-      md: "rounded-md h-8 px-4 text-sm",
-      lg: "rounded-md h-8 px-4 text-md",
-      icon: "rounded-md h-8 w-8 p-0 text-md",
+      default: "rounded-sm h-9 px-2.5 text-sm",
+      xs: "rounded-sm h-6 px-2 text-xs",
+      sm: "rounded-sm h-8 px-2.5 text-xs",
+      md: "rounded-sm h-9 px-2.5 text-sm",
+      lg: "rounded-sm h-10 px-3 text-md",
+      icon: "rounded-sm h-8 w-8 p-0 text-md",
       "compact-xs": "rounded-sm px-1 text-xs",
       "compact-sm": "rounded-sm px-1 text-sm",
       "compact-md": "rounded-sm px-1 text-sm",
@@ -39,12 +39,12 @@ export const ButtonConfig: ButtonVariantsConfigType = {
   defaultVariants: {
     variant: "default",
     size: "default",
-    radius: "md"
+    radius: "sm"
   },
 };
 
 export const buttonVariants = cva(
-  "bg-background text-secondary-foreground inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
+  "bg-background text-secondary-foreground inline-flex items-center justify-center whitespace-nowrap rounded-sm text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
   ButtonConfig
 );
 

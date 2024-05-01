@@ -2,10 +2,10 @@ export interface GroupVariantType {
   variants: {
     justify: {
       default: string;
-      flexStart: string;
+      left: string;
       center: string;
       spaceBetween: string;
-      flexEnd: string;
+      right: string;
       spaceAround: string;
     };
     align: {

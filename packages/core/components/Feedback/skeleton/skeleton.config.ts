@@ -4,7 +4,7 @@ import { skeletonVariantsConfigType } from "./skeletonType";
 const skeletonVariantsConfig: skeletonVariantsConfigType = {
   variants: {
     radius: {
-      default: "rounded-md",
+      default: "rounded-sm",
       xs: "rounded",
       sm: "rounded-sm",
       md: "rounded-md",
@@ -24,7 +24,7 @@ const skeletonVariantsConfig: skeletonVariantsConfigType = {
 };
 
 export const skeletonVariants = cva(
-  "bg-background text-primary-foreground animate-pulse rounded-md h-2 bg-primary/10",
+  "bg-background text-primary-foreground animate-pulse rounded-sm h-2 bg-primary/10",
   skeletonVariantsConfig
 );
 

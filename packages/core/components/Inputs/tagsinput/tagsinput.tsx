@@ -3,10 +3,10 @@ import { IconX } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
 import { Badge } from "../../DataDisplay/badge/badge";
 
-import { tagsVariants, TagsProps } from "./tags.config";
+import { tagsinputVariants, TagsinputProps } from "./tagsinput.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-const TagsInput = React.forwardRef<HTMLInputElement, TagsProps>(
+const TagsInput = React.forwardRef<HTMLInputElement, TagsinputProps>(
   (
     {
       className,
@@ -80,8 +80,8 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsProps>(
         )}
         <div
           className={cn(
-            tagsVariants({ variant, error, width, radius, className }),
-            "flex items-center flex-wrap gap-1 border border-input rounded-md p-2"
+            tagsinputVariants({ variant, error, width, radius, className }),
+            "flex items-center flex-wrap gap-1 border border-input rounded-sm p-2"
           )}
         >
           {tags.map((tag, index) => (
@@ -105,7 +105,7 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsProps>(
             ref={ref}
             disabled={disabled}
             className={cn(
-              tagsVariants({ variant, error, width, radius, className }),
+              tagsinputVariants({ variant, error, width, radius, className }),
               "flex-grow outline-none"
             )}
             style={{ paddingRight: "30px" }} // Adjust padding to fit tags

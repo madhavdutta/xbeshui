@@ -3,13 +3,12 @@ import { cn } from "../../../../utils";
 import { ListItemProps, ListProps, listVariants } from "./list.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-
 const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
-  ({ className, ...props }, ref: React.Ref<HTMLLIElement>) => {
+  ({ children, className, ...props }, ref) => {
     useXbeshProviderCheck();
     return (
-      <li className={className} {...props} ref={ref}>
-        {props.children}
+      <li ref={ref} className={className} {...props}>
+        {children}
       </li>
     );
   }
@@ -18,17 +17,14 @@ const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
 ListItem.displayName = "ListItem";
 
 const List = React.forwardRef<HTMLOListElement, ListProps>(
-  (
-    { className, type, fontSize, position, ...props },
-    ref: React.Ref<HTMLOListElement>
-  ) => {
+  ({ children, className, type, fontSize, position, ...props }, ref) => {
     return (
       <ol
+        ref={ref}
         className={cn(className, listVariants({ type, fontSize, position }))}
         {...props}
-        ref={ref}
       >
-        {props.children}
+        {children}
       </ol>
     );
   }
@@ -36,4 +32,26 @@ const List = React.forwardRef<HTMLOListElement, ListProps>(
 
 List.displayName = "List";
 
-export { List, ListItem };
+interface ListComponentProps extends ListProps {
+  children: React.ReactNode;
+}
+
+const ListComponent: React.FC<ListComponentProps> = (props) => {
+  const { children, ...restProps } = props;
+  return (
+    <List {...restProps}>
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child) && child.type === ListItem) {
+          return child;
+        }
+        return <ListItem>{child}</ListItem>;
+      })}
+    </List>
+  );
+};
+
+const ListComponentWithItem = Object.assign(ListComponent, {
+  Item: ListItem,
+});
+
+export { ListComponentWithItem as List };

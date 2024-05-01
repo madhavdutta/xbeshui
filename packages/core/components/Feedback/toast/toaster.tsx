@@ -1,11 +1,7 @@
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 import {
   Toast,
-  ToastClose,
-  ToastDescription,
-  ToastProvider,
-  ToastTitle,
-  ToastViewport,
+  ToastViewport
 } from "./toast"
 import { useToast } from "./use-toast"
 
@@ -14,22 +10,22 @@ export function Toaster() {
   const { toasts } = useToast()
 
   return (
-    <ToastProvider>
+    <>
       {toasts.map(function ({ id, title, description, action, ...props }) {
         return (
           <Toast key={id} {...props}>
             <div className="grid gap-1">
-              {title && <ToastTitle>{title}</ToastTitle>}
+              {title && <Toast.Title>{title}</Toast.Title>}
               {description && (
-                <ToastDescription>{description}</ToastDescription>
+                <Toast.Description>{description}</Toast.Description>
               )}
             </div>
             {action}
-            <ToastClose />
+            <Toast.Close />
           </Toast>
         )
       })}
       <ToastViewport />
-    </ToastProvider>
+      </>
   )
 }
