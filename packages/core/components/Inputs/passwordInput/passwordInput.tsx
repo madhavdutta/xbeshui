@@ -48,7 +48,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
               <label
                 className={cn(
                   "flex items-center text-secondary-foreground gap-2 mb-1 text-sm font-normal text-red-500",
-                  labelPosition === "left" && "flex-row-reverse"
+                  labelPosition === "right" && "flex-row-reverse"
                 )}
               >
                 {label}
@@ -58,7 +58,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
               <div
                 className={cn(
                   "flex items-center gap-2 mb-1 text-sm text-red-500 font-normal",
-                  labelPosition === "left" && "flex-row-reverse"
+                  labelPosition === "right" && "flex-row-reverse"
                 )}
               >
                 {description}
@@ -71,7 +71,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
               <label
                 className={cn(
                   "flex items-center gap-2 mb-1 text-secondary-foreground text-sm font-normal",
-                  labelPosition === "left" && "flex-row-reverse"
+                  labelPosition === "right" && "flex-row-reverse"
                 )}
               >
                 {label}
@@ -81,7 +81,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
               <div
                 className={cn(
                   "flex items-center gap-2 mb-1 text-sm text-muted-foreground  font-normal",
-                  labelPosition === "left" && "flex-row-reverse"
+                  labelPosition === "right" && "flex-row-reverse"
                 )}
               >
                 {description}

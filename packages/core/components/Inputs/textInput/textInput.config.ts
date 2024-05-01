@@ -5,13 +5,13 @@ const inputConfig: InputConfigType = {
   variants: {
     variant: {
       default: "none",
-      filled: "bg-gray-200",
+      filled: "bg-muted text-foreground",
       unstyled: "border-0 shadow-none",
     },
     labelPosition: {
-      default: "",
-      right: "",
-      left: "",
+      default: "text-left",
+      right: "text-right",
+      left: "text-left",
     },
     width: {
       default: "w-full",

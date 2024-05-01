@@ -4,8 +4,8 @@ export const colorInputConfig: ColorInputConfigType = {
   variants: {
     variant: {
       default: "rounded-none",
-      filled: "ffvfv",
-      outline: "vfvfv",
+      filled: "",
+      outline: "",
     },
     radius: {
       default: "rounded-none",

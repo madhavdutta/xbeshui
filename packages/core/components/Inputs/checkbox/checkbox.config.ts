@@ -4,8 +4,8 @@ export const checkboxConfig: CheckboxConfigType = {
   variants: {
     variant: {
       default: "rounded-none",
-      filled: "ffvfv",
-      outline: "vfvfv",
+      filled: "data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
+      outline: "data-[state=checked]:bg-secondary data-[state=checked]:text-secondary-foreground",
     },
     radius: {
       default: "rounded-none",

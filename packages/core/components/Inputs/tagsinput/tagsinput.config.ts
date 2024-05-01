@@ -4,7 +4,7 @@ const tagsinputConfig: TagsinputConfigType = {
   variants: {
     variant: {
       default: "none",
-      filled: "bg-gray-200",
+      filled: "bg-muted text-foreground",
       unstyled: "border-0 shadow-none",
     },
     labelPosition: {
