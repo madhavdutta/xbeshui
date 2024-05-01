@@ -1,10 +1,10 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { TagsinputConfigType } from "./tagsinputType";
-const tagsinputConfig: TagsinputConfigType = {
+import { TagsConfigType } from "./tagsType";
+const tagsConfig: TagsConfigType = {
   variants: {
     variant: {
       default: "none",
-      filled: "bg-muted text-foreground",
+      filled: "bg-gray-200",
       unstyled: "border-0 shadow-none",
     },
     labelPosition: {
@@ -43,20 +43,20 @@ const tagsinputConfig: TagsinputConfigType = {
     width: "default",
   },
 };
-export const tagsinputVariants = cva(
-  "bg-background text-secondary-foreground rounded-sm text-sm focus:ring-white" ,
-  tagsinputConfig
+export const tagsVariants = cva(
+  "bg-background text-secondary-foreground rounded-md text-sm focus:ring-white" ,
+  tagsConfig
 );
 
-export interface TagsinputProps extends React.InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof tagsinputVariants> {
+export interface TagsProps extends React.InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof tagsVariants> {
   className?: string;
   placeholder?: string;
   label?: React.ReactNode;
   description?: React.ReactNode;
-  labelPosition?: keyof TagsinputConfigType["variants"]["labelPosition"];
-  radius?: keyof TagsinputConfigType["variants"]["radius"];
-  variant?: keyof TagsinputConfigType["variants"]["variant"];
-  width?: keyof TagsinputConfigType["variants"]["width"];
+  labelPosition?: keyof TagsConfigType["variants"]["labelPosition"];
+  radius?: keyof TagsConfigType["variants"]["radius"];
+  variant?: keyof TagsConfigType["variants"]["variant"];
+  width?: keyof TagsConfigType["variants"]["width"];
   disabled?: boolean;
   data?: string[];
   allowDuplicates?: boolean;

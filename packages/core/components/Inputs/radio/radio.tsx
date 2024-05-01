@@ -46,7 +46,7 @@ const RadioGroupItem = React.forwardRef<
         {...props}
       >
         <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-          <IconCheck stroke={1.5} className="h-3.5 w-3.5 fill-primary" />
+          <IconCheck stroke={1.5} className="h-3.5 w-3.5" />
         </RadioGroupPrimitive.Indicator>
       </RadioGroupPrimitive.Item>
       <Text className={`text-${size}`}>{label}</Text>
