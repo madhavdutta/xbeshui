@@ -1,75 +1,63 @@
-"use client";
 import * as React from "react";
+import { IconCheck, IconSelector } from "@tabler/icons-react";
 import { Popover } from "../../Overlays/popover/popover";
-import { Command } from "../command/command";
 import { Button } from "../../Buttons/button/button";
-import { IconCheck, IconSelect } from "@tabler/icons-react";
+import { Command } from "../command/command";
 import { cn } from "../../../../utils";
+import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-const frameworks = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
-  },
-];
+interface DataType {
+  value: string;
+  label: string;
+}
 
-const ComboBox = () => {
-  const [open, setOpen] = React.useState(false);
+interface ComboboxDemoProps {
+  data: DataType[];
+}
+
+const ComboBox = ({ data }: ComboboxDemoProps) => {
+  useXbeshProviderCheck();
+  const [opened, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
   return (
-    <Popover  open={open} onOpenChange={setOpen}>
+    <Popover open={opened} onOpenChange={setOpen}>
       <Popover.Trigger asChild>
         <Button
           variant="outline"
-          role="combobox"
-          aria-expanded={open}
+          rightSection={
+            <IconSelector className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          }
           className="w-[200px] justify-between"
         >
           {value
-            ? frameworks.find((framework) => framework.value === value)?.label
+            ? data.find((framework) => framework.value === value)?.label
             : "Select framework..."}
-          <IconSelect className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </Popover.Trigger>
       <Popover.Content className="w-[200px] p-0">
         <Command>
-          <Command.Input placeholder="Search framework..." />
+          <Command.Input placeholder="Search framework..." className="h-9" />
           <Command.Empty>No framework found.</Command.Empty>
           <Command.Group>
-            {frameworks.map((framework) => (
-              <Command.Item
-                key={framework.value}
-                value={framework.value}
-                onSelect={(currentValue) => {
-                  setValue(currentValue === value ? "" : currentValue);
-                  setOpen(false);
-                }}
-              >
-                <IconCheck
-                  className={cn(
-                    "mr-2 h-4 w-4",
-                    value === framework.value ? "opacity-100" : "opacity-0"
-                  )}
-                />
-                {framework.label}
-              </Command.Item>
+            {data.map((framework) => (
+              <Command.List key={framework.value}>
+                <Command.Item
+                  value={framework.value}
+                  onSelect={(currentValue) => {
+                    setValue(currentValue === value ? "" : currentValue);
+                    setOpen(false);
+                  }}
+                >
+                  {framework.label}
+                  <IconCheck
+                    className={cn(
+                      "ml-auto h-4 w-4",
+                      value === framework.value ? "opacity-100" : "opacity-0"
+                    )}
+                  />
+                </Command.Item>
+              </Command.List>
             ))}
           </Command.Group>
         </Command>
@@ -77,5 +65,5 @@ const ComboBox = () => {
     </Popover>
   );
 };
-ComboBox.displayname = "Combobox";
+ComboBox.displayname = "ComboBox";
 export { ComboBox };

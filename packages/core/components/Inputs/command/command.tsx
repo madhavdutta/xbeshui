@@ -7,8 +7,9 @@ import { cn } from "../../../../utils";
 import { Dialog } from "../../Feedback/dialog/dialog";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-interface CommandComponent<T extends React.ElementType = typeof CommandPrimitive>
-  extends React.ForwardRefExoticComponent<
+interface CommandComponent<
+  T extends React.ElementType = typeof CommandPrimitive
+> extends React.ForwardRefExoticComponent<
     Omit<React.ComponentPropsWithoutRef<T>, "ref"> &
       React.RefAttributes<React.ElementRef<T>>
   > {
@@ -64,7 +65,7 @@ const CommandInput = React.forwardRef<
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "flex h-11 w-full rounded-sm bg-transparent py-3 text-sm outline-0 placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
+        "flex h-11 w-full rounded-sm bg-transparent py-3 text-sm outline-0 border-none focus:border-none focus:outline-none placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring  disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
       {...props}
@@ -83,8 +84,7 @@ const CommandList = React.forwardRef<
     className={cn("max-h-[300px] overflow-y-auto overflow-x-hidden", className)}
     {...props}
   />
-))
-
+));
 
 CommandList.displayName = CommandPrimitive.List.displayName;
 
@@ -137,7 +137,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled='true']:pointer-events-none data-[disabled='true']:opacity-50",
       className
     )}
     {...props}

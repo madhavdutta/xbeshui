@@ -164,7 +164,7 @@ type PaginationLinkProps = {
 const PaginationLink = ({
   className,
   isActive,
-  size ="default",
+  size = "default",
   disabled,
   ...props
 }: PaginationLinkProps) => {

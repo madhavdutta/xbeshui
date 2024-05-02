@@ -113,6 +113,7 @@ export const ColorInput: React.FC<ColorInputProps> = ({
             color={value}
             onChange={handleColorChange}
             disableAlpha={true}
+            className="text-primary-foreground"
           />
         </div>
       )}

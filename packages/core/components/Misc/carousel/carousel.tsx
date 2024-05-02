@@ -5,7 +5,6 @@ import {
   CarouselProps,
   CarouselApi,
 } from "./carouselType";
-
 import { cn } from "../../../../utils";
 import { Button } from "../../Buttons/button/button";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
@@ -45,8 +44,12 @@ const Carousel = React.forwardRef<
       variant = "single",
       orientation = "horizontal",
       opts,
-      iconLeft = <IconChevronLeft  className="h-4 w-4 text-secondary-foreground" />,
-      iconRight = <IconChevronRight className="h-4 w-4 text-secondary-foreground" />,
+      iconLeft = (
+        <IconChevronLeft className="h-4 w-4 text-secondary-foreground" />
+      ),
+      iconRight = (
+        <IconChevronRight className="h-4 w-4 text-secondary-foreground" />
+      ),
       setApi,
       plugins,
       className,
