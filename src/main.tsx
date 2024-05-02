@@ -6,13 +6,12 @@ import "./index.css";
 import "../packages/index.css";
 import { XbeshProvider } from "../packages/core/components/Theme/xBeshTheme/xbeshProvider.tsx";
 import { Toaster } from "../packages/core/components/Feedback/toast/toaster.tsx";
-import AppAakib from "./App-Aakib.tsx";
 const RootComponent = () => {
   return (
     <React.StrictMode>
       <XbeshProvider storageKey={"vite"} defaultTheme={"light"}>
         <div className="w-full">
-          <AppAakib/>
+          <App />
 
           <Toaster />
         </div>
