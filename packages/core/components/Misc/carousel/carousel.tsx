@@ -1,5 +1,4 @@
 import * as React from "react";
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import useEmblaCarousel from "embla-carousel-react";
 import {
   CarouselContextProps,
@@ -10,48 +9,19 @@ import {
 import { cn } from "../../../../utils";
 import { Button } from "../../Buttons/button/button";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
+import { IconChevronLeft } from "@tabler/icons-react";
+import { IconChevronRight } from "@tabler/icons-react";
 type CarouselItemType = {
   type?: "image" | "text" | "video";
   content?: string;
 };
 
-const carouseldemo = (carouselData: CarouselItemType[]) => {
-  useXbeshProviderCheck();
-  return (
-    <CarouselMain className="w-full max-w-xs">
-      <CarouselContent>
-        {carouselData.map((item, index) => (
-          <CarouselItem key={index}>
-            <div>
-              {item.type === "image" && (
-                <img
-                src={item.content}
-                style={{ maxWidth: "100%", maxHeight: "100%", objectFit: 'contain' }}
-                alt={`Slide ${index + 1}`}
-              />
-              )}
-              {item.type === "text" && (
-                <span className="text-4xl font-semibold">{item.content}</span>
-              )}
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </CarouselMain>
-  );
-};
-
 type CarouselPropss = {
   carouselData: CarouselItemType[];
+  variant?: "multiple" | "single";
+  iconLeft?: React.ReactNode;
+  iconRight?: React.ReactNode;
 };
-
-const Carousel = (carouselData: CarouselPropss) => {
-  return carouseldemo(carouselData.carouselData);
-};
-
-Carousel.displayName = "Carousel";
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
 
@@ -65,22 +35,26 @@ function useCarousel() {
   return context;
 }
 
-const CarouselMain = React.forwardRef<
+const Carousel = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & CarouselProps
+  React.HTMLAttributes<HTMLDivElement> & CarouselPropss & CarouselProps
 >(
   (
     {
+      carouselData,
+      variant = "single",
       orientation = "horizontal",
       opts,
+      iconLeft = <IconChevronLeft  className="h-4 w-4 text-secondary-foreground" />,
+      iconRight = <IconChevronRight className="h-4 w-4 text-secondary-foreground" />,
       setApi,
       plugins,
       className,
-      children,
       ...props
     },
     ref
   ) => {
+    useXbeshProviderCheck();
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
@@ -160,18 +134,48 @@ const CarouselMain = React.forwardRef<
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
-          className={cn("relative", className)}
+          className={cn("relative w-full max-w-xs", className)}
           role="region"
           aria-roledescription="carousel"
           {...props}
         >
-          {children}
+          <CarouselContent>
+            {carouselData.map((item, index) => (
+              <CarouselItem
+                key={index}
+                className={
+                  variant === "multiple" ? "md:basis-1/2 lg:basis-1/3" : ""
+                }
+              >
+                <div>
+                  {item.type === "image" && (
+                    <img
+                      src={item.content}
+                      style={{
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        objectFit: "contain",
+                      }}
+                      alt={`Slide ${index + 1}`}
+                    />
+                  )}
+                  {item.type === "text" && (
+                    <span className="text-4xl font-semibold">
+                      {item.content}
+                    </span>
+                  )}
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious icon={iconLeft} />
+          <CarouselNext icon={iconRight} />
         </div>
       </CarouselContext.Provider>
     );
   }
 );
-CarouselMain.displayName = "CarouselMain";
+Carousel.displayName = "Carousel";
 
 const CarouselContent = React.forwardRef<
   HTMLDivElement,
@@ -217,10 +221,14 @@ const CarouselItem = React.forwardRef<
 });
 CarouselItem.displayName = "CarouselItem";
 
+type CarouselPreviousProps = {
+  icon?: React.ReactNode;
+} & React.ComponentProps<typeof Button>;
+
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
-  React.ComponentProps<typeof Button>
->(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+  CarouselPreviousProps
+>(({ className, variant = "outline", size = "icon", icon, ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
@@ -239,44 +247,45 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <IconChevronLeft className="h-4 w-4 text-secondary-foreground" />
+      {icon}
+
       <span className="sr-only">Previous slide</span>
     </Button>
   );
 });
+
 CarouselPrevious.displayName = "CarouselPrevious";
 
-const CarouselNext = React.forwardRef<
-  HTMLButtonElement,
-  React.ComponentProps<typeof Button>
->(({ className, variant = "outline", size = "icon", ...props }, ref) => {
-  const { orientation, scrollNext, canScrollNext } = useCarousel();
+type CarouselNextProps = {
+  icon?: React.ReactNode;
+} & React.ComponentProps<typeof Button>;
 
-  return (
-    <Button
-      ref={ref}
-      variant={variant}
-      size={size}
-      className={cn(
-        "absolute h-8 w-8 rounded-full",
-        orientation === "horizontal"
-          ? "-right-12 top-1/2 -translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
-      )}
-      disabled={!canScrollNext}
-      onClick={scrollNext}
-      {...props}
-    >
-      <IconChevronRight
-        width={16}
-        height={16}
-        className="h-4 w-4 text-secondary-foreground"
-      />
-      <span className="sr-only">Next slide</span>
-    </Button>
-  );
-});
+const CarouselNext = React.forwardRef<HTMLButtonElement, CarouselNextProps>(
+  ({ className, variant = "outline", size = "icon", icon, ...props }, ref) => {
+    const { orientation, scrollNext, canScrollNext } = useCarousel();
+
+    return (
+      <Button
+        ref={ref}
+        variant={variant}
+        size={size}
+        className={cn(
+          "absolute h-8 w-8 rounded-full",
+          orientation === "horizontal"
+            ? "-right-12 top-1/2 -translate-y-1/2"
+            : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+          className
+        )}
+        disabled={!canScrollNext}
+        onClick={scrollNext}
+        {...props}
+      >
+        {icon}
+        <span className="sr-only">Next slide</span>
+      </Button>
+    );
+  }
+);
 CarouselNext.displayName = "CarouselNext";
 
 export {
