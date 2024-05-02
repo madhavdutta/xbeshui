@@ -1,41 +1,59 @@
+"use client";
 import * as React from "react";
-import { IconSelect, IconCheck } from "@tabler/icons-react";
-import {Popover} from "../../Overlays/popover/popover";
+import { Popover } from "../../Overlays/popover/popover";
+import { Command } from "../command/command";
 import { Button } from "../../Buttons/button/button";
-import { Command} from "../command/command";
+import { IconCheck, IconSelect } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
-import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-interface DataType {
-  value: string;
-  label: string;
-}
+const frameworks = [
+  {
+    value: "next.js",
+    label: "Next.js",
+  },
+  {
+    value: "sveltekit",
+    label: "SvelteKit",
+  },
+  {
+    value: "nuxt.js",
+    label: "Nuxt.js",
+  },
+  {
+    value: "remix",
+    label: "Remix",
+  },
+  {
+    value: "astro",
+    label: "Astro",
+  },
+];
 
-interface ComboboxDemoProps {
-  data: DataType[];
-}
-
-const ComboBox = ({ data }: ComboboxDemoProps) => {
-  useXbeshProviderCheck();
-  const [opened, setOpen] = React.useState(false);
+const ComboBox = () => {
+  const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
   return (
-    <Popover open={opened} onOpenChange={setOpen}>
+    <Popover  open={open} onOpenChange={setOpen}>
       <Popover.Trigger asChild>
-        <Button variant="outline" rightSection={<IconSelect className="ml-2 h-4 w-4 shrink-0 opacity-50" />} className="w-[200px] justify-between">
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          className="w-[200px] justify-between"
+        >
           {value
-            ? data.find((framework) => framework.value === value)?.label
+            ? frameworks.find((framework) => framework.value === value)?.label
             : "Select framework..."}
-
+          <IconSelect className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </Popover.Trigger>
       <Popover.Content className="w-[200px] p-0">
         <Command>
-          <Command.Input placeholder="Search framework..." className="h-9" />
+          <Command.Input placeholder="Search framework..." />
           <Command.Empty>No framework found.</Command.Empty>
           <Command.Group>
-            {data.map((framework) => (
+            {frameworks.map((framework) => (
               <Command.Item
                 key={framework.value}
                 value={framework.value}
@@ -44,13 +62,13 @@ const ComboBox = ({ data }: ComboboxDemoProps) => {
                   setOpen(false);
                 }}
               >
-                {framework.label}
                 <IconCheck
                   className={cn(
-                    "ml-auto h-4 w-4",
+                    "mr-2 h-4 w-4",
                     value === framework.value ? "opacity-100" : "opacity-0"
                   )}
                 />
+                {framework.label}
               </Command.Item>
             ))}
           </Command.Group>
@@ -59,5 +77,5 @@ const ComboBox = ({ data }: ComboboxDemoProps) => {
     </Popover>
   );
 };
-ComboBox.displayname = "ComboBox";
+ComboBox.displayname = "Combobox";
 export { ComboBox };

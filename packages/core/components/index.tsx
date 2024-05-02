@@ -47,6 +47,7 @@ export { InputOTP } from "./Inputs/inputOtp/inputOtp";
 export { MultiSelect } from "./Inputs/multiSelect/multiSelect";
 export { RangeSlider } from "./Inputs/rangeSlider/rangeSlider";
 export { RadioGroup, RadioGroupItem } from "./Inputs/radio/radio";
+export {ComboBox} from "./Inputs/combobox/combobox";
 export { Select } from "./Inputs/select/select";
 export { Command} from "./Inputs/command/command";
 export { TagsInput } from "./Inputs/tagsinput/tagsinput";
