@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App-karthik.tsx";
+import App from "./App.tsx";
 import "./index.css";
 import "../packages/index.css";
 import { XbeshProvider } from "../packages/core/components/Theme/xBeshTheme/xbeshProvider.tsx";
