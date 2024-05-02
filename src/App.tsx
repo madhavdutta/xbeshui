@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Stack,
   TextInput,
@@ -23,6 +23,7 @@ import {
   Container,
   ContextMenu,
   ContextMenuItemConfig,
+  Dialog,
 } from "../packages/core/components";
 import {
   IconBox,
@@ -37,12 +38,23 @@ import {
   IconUsers,
 } from "@tabler/icons-react";
 
+import {CommandMenu} from "../packages/core/ui/utilities/cmdk";
+
 const App = () => {
   const [goal, setGoal] = React.useState(350);
 
   function onClick(adjustment: number) {
     setGoal(Math.max(200, Math.min(400, goal + adjustment)));
   }
+
+interface Command {
+  title: string;
+  icon: string;
+  shortcut: string;
+  onSelect: () => void;
+  group?: string;
+  subgroup?: string;
+}
 
   interface NavItemProps {
     link: string;
@@ -124,57 +136,6 @@ const App = () => {
     },
   ];
 
-  const menuConfig: ContextMenuItemConfig[] = [
-    {
-      type: "item",
-      label: "Copy",
-      shortcut: "Ctrl+C",
-    },
-    {
-      type: "item",
-      label: "Paste",
-      shortcut: "Ctrl+V",
-    },
-    {
-      type: "separator",
-    },
-    {
-      type: "sub",
-      label: "More Options",
-      items: [
-        {
-          type: "item",
-          label: "Option 1",
-        },
-        {
-          type: "item",
-          label: "Option 2",
-        },
-      ],
-    },
-    {
-      type: "checkbox",
-      label: "Checkbox",
-      checked: true,
-    },
-    {
-      type: "radio",
-      label: "Radio Group",
-      value: "option1",
-      items: [
-        {
-          type: "radio",
-          label: "Option 1",
-          value: "option1",
-        },
-        {
-          type: "radio",
-          label: "Option 2",
-          value: "option2",
-        },
-      ],
-    },
-  ];
 
   const HeaderUI = () => {
     return (
@@ -232,7 +193,38 @@ const App = () => {
       </div>
     );
   };
+  const [showCommandMenu, setShowCommandMenu] = useState(false);
 
+  const commands: Command[] = [
+    {
+      title: 'Open File',
+      icon: '📁',
+      shortcut: 'Ctrl+O',
+      onSelect: () => console.log('Open File'),
+      group: 'File',
+      subgroup: 'General',
+    },
+    {
+      title: 'Search Projects',
+      icon: '🔍',
+      shortcut: 'Ctrl+K',
+      onSelect: () =>  console.log('Open File'),
+      group: 'Projects',
+      subgroup: 'Search',
+    },
+    {
+      title: 'Create New Team',
+      icon: '👥',
+      shortcut: 'Ctrl+N',
+      onSelect: () =>  console.log('Open File'),
+      group: 'Teams',
+      subgroup: 'Management',
+    },
+    // Add more commands as needed
+  ];
+  const toggleCommandMenu = () => {
+    setShowCommandMenu(!showCommandMenu);
+  };
   return (
     <>
       <AppShell
@@ -381,12 +373,18 @@ const App = () => {
                   </Dialog.Footer>
                 </Dialog.Content>
               </Dialog> */}
-              <List type={"decimal"}>
+              {/* <List type={"decimal"}>
                 <List.Item>List Item 1</List.Item>
                 <List.Item>List Item 2</List.Item>
                 <List.Item>List Item 3</List.Item>
-              </List>
-
+              </List> */}
+               <div >
+      {/* Your app content */}
+      {showCommandMenu && (
+        <CommandMenu commands={commands} onClose={toggleCommandMenu} />
+      )}
+      <button onClick={toggleCommandMenu}>Open Command Menu</button>
+    </div>
               {/* <Popover>
                 <Popover.Trigger>
                   Open Popover
@@ -474,12 +472,12 @@ const App = () => {
                 </Drawer.Content>
               </Drawer>
 
-              <ContextMenu>
+              {/* <ContextMenu>
                 <ContextMenu.Trigger>Open Context Menu</ContextMenu.Trigger>
                 <ContextMenu.Content menuConfig={menuConfig}>
                   asdsddasd
                 </ContextMenu.Content>
-              </ContextMenu>
+              </ContextMenu> */}
             </Group>
           </Stack>
           <Stack className={"w-full md:w-full xl:w-1/3 h-screen"}>
