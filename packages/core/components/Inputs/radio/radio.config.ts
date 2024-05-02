@@ -3,26 +3,33 @@ import {RadioConfigType} from './radioType'
 const radioConfig:RadioConfigType={
     variants: {
       variant: {
-        default: "rounded-none",
-        filled: "",
-        outline: "",
+        default: "",
+        filled: "bg-primary text-primary-foreground",
+        outline: "bg-transparent",
       },
       size: {
         default: "size-5",
-        xs: "size-4",
-        sm: "size-5",
-        md: "size-6",
-        lg: "size-7",
-        xl: "size-8",
+        xs: "size-2",
+        sm: "size-3",
+        md: "size-4",
+        lg: "size-5",
+        xl: "size-6",
       },
-
+      labelSize: {
+        default: "text-base",
+        xs: "text-xs",
+        sm: "text-sm",
+        md: "text-md",
+        lg: "text-lg",
+        xl: "text-xl",
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
     },
   }
-export const radioVariants = cva("bg-background text-secondary-foreground grid gap-2",radioConfig );
+export const radioVariants = cva("bg-background text-secondary-foreground grid gap-2 rounded-full",radioConfig );
 
 
 export interface RadioGroupProps
