@@ -8,21 +8,35 @@ import { Text } from "../../Typography/text/text";
 import { RadioGroupProps, radioVariants } from "./radio.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
+interface RadioOptionsItem {
+  label: string
+  value: string
+  id: string
+}
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> &
-    RadioGroupProps
->(({ className, variant, size, disabled, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> & {
+    radioOptions: RadioOptionsItem[];
+  } & RadioGroupProps
+>(({ className, variant,value, size, disabled, defaultValue, radioOptions, labelSize, ...props }, ref) => {
   useXbeshProviderCheck();
   return (
     <>
       <RadioGroupPrimitive.Root
-        className={cn(radioVariants({variant, size, className}))}
+        className={cn(radioVariants({ size, className }))}
         disabled={disabled}
+        defaultValue={defaultValue}
         {...props}
         ref={ref}
-      />
+      > 
+        {radioOptions.map((item: RadioOptionsItem, index: number) => {
+          return (
+            <RadioGroupItem key={index} value={item.value} label={item.label} variant={variant} size={size} labelSize={labelSize}/>
+          )
+        })}
+        
+      </RadioGroupPrimitive.Root>
     </>
   );
 });
@@ -33,23 +47,25 @@ const RadioGroupItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> & {
     label: React.ReactNode;
   } & RadioGroupProps
->(({ className, label, size, ...props }, ref) => {
+>(({ className, variant, label, labelSize, size, ...props }, ref) => {
   useXbeshProviderCheck();
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex space-x-4 flex-nowrap">
       <RadioGroupPrimitive.Item
         ref={ref}
         className={cn(
-          "aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
-          className
+          "aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 justify-center items-center",
+          className, radioVariants({size})
         )}
         {...props}
       >
+       
         <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-          <IconCheck stroke={1.5} className="h-3.5 w-3.5" />
+          <IconCheck stroke={4} className={cn(radioVariants({ size, variant, className }), 'p-1')} />
         </RadioGroupPrimitive.Indicator>
       </RadioGroupPrimitive.Item>
-      <Text className={`text-${size}`}>{label}</Text>
+      <Text className={cn(radioVariants({ labelSize }), 'text-nowrap')}>{label}</Text>
+      
     </div>
   );
 });

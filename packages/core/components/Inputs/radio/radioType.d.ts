@@ -13,6 +13,14 @@ export interface RadioConfigType {
       lg: string;
       xl: string;
     };
+    labelSize: {
+      default: string;
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+    };
   };
   defaultVariants: {
     variant: keyof RadioConfigType["variants"]["variant"];
