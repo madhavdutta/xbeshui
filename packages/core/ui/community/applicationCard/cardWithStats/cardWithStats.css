@@ -1,0 +1,16 @@
+.card {
+    background-color: #ffffff; /* var(--mantine-color-body); */
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 2rem; /* var(--mantine-spacing-sm) var(--mantine-spacing-lg); */
+    border-top: 1px solid #ebedef; /* light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5)); */
+  }
+  
+  .title {
+    font-family: 'Greycliff CF', sans-serif; /* var(--mantine-font-family); */
+    line-height: 1;
+  }
+  

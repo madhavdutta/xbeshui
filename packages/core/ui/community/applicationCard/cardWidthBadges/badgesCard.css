@@ -1,0 +1,22 @@
+.card {
+    background-color: #ffff; /* light-dark(var(--mantine-color-white), var(--mantine-color-dark-7)); */
+  }
+  
+  .section {
+    border-bottom: 1px solid #ebedef; /* light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4)); */
+    padding-left: 1rem; /* var(--mantine-spacing-md); */
+    padding-right: 1rem; /* var(--mantine-spacing-md); */
+    padding-bottom: 1rem; /* var(--mantine-spacing-md); */
+  }
+  
+  .like {
+    color: #fc8181; /* var(--mantine-color-red-6); */
+    width: 20px; /* rem(20px); */
+    height: 20px; /* rem(20px); */
+  } 
+  .label {
+    text-transform: uppercase;
+    font-size: 0.75rem; /* var(--mantine-font-size-xs); */
+    font-weight: 700;
+  }
+  

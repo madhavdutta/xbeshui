@@ -1,0 +1,31 @@
+.card {
+    background-color: #ffffff; /* var(--mantine-color-body); */
+  }
+  
+  .imageSection {
+    padding: 1rem; /* var(--mantine-spacing-md); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ebedef; /* light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4)); */
+  }
+  
+  .label {
+    margin-bottom: 0.5rem; /* var(--mantine-spacing-xs); */
+    line-height: 1;
+    font-weight: 700;
+    font-size: 0.75rem; /* var(--mantine-font-size-xs); */
+    letter-spacing: -0.25px; /* rem(-0.25px); */
+    text-transform: uppercase;
+  }
+  
+  .section {
+    padding: 1rem; /* var(--mantine-spacing-md); */
+    border-top: 1px solid #ebedef; /* light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4)); */
+  }
+  
+  .icon {
+    margin-right: 5px; /* rem(5px); */
+    color: #d8dee9; /* light-dark(var(--mantine-color-gray-5), var(--mantine-color-dark-2)); */
+  }
+  
