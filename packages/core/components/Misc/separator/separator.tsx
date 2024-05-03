@@ -64,7 +64,7 @@ const Separator = React.forwardRef<
           {labelPosition === "center" && label && (
             <Text
               size={labelSize}
-              className="absolute left-1/2 transform -translate-x-1/2  px-0.5 whitespace-nowrap"
+              className="absolute left-1/2 transform -translate-x-1/2 bg-white  px-2 whitespace-nowrap"
             >
               {label}
             </Text>
