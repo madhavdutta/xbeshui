@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Stack,
   TextInput,
@@ -14,29 +14,13 @@ import {
   Tabs,
   Accordion,
   Alert,
-  Toast,
-  // Dialog,
-  Select,
-  // MultiSelect,
-  Command,
-  // Tooltip,
-  // NavigationMenu,
-  List,
-  // Popover,
-  // Menubar,
   Button,
-  Drawer,
-  Container,
-  ContextMenu,
-  ContextMenuItemConfig,
-  Dialog,
+  Toast,
 } from "../packages/core/components";
 import {
   IconBox,
   IconDeviceAnalytics,
   IconHome,
-  IconMinus,
-  IconPlus,
   IconSearch,
   IconSettings,
   IconShoppingCart,
@@ -44,7 +28,9 @@ import {
   IconUsers,
 } from "@tabler/icons-react";
 
-import {CommandMenu} from "../packages/core/ui/utilities/cmdk";
+import CommandMenuDialog from "../packages/core/ui/utilities/cmdk/cmdk";
+import { DocsConfig, docsConfig } from "../packages/core/ui/utilities/cmdk/docs";
+import NotionEditor from "../packages/core/ui/utilities/editor/editor";
 
 const App = () => {
   const [goal, setGoal] = React.useState(350);
@@ -53,25 +39,22 @@ const App = () => {
     setGoal(Math.max(200, Math.min(400, goal + adjustment)));
   }
 
-interface Command {
-  title: string;
-  icon: string;
-  shortcut: string;
-  onSelect: () => void;
-  group?: string;
-  subgroup?: string;
-}
+  interface Command {
+    title: string;
+    icon: string;
+    shortcut: string;
+    onSelect: () => void;
+    group?: string;
+    subgroup?: string;
+    tags?: string[];
+  }
 
   interface NavItemProps {
     link: string;
     title: string;
     icon: React.ReactNode;
   }
-  const frameworks = [
-    { value: "next.js", label: "Next.js" },
-    { value: "sveltekit", label: "SvelteKit" },
-    // ...
-  ];
+
   const navItems: NavItemProps[] = [
     {
       link: "/dashboard",
@@ -97,48 +80,6 @@ interface Command {
       link: "/analytics",
       title: "Analytics",
       icon: <IconDeviceAnalytics stroke={1.8} size={21} />,
-    },
-  ];
-
-  const data = [
-    {
-      goal: 400,
-    },
-    {
-      goal: 300,
-    },
-    {
-      goal: 200,
-    },
-    {
-      goal: 300,
-    },
-    {
-      goal: 200,
-    },
-    {
-      goal: 278,
-    },
-    {
-      goal: 189,
-    },
-    {
-      goal: 239,
-    },
-    {
-      goal: 300,
-    },
-    {
-      goal: 200,
-    },
-    {
-      goal: 278,
-    },
-    {
-      goal: 189,
-    },
-    {
-      goal: 349,
     },
   ];
 
@@ -187,9 +128,11 @@ interface Command {
       </Group>
     );
   };
+
   const FooterUI = () => {
     return <div className={"h-full w-full p-4"}>footer</div>;
   };
+
   const Aside = () => {
     return (
       <div className={"w-full pt-4 pr-4 pl-0"}>
@@ -199,38 +142,79 @@ interface Command {
       </div>
     );
   };
-  const [showCommandMenu, setShowCommandMenu] = useState(false);
 
-  const commands: Command[] = [
-    {
-      title: 'Open File',
-      icon: '📁',
-      shortcut: 'Ctrl+O',
-      onSelect: () => console.log('Open File'),
-      group: 'File',
-      subgroup: 'General',
-    },
-    {
-      title: 'Search Projects',
-      icon: '🔍',
-      shortcut: 'Ctrl+K',
-      onSelect: () =>  console.log('Open File'),
-      group: 'Projects',
-      subgroup: 'Search',
-    },
-    {
-      title: 'Create New Team',
-      icon: '👥',
-      shortcut: 'Ctrl+N',
-      onSelect: () =>  console.log('Open File'),
-      group: 'Teams',
-      subgroup: 'Management',
-    },
-    // Add more commands as needed
-  ];
-  const toggleCommandMenu = () => {
-    setShowCommandMenu(!showCommandMenu);
+
+  const createCommandsFromDocsConfig = (docsConfig: DocsConfig): Command[] => {
+    const commands: Command[] = [];
+
+    // Add commands from mainNav
+    docsConfig.mainNav.forEach((item) => {
+      const command: Command = {
+        title: item.title,
+        icon: item.icon || "",
+        shortcut: "",
+        onSelect: () => {
+          window.location.href = item.href;
+        },
+        group: "Main Navigation",
+        tags: item.tags,
+      };
+      commands.push(command);
+    });
+
+    // Add commands from sidebarNav
+    docsConfig.sidebarNav.forEach((section) => {
+      section.items.forEach((item) => {
+        const command: Command = {
+          title: item.title,
+          icon: item.icon || "",
+          shortcut: "",
+          onSelect: () => {
+            window.location.href = item.href;
+          },
+          group: section.title,
+          subgroup: "",
+          tags: item.tags,
+        };
+        commands.push(command);
+      });
+    });
+
+    return commands;
   };
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setSearchTerm("");
+  };
+
+  const handleSearch = (term: string) => {
+    setSearchTerm(term);
+  };
+
+  const allCommands = createCommandsFromDocsConfig(docsConfig);
+
+  const initialSections = ["Introduction", "Components"];
+
+  const filteredCommands = searchTerm
+    ? allCommands.filter((command) => {
+      const searchTermLowerCase = searchTerm.toLowerCase();
+      const titleMatch = command.title.toLowerCase().includes(searchTermLowerCase);
+      const tagsMatch = command.tags?.some((tag) =>
+        tag.toLowerCase().includes(searchTermLowerCase)
+      );
+      return titleMatch || tagsMatch;
+    })
+    : allCommands;
+
+
   return (
     <>
       <AppShell
@@ -264,7 +248,7 @@ interface Command {
         <Group className={" w-full px-10 flex lg:flex-row flex-col"} gap={"md"}>
           <Stack className={"w-full md:w-full xl:w-2/3 h-screen"}>
             <Group justify="spaceBetween" gap="md">
-              <Card>
+              {/* <Card>
                 <Card.Header>
                   <Card.Title>Card Title</Card.Title>
                   <Card.Description>Card Description</Card.Description>
@@ -308,89 +292,35 @@ interface Command {
                     </Tabs.TabsContent>
                   </Tabs>
                 </Card.Content>
-                <Card.Footer>{/* Card footer */}</Card.Footer>
-              </Card>
+              </Card> */}
 
-              <Card>
+              {/* <Card>
                 <Card.Header>
                   <Card.Title>Card Title</Card.Title>
                   <Card.Description>Card Description</Card.Description>
                 </Card.Header>
                 <Card.Content>
-                  <Select>
-                    <Select.Trigger>
-                      <Select.Value placeholder="Select an option" />
-                    </Select.Trigger>
-                    <Select.Content>
-                      <Select.Group>
-                        <Select.Label>Group Label</Select.Label>
-                        <Select.Item value="option1">
-                          Option 1 Option 1 Option 1 Option 1{" "}
-                        </Select.Item>
-                        <Select.Item value="option2">Option 2</Select.Item>
-                        <Select.Separator />
-                        <Select.Item value="option3">Option 3</Select.Item>
-                      </Select.Group>
-                    </Select.Content>
-                  </Select>
 
-                  <Command.Dialog>
-                    <Command.Input placeholder="Search..." />
-                    <Command.List>
-                      <Command.Empty>No results found.</Command.Empty>
-                      <Command.Group heading="Suggestions">
-                        <Command.Item>
-                          Suggestion 1<Command.Shortcut>⌘ K</Command.Shortcut>
-                        </Command.Item>
-                        <Command.Item>
-                          Suggestion 2<Command.Shortcut>⌘ L</Command.Shortcut>
-                        </Command.Item>
-                      </Command.Group>
-                      <Command.Separator />
-                      <Command.Group heading="Commands">
-                        <Command.Item>
-                          Command 1<Command.Shortcut>⌘ T</Command.Shortcut>
-                        </Command.Item>
-                        <Command.Item>
-                          Command 2<Command.Shortcut>⌘ O</Command.Shortcut>
-                        </Command.Item>
-                      </Command.Group>
-                    </Command.List>
-                  </Command.Dialog>
-                  {/* <MultiSelect frameworks={frameworks} /> */}
+
                 </Card.Content>
-                <Card.Footer>{/* Card footer */}</Card.Footer>
-              </Card>
-              <Toast>
+              </Card> */}
+              {/* <Toast>
                 <Toast.Title>Toast Title</Toast.Title>
                 <Toast.Description>Toast Description</Toast.Description>
                 <Toast.Action altText="action">Action</Toast.Action>
                 <Toast.Close />
-              </Toast>
-              {/* <Dialog>
-                <Dialog.Trigger>Open Dialog</Dialog.Trigger>
-                <Dialog.Content>
-                  <Dialog.Header>
-                    <Dialog.Title>Dialog Title</Dialog.Title>
-                    <Dialog.Description>Dialog Description</Dialog.Description>
-                  </Dialog.Header>
-                  <Dialog.Footer>
-                    <Dialog.Close>Close</Dialog.Close>
-                  </Dialog.Footer>
-                </Dialog.Content>
-              </Dialog> */}
-              {/* <List type={"decimal"}>
-                <List.Item>List Item 1</List.Item>
-                <List.Item>List Item 2</List.Item>
-                <List.Item>List Item 3</List.Item>
-              </List> */}
-               <div >
-      {/* Your app content */}
-      {showCommandMenu && (
-        <CommandMenu commands={commands} onClose={toggleCommandMenu} />
-      )}
-      <button onClick={toggleCommandMenu}>Open Command Menu</button>
-    </div>
+              </Toast> */}
+
+              <Button onClick={handleOpen}>Open Command Menu</Button>
+              <CommandMenuDialog
+                open={isOpen}
+                onClose={handleClose}
+                commands={filteredCommands}
+                onSearch={handleSearch}
+                docsConfig={docsConfig} // Pass the docsConfig prop
+                initialSections={initialSections} // Pass the initialSections prop
+              /> 
+
               {/* <Popover>
                 <Popover.Trigger>
                   Open Popover
@@ -421,69 +351,14 @@ interface Command {
                 
               </Menubar> */}
 
-              <Drawer>
-                <Drawer.Trigger asChild>
-                  <Button variant="outline">Open Drawer</Button>
-                </Drawer.Trigger>
-                <Drawer.Content>
-                  <div className="mx-auto w-full max-w-sm">
-                    <Drawer.Header>
-                      <Drawer.Title>Move Goal</Drawer.Title>
-                      <Drawer.Description>
-                        Set your daily activity goal.
-                      </Drawer.Description>
-                    </Drawer.Header>
-                    <div className="p-4 pb-0">
-                      <div className="flex items-center justify-center space-x-2">
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          className="h-8 w-8 shrink-0 rounded-full"
-                          onClick={() => onClick(-10)}
-                          disabled={goal <= 200}
-                        >
-                          <IconMinus className="h-4 w-4" />
-                          <span className="sr-only">Decrease</span>
-                        </Button>
-                        <div className="flex-1 text-center">
-                          <div className="text-7xl font-bold tracking-tighter">
-                            {goal}
-                          </div>
-                          <div className="text-[0.70rem] uppercase text-muted-foreground">
-                            Calories/day
-                          </div>
-                        </div>
-                        <Button
-                          variant="outline"
-                          size="icon"
-                          className="h-8 w-8 shrink-0 rounded-full"
-                          onClick={() => onClick(10)}
-                          disabled={goal >= 400}
-                        >
-                          <IconPlus className="h-4 w-4" />
-                          <span className="sr-only">Increase</span>
-                        </Button>
-                      </div>
-                      <div className="mt-3 h-[120px]">
-                        <Container fluid></Container>
-                      </div>
-                    </div>
-                    <Drawer.Footer>
-                      <Button>Submit</Button>
-                      <Drawer.Close asChild>
-                        <Button variant="outline">Cancel</Button>
-                      </Drawer.Close>
-                    </Drawer.Footer>
-                  </div>
-                </Drawer.Content>
-              </Drawer>
-
               {/* <ContextMenu>
                 <ContextMenu.Trigger>Open Context Menu</ContextMenu.Trigger>
                 <ContextMenu.Content menuConfig={menuConfig}>
                   asdsddasd
                 </ContextMenu.Content>
               </ContextMenu> */}
+
+              {/* <NotionEditor width="w-[800px]" minHeight="min-h[500px]" minWidth="min-w-800px" height="h-[500px]" /> */}
             </Group>
           </Stack>
           <Stack className={"w-full md:w-full xl:w-1/3 h-screen"}>

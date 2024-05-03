@@ -89,3 +89,4 @@ export * from "./core/components/Theme/themeSwitch/xBeshThemeSwitch";
 
 export * from "./core/components/Inputs/combobox/combobox";
 export * from "./core/ui/appshell/navbar/navbarui"
+export * from "./core/components/Inputs/passwordInput/passwordInput";
