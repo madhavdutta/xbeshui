@@ -11,6 +11,7 @@ import {
   NavbarUI,
   Title,
   Separator,
+  Button,
 } from "../packages/core/components";
 import {
   IconBox,
@@ -144,158 +145,25 @@ const AppAakibUi = () => {
         <br />
         <br />
         <Separator
-          labelPosition="center"
+          labelPosition="right"
           label={<Title order="h4">UserButton</Title>}
         />
         <br />
         <br />
-        <Group justify="spaceAround">
-          <UserButton />
-        </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">UserInfo</Title>}
-        />
+        <Group justify="left">
+          {/* <UserButton /> */}
 
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <UserInfoIcons />
+          <Button variant="default" size="md">  Default </Button>
+          <Button variant="success" size="md">  Success </Button>
+          <Button variant="warning" size="md">  Warning </Button>
+          <Button variant="notice" size="md">  Notice </Button>
+          <Button variant="destructive" size="md">  Destructive</Button>
+          <Button variant="outline" size="md">  Outline </Button>
+          <Button variant="secondary" size="md">  Secondary </Button>
+          <Button variant="ghost" size="md">  Ghost </Button>
+          <Button variant="link" size="md">  This is Link</Button>
         </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">UserActionInfo</Title>}
-        />
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <UserInfoAction />
-        </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">UserCardWithImage</Title>}
-        />
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <UserCardWithImage />
-        </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">ActionsGrid</Title>}
-        />
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <ActionsGrid />
-        </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">BadgeCard</Title>}
-        />
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <BadgeCard />
-        </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">CardWithStats</Title>}
-        />
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <CardWithStats />
-        </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">FeaturesCard</Title>}
-        />
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <FeaturesCard />
-        </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">TaskCard</Title>}
-        />
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <TaskCard />
-        </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">ArticleCardVertical</Title>}
-        />
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <ArticleCardVertical />
-        </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">ArticlesCardsGrid</Title>}
-        />
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <ArticlesCardsGrid />
-        </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">CardGradient</Title>}
-        />
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <CardGradient />
-        </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">ImageCard</Title>}
-        />
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <ImageCard />
-        </Group>
-        <br />
-        <br />
-        <Separator
-          labelPosition="center"
-          label={<Title order="h4">FeaturesAsymmetrical</Title>}
-        />
-        <br />
-        <br />
-        <Group justify="spaceAround">
-          <FeaturesAsymmetrical />
-        </Group>
+       
       </AppShell>
     </>
   );

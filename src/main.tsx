@@ -14,7 +14,6 @@ const RootComponent = () => {
         <div className="w-full">
           <AppAakibUi />
 
-          <Toaster />
         </div>
       </XbeshProvider>
     </React.StrictMode>
