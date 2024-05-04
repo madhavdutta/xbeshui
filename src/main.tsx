@@ -2,17 +2,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import "../packages/index.css";
 import { XbeshProvider } from "../packages/core/components/Theme/xBeshTheme/xbeshProvider.tsx";
 import { Toaster } from "../packages/core/components/Feedback/toast/toaster.tsx";
+import AppAakibUi from "./App-AakibUI.tsx";
 
 const RootComponent = () => {
   return (
     <React.StrictMode>
       <XbeshProvider storageKey={"vite"} defaultTheme={"light"}>
         <div className="w-full">
-          <App />
+          <AppAakibUi />
 
           <Toaster />
         </div>
