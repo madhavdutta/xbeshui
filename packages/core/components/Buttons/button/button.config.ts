@@ -11,8 +11,8 @@ export const ButtonConfig: ButtonVariantsConfigType = {
       destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/80",
       outline: "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
       secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/50",
-      ghost: "hover:bg-accent hover:text-accent-foreground",
-      link: "text-primary underline-offset-4 hover:underline",
+      ghost: "bg-transparent hover:bg-accent hover:text-accent-foreground",
+      link: "bg-transparent text-primary underline-offset-4 hover:underline",
     },
     size: {
       default: "rounded-sm h-9 px-2.5 text-sm",

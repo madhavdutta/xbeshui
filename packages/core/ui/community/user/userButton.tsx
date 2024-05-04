@@ -6,8 +6,8 @@ import { Link } from "../../../components/Buttons/link/link";
 export const UserButton = () => {
   return (
     <>
-      <Link variant={"ghost"}>
-        <Group justify='spaceBetween' className="p-2">
+      <Link variant={"ghost"} className="py-10 px-4">
+        <Group gap={"md"} justify='spaceBetween' className="p-2">
         <Group>
           <Avatar
             src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png"
