@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Avatar, Group, Stack, Text } from "../../../components";
 import { IconChevronRight } from "@tabler/icons-react";
 import { Link } from "../../../components/Buttons/link/link";
