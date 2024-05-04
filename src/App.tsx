@@ -16,6 +16,8 @@ import {
   Alert,
   Button,
   Toast,
+  Grid,
+  Container,
 } from "../packages/core/components";
 import {
   IconBox,
@@ -27,10 +29,6 @@ import {
   IconStack,
   IconUsers,
 } from "@tabler/icons-react";
-
-import CommandMenuDialog from "../packages/core/ui/utilities/cmdk/cmdk";
-import { DocsConfig, docsConfig } from "../packages/core/ui/utilities/cmdk/docs";
-import NotionEditor from "../packages/core/ui/utilities/editor/editor";
 
 const App = () => {
   const [goal, setGoal] = React.useState(350);
@@ -144,44 +142,44 @@ const App = () => {
   };
 
 
-  const createCommandsFromDocsConfig = (docsConfig: DocsConfig): Command[] => {
-    const commands: Command[] = [];
+  // const createCommandsFromDocsConfig = (docsConfig: DocsConfig): Command[] => {
+  //   const commands: Command[] = [];
 
-    // Add commands from mainNav
-    docsConfig.mainNav.forEach((item) => {
-      const command: Command = {
-        title: item.title,
-        icon: item.icon || "",
-        shortcut: "",
-        onSelect: () => {
-          window.location.href = item.href;
-        },
-        group: "Main Navigation",
-        tags: item.tags,
-      };
-      commands.push(command);
-    });
+  //   // Add commands from mainNav
+  //   docsConfig.mainNav.forEach((item) => {
+  //     const command: Command = {
+  //       title: item.title,
+  //       icon: item.icon || "",
+  //       shortcut: "",
+  //       onSelect: () => {
+  //         window.location.href = item.href;
+  //       },
+  //       group: "Main Navigation",
+  //       tags: item.tags,
+  //     };
+  //     commands.push(command);
+  //   });
 
-    // Add commands from sidebarNav
-    docsConfig.sidebarNav.forEach((section) => {
-      section.items.forEach((item) => {
-        const command: Command = {
-          title: item.title,
-          icon: item.icon || "",
-          shortcut: "",
-          onSelect: () => {
-            window.location.href = item.href;
-          },
-          group: section.title,
-          subgroup: "",
-          tags: item.tags,
-        };
-        commands.push(command);
-      });
-    });
+  //   // Add commands from sidebarNav
+  //   docsConfig.sidebarNav.forEach((section) => {
+  //     section.items.forEach((item) => {
+  //       const command: Command = {
+  //         title: item.title,
+  //         icon: item.icon || "",
+  //         shortcut: "",
+  //         onSelect: () => {
+  //           window.location.href = item.href;
+  //         },
+  //         group: section.title,
+  //         subgroup: "",
+  //         tags: item.tags,
+  //       };
+  //       commands.push(command);
+  //     });
+  //   });
 
-    return commands;
-  };
+  //   return commands;
+  // };
 
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -199,20 +197,20 @@ const App = () => {
     setSearchTerm(term);
   };
 
-  const allCommands = createCommandsFromDocsConfig(docsConfig);
+  // const allCommands = createCommandsFromDocsConfig(docsConfig);
 
-  const initialSections = ["Introduction", "Components"];
+  // const initialSections = ["Introduction", "Components"];
 
-  const filteredCommands = searchTerm
-    ? allCommands.filter((command) => {
-      const searchTermLowerCase = searchTerm.toLowerCase();
-      const titleMatch = command.title.toLowerCase().includes(searchTermLowerCase);
-      const tagsMatch = command.tags?.some((tag) =>
-        tag.toLowerCase().includes(searchTermLowerCase)
-      );
-      return titleMatch || tagsMatch;
-    })
-    : allCommands;
+  // const filteredCommands = searchTerm
+  //   ? allCommands.filter((command) => {
+  //     const searchTermLowerCase = searchTerm.toLowerCase();
+  //     const titleMatch = command.title.toLowerCase().includes(searchTermLowerCase);
+  //     const tagsMatch = command.tags?.some((tag) =>
+  //       tag.toLowerCase().includes(searchTermLowerCase)
+  //     );
+  //     return titleMatch || tagsMatch;
+  //   })
+  //   : allCommands;
 
 
   return (
@@ -234,7 +232,21 @@ const App = () => {
         className="bg-muted/40"
         fixedHeader={false}
       >
-        <div className="px-10 py-6 z-10">
+        <Container fluid >
+
+          <Grid gutter="lg" justify="center">
+            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 1</Grid.Col>
+            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 2</Grid.Col>
+            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 1</Grid.Col>
+            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 2</Grid.Col>
+            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 1</Grid.Col>
+            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 2</Grid.Col>
+            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 1</Grid.Col>
+            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 2</Grid.Col>
+          </Grid>
+
+        </Container>
+        {/* <div className="px-10 py-6 z-10">
           <Alert
             variant="success"
             title="Success"
@@ -244,11 +256,11 @@ const App = () => {
             <Alert.Title>Success</Alert.Title>
             <Alert.Description>This is a success alert.</Alert.Description>
           </Alert>
-        </div>
-        <Group className={" w-full px-10 flex lg:flex-row flex-col"} gap={"md"}>
+        </div> */}
+        {/* <Group className={" w-full px-10 flex lg:flex-row flex-col"} gap={"md"}>
           <Stack className={"w-full md:w-full xl:w-2/3 h-screen"}>
-            <Group justify="spaceBetween" gap="md">
-              {/* <Card>
+            <Group justify="spaceBetween" gap="md"> */}
+        {/* <Card>
                 <Card.Header>
                   <Card.Title>Card Title</Card.Title>
                   <Card.Description>Card Description</Card.Description>
@@ -294,7 +306,7 @@ const App = () => {
                 </Card.Content>
               </Card> */}
 
-              {/* <Card>
+        {/* <Card>
                 <Card.Header>
                   <Card.Title>Card Title</Card.Title>
                   <Card.Description>Card Description</Card.Description>
@@ -304,24 +316,25 @@ const App = () => {
 
                 </Card.Content>
               </Card> */}
-              {/* <Toast>
+        {/* <Toast>
                 <Toast.Title>Toast Title</Toast.Title>
                 <Toast.Description>Toast Description</Toast.Description>
                 <Toast.Action altText="action">Action</Toast.Action>
                 <Toast.Close />
               </Toast> */}
 
-              <Button onClick={handleOpen}>Open Command Menu</Button>
-              <CommandMenuDialog
+        <Button onClick={handleOpen}>Open Command Menu</Button>
+        {/* <CommandMenuDialog
                 open={isOpen}
                 onClose={handleClose}
                 commands={filteredCommands}
                 onSearch={handleSearch}
                 docsConfig={docsConfig} // Pass the docsConfig prop
                 initialSections={initialSections} // Pass the initialSections prop
-              /> 
+              />  */}
 
-              {/* <Popover>
+
+        {/* <Popover>
                 <Popover.Trigger>
                   Open Popover
                 </Popover.Trigger>
@@ -330,7 +343,7 @@ const App = () => {
                 </Popover.Content>
               </Popover> */}
 
-              {/* <Menubar>
+        {/* <Menubar>
                 <Menubar.Menu>
                   <Menubar.Trigger>File</Menubar.Trigger>
                   <Menubar.Portal>
@@ -351,20 +364,20 @@ const App = () => {
                 
               </Menubar> */}
 
-              {/* <ContextMenu>
+        {/* <ContextMenu>
                 <ContextMenu.Trigger>Open Context Menu</ContextMenu.Trigger>
                 <ContextMenu.Content menuConfig={menuConfig}>
                   asdsddasd
                 </ContextMenu.Content>
               </ContextMenu> */}
 
-              {/* <NotionEditor width="w-[800px]" minHeight="min-h[500px]" minWidth="min-w-800px" height="h-[500px]" /> */}
-            </Group>
+        {/* <NotionEditor width="w-[800px]" minHeight="min-h[500px]" minWidth="min-w-800px" height="h-[500px]" /> */}
+        {/* </Group>
           </Stack>
           <Stack className={"w-full md:w-full xl:w-1/3 h-screen"}>
             {/* <AsideUI /> */}
-          </Stack>
-        </Group>
+        {/* </Stack> */}
+        {/* </Group> */}
       </AppShell>
     </>
   );

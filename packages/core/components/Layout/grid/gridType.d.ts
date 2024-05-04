@@ -1,45 +1,24 @@
-export type SpanType =
-  | number
-  | {
-      base: number;
-      xs?: number;
-      sm?: number;
-      md?: number;
-      lg?: number;
-      xl?: number;
-    };
+export type StyleProp<T> = T | Partial<Record<'base' | 'xs' | 'sm' | 'md' | 'lg' | 'xl', T>>;
 
-export interface GutterType {
-  base: number;
-  xs?: number;
-  sm?: number;
-  md?: number;
-  lg?: number;
-  xl?: number;
-  [key: string]: number | undefined;
-}
+export type ColSpan = number | 'auto' | 'content';
+
+export type XBeshSpacing = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export interface GridProps {
+  align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
   children: React.ReactNode;
-  gutter?: number | GutterType;
   columns?: number;
-  overflow?: "visible" | "hidden";
+  grow?: boolean;
+  gutter?: StyleProp<XBeshSpacing | number>;
+  justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
+  overflow?: 'visible' | 'hidden' | 'scroll' | 'auto';
   className?: string;
-  wrap?: "wrap" | "nowrap";
-  justify?:
-    | "flex-start"
-    | "flex-end"
-    | "center"
-    | "space-between"
-    | "space-around";
-  align?: "stretch" | "center" | "flex-start" | "flex-end";
 }
 
-export interface GridColProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface GridColProps {
   children: React.ReactNode;
-  span: SpanType;
-  offset?: SpanType;
-  order?: SpanType;
-  style?: React.CSSProperties;
+  offset?: StyleProp<number>;
+  order?: StyleProp<number>;
+  span?: StyleProp<ColSpan>;
   className?: string;
 }

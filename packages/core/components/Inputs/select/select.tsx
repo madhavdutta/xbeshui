@@ -33,16 +33,16 @@ const SelectGroup = SelectPrimitive.Group;
 
 const SelectValue = SelectPrimitive.Value;
 
-interface SelectTriggerProps {
-  width: {
-    default: string;
-    xs: string;
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
-  } | string;
-}
+// interface SelectTriggerProps {
+//   width: {
+//     default: string;
+//     xs: string;
+//     sm: string;
+//     md: string;
+//     lg: string;
+//     xl: string;
+//   } | string;
+// }
 
 // const SelectWidthConfig = {
 //   default: "w-32",
@@ -55,8 +55,8 @@ interface SelectTriggerProps {
 
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> & SelectTriggerProps
->(({ className, width, children, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> 
+>(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn( 
