@@ -26,7 +26,6 @@ export { AspectRatio } from "./Layout/aspectRatio/aspectRatio";
 export { FlexBox } from "./Layout/flexBox/flexBox";
 export { Grid } from "./Layout/grid/grid";
 export { SimpleGrid } from "./Layout/simpleGrid/simpleGrid";
-export { Resizable } from "./Layout/resizable/resizable";
 
 // All Feedback core components are exported from this file
 export { Alert } from "./Feedback/alert/alert";

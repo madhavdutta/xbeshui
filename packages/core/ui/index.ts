@@ -15,3 +15,4 @@ export { ArticlesCardsGrid } from "./community/applicationCard/articleCardGrid/a
 export { CardGradient } from "./community/applicationCard/cardWitGraident/cardWithGraident";
 export { ImageCard } from "./community/applicationCard/cardWithImageBackground/cardWithImageBackground";
 export { FeaturesAsymmetrical } from "./featureSection/featuresAsymmetrical/featuresAsymmetrical";
+export { PreviewComp } from "./previewComp/previewComp";
