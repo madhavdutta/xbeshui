@@ -1,0 +1,25 @@
+.ProseMirror {
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ProseMirror h1,
+  .ProseMirror h2,
+  .ProseMirror h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .ProseMirror p {
+    margin-bottom: 10px;
+  }
+  
+  .ProseMirror blockquote {
+    border-left: 3px solid #ccc;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 10px;
+    color: #666;
+  }

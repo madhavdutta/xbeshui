@@ -22,8 +22,8 @@ export const CardSalesComponent = ({ title, items }: CardSalesProps) => {
                 </Card.Title>
             </Card.Header>
             <Card.Content>
-                {items.map((item: innerItemsType, index: number) =>
-                    <Group key={index} className="py-2">
+                {items.map((item: innerItemsType) =>
+                    <Group key={item.id} className="py-2">
                         <Group>
                             <Avatar
                                 src={item.imgUrl}

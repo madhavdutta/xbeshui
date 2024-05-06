@@ -6,7 +6,7 @@ import {
 } from "@tabler/icons-react";
 
 import { Button } from "../../Buttons/button/button";
-import { DataTablePaginationProps } from "./dataTableType";
+import type { DataTablePaginationProps } from "./dataTableType";
 import { Select } from "../../Inputs/select/select";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 

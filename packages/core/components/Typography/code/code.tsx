@@ -2,7 +2,7 @@ import * as React from "react";
 import { cn } from "../../../../utils";
 import { IconCheck, IconCopy } from "@tabler/icons-react";
 import { codeVariants } from "./code.config";
-import { CodeProps } from "./codeType";
+import type { CodeProps } from "./codeType";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 
@@ -42,6 +42,7 @@ const Code = React.forwardRef<HTMLPreElement, CodeProps>(
         <button
           className="absolute top-0 right-0 m-2 p-1 rounded  text-secondary-foreground"
           onClick={copyToClipboard}
+          type="button"
         >
           {copied ? <IconCheck className="text-secondary-foreground" size={16} /> : <IconCopy className="text-secondary-foreground"  size={16} />}
         </button>

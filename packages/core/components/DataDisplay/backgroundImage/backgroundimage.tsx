@@ -1,6 +1,5 @@
-import React from "react";
 import { cn } from "../../../../utils";
-import { BackgroundImageProps, backgroundImageVariants } from "./backgroundImage.config";
+import { backgroundImageVariants, type BackgroundImageProps } from "./backgroundImage.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const BackgroundImage: React.FC<BackgroundImageProps> = ({

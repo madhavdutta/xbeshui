@@ -27,7 +27,7 @@ type NavigationMenuProps = {
 interface NavigationMenuComponent<T extends React.ElementType = typeof NavigationMenuPrimitive.Root>
   extends React.ForwardRefExoticComponent<
     Omit<React.ComponentPropsWithoutRef<T>, "ref"> &
-      React.RefAttributes<React.ElementRef<T>>
+    React.RefAttributes<React.ElementRef<T>>
   > {
   Main: typeof NavigationMenuMain;
   List: typeof NavigationMenuList;
@@ -42,7 +42,7 @@ interface NavigationMenuComponent<T extends React.ElementType = typeof Navigatio
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root> &
-    NavigationMenuProps
+  NavigationMenuProps
 >(({ sections, ...props }, ref) => {
   useXbeshProviderCheck();
   return (
@@ -51,7 +51,7 @@ const NavigationMenu = React.forwardRef<
         {sections.map(
           (section, index) =>
             section.dropdown && (
-              <NavigationMenu.Item key={index}>
+              <NavigationMenu.Item key={section.title}>
                 <NavigationMenu.Trigger>{section.title}</NavigationMenu.Trigger>
                 <NavigationMenu.Content>
                   <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -59,6 +59,7 @@ const NavigationMenu = React.forwardRef<
                     {section?.items?.map(
                       (item, itemIndex) =>
                         item.special && (
+                          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                           <li className="row-span-3" key={itemIndex}>
                             <NavigationMenu.Link asChild>
                               <a
@@ -68,6 +69,7 @@ const NavigationMenu = React.forwardRef<
                                 <img
                                   src="https://xbesh.dev/logo.png"
                                   className="h-6 w-6"
+                                  alt={item.title}
                                 />
                                 <div className="mb-2 mt-4 text-lg font-medium">
                                   {item.title}
@@ -82,8 +84,10 @@ const NavigationMenu = React.forwardRef<
                     )}
                     {section.items?.map(
                       (item, itemIndex) =>
+                        // biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
                         !item.special && (
                           <NavListItem
+                            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                             key={itemIndex}
                             href={item.href}
                             title={item.title}
@@ -100,7 +104,7 @@ const NavigationMenu = React.forwardRef<
         {sections.map(
           (items, itemindex) =>
             !items.dropdown && (
-              <NavigationMenu.Item key={itemindex}>
+              <NavigationMenu.Item key={items.title}>
                 <Link href={items.href}>
                   <NavigationMenu.Link
                     className={navigationMenuTriggerStyle()}
@@ -263,4 +267,4 @@ NavListItem.displayName = "NavListItem";
 (NavigationMenu as NavigationMenuComponent).Viewport = NavigationMenuViewport;
 (NavigationMenu as NavigationMenuComponent).Indicator = NavigationMenuIndicator;
 
-export { NavigationMenu,NavListItem };
+export { NavigationMenu, NavListItem };

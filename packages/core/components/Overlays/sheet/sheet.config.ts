@@ -1,6 +1,6 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { SheetVarientConfigType } from "./sheetType";
-import * as SheetPrimitive from "@radix-ui/react-dialog";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { SheetVarientConfigType } from "./sheetType";
+import type * as SheetPrimitive from "@radix-ui/react-dialog";
 
 export const sheetVarientConfig: SheetVarientConfigType = {
   variants: {

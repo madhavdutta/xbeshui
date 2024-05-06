@@ -2,7 +2,7 @@ import * as React from "react";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
 import { Text } from "../../Typography/text/text";
 import { cn } from "../../../../utils";
-import { SeparatorProps, separatorVariant } from "./separator.config";
+import { type SeparatorProps, separatorVariant } from "./separator.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Separator = React.forwardRef<
@@ -37,7 +37,7 @@ const Separator = React.forwardRef<
           )}
 
 
-          {(labelPosition == "right" || labelPosition == "center") && <div className="flex-grow">
+          {(labelPosition === "right" || labelPosition === "center") && <div className="flex-grow">
             <SeparatorPrimitive.Root
               ref={ref}
               decorative={decorative}
@@ -70,7 +70,7 @@ const Separator = React.forwardRef<
             )}
           </div>
 
-          {(labelPosition == "left" || labelPosition == "center") && <div className="flex-grow">
+          {(labelPosition === "left" || labelPosition === "center") && <div className="flex-grow">
             <SeparatorPrimitive.Root
               ref={ref}
               decorative={decorative}

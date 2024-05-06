@@ -3,7 +3,7 @@
 // Description: IfElse component is a conditional rendering component that renders one of two child components based on a given condition.
 
 import React from "react";
-import { IfElseProps } from "./ifElseType";
+import type { IfElseProps } from "./ifElseType";
 
 export const IfElse: React.FC<IfElseProps> = ({ condition, children }) => {
   // Check if the number of child elements is exactly two

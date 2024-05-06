@@ -9,7 +9,6 @@ export interface AcionIconConfigType {
       outline: string;
       secondary: string;
       ghost: string;
-      link: string;
     };
     size: {
       default: string;

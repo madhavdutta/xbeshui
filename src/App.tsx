@@ -18,17 +18,26 @@ import {
   Toast,
   Grid,
   Container,
+  RingProgressBar,
+  ActionIcon,
+  Toggle,
+  ToggleGroup,
 } from "../packages/core/components";
 import {
+  IconBold,
   IconBox,
   IconDeviceAnalytics,
   IconHome,
+  IconItalic,
   IconSearch,
   IconSettings,
   IconShoppingCart,
   IconStack,
+  IconStrikethrough,
   IconUsers,
 } from "@tabler/icons-react";
+
+import XBEditor from "../packages/core/ui/xbEditor/xbEditor";
 
 const App = () => {
   const [goal, setGoal] = React.useState(350);
@@ -141,7 +150,6 @@ const App = () => {
     );
   };
 
-
   // const createCommandsFromDocsConfig = (docsConfig: DocsConfig): Command[] => {
   //   const commands: Command[] = [];
 
@@ -232,152 +240,21 @@ const App = () => {
         className="bg-muted/40"
         fixedHeader={false}
       >
-        <Container fluid >
+        <Container fluid className="dark:bg-red-300">
+          <Group gap="xs">
 
-          <Grid gutter="lg" justify="center">
-            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 1</Grid.Col>
-            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 2</Grid.Col>
-            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 1</Grid.Col>
-            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 2</Grid.Col>
-            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 1</Grid.Col>
-            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 2</Grid.Col>
-            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 1</Grid.Col>
-            <Grid.Col span={{ base: 12, sm:6,  md: 4, lg:3 }}>Column 2</Grid.Col>
-          </Grid>
+            <ToggleGroup type="multiple" variant="outline" size="sm" radius={"sm"}>
+              <ToggleGroup.Item value="Default"><IconBold /></ToggleGroup.Item>
+              <ToggleGroup.Item value="success"><IconItalic /></ToggleGroup.Item>
+              <ToggleGroup.Item value="strike"><IconStrikethrough /></ToggleGroup.Item>
+            </ToggleGroup>
 
+            <Toggle variant="default" size="sm" radius="md">This</Toggle>
+            <Toggle variant="outline" size="sm" radius="md">That</Toggle>
+
+          </Group>
         </Container>
-        {/* <div className="px-10 py-6 z-10">
-          <Alert
-            variant="success"
-            title="Success"
-            message="This is a success alert."
-            id={"2"}
-          >
-            <Alert.Title>Success</Alert.Title>
-            <Alert.Description>This is a success alert.</Alert.Description>
-          </Alert>
-        </div> */}
-        {/* <Group className={" w-full px-10 flex lg:flex-row flex-col"} gap={"md"}>
-          <Stack className={"w-full md:w-full xl:w-2/3 h-screen"}>
-            <Group justify="spaceBetween" gap="md"> */}
-        {/* <Card>
-                <Card.Header>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Description>Card Description</Card.Description>
-                </Card.Header>
-                <Card.Content>
-                  <Tabs defaultValue="account" className="w-[400px]">
-                    <Tabs.TabsList className="grid w-full grid-cols-2">
-                      <Tabs.TabsTrigger value="account">
-                        Account
-                      </Tabs.TabsTrigger>
-                      <Tabs.TabsTrigger value="password">
-                        Password
-                      </Tabs.TabsTrigger>
-                    </Tabs.TabsList>
-                    <Tabs.TabsContent value="account">
-                      <Accordion type={"single"}>
-                        <Accordion.Item value="1">
-                          <Accordion.Trigger>Accordion 1</Accordion.Trigger>
-                          <Accordion.Content>
-                            Content for Accordion 1
-                          </Accordion.Content>
-                        </Accordion.Item>
 
-                        <Accordion.Item value="2">
-                          <Accordion.Trigger>Accordion 2</Accordion.Trigger>
-                          <Accordion.Content>
-                            Content for Accordion 2
-                          </Accordion.Content>
-                        </Accordion.Item>
-
-                        <Accordion.Item value="3">
-                          <Accordion.Trigger>Accordion 3</Accordion.Trigger>
-                          <Accordion.Content>
-                            Content for Accordion 3
-                          </Accordion.Content>
-                        </Accordion.Item>
-                      </Accordion>
-                    </Tabs.TabsContent>
-                    <Tabs.TabsContent value="password">
-                      werwrwerew
-                    </Tabs.TabsContent>
-                  </Tabs>
-                </Card.Content>
-              </Card> */}
-
-        {/* <Card>
-                <Card.Header>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Description>Card Description</Card.Description>
-                </Card.Header>
-                <Card.Content>
-
-
-                </Card.Content>
-              </Card> */}
-        {/* <Toast>
-                <Toast.Title>Toast Title</Toast.Title>
-                <Toast.Description>Toast Description</Toast.Description>
-                <Toast.Action altText="action">Action</Toast.Action>
-                <Toast.Close />
-              </Toast> */}
-
-        <Button onClick={handleOpen}>Open Command Menu</Button>
-        {/* <CommandMenuDialog
-                open={isOpen}
-                onClose={handleClose}
-                commands={filteredCommands}
-                onSearch={handleSearch}
-                docsConfig={docsConfig} // Pass the docsConfig prop
-                initialSections={initialSections} // Pass the initialSections prop
-              />  */}
-
-
-        {/* <Popover>
-                <Popover.Trigger>
-                  Open Popover
-                </Popover.Trigger>
-                <Popover.Content>
-                  <div>Popover Content</div>
-                </Popover.Content>
-              </Popover> */}
-
-        {/* <Menubar>
-                <Menubar.Menu>
-                  <Menubar.Trigger>File</Menubar.Trigger>
-                  <Menubar.Portal>
-                    <Menubar.Content>
-                      <Menubar.Item>New File</Menubar.Item>
-                      <Menubar.Item>Open File</Menubar.Item>
-                      <Menubar.Separator />
-                      <Menubar.Sub>
-                        <Menubar.SubTrigger>Open Recent</Menubar.SubTrigger>
-                        <Menubar.SubContent>
-                          <Menubar.Item>File 1</Menubar.Item>
-                          <Menubar.Item>File 2</Menubar.Item>
-                        </Menubar.SubContent>
-                      </Menubar.Sub>
-                    </Menubar.Content>
-                  </Menubar.Portal>
-                </Menubar.Menu>
-                
-              </Menubar> */}
-
-        {/* <ContextMenu>
-                <ContextMenu.Trigger>Open Context Menu</ContextMenu.Trigger>
-                <ContextMenu.Content menuConfig={menuConfig}>
-                  asdsddasd
-                </ContextMenu.Content>
-              </ContextMenu> */}
-
-        {/* <NotionEditor width="w-[800px]" minHeight="min-h[500px]" minWidth="min-w-800px" height="h-[500px]" /> */}
-        {/* </Group>
-          </Stack>
-          <Stack className={"w-full md:w-full xl:w-1/3 h-screen"}>
-            {/* <AsideUI /> */}
-        {/* </Stack> */}
-        {/* </Group> */}
       </AppShell>
     </>
   );

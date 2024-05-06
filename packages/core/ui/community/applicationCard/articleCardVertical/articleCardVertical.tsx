@@ -9,8 +9,7 @@ export function ArticleCardVertical() {
           src="https://images.unsplash.com/photo-1602080858428-57174f9431cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
           height={160}
           className="rounded-l-md"
-      
-
+          alt={"The best laptop for Frontend engineers in 2022"}
         />
         <div className="body">
           <Text className="text-zinc-400 uppercase" fontWeight="bold" size="xs">

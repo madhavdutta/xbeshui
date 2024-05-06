@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { cn } from "../../../../utils";
 
-import { SkeletonProps, skeletonVariants } from "./skeleton.config";
+import { skeletonVariants, type SkeletonProps } from "./skeleton.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(

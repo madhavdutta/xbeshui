@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import {RadioConfigType} from './radioType'
+import { cva, type VariantProps } from "class-variance-authority";
+import type {RadioConfigType} from './radioType'
 const radioConfig:RadioConfigType={
     variants: {
       variant: {

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { VariantProps, cva } from "class-variance-authority";
-import {   TableVariantsConfigType } from "./tableType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { TableVariantsConfigType } from "./tableType";
 
 const tableConfig: TableVariantsConfigType = {
   variants: {

@@ -45,7 +45,7 @@ export function ArticlesCardsGrid() {
       className="card"
     >
       <AspectRatio ratio={1500 / 1080}>
-        <Image src={article.image} />
+        <Image src={article.image} alt={article.title} />
       </AspectRatio>
       <Text
         className="text-zinc-400 uppercase mt-2"

@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
 import { cn } from "../../../../utils";
 
-import { ProgressProps, progressVariants } from "./progress.config";
+import { progressVariants, type ProgressProps } from "./progress.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Progress = React.forwardRef<

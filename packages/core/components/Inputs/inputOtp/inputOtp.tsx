@@ -76,7 +76,7 @@ const InputOTPSeparator = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div">
 >(({ ...props }, ref) => (
-  <div ref={ref} role="separator" {...props}>
+  <div ref={ref} role="separator" aria-valuemin={0} aria-valuemax={100} aria-valuenow={0} {...props}>
     <IconPointFilled stroke={1.5} />
   </div>
 ));

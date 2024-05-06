@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "../../../../utils";
-import { FlexBoxProps, flexBoxVariants } from "./flexBox.config";
+import { flexBoxVariants, type FlexBoxProps } from "./flexBox.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
@@ -13,22 +13,25 @@ const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
       const screenWidth = window.innerWidth;
       if (screenWidth < 480) {
         return "0.5rem";
-      } else if (screenWidth < 991) {
+      } 
+      if (screenWidth < 991) {
         return "1rem";
-      } else {
+      } 
         return "1.5rem";
-      }
+      
     }
-
+    
     useEffect(() => {
       function handleResize() {
         setGap(getGap());
       }
+    
       window.addEventListener("resize", handleResize);
+    
       return () => {
         window.removeEventListener("resize", handleResize);
       };
-    }, []); // Empty dependency array to run effect only once on mount
+    }, [getGap]); // Add getGap to the dependency array
 
     const flexStyle: React.CSSProperties = {
       gap: gap,

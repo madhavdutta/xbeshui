@@ -3,7 +3,7 @@ import * as React from "react";
 // Utility to concatenate class names
 
 import { cn } from "../../../../utils";
-import { inputVariants, InputProps } from "./textInput.config";
+import { inputVariants, type InputProps } from "./textInput.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const TextInput = React.forwardRef<HTMLInputElement, InputProps>(

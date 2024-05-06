@@ -1,12 +1,20 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useEffect, useRef } from "react";
-import { SketchPicker, ColorResult } from "react-color";
-import {ColorSwatch} from "../colorSwatch/colorSwatch";
+import { useState, useEffect, useRef } from "react";
+import { SketchPicker, type ColorResult } from "react-color";
+import { ColorSwatch } from "../colorSwatch/colorSwatch";
 import { IconColorPicker } from "@tabler/icons-react";
 import { TextInput } from "../..";
-import { ColorInputProps } from "./colorInput.config";
+import type { ColorInputProps } from "./colorInput.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
+declare global {
+  interface Window {
+    EyeDropper?: new () => EyeDropper;
+  }
+}
+
+interface EyeDropper {
+  open: () => Promise<{ sRGBHex: string }>;
+}
 
 export const ColorInput: React.FC<ColorInputProps> = ({
   label = "",
@@ -50,9 +58,9 @@ export const ColorInput: React.FC<ColorInputProps> = ({
   };
 
   const handleEyeDropperClick = () => {
-    if (eyeDropperSupported) {
-      const eyeDropper = new (window as any).EyeDropper();
-      eyeDropper.open().then((colorSelectionResult: any) => {
+    if (eyeDropperSupported && window.EyeDropper) {
+      const eyeDropper = new window.EyeDropper();
+      eyeDropper.open().then((colorSelectionResult) => {
         handleChange(colorSelectionResult.sRGBHex);
       });
     }
@@ -75,11 +83,10 @@ export const ColorInput: React.FC<ColorInputProps> = ({
     } else {
       document.removeEventListener("mousedown", handleOutsideClick);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [showColorPicker]);
+  }, [showColorPicker, handleOutsideClick]);
 
   return (
     <div className={className}>

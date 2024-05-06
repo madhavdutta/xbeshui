@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
-import { TableProps, tableVariants } from "./table.config"; 
+import {tableVariants, type  TableProps } from "./table.config"; 
 import { Button } from "../../Buttons/button/button";
 import { Text } from "../../Typography/text/text";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";

@@ -3,7 +3,7 @@ import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { IconX } from "@tabler/icons-react";
 
 import { cn } from "../../../../utils";
-import { SheetContentProps, sheetVariants } from "./sheet.config";
+import { type SheetContentProps, sheetVariants } from "./sheet.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface SheetProps extends SheetContentProps {
@@ -33,7 +33,7 @@ const Sheet: React.FC<SheetProps> = ({
         <SheetContent size={size} side={side}>
           <div className="flex flex-row justify-between items-center">
             {title && <SheetTitle>{title}</SheetTitle>}
-            <SheetClose onClick={onClose}></SheetClose>
+            <SheetClose onClick={onClose} />
           </div>
           {children}
         </SheetContent>

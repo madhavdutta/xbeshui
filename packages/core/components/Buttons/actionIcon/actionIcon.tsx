@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { cn } from "../../../../utils";
-import { ActionIconProps, actionIconVariants } from "./actionIcon.config";
+import { actionIconVariants, type ActionIconProps } from "./actionIcon.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const ActionIcon = forwardRef<HTMLButtonElement, ActionIconProps>(

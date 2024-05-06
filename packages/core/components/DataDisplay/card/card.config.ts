@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { CardRadiusType, CardShadowType, CardVariantsConfigType } from "./cardType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { CardRadiusType, CardShadowType, CardVariantsConfigType } from "./cardType";
 
 export interface CardOwnProps extends React.HTMLAttributes<HTMLDivElement> {
   header?: {

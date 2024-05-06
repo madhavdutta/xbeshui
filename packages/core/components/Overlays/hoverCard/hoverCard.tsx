@@ -2,7 +2,7 @@ import * as React from "react";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 
 import { cn } from "../../../../utils";
-import { HoverCardProps } from "./hoverType";
+import type { HoverCardProps } from "./hoverType";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const HoverCard: React.FC<HoverCardProps> = ({

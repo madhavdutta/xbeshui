@@ -1,4 +1,4 @@
-import { ButtonVariant } from "../../../types/variantType";
+import type { ButtonVariant } from "../../../types/variantType";
 
 // Define ButtonSize type representing the structure of button sizes
 export type ButtonSize = {

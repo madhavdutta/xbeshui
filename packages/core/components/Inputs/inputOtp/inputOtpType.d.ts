@@ -18,7 +18,7 @@ interface OTPInputProps {
 
 interface InputOTPProps extends OTPInputProps {}
 
-export {
+export type {
   InputOTPGroupProps,
   InputOTPSlotProps,
   InputOTPSeparatorProps,

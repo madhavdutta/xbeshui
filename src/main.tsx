@@ -5,15 +5,15 @@ import "./index.css";
 import "../packages/index.css";
 import { XbeshProvider } from "../packages/core/components/Theme/xBeshTheme/xbeshProvider.tsx";
 import { Toaster } from "../packages/core/components/Feedback/toast/toaster.tsx";
-import AppAakibUi from "./App-AakibUI.tsx";
+import App from "./App.tsx";
 
 const RootComponent = () => {
   return (
     <React.StrictMode>
       <XbeshProvider storageKey={"vite"} defaultTheme={"light"}>
         <div className="w-full">
-          <AppAakibUi />
-
+          {/* <AppAakibUi /> */}
+          <App />
         </div>
       </XbeshProvider>
     </React.StrictMode>

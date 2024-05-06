@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
-import { TitleProps, titleVariants } from "./title.config";
+import { titleVariants, type TitleProps } from "./title.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 

@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { labelVariantsType } from "./labelType";
+import type { labelVariantsType } from "./labelType";
 
 const fontSizes = {
   default: "text-sm",

@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { TitleVariantsType } from "./titleType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { TitleVariantsType } from "./titleType";
 
 const titleConfig: TitleVariantsType = {
   variants: {

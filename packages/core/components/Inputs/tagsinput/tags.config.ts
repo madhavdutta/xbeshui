@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { TagsConfigType } from "./tagsType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type{ TagsConfigType } from "./tagsType";
 const tagsConfig: TagsConfigType = {
   variants: {
     variant: {

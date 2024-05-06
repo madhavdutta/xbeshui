@@ -4,6 +4,7 @@ import { IconTruck, IconCertificate, IconCoin } from "@tabler/icons-react";
 import "./featuresAsymmetrical.css";
 
 interface FeatureProps extends React.ComponentPropsWithoutRef<"div"> {
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   icon: React.FC<any>;
   title: string;
   description: string;

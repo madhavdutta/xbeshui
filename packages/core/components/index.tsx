@@ -36,15 +36,15 @@ export { Toaster } from "./Feedback/toast/toaster";
 export { useToast, toast } from "./Feedback/toast/use-toast";
 export { ConirmDialog } from "./Feedback/confirmDialog/confirmDialog";
 export { Dialog } from "./Feedback/dialog/dialog";
+export { RingProgressBar } from "./Feedback/ringProgress/ringProgress";
 // All Inputs core components are exported from this file
 export { Checkbox } from "./Inputs/checkbox/checkbox";
 export { ColorInput } from "./Inputs/colorInput/colorInput";
-export { ColorSwatch } from "./Inputs/colorSwatch/colorSwatch";
+// export { ColorSwatch } from "./Inputs/colorSwatch/colorSwatch";
 export { TextInput } from "./Inputs/textInput/textInput";
 export { FileInput } from "./Inputs/fileInput/fileInput";
 export { PasswordInput } from "./Inputs/passwordInput/passwordInput";
 export { InputOTP } from "./Inputs/inputOtp/inputOtp";
-export { MultiSelect } from "./Inputs/multiSelect/multiSelect";
 export { RangeSlider } from "./Inputs/rangeSlider/rangeSlider";
 export { RadioGroup, RadioGroupItem } from "./Inputs/radio/radio";
 export {ComboBox} from "./Inputs/combobox/combobox";

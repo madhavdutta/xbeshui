@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { notificationTimelineVariantConfigType } from "./notificationTimelineType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { notificationTimelineVariantConfigType } from "./notificationTimelineType";
 
 const notificationTimelineVariantConfig: notificationTimelineVariantConfigType =
   {

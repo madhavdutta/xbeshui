@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { BackgroundImageFitType, BackgroundImageRadiusType, BackgroundImageVariantsConfigType} from "./backgroundImageType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { BackgroundImageFitType, BackgroundImageRadiusType, BackgroundImageVariantsConfigType} from "./backgroundImageType";
 
 export const backgroundImageVariant: BackgroundImageVariantsConfigType = {
   variants: {

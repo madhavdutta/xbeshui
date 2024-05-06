@@ -2,7 +2,7 @@ import * as React from "react";
 import { cn } from "../../../../utils";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { labelVariants } from "./label.config";
-import { VariantProps } from "class-variance-authority";
+import type{ VariantProps } from "class-variance-authority";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Label = React.forwardRef<

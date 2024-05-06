@@ -10,4 +10,4 @@ interface TimelineItemProps {
   bulletPosition?: number;
   bulletSize?: number;
 }
-export { TimelineProps, TimelineItemProps };
+export type { TimelineProps, TimelineItemProps };

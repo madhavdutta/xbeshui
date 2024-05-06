@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { cn } from "../../../../utils";
-import { BadgeProps, badgeVariants } from "./badge.config";
+import { badgeVariants, type BadgeProps } from "./badge.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Badge = forwardRef<HTMLDivElement, BadgeProps>(

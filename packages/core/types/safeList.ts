@@ -339,5 +339,5 @@ export const safeList = [
   'col-span-lg-7', 'col-span-lg-8', 'col-span-lg-9', 'col-span-lg-10', 'col-span-lg-11', 'col-span-lg-12',
   'col-span-xl-1', 'col-span-xl-2', 'col-span-xl-3', 'col-span-xl-4', 'col-span-xl-5', 'col-span-xl-6',
   'col-span-xl-7', 'col-span-xl-8', 'col-span-xl-9', 'col-span-xl-10', 'col-span-xl-11', 'col-span-xl-12',
-  
+  'dark',
 ];
