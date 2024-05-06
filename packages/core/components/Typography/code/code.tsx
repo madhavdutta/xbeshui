@@ -43,7 +43,7 @@ const Code = React.forwardRef<HTMLPreElement, CodeProps>(
           className="absolute top-0 right-0 m-2 p-1 rounded  text-secondary-foreground"
           onClick={copyToClipboard}
         >
-          {copied ? <IconCheck className="text-secondary-foreground" size={16} /> : <IconCopy className="text-secondary-foreground"  size={16} />}
+          {copied ? <IconCheck className="text-primary-foreground" size={16} /> : <IconCopy className="text-primary-foreground"  size={16} />}
         </button>
       </div>
     );
