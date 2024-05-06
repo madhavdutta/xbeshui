@@ -5,7 +5,7 @@ import { IconCheck, IconCopy } from "@tabler/icons-react";
 import type { CodeProps } from "./codeType";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { darcula } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const Code = React.forwardRef<HTMLDivElement, CodeProps>(
   ({ language, className, ...props }, ref) => {
@@ -35,7 +35,7 @@ const Code = React.forwardRef<HTMLDivElement, CodeProps>(
       <div ref={ref} className="relative">
         <SyntaxHighlighter
           language={language}
-          style={darcula}
+          style={dracula}
           className={cn(tailwindClasses, className)}
         >
           {props.children}

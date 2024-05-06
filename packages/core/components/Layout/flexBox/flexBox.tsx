@@ -8,10 +8,6 @@ const isClient = typeof window !== "undefined";
 const FlexBoxComponent = React.forwardRef<HTMLDivElement, FlexBoxProps>(
   ({ children, direction, justify, align, wrap, className, ...props }, ref) => {
     useXbeshProviderCheck();
-<<<<<<< HEAD
-
-=======
->>>>>>> 50336a4258ebc9816d222b461206c686c556cd51
     const [gap, setGap] = useState(getGap());
 
     function getGap() {
@@ -32,20 +28,6 @@ const FlexBoxComponent = React.forwardRef<HTMLDivElement, FlexBoxProps>(
         setGap(getGap());
       }
 
-<<<<<<< HEAD
-      // Only attach event listener on client side
-      if (typeof window !== "undefined") {
-        window.addEventListener("resize", handleResize);
-      }
-
-      return () => {
-        // Clean up event listener on unmount
-        if (typeof window !== "undefined") {
-          window.removeEventListener("resize", handleResize);
-        }
-      };
-    }, []);
-=======
       if (isClient) {
         window.addEventListener("resize", handleResize);
         return () => {
@@ -53,7 +35,6 @@ const FlexBoxComponent = React.forwardRef<HTMLDivElement, FlexBoxProps>(
         };
       }
     }, [getGap]);
->>>>>>> 50336a4258ebc9816d222b461206c686c556cd51
 
     const flexStyle: React.CSSProperties = {
       gap: gap,

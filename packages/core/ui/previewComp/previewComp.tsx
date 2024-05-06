@@ -136,7 +136,7 @@ export const PreviewComp = (data: PreviewCompProps) => {
               value="code"
               className="w-full mt-4 border rounded-sm"
             >
-              <Code className="bg-black  rounded-sm text-white">
+              <Code language="jsx"  className="bg-black  rounded-sm">
                 {data.codeContent}
               </Code>
             </Tabs.TabsContent>

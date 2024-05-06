@@ -6,6 +6,6 @@ export interface CodeProps
     VariantProps<typeof codeVariants> {
   asChild?: boolean;
   color?: string;
-  language:string;
+  language?:string;
   children:string;
 }
