@@ -5,7 +5,7 @@
 // Contact: github.com/madhavdutta
 // Notes: This file needs to be used in the root Layout component of the application. It provides the context value to the tree, making it accessible to all components wrapped within XbeshProvider. It also wraps children with the theme provider.
 
-import React, { createContext, useState, ReactNode, useContext } from 'react';
+import { createContext, useState, type ReactNode, useContext } from 'react';
 import { XBeshThemeProvider } from './xBeshThemeProvider';
 import { ToastProvider } from '../../Feedback/toast/toast';
 import { Tooltip } from '../../Overlays/tooltip/tooltip';
@@ -78,7 +78,7 @@ const ErrorDisplay: React.FC<ErrorDisplayProps> = ({ error, clearError }) => {
   return (
     <div className="error-display">
       <p>An error occurred: {error.message}</p>
-      <button onClick={clearError}>Dismiss</button>
+      <button type={"button"}onClick={clearError}>Dismiss</button>
     </div>
   );
 };

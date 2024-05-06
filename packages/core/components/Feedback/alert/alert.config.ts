@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { AlertVariantsConfigType, AlertVariantType } from "./alertType";
+import {cva, type VariantProps } from "class-variance-authority";
+import type { AlertVariantsConfigType, AlertVariantType } from "./alertType";
 
 const AlertVariantConfig:AlertVariantType = {
     default: "bg-background text-foreground",

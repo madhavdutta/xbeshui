@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
-import { TextProps, textVariants } from "./text.config";
+import { textVariants, type TextProps } from "./text.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Text = React.forwardRef<HTMLParagraphElement, TextProps>(

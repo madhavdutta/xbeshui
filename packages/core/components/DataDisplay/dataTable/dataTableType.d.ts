@@ -1,4 +1,4 @@
-import { type Table, ColumnDef } from "@tanstack/react-table";
+import type { Table, ColumnDef } from "@tanstack/react-table";
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;
@@ -11,4 +11,4 @@ type DataTableProps<T> = {
   searchable: string;
 };
 
-export { DataTablePaginationProps, DataTableProps };
+export type { DataTablePaginationProps, DataTableProps };

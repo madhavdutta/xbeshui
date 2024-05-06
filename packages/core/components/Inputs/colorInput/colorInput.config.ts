@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { ColorInputConfigType } from "./colorInputType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { ColorInputConfigType } from "./colorInputType";
 export const colorInputConfig: ColorInputConfigType = {
   variants: {
     variant: {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Button, } from "../..";
-import { ButtonConfig } from "../button/button.config";
+import type { ButtonConfig } from "../button/button.config";
 import { IconCheck, IconCopy } from "@tabler/icons-react";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 

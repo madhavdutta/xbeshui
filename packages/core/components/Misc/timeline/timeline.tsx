@@ -1,5 +1,4 @@
-import React from "react";
-import { TimelineItemProps, TimelineProps } from "./timelineType";
+import type { TimelineItemProps, TimelineProps } from "./timelineType";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const TimelineItem: React.FC<TimelineItemProps> = ({
@@ -10,8 +9,10 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   useXbeshProviderCheck();
   return (
     children ? (
-      <li className={`relative -left-16 mb-8 ms-6 bg-background`}>
+      // biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
+      <li className={`relative left-16 mb-8 bg-background`}>
         <div
+          // biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
           className={`items-center justify-between p-4 text-secondary-foreground border border-input rounded-lg shadow-sm sm:flex`}
         >
           {children}

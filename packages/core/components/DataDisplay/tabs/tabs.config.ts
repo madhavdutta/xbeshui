@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { TabsConfigType } from "./tabsType";
+import type { TabsConfigType } from "./tabsType";
 
 const tabsConfig: TabsConfigType = {
   variants: {

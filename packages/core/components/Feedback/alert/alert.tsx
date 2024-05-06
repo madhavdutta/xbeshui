@@ -1,10 +1,10 @@
 import * as React from "react";
-import { type VariantProps } from "class-variance-authority";
+import type{ VariantProps } from "class-variance-authority";
 import { IconRocket } from "@tabler/icons-react";
 import { cn } from "../../../../utils/index";
 import { Stack } from "../../Layout/stack/stack";
 import { Group } from "../../Layout/group/group";
-import { AlertPropsType, alertPropsConfig } from "./alert.config";
+import { alertPropsConfig, type AlertPropsType } from "./alert.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface AlertComponent<T extends React.ElementType = "div">

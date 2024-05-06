@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { StackVariantType } from "./stackType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { StackVariantType } from "./stackType";
 const stackConfig: StackVariantType = {
   variants: {
     justify: {

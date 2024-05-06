@@ -29,9 +29,9 @@ export const CardTransactions = ({items}:{items:TransactionDataProps[]} ) => {
                         <Text>Customer</Text>
                         <Text>Amount</Text>
                     </Group>
-             { items.map((cardData:TransactionDataProps,index:number)=>
+             { items.map((cardData:TransactionDataProps)=>
              
-              <Group key={index} justify="spaceBetween" className="p-4 border-b-2">
+              <Group key={cardData.id} justify="spaceBetween" className="p-4 border-b-2">
               <Stack className="gap-0">
                   <Text> {cardData.name} </Text>
                   <Text> {cardData.email} </Text>

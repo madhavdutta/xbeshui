@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { ListVariantsType } from "./listType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { ListVariantsType } from "./listType";
 
 const listConfig: ListVariantsType = {
   variants: {

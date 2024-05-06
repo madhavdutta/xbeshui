@@ -1,6 +1,6 @@
-import { VariantProps, cva } from "class-variance-authority";
-import {BadgeVariantsConfigType, BadgeRadiusType, BadgeSizeType} from "./badgeType";
-import { ButtonVariantType } from "../../Buttons/button/buttonType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type {BadgeVariantsConfigType, BadgeRadiusType, BadgeSizeType} from "./badgeType";
+import type { ButtonVariantType } from "../../Buttons/button/buttonType";
 
 export const badgeVariantConfig: BadgeVariantsConfigType = {
   variants: {

@@ -1,7 +1,3 @@
-// breadcrumbType.d.ts
-
-import React from "react";
-
 // Types for Breadcrumb components
 type BreadcrumbProps = React.ComponentPropsWithoutRef<"nav"> & {
   data?: { link: string; label: string }[];
@@ -20,7 +16,7 @@ type BreadcrumbSeparatorProps = React.ComponentProps<"li">;
 
 type BreadcrumbEllipsisProps = React.ComponentProps<"span">;
 
-export {
+export type {
   BreadcrumbProps,
   BreadcrumbItemProps,
   BreadcrumbLinkProps,

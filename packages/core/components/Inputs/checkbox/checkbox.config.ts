@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { CheckboxConfigType } from "./checkboxType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { CheckboxConfigType } from "./checkboxType";
 export const checkboxConfig: CheckboxConfigType = {
   variants: {
     variant: {

@@ -1,4 +1,4 @@
-import { ContainerVariantType } from "./containerType";
+import type { ContainerVariantType } from "./containerType";
 import { cva } from "class-variance-authority";
 
 export const containerConfig: ContainerVariantType = {

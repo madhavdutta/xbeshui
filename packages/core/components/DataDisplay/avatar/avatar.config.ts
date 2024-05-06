@@ -1,4 +1,4 @@
-import { VariantProps, cva } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 import { AvatarRadiusType, AvatarSizeType, AvatarVariantsConfigType } from "./avatarType";
 
 const avatarConfig: AvatarVariantsConfigType = {

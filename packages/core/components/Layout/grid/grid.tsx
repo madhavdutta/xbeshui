@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
-import { StyleProp, GridProps, GridColProps } from './gridType';
+import type { StyleProp, GridProps, GridColProps } from './gridType';
 
 // Function to generate responsive class names based on the provided prop and prefix
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 const getResponsiveClass = (prop: StyleProp<any>, prefix: string) => {
   if (typeof prop === 'object') {
     // console.log('prefix', prefix);

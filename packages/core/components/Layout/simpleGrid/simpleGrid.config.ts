@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { SimpleGridVariantType } from "./simpleGridType";
+import type { SimpleGridVariantType } from "./simpleGridType";
 
 const simpleGridConfig: SimpleGridVariantType = {
   variants: {

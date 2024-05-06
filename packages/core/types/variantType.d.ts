@@ -2,15 +2,15 @@
 // Button Variant Types
 // Button Variant Types
 export type ButtonVariant = {
-    "default": string;
-    "success": string;
-    "warning": string;
-    "notice": string;
-    "destructive": string;
-    "outline": string;
-    "secondary": string;
-    "ghost": string;
-    "link": string;
+    default: string;
+    success: string;
+    warning: string;
+    notice: string;
+    destructive: string;
+    outline: string;
+    secondary: string;
+    ghost: string;
+    link: string;
   };
   
 // Data Display Variant Types

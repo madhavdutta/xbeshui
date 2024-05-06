@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
-import { InputProps, inputVariants } from "../textInput/textInput.config";
+import { inputVariants, type InputProps } from "../textInput/textInput.config";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
@@ -117,6 +117,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
             className="absolute right-0 inset-y-0  flex items-center justify-center"
             style={{ width: rightSectionWidth, cursor: "pointer" }}
             onClick={togglePasswordVisibility}
+            onKeyUp={(e) => {void e;}}
           >
             {eyeIcon}
           </div>

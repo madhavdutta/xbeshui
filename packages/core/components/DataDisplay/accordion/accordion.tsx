@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { IconChevronDown } from "@tabler/icons-react";
-import { type VariantProps } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
 import { cn } from "../../../../utils";
 import { accordionVariants } from "./accordion.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";

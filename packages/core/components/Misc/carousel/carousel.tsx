@@ -1,6 +1,6 @@
 import * as React from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import {
+import type {
   CarouselContextProps,
   CarouselProps,
   CarouselApi,
@@ -145,6 +145,7 @@ const Carousel = React.forwardRef<
           <CarouselContent>
             {carouselData.map((item, index) => (
               <CarouselItem
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 key={index}
                 className={
                   variant === "multiple" ? "md:basis-1/2 lg:basis-1/3" : ""

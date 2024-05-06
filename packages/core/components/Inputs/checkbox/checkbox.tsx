@@ -2,7 +2,7 @@ import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { IconCheck } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
-import { checkboxVariants, CheckboxProps } from "./checkbox.config";
+import { checkboxVariants, type CheckboxProps } from "./checkbox.config";
 //import { checkboxProps } from "./checkboxType";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 

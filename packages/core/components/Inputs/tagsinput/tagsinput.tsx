@@ -3,7 +3,7 @@ import { IconX } from "@tabler/icons-react";
 import { cn } from "../../../../utils";
 import { Badge } from "../../DataDisplay/badge/badge";
 
-import { tagsinputVariants, TagsinputProps } from "./tagsinput.config";
+import { tagsinputVariants, type TagsinputProps } from "./tagsinput.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const TagsInput = React.forwardRef<HTMLInputElement, TagsinputProps>(
@@ -20,7 +20,7 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsinputProps>(
       variant,
       data,
       allowDuplicates = false,
-      maxTags = Infinity,
+      maxTags = 1000000000,
       placeholder = "Enter tag",
       ...props
     },
@@ -84,9 +84,9 @@ const TagsInput = React.forwardRef<HTMLInputElement, TagsinputProps>(
             "flex items-center flex-wrap gap-1 border border-input rounded-sm p-2"
           )}
         >
-          {tags.map((tag, index) => (
+          {tags.map((tag) => (
             <Badge
-              key={index}
+              key={tag}
               rightSection={
                 <IconX
                   size={14}

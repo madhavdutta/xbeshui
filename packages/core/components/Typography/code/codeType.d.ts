@@ -1,6 +1,5 @@
-import * as React from "react";
-import { VariantProps } from "class-variance-authority";
-import { codeVariants } from "./code.config";
+import type { VariantProps } from "class-variance-authority";
+import type { codeVariants } from "./code.config";
 
 export interface CodeProps
   extends React.HTMLAttributes<HTMLPreElement>,

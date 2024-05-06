@@ -8,6 +8,7 @@ export function UserInfoAction() {
         width={120}
         radius={"xl"}
         className="mx-auto"
+        alt="Jane Fingerlicker"
       />
       <Text size="lg" className="text-center mt-4 font-medium ">
         Jane Fingerlicker
