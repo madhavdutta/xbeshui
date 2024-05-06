@@ -4,7 +4,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "../../components/Layout/resizable/resizable";
-import App from "../../../../src/App";
+// import App from "../../../../src/App";
 import { useEffect, useState } from "react";
 import {
   IconDeviceLaptop,
@@ -24,6 +24,7 @@ export const PreviewComp = () => {
     console.log(value);
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     // setPanelSize(screenSize);
     console.log("working..");
@@ -107,6 +108,7 @@ export const PreviewComp = () => {
                     <iframe
                       src="http://localhost:5173"
                       className="w-full h-full"
+                      title="preview"
                     />
                   </ResizablePanel>
                 </div>
@@ -116,7 +118,7 @@ export const PreviewComp = () => {
                 >
                   <ResizablePanel defaultSize={100 - panelSize}>
                     <div className="flex h-full items-center justify-center p-6">
-                      <span className="font-semibold"></span>
+                      <span className="font-semibold" />
                     </div>
                   </ResizablePanel>
                 </div>

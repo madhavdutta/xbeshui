@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { cn } from "../../../../utils";
-import { ButtonProps, buttonVariants } from "./button.config";
+import { buttonVariants, type ButtonProps } from "./button.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
