@@ -1,15 +1,16 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
 import { IconCheck, IconCopy } from "@tabler/icons-react";
-import { codeVariants } from "./code.config";
+
 import type { CodeProps } from "./codeType";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { darcula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-
-const Code = React.forwardRef<HTMLPreElement, CodeProps>(
-  ({ className, ...props }, ref) => {
+const Code = React.forwardRef<HTMLDivElement, CodeProps>(
+  ({ language, className, ...props }, ref) => {
     useXbeshProviderCheck();
-    
+
     const tailwindClasses = `
             bg-input
             block
@@ -31,20 +32,24 @@ const Code = React.forwardRef<HTMLPreElement, CodeProps>(
     };
 
     return (
-      <div className="relative">
-        <code
-          className={cn(codeVariants.toString(), tailwindClasses, className)}
+      <div ref={ref} className="relative">
+        <SyntaxHighlighter
+          language={language}
+          style={darcula}
+          className={cn(tailwindClasses, className)}
         >
-          <pre ref={ref} {...props}>
-            {props.children}
-          </pre>
-        </code>
+          {props.children}
+        </SyntaxHighlighter>
         <button
           className="absolute top-0 right-0 m-2 p-1 rounded  text-secondary-foreground"
           onClick={copyToClipboard}
           type="button"
         >
-          {copied ? <IconCheck className="text-primary-foreground" size={16} /> : <IconCopy className="text-primary-foreground"  size={16} />}
+          {copied ? (
+            <IconCheck className="text-primary-foreground" size={16} />
+          ) : (
+            <IconCopy className="text-primary-foreground" size={16} />
+          )}
         </button>
       </div>
     );

@@ -6,32 +6,37 @@ import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
   ({ children, direction, justify, align, wrap, className, ...props }, ref) => {
     useXbeshProviderCheck();
-    
+
     const [gap, setGap] = useState(getGap());
 
     function getGap() {
       const screenWidth = window.innerWidth;
       if (screenWidth < 480) {
         return "0.5rem";
-      } 
+      }
       if (screenWidth < 991) {
         return "1rem";
-      } 
-        return "1.5rem";
-      
+      }
+      return "1.5rem";
     }
-    
+
     useEffect(() => {
       function handleResize() {
         setGap(getGap());
       }
-    
-      window.addEventListener("resize", handleResize);
-    
+
+      // Only attach event listener on client side
+      if (typeof window !== "undefined") {
+        window.addEventListener("resize", handleResize);
+      }
+
       return () => {
-        window.removeEventListener("resize", handleResize);
+        // Clean up event listener on unmount
+        if (typeof window !== "undefined") {
+          window.removeEventListener("resize", handleResize);
+        }
       };
-    }, [getGap]); // Add getGap to the dependency array
+    }, []);
 
     const flexStyle: React.CSSProperties = {
       gap: gap,

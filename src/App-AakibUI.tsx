@@ -11,6 +11,7 @@ import {
   NavbarUI,
   Title,
   Separator,
+  Code,
 } from "../packages/core/components";
 import {
   IconBox,
@@ -158,7 +159,6 @@ const AppAakibUi = () => {
           labelPosition="center"
           label={<Title order="h4">UserInfo</Title>}
         />
-
         <br />
         <br />
         <Group justify="spaceAround">
@@ -296,6 +296,15 @@ const AppAakibUi = () => {
         <Group justify="spaceAround">
           <FeaturesAsymmetrical />
         </Group>
+        |
+        <Code language="javascript">
+          {`
+          function greet(name) {
+            return "Hello, " + name + "!";
+          }
+          console.log(greet("World"));
+        `}
+        </Code>
       </AppShell>
     </>
   );
