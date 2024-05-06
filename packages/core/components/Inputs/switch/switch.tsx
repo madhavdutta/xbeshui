@@ -18,6 +18,7 @@ const Switch = React.forwardRef<
       className
     )}
     {...props}
+    disabled={disabled}
     ref={ref}
   >
     <SwitchPrimitives.Thumb

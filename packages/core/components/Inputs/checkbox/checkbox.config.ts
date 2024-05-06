@@ -4,8 +4,10 @@ export const checkboxConfig: CheckboxConfigType = {
   variants: {
     variant: {
       default: "rounded-none",
-      filled: "data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
-      outline: "data-[state=checked]:bg-secondary data-[state=checked]:text-secondary-foreground",
+      filled:
+        "data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
+      outline:
+        "data-[state=checked]:bg-secondary data-[state=checked]:text-secondary-foreground",
     },
     radius: {
       default: "rounded-none",
@@ -35,10 +37,11 @@ export const checkboxVariants = cva(
   checkboxConfig
 );
 
-export interface CheckboxProps extends React.HTMLAttributes<HTMLTableElement>, VariantProps<typeof checkboxVariants> {
-  label: React.ReactNode;
+export interface CheckboxProps
+  extends React.HTMLAttributes<HTMLTableElement>,
+    VariantProps<typeof checkboxVariants> {
   variant?: keyof CheckboxConfigType["variants"]["variant"];
   radius?: keyof CheckboxConfigType["variants"]["radius"];
   size?: keyof CheckboxConfigType["variants"]["size"];
-  disabled?:boolean
+  disabled?: boolean;
 }
