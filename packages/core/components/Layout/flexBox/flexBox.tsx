@@ -3,13 +3,20 @@ import { cn } from "../../../../utils";
 import { flexBoxVariants, type FlexBoxProps } from "./flexBox.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
+const isClient = typeof window !== "undefined";
+
+const FlexBoxComponent = React.forwardRef<HTMLDivElement, FlexBoxProps>(
   ({ children, direction, justify, align, wrap, className, ...props }, ref) => {
     useXbeshProviderCheck();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 50336a4258ebc9816d222b461206c686c556cd51
     const [gap, setGap] = useState(getGap());
 
     function getGap() {
+      if (!isClient) return "0rem"; // Return a default value for server-side rendering
+
       const screenWidth = window.innerWidth;
       if (screenWidth < 480) {
         return "0.5rem";
@@ -25,6 +32,7 @@ const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
         setGap(getGap());
       }
 
+<<<<<<< HEAD
       // Only attach event listener on client side
       if (typeof window !== "undefined") {
         window.addEventListener("resize", handleResize);
@@ -37,6 +45,15 @@ const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
         }
       };
     }, []);
+=======
+      if (isClient) {
+        window.addEventListener("resize", handleResize);
+        return () => {
+          window.removeEventListener("resize", handleResize);
+        };
+      }
+    }, [getGap]);
+>>>>>>> 50336a4258ebc9816d222b461206c686c556cd51
 
     const flexStyle: React.CSSProperties = {
       gap: gap,
@@ -44,9 +61,7 @@ const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
 
     return (
       <div
-        className={cn(
-          flexBoxVariants({ justify, align, direction, wrap, className })
-        )}
+        className={cn(flexBoxVariants({ justify, align, direction, wrap, className }))}
         style={flexStyle}
         ref={ref}
         {...props}
@@ -57,6 +72,6 @@ const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
   }
 );
 
-FlexBox.displayName = "FlexBox";
+FlexBoxComponent.displayName = "FlexBox";
 
-export { FlexBox };
+export const FlexBox = isClient ? FlexBoxComponent : React.memo(() => null);

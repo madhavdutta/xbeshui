@@ -18,11 +18,11 @@ const RootComponent = () => {
     </React.StrictMode>
   );
 };
+
 const rootElement = document.getElementById("root");
 if (!rootElement) {
- throw new Error("Root element not found");
+  throw new Error("Root element not found");
 }
-  <>
-    <RootComponent />
-  </>
 
+const root = ReactDOM.createRoot(rootElement);
+root.render(<RootComponent />);

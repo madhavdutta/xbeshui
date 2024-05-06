@@ -34,7 +34,7 @@ const stackConfig: StackVariantType = {
   },
 };
 export const stackVariant = cva(
-  "text-foreground flex flex-col",
+  "text-foreground flex flex-col w-full",
   stackConfig
 );
 

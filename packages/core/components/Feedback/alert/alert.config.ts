@@ -1,35 +1,49 @@
-import {cva, type VariantProps } from "class-variance-authority";
-import type { AlertVariantsConfigType, AlertVariantType } from "./alertType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { AlertVariantType } from "./alertType";
+// import * as React from "react";
 
-const AlertVariantConfig:AlertVariantType = {
-    default: "bg-background text-foreground",
-    destructive: "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
-    success: "border-green/50 text-green dark:border-green [&>svg]:text-green",
-    warning: "border-orange/50 text-orange dark:border-orange [&>svg]:text-orange",
-    notice: "border-blue/50 text-blue dark:border-blue [&>svg]:text-blue",
-    muted: "border-muted/50 text-muted dark:border-muted [&>svg]:text-muted",
-}
-
-const alertVariantsConfig:AlertVariantsConfigType = {
-    variants: {
-        variant: AlertVariantConfig
-    },
-    defaultVariants: {
-        variant: "default",
-    },
-};
 
 const alertPropsConfig = cva(
-    "bg-background text-secondary-foreground static w-full z-10 rounded-sm border border-input px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground [&>svg~*]:pl-7",
-    alertVariantsConfig
-);
+  "relative w-full rounded-lg border px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground [&>svg~*]:pl-7",
+  {
+    variants: {
+      variant: {
+        default: "bg-background text-foreground",
+        destructive: "bg-destructive/50 border-destructive dark:text-white [&>svg]:text-destructive",
+        success: "bg-success/50 border-success text-primary [&>svg]:text-green",
+        warning: "bg-warning/50 border-warning text-primary [&>svg]:text-orange",
+        notice: "bg-notice/50 border-notice text-primary [&>svg]:text-blue",
+        muted: "bg-muted text-muted dark:text-white [&>svg]:text-muted",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
 
-export interface AlertPropsType extends React.HTMLAttributes<HTMLDivElement>,  VariantProps<typeof alertPropsConfig> {
-    id: string;
-    title?: string;
-    message?: string;
-    icon?: React.ReactNode;
-    variant?: keyof AlertVariantType
+// const AlertVariantConfig: AlertVariantType = ;
+
+// const alertVariantsConfig: AlertVariantsConfigType = {
+//   variants: {
+//     variant: AlertVariantConfig,
+//   },
+//   defaultVariants: {
+//     variant: "default",
+//   },
+// };
+
+// const alertPropsConfig = cva(
+//   "static w-full z-10 rounded-sm px-4 py-3 text-sm ",
+//   alertVariantsConfig
+// );
+
+export interface AlertPropsType extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof alertPropsConfig> {
+  id: string;
+  title?: string;
+  message?: string;
+  icon?: React.ReactNode;
+  variant?: keyof AlertVariantType;
 }
-  
-export { alertPropsConfig, alertVariantsConfig};
+
+export { alertPropsConfig };

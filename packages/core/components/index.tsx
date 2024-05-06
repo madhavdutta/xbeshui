@@ -61,7 +61,7 @@ export { Separator } from "./Misc/separator/separator";
 export { Timeline, TimelineItem } from "./Misc/timeline/timeline";
 export { IfElse } from "./Misc/ifElse/ifElse";
 // All Navigation core components are exported from this file
-export { NavigationMenu } from "./Navigation/navMenu/navMenu";
+// export { NavigationMenu } from "./Navigation/navMenu/navMenu";
 export { Pagination } from "./Navigation/pagination/pagination";
 // All Overlays core components are exported from this file
 export {

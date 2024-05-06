@@ -4,6 +4,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "../../components/Layout/resizable/resizable";
+// import App from "../../../../src/App";
 import { useEffect, useState } from "react";
 import {
   IconDeviceLaptop,
@@ -28,7 +29,11 @@ export const PreviewComp = (data: PreviewCompProps) => {
     console.log(value);
   };
 
-  useEffect(() => {}, [screenSize, panelSize]);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  useEffect(() => {
+    // setPanelSize(screenSize);
+    console.log("working..");
+  }, [screenSize, panelSize]);
 
   return (
     <Card className="w-full">
