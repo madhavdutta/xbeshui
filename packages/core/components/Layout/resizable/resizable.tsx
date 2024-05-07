@@ -20,14 +20,17 @@ const ResizablePanelGroup = ({
 };
 
 const ResizablePanel = ResizablePrimitive.Panel;
+type ResizableHandleProps = React.ComponentProps<
+  typeof ResizablePrimitive.PanelResizeHandle
+> & {
+  withHandle?: boolean;
+};
 
 const ResizableHandle = ({
   withHandle,
   className,
   ...props
-}: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
-  withHandle?: boolean;
-}) => {
+}: ResizableHandleProps) => {
   useXbeshProviderCheck();
   return (
     <ResizablePrimitive.PanelResizeHandle
