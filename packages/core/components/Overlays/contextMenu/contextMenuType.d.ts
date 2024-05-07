@@ -1,4 +1,4 @@
-import * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
+import type * as ContextMenuPrimitive from "@radix-ui/react-context-menu";
 type ContextMenuSubTriggerType = React.ElementRef<
   typeof ContextMenuPrimitive.SubTrigger
 > &
@@ -44,7 +44,7 @@ type ContextMenuSeparatorType = React.ElementRef<
 
 type ContextMenuShortcutType = React.HTMLAttributes<HTMLSpanElement>;
 
-export {
+export type {
   ContextMenuSubTriggerType,
   ContextMenuSubContentType,
   ContextMenuContentType,

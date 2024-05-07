@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import { cn } from "../../../../utils";
-import { DynamicPopoverProps } from "./popoverType";
+import type { DynamicPopoverProps } from "./popoverType";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface PopoverComponent<T extends React.ElementType = typeof PopoverPrimitive.Root & DynamicPopoverProps>

@@ -50,6 +50,7 @@ const CollapsibleContent: React.FC<{ data: CollapsibleItemConfig }> = ({
     <CollapsiblePrimitive.CollapsibleContent className="space-y-2">
       {data.items.map((item, index) => (
         <div
+          // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
           key={index}
           className="rounded-sm border px-4 py-2 font-mono text-sm shadow-sm"
         >

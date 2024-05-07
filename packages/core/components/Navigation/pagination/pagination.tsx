@@ -6,9 +6,9 @@ import {
 } from "@tabler/icons-react";
 
 import { cn } from "../../../../utils";
-import { ButtonProps } from "../../Buttons/button/button.config";
+import type { ButtonProps } from "../../Buttons/button/button.config";
 import { buttonVariants } from "../../Buttons/button/button.config";
-import { Page, PaginationProps } from "./paginationType";
+import type { Page, PaginationProps } from "./paginationType";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const generatePages = (currentPage: number, totalPages: number): Page[] => {
@@ -88,8 +88,8 @@ const Pagination: React.FC<PaginationProps> = ({
   return (
     <Paginationcomp>
       <PaginationContent>
-        {pages.map((page, index) => (
-          <PaginationItem key={index}>
+        {pages.map((page) => (
+          <PaginationItem key={page.label}>
             {page.label === "Previous" ? (
               <PaginationPrevious
                 disabled={currentPage === 1}
@@ -110,7 +110,7 @@ const Pagination: React.FC<PaginationProps> = ({
             ) : (
               <PaginationLink
                 isActive={page.isActive}
-                onClick={() => onPageChange(parseInt(page.label))}
+                onClick={() => onPageChange(Number.parseInt(page.label))}
               >
                 {page.label}
               </PaginationLink>

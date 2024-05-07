@@ -1,6 +1,6 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 /* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap'); */
 
 @tailwind base;
 @tailwind components;
@@ -8,7 +8,7 @@
 
 @layer base {
   :root {
-    --font-sans: "DM Sans", sans-serif;
+    --font-sans: "Inter", sans-serif;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -19,6 +19,12 @@
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
+    --success: 120 40% 50%;
+    --success-foreground: 0 0% 98%;
+    --warning: 40 100% 50%;
+    --warning-foreground: 0 0% 98%;
+    --notice: 207 100% 54%;
+    --notice-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
     --accent: 240 4.8% 95.9%;
@@ -42,7 +48,7 @@
   }
 
   .dark {
-    --font-sans: "DM Sans", sans-serif;
+    --font-sans: "Inter", sans-serif;
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -53,6 +59,12 @@
     --primary-foreground: 240 5.9% 10%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
+    --success: 120 40% 50%;
+    --success-foreground: 0 0% 98%;
+    --warning: 40 100% 50%;
+    --warning-foreground: 0 0% 98%;
+    --notice: 207 100% 54%;
+    --notice-foreground: 240 5.9% 10%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
     --accent: 240 3.7% 15.9%;
@@ -118,4 +130,52 @@
   input {
     @apply focus:outline-none;
   }
+
+/* Grid classes for the Grid Component */
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.col-span-12 {
+  grid-column: span 12 / span 12;
+}
+
+@media (min-width: 640px) {
+  .col-span-sm-6 {
+    grid-column: span 6 / span 6;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-span-md-4 {
+    grid-column: span 4 / span 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .col-span-lg-3 {
+    grid-column: span 3 / span 3;
+  }
+}
+
+.gap-lg {
+  gap: 1.5rem;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.overflow-visible {
+  overflow: visible;
+}
 }

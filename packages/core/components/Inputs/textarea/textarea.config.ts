@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { TextareaConfigType } from "./textareaType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { TextareaConfigType } from "./textareaType";
 const textareaConfig: TextareaConfigType = {
   variants: {
     variant: {

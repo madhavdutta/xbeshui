@@ -5,7 +5,7 @@ import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { cn } from "../../../../utils";
 
 import { Text } from "../../Typography/text/text";
-import { RadioGroupProps, radioVariants } from "./radio.config";
+import { radioVariants, type RadioGroupProps } from "./radio.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface RadioOptionsItem {
@@ -30,9 +30,9 @@ const RadioGroup = React.forwardRef<
         {...props}
         ref={ref}
       > 
-        {radioOptions.map((item: RadioOptionsItem, index: number) => {
+        {radioOptions.map((item: RadioOptionsItem) => {
           return (
-            <RadioGroupItem key={index} value={item.value} label={item.label} variant={variant} size={size} labelSize={labelSize}/>
+            <RadioGroupItem key={item.id} value={item.value} label={item.label} variant={variant} size={size} labelSize={labelSize}/>
           )
         })}
         

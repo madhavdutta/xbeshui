@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { TextVariantsType } from "./textType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { TextVariantsType } from "./textType";
 
 const textConfig:TextVariantsType= {
   variants: {

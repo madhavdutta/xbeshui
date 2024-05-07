@@ -2,7 +2,7 @@ import * as React from "react";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
 import { Text } from "../../Typography/text/text";
 import { cn } from "../../../../utils";
-import { SeparatorProps, separatorVariant } from "./separator.config";
+import { type SeparatorProps, separatorVariant } from "./separator.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Separator = React.forwardRef<
@@ -23,12 +23,6 @@ const Separator = React.forwardRef<
     ref
   ) => {
     useXbeshProviderCheck();
-    const marginClass =
-      labelPosition === "left"
-        ? "mr-2"
-        : labelPosition === "right"
-        ? "ml-2"
-        : "mx-auto";
 
     if (label) {
       return (
@@ -36,12 +30,14 @@ const Separator = React.forwardRef<
           {labelPosition === "left" && label && (
             <Text
               size={labelSize}
-              className={cn(marginClass, "whitespace-nowrap")}
+              className={"whitespace-nowrap px-2"}
             >
               {label}
             </Text>
           )}
-          <div className="flex-grow">
+
+
+          {(labelPosition === "right" || labelPosition === "center") && <div className="flex-grow">
             <SeparatorPrimitive.Root
               ref={ref}
               decorative={decorative}
@@ -53,22 +49,41 @@ const Separator = React.forwardRef<
               {...props}
             />
           </div>
-          {labelPosition === "right" && label && (
-            <Text
-              size={labelSize}
-              className={cn(marginClass, "whitespace-nowrap")}
-            >
-              {label}
-            </Text>
-          )}
-          {labelPosition === "center" && label && (
-            <Text
-              size={labelSize}
-              className="absolute left-1/2 transform -translate-x-1/2  px-0.5 whitespace-nowrap"
-            >
-              {label}
-            </Text>
-          )}
+          }
+
+          <div className="flex justify-center items-center">
+            {labelPosition === "right" && label && (
+              <Text
+                size={labelSize}
+                className={"whitespace-nowrap px-2"}
+              >
+                {label}
+              </Text>
+            )}
+            {labelPosition === "center" && label && (
+              <Text
+                size={labelSize}
+                className="px-2 whitespace-nowrap"
+              >
+                {label}
+              </Text>
+            )}
+          </div>
+
+          {(labelPosition === "left" || labelPosition === "center") && <div className="flex-grow">
+            <SeparatorPrimitive.Root
+              ref={ref}
+              decorative={decorative}
+              orientation={orientation}
+              className={cn(
+                separatorVariant({ variant, className }),
+                "h-[1px] w-full"
+              )}
+              {...props}
+            />
+          </div>}
+
+
         </div>
       );
     }

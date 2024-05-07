@@ -1,7 +1,7 @@
 {
   "name": "@xbeshui/core",
   "description": "xBesh UI is a collection of accessible, reusable, and composable React components for building user interfaces.",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "repository": {
     "type": "git",
     "url": "https://github.com/madhavdutta/xbeshUI.git"
@@ -26,11 +26,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "localbuild" : "tsc && vite build && npm pack && sh localDeploy.sh",
+    "localbuild": "tsc && vite build && npm pack && sh localDeploy.sh",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@blocknote/react": "^0.13.1",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
@@ -59,15 +60,28 @@
     "@radix-ui/react-toggle-group": "^1.0.4",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@tabler/icons-react": "^3.0.1",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
     "@tanstack/react-table": "^8.13.2",
+    "@tiptap/core": "^2.3.1",
+    "@tiptap/pm": "^2.3.1",
+    "@tiptap/react": "^2.3.1",
+    "@tiptap/starter-kit": "^2.3.1",
+    "@types/lodash": "^4.17.0",
     "@types/react-color": "^3.0.12",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.0.0",
+    "framer-motion": "^11.1.7",
     "input-otp": "^1.2.3",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.356.0",
+    "novel": "^0.3.1",
+    "postcss": "^8.4.24",
     "react": "^18.2.0",
     "react-color": "^2.19.3",
     "react-day-picker": "^8.10.0",
@@ -75,20 +89,16 @@
     "react-hook-form": "^7.51.0",
     "react-resizable-panels": "^2.0.12",
     "tailwind-merge": "^2.2.1",
-    "uuid": "^9.0.1",
-    "vaul": "^0.9.0",
-    "postcss": "^8.4.24",
     "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/container-queries": "^0.1.1",
-    "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.10"
+    "uuid": "^9.0.1",
+    "vaul": "^0.9.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
@@ -97,17 +107,18 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "react-syntax-highlighter": "^15.5.0",
     "typescript": "^5",
     "vite": "^5.2.7",
     "vite-plugin-dts": "^3.8.1"
   },
   "peerDependencies": {
-    "tailwindcss": "^3.4.0",
-    "tailwindcss-animate": "^1.0.5",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.10"
+    "@tailwindcss/typography": "^0.5.10",
+    "tailwindcss": "^3.4.0",
+    "tailwindcss-animate": "^1.0.5"
   },
   "keywords": [
     "react",

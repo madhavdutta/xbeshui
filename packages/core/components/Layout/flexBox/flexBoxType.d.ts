@@ -1,6 +1,3 @@
-import { VariantProps } from "class-variance-authority";
-import { flexBoxVariants } from "./flexBox.config";
-
 export interface flexBoxVariantType {
   variants: {
     direction: {

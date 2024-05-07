@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { cn } from "../../../../utils";
-import { GroupProps, groupVariant } from "./group.config";
+import { type GroupProps, groupVariant } from "./group.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 // import "../Theme/xbeshDefaultUIStyles.css";

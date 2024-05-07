@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "../../../../utils/utils";
-import { VariantProps } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
 import { CardVariants } from "./card.config";
 
 interface CardComponent<T extends React.ElementType = "div">

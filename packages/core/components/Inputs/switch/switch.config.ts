@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { SwitchConfigType } from "./switchType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { SwitchConfigType } from "./switchType";
 
 const switchConfig: SwitchConfigType = {
   variants: {

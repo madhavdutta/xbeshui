@@ -1,12 +1,14 @@
 import * as React from "react";
 import { cn } from "../../../../utils";
-import { ContainerProps, containerConfig, containerVariant } from "./container.config";
+import { containerVariant, containerConfig, type ContainerProps } from "./container.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const getSizeClasses = (size: ContainerProps["size"]) => {
   if (typeof size === "string") {
     return containerConfig.variants.size[size] || "";
-  } else if (typeof size === "object") {
+  } 
+  
+  if (typeof size === "object") {
     return Object.entries(size)
       .map(([breakpoint, sizeValue]) =>
         breakpoint === "base"

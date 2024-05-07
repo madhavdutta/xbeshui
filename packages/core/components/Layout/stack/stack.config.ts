@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { StackVariantType } from "./stackType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { StackVariantType } from "./stackType";
 const stackConfig: StackVariantType = {
   variants: {
     justify: {
@@ -34,7 +34,7 @@ const stackConfig: StackVariantType = {
   },
 };
 export const stackVariant = cva(
-  "text-foreground flex flex-col",
+  "text-foreground flex flex-col w-full",
   stackConfig
 );
 

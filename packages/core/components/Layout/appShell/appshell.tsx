@@ -1,5 +1,5 @@
 import React from "react";
-import { appShellProps, appShellVariant } from "./appShell.config";
+import { appShellVariant, type appShellProps } from "./appShell.config";
 import { cn } from "../../../../utils";
 import { IconMenu2 } from "@tabler/icons-react";
 import { Sheet } from "../../Overlays/sheet/sheet";
@@ -33,6 +33,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
         >
           {Navbar && Navbar}
         </nav>
+        {/* biome-ignore lint/complexity/noUselessFragments: <explanation> */}
         <></>
       </IfElse>
     );
@@ -47,7 +48,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
                   ? "md:left-72"
                   : "md:left-16"
                 : "md:left-0"
-              : (Navbar ? (variant == "inner" ? "md:left-72" : "md:left-16") : "md:left-0")
+              : (Navbar ? (variant === "inner" ? "md:left-72" : "md:left-16") : "md:left-0")
 
             } ${Aside ? (fixedHeader? "md:right-96" : "md:mr-96") : "md:right-0"}`}
         >
@@ -74,6 +75,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
 
           <div className="w-full">{Header && Header}</div>
         </header>
+        {/* biome-ignore lint/complexity/noUselessFragments: <explanation> */}
         <></>
       </IfElse>
     );
@@ -81,7 +83,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
     const renderMain = () => (
       <main
         className={`h-screen mr-0 ${Aside ? "md:mr-96" : "md:mr-0"} ${Header ? (fixedHeader ? "pt-20" : "pt-4") : "pt-0"
-          } ${Footer ? "pb-20" : "pb-0"} px-0 ${(variant == "default" && layout == "alt") ? "md:ml-16" : "md:ml-0"} ${(variant == "inner" && layout == "alt") ? "md:ml-72" : "md:ml-0"}`}
+          } ${Footer ? "pb-20" : "pb-0"} px-0 ${(variant === "default" && layout === "alt") ? "md:ml-16" : "md:ml-0"} ${(variant === "inner" && layout === "alt") ? "md:ml-72" : "md:ml-0"}`}
       >
         {props.children}
       </main>
@@ -100,6 +102,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
         >
           {Footer && Footer}
         </footer>
+        {/* biome-ignore lint/complexity/noUselessFragments: <explanation> */}
         <></>
       </IfElse>
     );
@@ -113,6 +116,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
         >
           {Aside && Aside}
         </aside>
+        {/* biome-ignore lint/complexity/noUselessFragments: <explanation> */}
         <></>
       </IfElse>
     );

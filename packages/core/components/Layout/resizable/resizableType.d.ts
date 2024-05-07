@@ -1,4 +1,3 @@
-import React from "react";
 export type PanelConfig = {
   key: string | number;
   content: React.ReactNode;

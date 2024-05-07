@@ -1,0 +1,29 @@
+.feature {
+    position: relative;
+    padding-top: 2rem; /* var(--mantine-spacing-xl); */
+    padding-left: 2rem; /* var(--mantine-spacing-xl); */
+  }
+  
+  .featureoverlay {
+    position: absolute;
+    height: 100px; /* rem(100px); */
+    width: 160px; /* rem(160px); */
+    top: 0;
+    left: 0;
+    background-color: #228BE61A; /* var(--mantine-color-blue-light); */
+    z-index: 1;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .icon {
+    color: #2b6cb0; /* var(--mantine-color-blue-filled); */
+  }
+  
+  .title {
+    color: #000000; /* light-dark(var(--mantine-color-black), var(--mantine-color-white)); */
+  }
+  

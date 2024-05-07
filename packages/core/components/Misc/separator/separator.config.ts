@@ -1,6 +1,6 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { SepratorConfigType } from "./separatorType";
-import * as SeparatorPrimitive from "@radix-ui/react-separator";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { SepratorConfigType } from "./separatorType";
+import type * as SeparatorPrimitive from "@radix-ui/react-separator";
 
 export const sepratorConfig:SepratorConfigType ={
   variants: {

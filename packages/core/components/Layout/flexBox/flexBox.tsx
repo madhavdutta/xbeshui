@@ -1,34 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "../../../../utils";
-import { FlexBoxProps, flexBoxVariants } from "./flexBox.config";
+import { flexBoxVariants, type FlexBoxProps } from "./flexBox.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
+const isClient = typeof window !== "undefined";
+
+const FlexBoxComponent = React.forwardRef<HTMLDivElement, FlexBoxProps>(
   ({ children, direction, justify, align, wrap, className, ...props }, ref) => {
     useXbeshProviderCheck();
-    
     const [gap, setGap] = useState(getGap());
 
     function getGap() {
+      if (!isClient) return "0rem"; // Return a default value for server-side rendering
+
       const screenWidth = window.innerWidth;
       if (screenWidth < 480) {
         return "0.5rem";
-      } else if (screenWidth < 991) {
-        return "1rem";
-      } else {
-        return "1.5rem";
       }
+      if (screenWidth < 991) {
+        return "1rem";
+      }
+      return "1.5rem";
     }
 
     useEffect(() => {
       function handleResize() {
         setGap(getGap());
       }
-      window.addEventListener("resize", handleResize);
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, []); // Empty dependency array to run effect only once on mount
+
+      if (isClient) {
+        window.addEventListener("resize", handleResize);
+        return () => {
+          window.removeEventListener("resize", handleResize);
+        };
+      }
+    }, [getGap]);
 
     const flexStyle: React.CSSProperties = {
       gap: gap,
@@ -36,9 +42,7 @@ const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
 
     return (
       <div
-        className={cn(
-          flexBoxVariants({ justify, align, direction, wrap, className })
-        )}
+        className={cn(flexBoxVariants({ justify, align, direction, wrap, className }))}
         style={flexStyle}
         ref={ref}
         {...props}
@@ -49,6 +53,6 @@ const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
   }
 );
 
-FlexBox.displayName = "FlexBox";
+FlexBoxComponent.displayName = "FlexBox";
 
-export { FlexBox };
+export const FlexBox = isClient ? FlexBoxComponent : React.memo(() => null);

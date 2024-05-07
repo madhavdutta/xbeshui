@@ -1,4 +1,3 @@
-import * as React from "react";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { DayPicker } from "react-day-picker";
 

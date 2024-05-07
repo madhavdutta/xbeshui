@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { BlockQuoteVariantsType } from "./blockquoteType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { BlockQuoteVariantsType } from "./blockquoteType";
 
 export const blockQuoteVariant:BlockQuoteVariantsType = {
   variants: {

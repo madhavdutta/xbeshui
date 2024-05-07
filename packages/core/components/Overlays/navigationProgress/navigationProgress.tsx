@@ -10,6 +10,7 @@ export const NavigaionProgress = ({ target, className }: ProgressbarProps) => {
   useXbeshProviderCheck();
   const [progress, setProgress] = useState(0);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useLayoutEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) => {

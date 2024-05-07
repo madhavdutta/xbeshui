@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { AppShellVariantType } from "./appShellType";
+import { cva, type VariantProps } from "class-variance-authority";
+import type { AppShellVariantType } from "./appShellType";
 
 const appShellConfig: AppShellVariantType = {
     variants: {

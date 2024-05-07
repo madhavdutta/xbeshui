@@ -56,8 +56,8 @@ const ContextMenuContent: React.FC<React.ComponentProps<typeof ContextMenuPrimit
         )}
         {...props}
       >
-        {menuConfig.map((item, index) => (
-          <React.Fragment key={index}>
+        {menuConfig.map((item) => (
+          <React.Fragment key={item.label}>
           {item.type === "separator" ? (
             <ContextMenuSeparator />
           ) : (

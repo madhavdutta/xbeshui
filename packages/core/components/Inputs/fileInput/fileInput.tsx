@@ -3,7 +3,7 @@ import * as React from "react";
 // Utility to concatenate class names
 
 import { cn } from "../../../../utils";
-import { FileInputProps, fileInputVariants } from "./fileInput.config";
+import { fileInputVariants, type FileInputProps } from "./fileInput.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(

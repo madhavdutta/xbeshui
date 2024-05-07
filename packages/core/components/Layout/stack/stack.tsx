@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { cn } from "../../../../utils";
-import { StackProps, stackVariant } from "./stack.config";
+import { type StackProps, stackVariant } from "./stack.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const Stack = React.forwardRef<HTMLInputElement, StackProps>(

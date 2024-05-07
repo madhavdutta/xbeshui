@@ -4,7 +4,7 @@ import * as ToastPrimitives from "@radix-ui/react-toast";
 
 import { cn } from "../../../../utils";
 import { toastVariants } from "./toast.config";
-import { VariantProps } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 const ToastProvider = ToastPrimitives.Provider;

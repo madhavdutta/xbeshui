@@ -28,12 +28,14 @@ export class Logging {
         this.environment = 'development';
 
         if (options?.styles && this.applyStyles) {
+            // biome-ignore lint/style/useConst: <explanation>
             for (let key in options.styles) {
                 if (this.styles[key]) this.styles[key] = options.styles[key];
             }
         }
     }
 
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     public log = (key: string, obj: any, ...objs: any[]) => {
         if (this.environment === 'production') return;
 
@@ -44,9 +46,13 @@ export class Logging {
         }
     };
 
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     public debug = (obj: any, ...objs: any[]) => this.log(DEBUG, obj, ...objs);
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     public info = (obj: any, ...objs: any[]) => this.log(INFO, obj, ...objs);
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     public warn = (obj: any, ...objs: any[]) => this.log(WARN, obj, ...objs);
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     public error = (obj: any, ...objs: any[]) => this.log(ERROR, obj, ...objs);
 }
 

@@ -1,21 +1,13 @@
 export type ToggleVariantType = {
-  "default": string;
-  "destructive": string;
-  "outline": string;
-  "secondary": string;
-  "ghost": string;
+  default: string;
+  outline: string;
 };
 
 export type ToggleGroupVariantType = {
   default: string;
-  success: string;
-  warning: string;
-  notice: string;
-  destructive: string,
   outline: string;
 };
 
-// Define ToggleSize type representing the structure of button sizes
 export type ToggleSizeType = {
   default: string;
   xs: string;
@@ -25,14 +17,14 @@ export type ToggleSizeType = {
 };
 
 export type ToggleRadiusType = {
-  none: "rounded-none";
-  sm: "rounded-sm";
-  md: "rounded-md";
-  lg: "rounded-lg";
-  xl: "rounded-xl";
-  xxl: "rounded-2xl";
-  full: "rounded-full";
-}
+  none: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+  xxl: string;
+  full: string;
+};
 
 export interface ToggleVariantsConfigType {
   variants: {
@@ -47,7 +39,7 @@ export interface ToggleVariantsConfigType {
   };
 }
 
-export type ToggleGroupVariantsConfigType = {
+export interface ToggleGroupVariantsConfigType {
   variants: {
     variant: ToggleGroupVariantType;
     size: ToggleSizeType;
