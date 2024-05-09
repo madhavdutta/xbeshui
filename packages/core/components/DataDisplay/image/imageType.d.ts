@@ -5,6 +5,7 @@ export type ImageSizeType = {
   md: string;
   lg: string;
   xl: string;
+  full: string
 };
 
 export type ImageFitType = {
