@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "../packages/index.css";
 import { XbeshProvider } from "../packages/core/components/Theme/xBeshTheme/xbeshProvider.tsx";
-import App from "./App-karthik.tsx";
+import App from "./App.tsx";
 
 const RootComponent = () => {
   return (
