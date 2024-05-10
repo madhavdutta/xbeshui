@@ -4,7 +4,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "../packages/index.css";
 import { XbeshProvider } from "../packages/core/components/Theme/xBeshTheme/xbeshProvider.tsx";
-import { Toaster } from "../packages/core/components/Feedback/toast/toaster.tsx";
 import App from "./App.tsx";
 
 const RootComponent = () => {

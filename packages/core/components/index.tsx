@@ -65,8 +65,8 @@ export { IfElse } from "./Misc/ifElse/ifElse";
 export { Pagination } from "./Navigation/pagination/pagination";
 // All Overlays core components are exported from this file
 export {
-	ContextMenu,
-	type ContextMenuItemConfig,
+  ContextMenu,
+  type ContextMenuItemConfig,
 } from "./Overlays/contextMenu/contextMenu";
 export { Drawer } from "./Overlays/drawer/drawer";
 export { DropdownMenu } from "./Overlays/dropdownMenu/dropdownMenu";
@@ -93,29 +93,35 @@ export { NavbarUI } from "../ui/appshell/navbar/navbarui";
 export { AsideUI } from "../ui/appshell/aside/asideUI";
 
 export {
-	type CarouselApi,
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselPrevious,
-	CarouselNext,
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+} from "./Layout/resizable/resizable";
+
+export {
+  type CarouselApi,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
 } from "./Misc/carousel/carousel";
 
 export {
-	type ToastProps,
-	type ToastActionElement,
-	ToastProvider,
-	ToastViewport,
-	Toast,
+  type ToastProps,
+  type ToastActionElement,
+  ToastProvider,
+  ToastViewport,
+  Toast,
 } from "./Feedback/toast/toast";
 
 export {
-	Table,
-	TableHeader,
-	TableBody,
-	TableFooter,
-	TableHead,
-	TableRow,
-	TableCell,
-	TableCaption,
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableCaption,
 } from "./DataDisplay/table/table";

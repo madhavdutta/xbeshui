@@ -5,5 +5,7 @@ export interface CodeProps
   extends React.HTMLAttributes<HTMLPreElement>,
     VariantProps<typeof codeVariants> {
   asChild?: boolean;
-  color?: string; // Optional color prop
+  color?: string;
+  language?:string;
+  children:string;
 }

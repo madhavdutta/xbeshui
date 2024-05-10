@@ -31,6 +31,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@blocknote/react": "^0.13.1",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
@@ -97,6 +98,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
@@ -105,6 +107,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "react-syntax-highlighter": "^15.5.0",
     "typescript": "^5",
     "vite": "^5.2.7",
     "vite-plugin-dts": "^3.8.1"
