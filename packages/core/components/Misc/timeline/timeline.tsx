@@ -10,7 +10,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   return (
     children ? (
       // biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
-      <li className={`relative left-16 mb-8 bg-background`}>
+      <li className={`relative -left-16 mb-8 bg-background`}>
         <div
           // biome-ignore lint/style/noUnusedTemplateLiteral: <explanation>
           className={`items-center justify-between p-4 text-secondary-foreground border border-input rounded-lg shadow-sm sm:flex`}

@@ -9,7 +9,7 @@ import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 const Code = React.forwardRef<HTMLPreElement, CodeProps>(
   ({ className, ...props }, ref) => {
     useXbeshProviderCheck();
-    
+
     const tailwindClasses = `
             bg-input
             block
@@ -44,7 +44,7 @@ const Code = React.forwardRef<HTMLPreElement, CodeProps>(
           onClick={copyToClipboard}
           type="button"
         >
-          {copied ? <IconCheck className="text-secondary-foreground" size={16} /> : <IconCopy className="text-secondary-foreground"  size={16} />}
+          {copied ? <IconCheck className="text-secondary-foreground" size={16} /> : <IconCopy className="text-secondary-foreground" size={16} />}
         </button>
       </div>
     );

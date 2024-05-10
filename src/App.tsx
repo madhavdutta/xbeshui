@@ -21,6 +21,9 @@ import {
 	Card,
 	Label,
 	ContextMenu,
+	Timeline,
+	TimelineItem,
+	Sheet,
 } from "../packages/core/components";
 import {
 	IconBox,
@@ -215,7 +218,32 @@ const App = () => {
 	//     return titleMatch || tagsMatch;
 	//   })
 	//   : allCommands;
-
+	const items = [
+		{
+		  imageUrl:
+			"https://avatars.githubusercontent.com/u/5016004",
+		  name: "Madhav D",
+		  action: "likes Bonnie Greens post",
+		  description: "I wanted to share a webinar zeroheight",
+		  privacy: "Public",
+		},
+		{
+		  imageUrl:
+			"https://avatars.githubusercontent.com/u/108726788",
+		  name: "Milan Thakur",
+		  action: "likes Madhav Greens post",
+		  description: "I wanted to share a webinar zeroheight",
+		  privacy: "Public",
+		},
+		{
+		  imageUrl:
+			"https://avatars.githubusercontent.com/u/72692494",
+		  name: "Mohd. Aakib",
+		  action: "likes Bonnie Greens post",
+		  description: "I wanted to share a webinar zeroheight",
+		  privacy: "Public",
+		},
+	  ];
 	return (
 		<>
 			<AppShell
@@ -237,8 +265,8 @@ const App = () => {
 			>
 				<Container size={"xl"} className="dark:bg-red-300">
 					
-					
-					
+					<Sheet side="right" Trigger={<Button>Open Sheet</Button>}>
+						</Sheet>
 				</Container>
 			</AppShell>
 		</>
