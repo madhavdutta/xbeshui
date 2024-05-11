@@ -132,7 +132,7 @@ const App = () => {
 				Header={<HeaderUI />}
 				Footer={<FooterUI />}
 				Aside={<Aside />}
-				layout="alt"
+				layout="default"
 				variant="default"
 				withBorder={true}
 				className="bg-muted/40"
