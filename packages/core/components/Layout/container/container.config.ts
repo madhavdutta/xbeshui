@@ -4,7 +4,7 @@ import { cva } from "class-variance-authority";
 export const containerConfig: ContainerVariantType = {
   variants: {
     p: {
-      default: "p-4",
+      default: "p-0",
       none: "p-0",
       xs: "p-1",
       sm: "p-2",

@@ -10,20 +10,10 @@ import {
 	Avatar,
 	NavbarUI,
 	Container,
-	Alert,
-	Stack,
-	Pagination,
-	ColorInput,
-	Accordion,
-	Badge,
 	Button,
-	Tabs,
-	Card,
-	Label,
-	ContextMenu,
-	Timeline,
-	TimelineItem,
 	Sheet,
+	Stack,
+	AsideUI,
 } from "../packages/core/components";
 import {
 	IconBox,
@@ -36,26 +26,9 @@ import {
 	IconUsers,
 } from "@tabler/icons-react";
 import Navmenu from "../packages/core/components/Navigation/navMenu/navMenu";
-
-// import XBEditor from "../packages/core/ui/xbEditor/xbEditor";
+import { motion } from "framer-motion";
 
 const App = () => {
-	// const [goal, setGoal] = React.useState(350);
-
-	// function onClick(adjustment: number) {
-	//   setGoal(Math.max(200, Math.min(400, goal + adjustment)));
-	// }
-
-	// interface Command {
-	//   title: string;
-	//   icon: string;
-	//   shortcut: string;
-	//   onSelect: () => void;
-	//   group?: string;
-	//   subgroup?: string;
-	//   tags?: string[];
-	// }
-
 	interface NavItemProps {
 		link: string;
 		title: string;
@@ -92,7 +65,7 @@ const App = () => {
 
 	const HeaderUI = () => {
 		return (
-			<Group className={"w-full h-full px-10 py-4"} justify="spaceBetween">
+			<Group className={"w-full h-full px-10 py-4 "} justify="spaceBetween">
 				<Breadcrumb>
 					<Breadcrumb.List>
 						<Breadcrumb.Item>
@@ -136,114 +109,16 @@ const App = () => {
 	};
 
 	const FooterUI = () => {
-		return <div className={"h-full w-full p-4"}>footer</div>;
+		return <div className={"h-ful p-4"}>footer</div>;
 	};
 
-	// const Aside = () => {
-	//   return (
-	//     <div className={"w-full pt-4 pr-4 pl-0"}>
-	//       <Stack>
-	//         <AsideUI />
-	//       </Stack>
-	//     </div>
-	//   );
-	// };
+	const Aside = () => {
+		return (
 
-	// const createCommandsFromDocsConfig = (docsConfig: DocsConfig): Command[] => {
-	//   const commands: Command[] = [];
+			<AsideUI />
+		);
+	};
 
-	//   // Add commands from mainNav
-	//   docsConfig.mainNav.forEach((item) => {
-	//     const command: Command = {
-	//       title: item.title,
-	//       icon: item.icon || "",
-	//       shortcut: "",
-	//       onSelect: () => {
-	//         window.location.href = item.href;
-	//       },
-	//       group: "Main Navigation",
-	//       tags: item.tags,
-	//     };
-	//     commands.push(command);
-	//   });
-
-	//   // Add commands from sidebarNav
-	//   docsConfig.sidebarNav.forEach((section) => {
-	//     section.items.forEach((item) => {
-	//       const command: Command = {
-	//         title: item.title,
-	//         icon: item.icon || "",
-	//         shortcut: "",
-	//         onSelect: () => {
-	//           window.location.href = item.href;
-	//         },
-	//         group: section.title,
-	//         subgroup: "",
-	//         tags: item.tags,
-	//       };
-	//       commands.push(command);
-	//     });
-	//   });
-
-	//   return commands;
-	// };
-
-	// const [isOpen, setIsOpen] = useState(false);
-	// const [searchTerm, setSearchTerm] = useState("");
-
-	// const handleOpen = () => {
-	//   setIsOpen(true);
-	// };
-
-	// const handleClose = () => {
-	//   setIsOpen(false);
-	//   setSearchTerm("");
-	// };
-
-	// const handleSearch = (term: string) => {
-	//   setSearchTerm(term);
-	// };
-
-	// const allCommands = createCommandsFromDocsConfig(docsConfig);
-
-	// const initialSections = ["Introduction", "Components"];
-
-	// const filteredCommands = searchTerm
-	//   ? allCommands.filter((command) => {
-	//     const searchTermLowerCase = searchTerm.toLowerCase();
-	//     const titleMatch = command.title.toLowerCase().includes(searchTermLowerCase);
-	//     const tagsMatch = command.tags?.some((tag) =>
-	//       tag.toLowerCase().includes(searchTermLowerCase)
-	//     );
-	//     return titleMatch || tagsMatch;
-	//   })
-	//   : allCommands;
-	const items = [
-		{
-		  imageUrl:
-			"https://avatars.githubusercontent.com/u/5016004",
-		  name: "Madhav D",
-		  action: "likes Bonnie Greens post",
-		  description: "I wanted to share a webinar zeroheight",
-		  privacy: "Public",
-		},
-		{
-		  imageUrl:
-			"https://avatars.githubusercontent.com/u/108726788",
-		  name: "Milan Thakur",
-		  action: "likes Madhav Greens post",
-		  description: "I wanted to share a webinar zeroheight",
-		  privacy: "Public",
-		},
-		{
-		  imageUrl:
-			"https://avatars.githubusercontent.com/u/72692494",
-		  name: "Mohd. Aakib",
-		  action: "likes Bonnie Greens post",
-		  description: "I wanted to share a webinar zeroheight",
-		  privacy: "Public",
-		},
-	  ];
 	return (
 		<>
 			<AppShell
@@ -256,18 +131,20 @@ const App = () => {
 				}
 				Header={<HeaderUI />}
 				Footer={<FooterUI />}
-				// Aside={<AsideUI />}
-				layout="default"
+				Aside={<Aside />}
+				layout="alt"
 				variant="default"
-				withBorder={false}
+				withBorder={true}
 				className="bg-muted/40"
-				fixedHeader={false}
+				fixedHeader={true}
+				shrinkedAside
 			>
-				<Container size={"xl"} className="dark:bg-red-300">
-					
-					<Sheet side="right" Trigger={<Button>Open Sheet</Button>}>
-						</Sheet>
+				<Container size={"xl"} fluid className="">
+					<div className="h-16 w-full bg-secondary p-4  flex flex-row justify-end items-end">
+						Hello world!
+					</div>
 				</Container>
+				
 			</AppShell>
 		</>
 	);
