@@ -65,7 +65,44 @@ const App = () => {
 
 	const HeaderUI = () => {
 		return (
-			<Group className={"w-full h-full px-10 py-4 "} justify="spaceBetween">
+			<></>
+		);
+	};
+
+	const FooterUI = () => {
+		return <div className={"h-ful p-4"}>footer</div>;
+	};
+
+	const Aside = () => {
+		return (
+
+			<AsideUI />
+		);
+	};
+
+	return (
+		<>
+			<AppShell
+				Navbar={
+					<NavbarUI
+						navItem={navItems}
+						headerItem={<IconStack stroke={1.5} size={28} />}
+						footerItem={<IconSettings stroke={1.5} size={22} />}
+					/>
+				}
+				Header={<HeaderUI />}
+				Footer={<FooterUI />}
+				Aside={<Aside />}
+				layout="default"
+				variant="default"
+				withBorder={true}
+				className="bg-muted/40"
+				fixedHeader={true}
+				shrinkedAside
+			>
+				<Container size={"xl"} fluid className="">
+					<div className="h-16 w-full bg-secondary p-4  flex flex-row justify-end items-end">
+					<Group className={"w-full h-full px-10 py-4 "} justify="spaceBetween">
 				<Breadcrumb>
 					<Breadcrumb.List>
 						<Breadcrumb.Item>
@@ -105,46 +142,9 @@ const App = () => {
 					</DropdownMenu>
 				</Group>
 			</Group>
-		);
-	};
-
-	const FooterUI = () => {
-		return <div className={"h-ful p-4"}>footer</div>;
-	};
-
-	const Aside = () => {
-		return (
-
-			<AsideUI />
-		);
-	};
-
-	return (
-		<>
-			<AppShell
-				Navbar={
-					<NavbarUI
-						navItem={navItems}
-						headerItem={<IconStack stroke={1.5} size={28} />}
-						footerItem={<IconSettings stroke={1.5} size={22} />}
-					/>
-				}
-				Header={<HeaderUI />}
-				Footer={<FooterUI />}
-				Aside={<Aside />}
-				layout="default"
-				variant="default"
-				withBorder={true}
-				className="bg-muted/40"
-				fixedHeader={true}
-				shrinkedAside
-			>
-				<Container size={"xl"} fluid className="">
-					<div className="h-16 w-full bg-secondary p-4  flex flex-row justify-end items-end">
-						Hello world!
 					</div>
 				</Container>
-				
+
 			</AppShell>
 		</>
 	);

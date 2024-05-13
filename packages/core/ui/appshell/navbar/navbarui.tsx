@@ -10,9 +10,11 @@ interface NavItemProps {
   footerItem?: React.ReactNode;
 }
 const NavbarUI = ({ headerItem, navItem, footerItem }: NavItemProps) => {
+
+  
   return (
     <>
-      <aside className="pb-14 sm:pb-6 pt-4 h-screen justify-between bg-background w-full flex flex-col items-start sm:items-center">
+      <aside className="pb-14 sm:pb-6 pt-4 justify-between bg-background w-full flex flex-col items-start sm:items-center">
         <nav className="flex flex-col gap-6 items-start sm:items-center">
           <div className={"hidden sm:flex rounded-full bg-primary text-secondary w-10 h-10  justify-center items-center scale-100 hover:scale-90 cursor-pointer transition-scale ease-in duration-200 "}>{headerItem && headerItem}</div>
           {navItem.map((item) => {
