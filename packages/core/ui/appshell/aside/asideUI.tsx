@@ -4,7 +4,7 @@
 export const AsideUI = () => {
 
     return (
-    <div className="h-16 w-full bg-backround/90 m-0 p-6 ">
+    <div className="h-16 w-full m-0 p-6 ">
         Hello world!
     </div>
       

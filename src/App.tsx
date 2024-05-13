@@ -65,7 +65,10 @@ const App = () => {
 
 	const HeaderUI = () => {
 		return (
-			<></>
+			<Group justify="spaceBetween" className="h-16">
+				<div>Header</div>
+				<div>Header1</div>
+			</Group>
 		);
 	};
 
@@ -93,7 +96,7 @@ const App = () => {
 				Header={<HeaderUI />}
 				Footer={<FooterUI />}
 				Aside={<Aside />}
-				layout="default"
+				layout="alt"
 				variant="default"
 				withBorder={true}
 				className="bg-muted/40"
@@ -101,6 +104,7 @@ const App = () => {
 				shrinkedAside
 			>
 				<Container size={"xl"} fluid className="">
+
 					<div className="h-16 w-full bg-secondary p-4  flex flex-row justify-end items-end">
 					<Group className={"w-full h-full px-10 py-4 "} justify="spaceBetween">
 				<Breadcrumb>
@@ -143,6 +147,7 @@ const App = () => {
 				</Group>
 			</Group>
 					</div>
+					Main
 				</Container>
 
 			</AppShell>
