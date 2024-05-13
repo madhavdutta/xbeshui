@@ -89,7 +89,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           ${Aside ? (asideOpened ? "md:right-[510px]" : "md:right-0") : "md:right-0"} 
           ${Header ? (fixedHeader ? "mt-[66px]" : "mt-4") : "mt-0"} 
           ${Footer ? "pb-20" : "pb-0"} px-0 
-          ${Navbar ? variant==="inner"? "md:left-0 ml-72" : "md:left-0 ml-16" : "md:left-0"}`}
+          ${Navbar ? variant==="inner"? "left-0 md:left-72" : "left-0 md:left-16" : "left-0"}`}
       >
         {props.children}
       </motion.div>
@@ -129,8 +129,8 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
               right: asideOpened ? "12px" : "-500px",
             }}
             transition={{ type: "spring", stiffness: 500, damping: 30 }}
-            className={`fixed z-8 w-[500px] hidden h-full ${withBorder ? "border-l" : ""
-              } ${layout === "alt" ? "top-16 z-10" : "top-0"}`}
+            className={`fixed z-8 bg-red-400 h-full ${withBorder ? "border-l" : ""
+              } ${layout === "alt" ? "top-16" : "top-0"}`}
             aria-label="AsideAlt"
           >
             {Aside}
@@ -191,7 +191,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
           aria-label="HeaderDefault"
           className={`h-16 z-20 bg-purple-300 top-0 ${variant == "inner" ? "left-0 md:left-72 right-12" : "left-0 right-12 md:left-0"} ${fixedHeader ? "fixed" : ""
-            } ${withBorder ? "border-b" : ""} ${Navbar ? "md:ml-16" : "md:ml-0 mt-16"}`}
+            } ${withBorder ? "border-b" : ""}`}
 
         >
           <header>
@@ -234,7 +234,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           ${Aside ? (asideOpened ? "md:right-[510px]" : "md:right-0") : "md:right-0"} 
           ${Header ? (fixedHeader ? "mt-[66px]" : "mt-4") : "mt-0"} 
           ${Footer ? "pb-20" : "pb-0"} px-0 
-          ${Navbar ? "md:left-4 mt-[2px] " : "md:left-0 mt-16"}`}
+          ${Navbar ? variant==="inner"? "left-0 md:left-72" : "left-0 md:left-16" : "left-0"}`}
       >
         {props.children}
       </motion.div>
@@ -273,7 +273,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
               right: asideOpened ? "12px" : "-500px",
             }}
             transition={{ type: "spring", stiffness: 500, damping: 30 }}
-            className={`fixed z-30 w-[500px] hidden h-full ${withBorder ? "border-l" : ""
+            className={`fixed z-30 w-[500px] h-full ${withBorder ? "border-l" : ""
               } ${layout === "default" ? "top-0 z-10" : ""}`}
             aria-label="AsideDefault"
           >
