@@ -15,6 +15,8 @@ import {
 	Stack,
 	AsideUI,
 	Title,
+	Text,
+	Accordion,
 } from "../packages/core/components";
 import {
 	IconBox,
@@ -149,8 +151,20 @@ const App = () => {
 			</Group>
 					</div>
 					
-
-					<Title order="h1">Dashboard</Title>
+<Accordion type="single" variant="default" radius="lg" chevronPosition="right">
+      <Accordion.Item value="item1">
+          <Accordion.Trigger>Item 1</Accordion.Trigger>
+          <Accordion.Content>
+            Content for Item 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </Accordion.Content>
+      </Accordion.Item>
+      <Accordion.Item value="item2">
+        <Accordion.Trigger>Item 2</Accordion.Trigger>
+        <Accordion.Content>
+          Content for Item 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+         </Accordion.Content>
+      </Accordion.Item>
+    </Accordion>
 
 				</Container>
 
