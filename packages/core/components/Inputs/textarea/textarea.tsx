@@ -75,7 +75,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps >(
           </>
         )}
         <textarea
-          className={cn(textareaVariants({ variant,error, size, radius, className }),'bg-background text-secondary-forground')}
+          className={cn(textareaVariants({ variant,error, size, radius, className }),' text-secondary-forground')}
           placeholder={placeholder}
           ref={ref}
           disabled={disabled}

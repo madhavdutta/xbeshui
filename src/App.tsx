@@ -1,16 +1,22 @@
 // biome-ignore lint/style/useImportType: <explanation>
 import React from "react";
 import {
-  TextInput,
-  Group,
-  XbeshThemeSwitch,
-  AppShell,
-  Breadcrumb,
-  DropdownMenu,
-  Avatar,
-  NavbarUI,
-  Container,
-  Button,
+	TextInput,
+	Group,
+	XbeshThemeSwitch,
+	AppShell,
+	Breadcrumb,
+	DropdownMenu,
+	Avatar,
+	NavbarUI,
+	Container,
+	Button,
+	Sheet,
+	Stack,
+	AsideUI,
+	Title,
+	Text,
+	Accordion,
 } from "../packages/core/components";
 import {
   IconBox,
@@ -22,36 +28,15 @@ import {
   IconStack,
   IconUsers,
 } from "@tabler/icons-react";
-
-import { toast } from "sonner";
-import { BeamButton } from "../packages/core/components/Buttons/button/button";
-import { FileUploader } from "../packages/core/components/Buttons/fileUploader/fileUploader";
-
-// import XBEditor from "../packages/core/ui/xbEditor/xbEditor";
+import Navmenu from "../packages/core/components/Navigation/navMenu/navMenu";
+import { motion } from "framer-motion";
 
 const App = () => {
-  //   const { toast } = useToast();
-  // const [goal, setGoal] = React.useState(350);
-
-  // function onClick(adjustment: number) {
-  //   setGoal(Math.max(200, Math.min(400, goal + adjustment)));
-  // }
-
-  // interface Command {
-  //   title: string;
-  //   icon: string;
-  //   shortcut: string;
-  //   onSelect: () => void;
-  //   group?: string;
-  //   subgroup?: string;
-  //   tags?: string[];
-  // }
-
-  interface NavItemProps {
-    link: string;
-    title: string;
-    icon: React.ReactNode;
-  }
+	interface NavItemProps {
+		link: string;
+		title: string;
+		icon: React.ReactNode;
+	}
 
   const navItems: NavItemProps[] = [
     {
@@ -81,175 +66,111 @@ const App = () => {
     },
   ];
 
-  const HeaderUI = () => {
-    return (
-      <Group className={"w-full h-full px-10 py-4"} justify="spaceBetween">
-        <Breadcrumb>
-          <Breadcrumb.List>
-            <Breadcrumb.Item>
-              <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Separator />
-            <Breadcrumb.Item>
-              <Breadcrumb.Link href="/category">Category</Breadcrumb.Link>
-            </Breadcrumb.Item>
-            <Breadcrumb.Separator />
-            <Breadcrumb.Item>
-              <Breadcrumb.Page>Current Page</Breadcrumb.Page>
-            </Breadcrumb.Item>
-          </Breadcrumb.List>
-        </Breadcrumb>
+	const HeaderUI = () => {
+		return (
+			<Group justify="spaceBetween" className="h-16 hidden sm:flex">
+				<div>Header</div>
+				<div>Header1</div>
+			</Group>
+		);
+	};
 
-        <Group className="w-96">
-          <XbeshThemeSwitch />
-          <TextInput
-            leftSection={<IconSearch size={16} stroke={0.5} />}
-            placeholder="Type here to search"
-            width="full"
-          />
+	const FooterUI = () => {
+		return <div className={"h-ful p-4"}>footer</div>;
+	};
 
-          <DropdownMenu>
-            <DropdownMenu.Trigger>
-              <Avatar size="sm" radius="default" alt="madhav dutta" />
-            </DropdownMenu.Trigger>
-            <DropdownMenu.Content>
-              <DropdownMenu.Label>My Account</DropdownMenu.Label>
-              <DropdownMenu.Separator />
-              <DropdownMenu.Item>Profile</DropdownMenu.Item>
-              <DropdownMenu.Item>Billing</DropdownMenu.Item>
-              <DropdownMenu.Item>Team</DropdownMenu.Item>
-              <DropdownMenu.Item>Subscription</DropdownMenu.Item>
-            </DropdownMenu.Content>
-          </DropdownMenu>
-        </Group>
-      </Group>
-    );
-  };
+	const Aside = () => {
+		return (
 
-  const FooterUI = () => {
-    return <div className={"h-full w-full p-4"}>footer</div>;
-  };
+			<AsideUI />
+		);
+	};
 
-  // const Aside = () => {
-  //   return (
-  //     <div className={"w-full pt-4 pr-4 pl-0"}>
-  //       <Stack>
-  //         <AsideUI />
-  //       </Stack>
-  //     </div>
-  //   );
-  // };
+	return (
+		<>
+			<AppShell
+				Navbar={
+					<NavbarUI
+						navItem={navItems}
+						headerItem={<IconStack stroke={1.5} size={28} />}
+						footerItem={<IconSettings stroke={1.5} size={22} />}
+					/>
+				}
+				Header={<HeaderUI />}
+				Footer={<FooterUI />}
+				Aside={<Aside />}
+				layout="default"
+				variant="default"
+				withBorder={true}
+				className="bg-muted/40"
+				fixedHeader={true}
+				shrinkedAside
+			>
+				<Container size={"xl"} fluid className="p-4">
 
-  // const createCommandsFromDocsConfig = (docsConfig: DocsConfig): Command[] => {
-  //   const commands: Command[] = [];
+					<div className="h-16 w-full bg-secondary p-4  flex flex-row justify-end items-end">
+						<Group className={"w-full h-full px-10 py-4 "} justify="spaceBetween">
+							<Breadcrumb>
+								<Breadcrumb.List>
+									<Breadcrumb.Item>
+										<Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+									</Breadcrumb.Item>
+									<Breadcrumb.Separator />
+									<Breadcrumb.Item>
+										<Breadcrumb.Link href="/category">Category</Breadcrumb.Link>
+									</Breadcrumb.Item>
+									<Breadcrumb.Separator />
+									<Breadcrumb.Item>
+										<Breadcrumb.Page>Current Page</Breadcrumb.Page>
+									</Breadcrumb.Item>
+								</Breadcrumb.List>
+							</Breadcrumb>
 
-  //   // Add commands from mainNav
-  //   docsConfig.mainNav.forEach((item) => {
-  //     const command: Command = {
-  //       title: item.title,
-  //       icon: item.icon || "",
-  //       shortcut: "",
-  //       onSelect: () => {
-  //         window.location.href = item.href;
-  //       },
-  //       group: "Main Navigation",
-  //       tags: item.tags,
-  //     };
-  //     commands.push(command);
-  //   });
+							<Group className="w-96">
+								<XbeshThemeSwitch />
+								<TextInput
+									leftSection={<IconSearch size={16} stroke={0.5} />}
+									placeholder="Type here to search"
+									width="full"
+								/>
 
-  //   // Add commands from sidebarNav
-  //   docsConfig.sidebarNav.forEach((section) => {
-  //     section.items.forEach((item) => {
-  //       const command: Command = {
-  //         title: item.title,
-  //         icon: item.icon || "",
-  //         shortcut: "",
-  //         onSelect: () => {
-  //           window.location.href = item.href;
-  //         },
-  //         group: section.title,
-  //         subgroup: "",
-  //         tags: item.tags,
-  //       };
-  //       commands.push(command);
-  //     });
-  //   });
+								<DropdownMenu>
+									<DropdownMenu.Trigger>
+										<Avatar size="sm" radius="default" alt="madhav dutta" />
+									</DropdownMenu.Trigger>
+									<DropdownMenu.Content>
+										<DropdownMenu.Label>My Account</DropdownMenu.Label>
+										<DropdownMenu.Separator />
+										<DropdownMenu.Item>Profile</DropdownMenu.Item>
+										<DropdownMenu.Item>Billing</DropdownMenu.Item>
+										<DropdownMenu.Item>Team</DropdownMenu.Item>
+										<DropdownMenu.Item>Subscription</DropdownMenu.Item>
+									</DropdownMenu.Content>
+								</DropdownMenu>
+							</Group>
+						</Group>
+					</div>
+					<Title order="h1" className="bg-green-300 dark:bg-red-400">Accordion</Title>
+					<Accordion className="bg-green-300 dark:bg-blue-200" type="single" variant="default" defaultValue={"item1"} radius="lg" >
+						<Accordion.Item value="item1">
+							<Accordion.Trigger>Item 1</Accordion.Trigger>
+							<Accordion.Content className="dark:bg-red-300" >
+								Content for Item 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							</Accordion.Content>
+						</Accordion.Item>
+						<Accordion.Item value="item2">
+							<Accordion.Trigger>Item 2</Accordion.Trigger>
+							<Accordion.Content className="dark:bg-red-300" >
+								Content for Item 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							</Accordion.Content>
+						</Accordion.Item>
+					</Accordion>
 
-  //   return commands;
-  // };
+				</Container>
 
-  // const [isOpen, setIsOpen] = useState(false);
-  // const [searchTerm, setSearchTerm] = useState("");
-
-  // const handleOpen = () => {
-  //   setIsOpen(true);
-  // };
-
-  // const handleClose = () => {
-  //   setIsOpen(false);
-  //   setSearchTerm("");
-  // };
-
-  // const handleSearch = (term: string) => {
-  //   setSearchTerm(term);
-  // };
-
-  // const allCommands = createCommandsFromDocsConfig(docsConfig);
-
-  // const initialSections = ["Introduction", "Components"];
-
-  // const filteredCommands = searchTerm
-  //   ? allCommands.filter((command) => {
-  //     const searchTermLowerCase = searchTerm.toLowerCase();
-  //     const titleMatch = command.title.toLowerCase().includes(searchTermLowerCase);
-  //     const tagsMatch = command.tags?.some((tag) =>
-  //       tag.toLowerCase().includes(searchTermLowerCase)
-  //     );
-  //     return titleMatch || tagsMatch;
-  //   })
-  //   : allCommands;
-
-  return (
-    <>
-      <AppShell
-        Navbar={
-          <NavbarUI
-            navItem={navItems}
-            headerItem={<IconStack stroke={1.5} size={28} />}
-            footerItem={<IconSettings stroke={1.5} size={22} />}
-          />
-        }
-        Header={<HeaderUI />}
-        Footer={<FooterUI />}
-        // Aside={<AsideUI />}
-        layout="default"
-        variant="default"
-        withBorder={false}
-        className="bg-muted/40"
-        fixedHeader={false}
-      >
-      
-          <Button
-            variant="outline"
-            onClick={() =>
-              toast("Event has been created", {
-                description: "Sunday, December 03, 2023 at 9:00 AM",
-                action: {
-                  label: "Undo",
-                  onClick: () => console.log("Undo"),
-                },
-              })
-            }
-          >
-            Show Toast
-          </Button>
-        
-          <FileUploader />
-    
-      </AppShell>
-    </>
-  );
+			</AppShell>
+		</>
+	);
 };
 
 export default App;

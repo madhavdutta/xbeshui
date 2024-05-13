@@ -2,7 +2,7 @@
 import xBeshTheme from './packages/core/types/xBeshTheme';
 
 export default {
-  darkMode: ['dark'],
+  darkMode: ['class'],
   content: ['./packages/**//*.{js,ts,jsx,tsx}', './src/**//*.{js,ts,jsx,tsx}'],
   options: {
     safelist: xBeshTheme.safelist,

@@ -21,7 +21,7 @@ const xBeshTheme = {
     },
   },
   fontFamily: {
-    sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+    sans: ['var(--font-mono)', ...defaultTheme.fontFamily.mono],
     serif: ['var(--font-serif)', ...defaultTheme.fontFamily.serif],
     mono: ['var(--font-mono)', ...defaultTheme.fontFamily.mono],
     default: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],

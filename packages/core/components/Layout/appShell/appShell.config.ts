@@ -32,4 +32,5 @@ export interface appShellProps
     withBorder?: boolean;
     fixedHeader?:boolean;
     children?: React.ReactNode;
+    shrinkedAside?: boolean;
 }
