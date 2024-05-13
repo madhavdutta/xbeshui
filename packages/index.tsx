@@ -88,5 +88,6 @@ export * from "./core/components/Theme/xBeshTheme/xBeshThemeProvider";
 export * from "./core/components/Theme/themeSwitch/xBeshThemeSwitch";
 
 export * from "./core/components/Inputs/combobox/combobox";
-export * from "./core/ui/appshell/navbar/navbarui"
+export * from "./core/ui/appshell/navbar/navbarui";
 export * from "./core/components/Inputs/passwordInput/passwordInput";
+export * from "./core/components/Feedback/sonner/sonner";
