@@ -14,6 +14,7 @@ import {
 	Sheet,
 	Stack,
 	AsideUI,
+	Title,
 } from "../packages/core/components";
 import {
 	IconBox,
@@ -147,7 +148,10 @@ const App = () => {
 				</Group>
 			</Group>
 					</div>
-					Main
+					
+
+					<Title order="h1">Dashboard</Title>
+
 				</Container>
 
 			</AppShell>

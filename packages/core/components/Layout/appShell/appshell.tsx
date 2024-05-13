@@ -85,11 +85,11 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
         }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
         aria-label="MainAlt"
-        className={`h-screen fixed  sm:mr-0 
+        className={`h-screen fixed left-0 mt-16 sm:mr-0 
           ${Aside ? (asideOpened ? "md:right-[510px]" : "md:right-0") : "md:right-0"} 
           ${Header ? (fixedHeader ? "mt-[66px]" : "mt-4") : "mt-0"} 
           ${Footer ? "pb-20" : "pb-0"} px-0 
-          ${Navbar ? "md:left-4 mt-[2px] " : "md:left-0 mt-16"}`}
+          ${Navbar ? variant==="inner"? "md:left-0 ml-72" : "md:left-0 ml-16" : "md:left-0"}`}
       >
         {props.children}
       </motion.div>
