@@ -17,6 +17,7 @@ import {
 	Title,
 	Text,
 	Accordion,
+	Code,
 } from "../packages/core/components";
 import {
 	IconBox,
@@ -87,90 +88,87 @@ const App = () => {
 	};
 
 	return (
-		<>
-			<AppShell
-				Navbar={
-					<NavbarUI
-						navItem={navItems}
-						headerItem={<IconStack stroke={1.5} size={28} />}
-						footerItem={<IconSettings stroke={1.5} size={22} />}
-					/>
-				}
-				Header={<HeaderUI />}
-				Footer={<FooterUI />}
-				Aside={<Aside />}
-				layout="default"
-				variant="default"
-				withBorder={true}
-				className="bg-muted/40"
-				fixedHeader={true}
-				shrinkedAside
-			>
-				<Container size={"xl"} fluid className="p-4">
+    <>
+      <AppShell
+        Navbar={
+          <NavbarUI
+            navItem={navItems}
+            headerItem={<IconStack stroke={1.5} size={28} />}
+            footerItem={<IconSettings stroke={1.5} size={22} />}
+          />
+        }
+        Header={<HeaderUI />}
+        Footer={<FooterUI />}
+        Aside={<Aside />}
+        layout="alt"
+        variant="default"
+        withBorder={true}
+        className="bg-muted/40"
+        fixedHeader={true}
+        shrinkedAside
+      >
+        <Container size={"xl"} fluid className="p-4">
+          <div className="h-16 w-full bg-secondary p-4  flex flex-row justify-end items-end">
+            <Group
+              className={"w-full h-full px-10 py-4 "}
+              justify="spaceBetween"
+            >
+              <Breadcrumb>
+                <Breadcrumb.List>
+                  <Breadcrumb.Item>
+                    <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+                  </Breadcrumb.Item>
+                  <Breadcrumb.Separator />
+                  <Breadcrumb.Item>
+                    <Breadcrumb.Link href="/category">Category</Breadcrumb.Link>
+                  </Breadcrumb.Item>
+                  <Breadcrumb.Separator />
+                  <Breadcrumb.Item>
+                    <Breadcrumb.Page>Current Page</Breadcrumb.Page>
+                  </Breadcrumb.Item>
+                </Breadcrumb.List>
+              </Breadcrumb>
 
-					<div className="h-16 w-full bg-secondary p-4  flex flex-row justify-end items-end">
-						<Group className={"w-full h-full px-10 py-4 "} justify="spaceBetween">
-							<Breadcrumb>
-								<Breadcrumb.List>
-									<Breadcrumb.Item>
-										<Breadcrumb.Link href="/">Home</Breadcrumb.Link>
-									</Breadcrumb.Item>
-									<Breadcrumb.Separator />
-									<Breadcrumb.Item>
-										<Breadcrumb.Link href="/category">Category</Breadcrumb.Link>
-									</Breadcrumb.Item>
-									<Breadcrumb.Separator />
-									<Breadcrumb.Item>
-										<Breadcrumb.Page>Current Page</Breadcrumb.Page>
-									</Breadcrumb.Item>
-								</Breadcrumb.List>
-							</Breadcrumb>
+              <Group className="w-96">
+                <XbeshThemeSwitch />
+                <TextInput
+                  leftSection={<IconSearch size={16} stroke={0.5} />}
+                  placeholder="Type here to search"
+                  width="full"
+                />
 
-							<Group className="w-96">
-								<XbeshThemeSwitch />
-								<TextInput
-									leftSection={<IconSearch size={16} stroke={0.5} />}
-									placeholder="Type here to search"
-									width="full"
-								/>
-
-								<DropdownMenu>
-									<DropdownMenu.Trigger>
-										<Avatar size="sm" radius="default" alt="madhav dutta" />
-									</DropdownMenu.Trigger>
-									<DropdownMenu.Content>
-										<DropdownMenu.Label>My Account</DropdownMenu.Label>
-										<DropdownMenu.Separator />
-										<DropdownMenu.Item>Profile</DropdownMenu.Item>
-										<DropdownMenu.Item>Billing</DropdownMenu.Item>
-										<DropdownMenu.Item>Team</DropdownMenu.Item>
-										<DropdownMenu.Item>Subscription</DropdownMenu.Item>
-									</DropdownMenu.Content>
-								</DropdownMenu>
-							</Group>
-						</Group>
-					</div>
-					<Title order="h1" className="bg-green-300 dark:bg-red-400">Accordion</Title>
-					<Accordion className="bg-green-300 dark:bg-blue-200" type="single" variant="default" defaultValue={"item1"} radius="lg" >
-						<Accordion.Item value="item1">
-							<Accordion.Trigger>Item 1</Accordion.Trigger>
-							<Accordion.Content className="dark:bg-red-300" >
-								Content for Item 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							</Accordion.Content>
-						</Accordion.Item>
-						<Accordion.Item value="item2">
-							<Accordion.Trigger>Item 2</Accordion.Trigger>
-							<Accordion.Content className="dark:bg-red-300" >
-								Content for Item 2. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							</Accordion.Content>
-						</Accordion.Item>
-					</Accordion>
-
-				</Container>
-
-			</AppShell>
-		</>
-	);
+                <DropdownMenu>
+                  <DropdownMenu.Trigger>
+                    <Avatar size="sm" radius="default" alt="madhav dutta" />
+                  </DropdownMenu.Trigger>
+                  <DropdownMenu.Content>
+                    <DropdownMenu.Label>My Account</DropdownMenu.Label>
+                    <DropdownMenu.Separator />
+                    <DropdownMenu.Item>Profile</DropdownMenu.Item>
+                    <DropdownMenu.Item>Billing</DropdownMenu.Item>
+                    <DropdownMenu.Item>Team</DropdownMenu.Item>
+                    <DropdownMenu.Item>Subscription</DropdownMenu.Item>
+                  </DropdownMenu.Content>
+                </DropdownMenu>
+              </Group>
+            </Group>
+          </div>
+          <Title order="h1" className="bg-green-300 dark:bg-red-400">
+            Accordion
+          </Title>
+					<Code language="typescript">
+						{`
+							import React from "react";
+							import { Text } from "@tabler/react";
+								<Text className="text-lg font-bold">
+									This is a generated text component!
+								</Text>
+						`}
+					</Code>
+        </Container>
+      </AppShell>
+    </>
+  );
 };
 
 export default App;

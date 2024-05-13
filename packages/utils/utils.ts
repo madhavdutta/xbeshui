@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import prettier from 'prettier';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -27,4 +28,16 @@ export const getViewport = () => {
   }
 
   return { width: viewportWidth, height: viewportHeight };
+};
+
+export const isBrowser = () => typeof window !== 'undefined';
+
+
+export const beautifyCode = (code: string) => {
+  try {
+    return prettier.format(code, { parser: "markdown" });
+  } catch (error) {
+    console.error("Error formatting code:", error);
+    return code; // Return original code if there's an error in formatting
+  }
 };
