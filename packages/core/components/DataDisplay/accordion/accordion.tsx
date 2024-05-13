@@ -50,10 +50,14 @@ const AccordionItem = React.forwardRef<
 
 AccordionItem.displayName = "AccordionItem";
 
+
+type AccordionTriggerProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & {
+  "data-state"?: AccordionPrimitive.AccordionItemProps["value"];
+};
+
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> &
-    VariantProps<typeof accordionVariants>
+  AccordionTriggerProps & VariantProps<typeof accordionVariants>
 >(({ className, children, chevronPosition, chevronsize, ...props }, ref) => (
   <AccordionPrimitive.Header className="flex">
     <AccordionPrimitive.Trigger
@@ -67,7 +71,12 @@ const AccordionTrigger = React.forwardRef<
     >
       {children}
       <IconChevronDown
-        className={`h-${chevronsize} w-${chevronsize} shrink-0 text-muted-foreground transition-transform duration-200`}
+        className={cn(
+          `h-${chevronsize} w-${chevronsize} shrink-0 text-muted-foreground transition-transform duration-200`,
+          {
+            "rotate-90": props["data-state"] === "open",
+          }
+        )}
       />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
