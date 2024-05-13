@@ -20,14 +20,14 @@ import {
 	Code,
 } from "../packages/core/components";
 import {
-	IconBox,
-	IconDeviceAnalytics,
-	IconHome,
-	IconSearch,
-	IconSettings,
-	IconShoppingCart,
-	IconStack,
-	IconUsers,
+  IconBox,
+  IconDeviceAnalytics,
+  IconHome,
+  IconSearch,
+  IconSettings,
+  IconShoppingCart,
+  IconStack,
+  IconUsers,
 } from "@tabler/icons-react";
 import Navmenu from "../packages/core/components/Navigation/navMenu/navMenu";
 import { motion } from "framer-motion";
@@ -39,33 +39,33 @@ const App = () => {
 		icon: React.ReactNode;
 	}
 
-	const navItems: NavItemProps[] = [
-		{
-			link: "/dashboard",
-			title: "Dashboard",
-			icon: <IconHome stroke={1.8} size={21} />,
-		},
-		{
-			link: "/orders",
-			title: "Orders",
-			icon: <IconShoppingCart stroke={1.8} size={21} />,
-		},
-		{
-			link: "/products",
-			title: "Products",
-			icon: <IconBox stroke={1.8} size={21} />,
-		},
-		{
-			link: "/customers",
-			title: "Customers",
-			icon: <IconUsers stroke={1.8} size={21} />,
-		},
-		{
-			link: "/analytics",
-			title: "Analytics",
-			icon: <IconDeviceAnalytics stroke={1.8} size={21} />,
-		},
-	];
+  const navItems: NavItemProps[] = [
+    {
+      link: "/dashboard",
+      title: "Dashboard",
+      icon: <IconHome stroke={1.8} size={21} />,
+    },
+    {
+      link: "/orders",
+      title: "Orders",
+      icon: <IconShoppingCart stroke={1.8} size={21} />,
+    },
+    {
+      link: "/products",
+      title: "Products",
+      icon: <IconBox stroke={1.8} size={21} />,
+    },
+    {
+      link: "/customers",
+      title: "Customers",
+      icon: <IconUsers stroke={1.8} size={21} />,
+    },
+    {
+      link: "/analytics",
+      title: "Analytics",
+      icon: <IconDeviceAnalytics stroke={1.8} size={21} />,
+    },
+  ];
 
 	const HeaderUI = () => {
 		return (

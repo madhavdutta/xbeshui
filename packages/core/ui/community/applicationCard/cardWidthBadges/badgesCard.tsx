@@ -42,7 +42,7 @@ export function BadgeCard() {
   ));
 
   return (
-    <Card withBorder radius="md" className="card p-0 w-[400px]">
+    <Card withBorder radius="md" className="card p-0">
       <Card.Header>
         <Image src={image} alt={title} className="rounded-t-md" height={180} />
       </Card.Header>

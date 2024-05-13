@@ -31,6 +31,7 @@ export { SimpleGrid } from "./Layout/simpleGrid/simpleGrid";
 export { Alert } from "./Feedback/alert/alert";
 export { Progress } from "./Feedback/progress/progress";
 export { Skeleton } from "./Feedback/skeleton/skeleton";
+export { SonnerStack } from "./Feedback/sonner/sonner";
 export { Toaster } from "./Feedback/toast/toaster";
 export { useToast, toast } from "./Feedback/toast/use-toast";
 export { ConirmDialog } from "./Feedback/confirmDialog/confirmDialog";

@@ -5,6 +5,7 @@ import "./index.css";
 import "../packages/index.css";
 import { XbeshProvider } from "../packages/core/components/Theme/xBeshTheme/xbeshProvider.tsx";
 import App from "./App.tsx";
+import { SonnerStack, Toaster } from "../packages/core/components/index.tsx";
 
 const RootComponent = () => {
   return (
@@ -14,6 +15,8 @@ const RootComponent = () => {
           {/* <AppAakibUi /> */}
           <App />
         </div>
+        <Toaster />
+        <SonnerStack />
       </XbeshProvider>
     </React.StrictMode>
   );
