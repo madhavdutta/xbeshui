@@ -68,7 +68,7 @@ export const DataTable = <T,>({
 			<div className="flex items-center gap-3 py-4">
 				<TextInput
 					placeholder={`Filter ${searchable}...`}
-					radius="md"
+					radius="sm"
 					value={
 						(table.getColumn(searchable)?.getFilterValue() as string) ?? ""
 					}
@@ -134,7 +134,7 @@ export const DataTable = <T,>({
 											column.toggleVisibility(!!value)
 										}
 									>
-										{column.id}
+										<Text size="xs" className="pl-5">{column.id}</Text>
 									</DropdownMenu.CheckboxItem>
 								);
 							})}

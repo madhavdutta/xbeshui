@@ -10,9 +10,9 @@ export const badgeVariantConfig: BadgeVariantsConfigType = {
 	variants: {
 		variant: {
 			default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
-			success: "bg-green-600 text-white	shadow-sm hover:bg-green-500",
+			success: "bg-green-600 text-white shadow-sm hover:bg-green-500",
 			warning: "bg-orange-600 text-white shadow-sm hover:bg-orange-500",
-			notice: "bg-blue-600 text-white	 shadow-sm hover:bg-blue-500",
+			notice: "bg-blue-600 text-white	shadow-sm hover:bg-blue-500",
 			destructive:
 				"bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/80",
 			outline:
