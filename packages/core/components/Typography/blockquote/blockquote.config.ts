@@ -43,7 +43,7 @@ export const blockQuoteVariant:BlockQuoteVariantsType = {
       "9xl": "leading-28",
     },
     fontFamily: {
-      default: "font-sans",
+      default: "font-default",
       serif: "font-serif",
       mono: "font-mono",
       sans: "font-sans",
@@ -64,7 +64,7 @@ export const blockQuoteVariant:BlockQuoteVariantsType = {
 };
 
 export const blockQuoteVariants = cva(
-  "bg-background text-secondary-foreground my-5 border-l-2 pl-6 italic text-gray-400",
+  "bg-background font-default text-secondary-foreground my-5 border-l-2 pl-6 italic text-gray-400",
   blockQuoteVariant
 );
 

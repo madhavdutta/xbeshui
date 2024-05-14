@@ -39,7 +39,7 @@ const flexBoxConfig: flexBoxVariantType = {
     wrap: "default",
   },
 };
-export const flexBoxVariants = cva("flex bg-background text-primary-foreground", flexBoxConfig);
+export const flexBoxVariants = cva("flex font-default bg-background text-primary-foreground", flexBoxConfig);
 
 export interface FlexBoxProps
   extends React.HTMLAttributes<HTMLDivElement>,

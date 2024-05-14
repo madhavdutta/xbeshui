@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import { AvatarRadiusType, AvatarSizeType, AvatarVariantsConfigType } from "./avatarType";
+import type { AvatarRadiusType, AvatarSizeType, AvatarVariantsConfigType } from "./avatarType";
 
 const avatarConfig: AvatarVariantsConfigType = {
   variants: {
@@ -27,7 +27,7 @@ const avatarConfig: AvatarVariantsConfigType = {
   },
 };
 
-export const avatarVariants = cva("bg-background text-foreground", avatarConfig);
+export const avatarVariants = cva("bg-background  font-default text-foreground", avatarConfig);
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof avatarVariants> {
   src?: string;

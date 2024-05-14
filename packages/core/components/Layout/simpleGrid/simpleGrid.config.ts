@@ -32,7 +32,7 @@ const simpleGridConfig: SimpleGridVariantType = {
   },
 };
 
-export const simpleGridVariant = cva("grid", simpleGridConfig);
+export const simpleGridVariant = cva("grid font-default", simpleGridConfig);
 
 interface BreakpointCols {
   cols?: Partial<Record<keyof typeof simpleGridConfig.variants.cols, number>>;

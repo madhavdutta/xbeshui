@@ -39,7 +39,7 @@ const progressVariantConfig: progressVariantConfigType = {
 };
 
 export const progressVariants = cva(
-  "text-primary-foreground relative h-2 w-full overflow-hidden rounded-full bg-primary/20",
+  "text-primary-foreground font-default relative h-2 w-full overflow-hidden rounded-full bg-primary/20",
   progressVariantConfig
 );
 

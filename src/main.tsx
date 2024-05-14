@@ -3,9 +3,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "../packages/index.css";
-import { XbeshProvider } from "../packages/core/components/Theme/xBeshTheme/xbeshProvider.tsx";
-import App from "./App.tsx";
-import { SonnerStack, Toaster } from "../packages/core/components/index.tsx";
+import { XbeshProvider } from "../packages/core/components/Theme/xBeshTheme/xbeshProvider";
+import App from "./App";
+import { SonnerStack } from "../packages/core/components/index";
 
 const RootComponent = () => {
   return (
@@ -15,7 +15,7 @@ const RootComponent = () => {
           {/* <AppAakibUi /> */}
           <App />
         </div>
-        <Toaster />
+        {/* <Toaster /> */}
         <SonnerStack />
       </XbeshProvider>
     </React.StrictMode>

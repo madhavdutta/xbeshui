@@ -1,10 +1,13 @@
-"use client";
-
 import { Toaster as Sonner } from "sonner";
+import {toast as Toast} from "sonner";
+import { useXbeshProviderCheck } from "../../../..";
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
 const SonnerStack = ({ ...props }: ToasterProps) => {
+  const isBrowser = typeof window !== "undefined";
+  if (!isBrowser) return null;
+  useXbeshProviderCheck();
   return (
     <Sonner
       className="toaster group"
@@ -24,4 +27,4 @@ const SonnerStack = ({ ...props }: ToasterProps) => {
   );
 };
 SonnerStack.displayName = "SonnerStack";
-export { SonnerStack };
+export { SonnerStack, Toast };

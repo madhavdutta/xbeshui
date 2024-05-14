@@ -9,6 +9,7 @@
 @layer base {
   :root {
     --font-sans:'Geist', sans-serif;
+    --font-serif: 'Geist', sans-serif;
     --font-mono: 'Geist Mono', monospace;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -50,6 +51,7 @@
 
   .dark {
     --font-sans:'Geist', sans-serif;
+    --font-serif: 'Geist', sans-serif;
     --font-mono: 'Geist Mono', monospace;
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;

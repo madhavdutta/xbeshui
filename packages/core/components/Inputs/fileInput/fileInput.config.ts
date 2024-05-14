@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import { FileInputConfigType } from "./fileInputType";
+import type { FileInputConfigType } from "./fileInputType";
 
 const fileInputConfig: FileInputConfigType = {
   variants: {
@@ -47,7 +47,7 @@ const fileInputConfig: FileInputConfigType = {
 };
 
 export const fileInputVariants = cva(
-  "bg-background text-secondary-foreground w-full h-9 rounded-sm border border-input bg-transparent text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+  "bg-background font-default text-secondary-foreground w-full h-9 rounded-sm border border-input bg-transparent text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
   fileInputConfig
 );
 

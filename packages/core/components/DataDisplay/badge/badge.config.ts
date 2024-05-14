@@ -49,7 +49,7 @@ export const badgeVariantConfig: BadgeVariantsConfigType = {
 };
 
 export const badgeVariants = cva(
-	"inline-flex items-center justify-center whitespace-nowrap rounded-sm text-sm font-medium transition-colors",
+	"inline-flex items-center font-default justify-center whitespace-nowrap rounded-sm text-sm font-medium transition-colors",
 	badgeVariantConfig,
 );
 

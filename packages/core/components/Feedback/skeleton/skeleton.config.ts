@@ -24,7 +24,7 @@ const skeletonVariantsConfig: skeletonVariantsConfigType = {
 };
 
 export const skeletonVariants = cva(
-  "bg-background text-primary-foreground animate-pulse rounded-sm h-2 bg-primary/10",
+  "bg-background text-primary-foreground font-default animate-pulse rounded-sm h-2 bg-primary/10",
   skeletonVariantsConfig
 );
 

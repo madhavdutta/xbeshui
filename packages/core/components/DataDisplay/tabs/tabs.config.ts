@@ -40,6 +40,6 @@ const tabsConfig: TabsConfigType = {
 };
 
 export const tabsVariants = cva(
-  "flex bg-background text-primary-foreground",
+  "flex font-default bg-background text-primary-foreground",
   tabsConfig
 );

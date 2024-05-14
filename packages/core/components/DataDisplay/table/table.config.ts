@@ -20,9 +20,10 @@ const tableConfig: TableVariantsConfigType = {
   },
 };
 
-export const tableVariants = cva("bg-background border-input text-secondary-foreground table-auto", tableConfig);
+export const tableVariants = cva("bg-background font-default border-input text-secondary-foreground table-auto", tableConfig);
 
 export interface TableProps extends React.HTMLAttributes<HTMLTableElement>, VariantProps<typeof tableVariants> {
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   data: any[];
   children?: React.ReactNode;
   size?: keyof TableVariantsConfigType["variants"]["size"];

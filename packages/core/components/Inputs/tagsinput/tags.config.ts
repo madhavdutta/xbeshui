@@ -44,7 +44,7 @@ const tagsConfig: TagsConfigType = {
   },
 };
 export const tagsVariants = cva(
-  "bg-background text-secondary-foreground rounded-md text-sm focus:ring-white" ,
+  "bg-background font-default text-secondary-foreground rounded-md text-sm focus:ring-white" ,
   tagsConfig
 );
 

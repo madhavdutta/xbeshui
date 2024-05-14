@@ -8,13 +8,13 @@ import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 const Toggle = React.forwardRef<
   React.ElementRef<typeof TogglePrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root> & VariantProps<typeof toggleVariants>
->(({ className, variant, size, ...props }, ref) => {
+>(({radius, className, variant, size, ...props }, ref) => {
   useXbeshProviderCheck();
 
   return (
     <TogglePrimitive.Root
       ref={ref}
-      className={cn(toggleVariants({ variant, size, className }))}
+      className={cn(toggleVariants({radius, variant, size, className }))}
       {...props}
     />
   );

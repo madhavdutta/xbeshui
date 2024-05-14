@@ -18,12 +18,10 @@ import {
   Text,
   Accordion,
   Code,
-  Badge,
   Tabs,
   Card,
   Label,
-  Grid,
-  Pagination,
+  Toggle,
 } from "../packages/core/components";
 import {
   IconBox,
@@ -163,37 +161,20 @@ const App = () => {
               </Group>
             </Group>
           </div>
+          <Title order="h1" className="bg-green-300 dark:bg-red-400">
+            Accordion
+          </Title>
+          {/* <Code language="typescript">
+						{`
+							import React from "react";
+							import { Text } from "@tabler/react";
+								<Text className="text-lg font-bold">
+									This is a generated text component!
+								</Text>
+						`}
+					</Code> */}
 
-          <div className="bg-white w-full p-4 space-y-5">
-            <Title order="h3">Heading</Title>
-
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-            />
-
-            {/* <Grid gutter={5} grow>
-              <Grid.Col span={3}>
-                <div className="bg-muted text-black p-5">1</div>
-              </Grid.Col>
-              <Grid.Col span={3}>
-                <div className="bg-muted text-black p-5">1</div>
-              </Grid.Col>
-              <Grid.Col span={3}>
-                <div className="bg-muted text-black p-5">1</div>
-              </Grid.Col>
-			  <Grid.Col span={3}>
-                <div className="bg-muted text-black p-5">1</div>
-              </Grid.Col>
-			  <Grid.Col span={3}>
-                <div className="bg-muted text-black p-5">1</div>
-              </Grid.Col>
-			  <Grid.Col span={3}>
-                <div className="bg-muted text-black p-5">1</div>
-              </Grid.Col>
-            </Grid> */}
-          </div>
+          
         </Container>
       </AppShell>
     </>

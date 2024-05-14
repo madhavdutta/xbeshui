@@ -24,7 +24,7 @@ const notificationTimelineVariantConfig: notificationTimelineVariantConfigType =
   };
 
 export const notificationTimelineVariants = cva(
-  "",
+  "font-default",
   notificationTimelineVariantConfig
 );
 
