@@ -27,7 +27,7 @@ export const toggleVariantsConfig: ToggleVariantsConfigType = {
   defaultVariants: {
     variant: "default",
     size: "default",
-    radius: "md",
+    radius: "sm",
   },
 };
 
@@ -57,7 +57,7 @@ export const toggleGroupVariantsConfig: ToggleGroupVariantsConfigType = {
   defaultVariants: {
     variant: "default",
     size: "default",
-    radius: "md",
+    radius: "sm",
   },
 };
 

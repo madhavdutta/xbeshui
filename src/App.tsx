@@ -1,23 +1,27 @@
 // biome-ignore lint/style/useImportType: <explanation>
 import React from "react";
 import {
-	TextInput,
-	Group,
-	XbeshThemeSwitch,
-	AppShell,
-	Breadcrumb,
-	DropdownMenu,
-	Avatar,
-	NavbarUI,
-	Container,
-	Sheet,
-	Stack,
-	AsideUI,
-	Title,
-	Text,
-	Accordion,
+  TextInput,
+  Group,
+  XbeshThemeSwitch,
+  AppShell,
+  Breadcrumb,
+  DropdownMenu,
+  Avatar,
+  NavbarUI,
+  Container,
   Button,
-	Code,
+  Sheet,
+  Stack,
+  AsideUI,
+  Title,
+  Text,
+  Accordion,
+  Code,
+  Tabs,
+  Card,
+  Label,
+  Toggle,
 } from "../packages/core/components";
 import {
   IconBox,
@@ -33,11 +37,18 @@ import Navmenu from "../packages/core/components/Navigation/navMenu/navMenu";
 import { motion } from "framer-motion";
 
 const App = () => {
-	interface NavItemProps {
-		link: string;
-		title: string;
-		icon: React.ReactNode;
-	}
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const totalPages = 10; // Total number of pages in your pagination
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Perform any other actions you need to do when the page changes
+  };
+  interface NavItemProps {
+    link: string;
+    title: string;
+    icon: React.ReactNode;
+  }
 
   const navItems: NavItemProps[] = [
     {
@@ -67,27 +78,24 @@ const App = () => {
     },
   ];
 
-	const HeaderUI = () => {
-		return (
-			<Group justify="spaceBetween" className="h-16 hidden sm:flex">
-				<div>Header</div>
-				<div>Header1</div>
-			</Group>
-		);
-	};
+  const HeaderUI = () => {
+    return (
+      <Group justify="spaceBetween" className="h-16 hidden sm:flex">
+        <div>Header</div>
+        <div>Header1</div>
+      </Group>
+    );
+  };
 
-	const FooterUI = () => {
-		return <div className={"h-ful p-4"}>footer</div>;
-	};
+  const FooterUI = () => {
+    return <div className={"h-ful p-4"}>footer</div>;
+  };
 
-	const Aside = () => {
-		return (
+  const Aside = () => {
+    return <AsideUI />;
+  };
 
-			<AsideUI />
-		);
-	};
-
-	return (
+  return (
     <>
       <AppShell
         Navbar={
@@ -153,13 +161,10 @@ const App = () => {
               </Group>
             </Group>
           </div>
-          <br />
-          <Button variant="secondary">Click Here</Button>
-          <br />
           <Title order="h1" className="bg-green-300 dark:bg-red-400">
             Accordion
           </Title>
-					<Code language="typescript">
+          {/* <Code language="typescript">
 						{`
 							import React from "react";
 							import { Text } from "@tabler/react";
@@ -167,7 +172,9 @@ const App = () => {
 									This is a generated text component!
 								</Text>
 						`}
-					</Code>
+					</Code> */}
+
+          
         </Container>
       </AppShell>
     </>
