@@ -43,7 +43,7 @@ const textConfig:TextVariantsType= {
       "9xl": "leading-28",
     },
     fontFamily: {
-      default: "font-sans",
+      default: "font-default",
       serif: "font-serif",
       mono: "font-mono",
       sans: "font-sans",
@@ -116,7 +116,7 @@ const textConfig:TextVariantsType= {
 }
 
 export const textVariants = cva(
-  "text-secondary-foreground leading-6 font-normal text-base",
+  "text-secondary-foreground font-default leading-6 font-normal text-base",
   textConfig
 );
 

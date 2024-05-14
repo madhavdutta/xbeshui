@@ -31,16 +31,12 @@ export * from "./core/components/Layout/resizable/resizable";
 export * from "./core/components/Feedback/alert/alert";
 export * from "./core/components/Feedback/progress/progress";
 export * from "./core/components/Feedback/skeleton/skeleton";
-export * from "./core/components/Feedback/toast/toaster";
-export * from "./core/components/Feedback/toast/toast";
-export * from "./core/components/Feedback/toast/use-toast";
 export * from "./core/components/Feedback/confirmDialog/confirmDialog";
 export * from "./core/components/Feedback/dialog/dialog";
 export * from "./core/components/Feedback/ringProgress/ringProgress";
 
 export * from "./core/components/Inputs/checkbox/checkbox";
 export * from "./core/components/Inputs/colorInput/colorInput";
-// export * from "./core/components/Inputs/colorSwatch/colorSwatch";
 export * from "./core/components/Inputs/textInput/textInput";
 export * from "./core/components/Inputs/fileInput/fileInput";
 export * from "./core/components/Inputs/inputOtp/inputOtp";

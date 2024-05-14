@@ -17,7 +17,7 @@ const appShellConfig: AppShellVariantType = {
         layout: "default",
     },
 };
-export const appShellVariant = cva("bg-background text-primary-foreground flex flex-col w-full", appShellConfig);
+export const appShellVariant = cva("bg-background font-default text-primary-foreground flex flex-col w-full", appShellConfig);
 
 export interface appShellProps
     extends React.HTMLAttributes<HTMLDivElement>,

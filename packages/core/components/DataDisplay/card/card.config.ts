@@ -57,4 +57,4 @@ const cardConfig: CardVariantsConfigType = {
   },
 };
 
-export const CardVariants = cva("bg-card text-card-foreground", cardConfig);
+export const CardVariants = cva("bg-card font-default text-card-foreground", cardConfig);

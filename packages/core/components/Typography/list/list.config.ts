@@ -39,7 +39,7 @@ const listConfig: ListVariantsType = {
 };
 
 export const listVariants = cva(
-  "text-foreground list-none",
+  "text-foreground font-default list-none",
   listConfig
 );
 

@@ -47,7 +47,7 @@ export const containerConfig: ContainerVariantType = {
   },
 };
 
-export const containerVariant = cva("flex flex-col mx-auto p-8 max-w-none", containerConfig);
+export const containerVariant = cva("flex font-default flex-col mx-auto p-8 max-w-none", containerConfig);
 
 export interface BreakpointCols {
   cols?: Partial<Record<keyof typeof containerConfig.variants.size, number>>;

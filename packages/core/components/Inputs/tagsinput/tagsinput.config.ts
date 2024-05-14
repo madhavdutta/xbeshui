@@ -44,7 +44,7 @@ const tagsinputConfig: TagsinputConfigType = {
   },
 };
 export const tagsinputVariants = cva(
-  "bg-background text-secondary-foreground rounded-sm text-sm focus:ring-white" ,
+  "bg-background font-default text-secondary-foreground rounded-sm text-sm focus:ring-white" ,
   tagsinputConfig
 );
 

@@ -21,10 +21,10 @@ const xBeshTheme = {
     },
   },
   fontFamily: {
-    sans: ['var(--font-mono)', ...defaultTheme.fontFamily.mono],
+    sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
     serif: ['var(--font-serif)', ...defaultTheme.fontFamily.serif],
     mono: ['var(--font-mono)', ...defaultTheme.fontFamily.mono],
-    default: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+    default: ['var(--font-mono)', ...defaultTheme.fontFamily.mono],
   },
   fontSize: {
     xs: ['0.75rem', { lineHeight: '1.25rem' }],

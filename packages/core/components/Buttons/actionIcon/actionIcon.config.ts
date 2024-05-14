@@ -42,7 +42,7 @@ export const AcionIconConfig: AcionIconConfigType = {
 };
 
 export const actionIconVariants = cva(
-	"bg-background text-secondary-foreground inline-flex items-center justify-center whitespace-nowrap rounded-sm text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
+	"bg-background text-secondary-foreground font-default inline-flex items-center justify-center whitespace-nowrap rounded-sm text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
 	AcionIconConfig,
 );
 

@@ -10,13 +10,13 @@ import {
 	Avatar,
 	NavbarUI,
 	Container,
-	Button,
 	Sheet,
 	Stack,
 	AsideUI,
 	Title,
 	Text,
 	Accordion,
+  Button,
 	Code,
 } from "../packages/core/components";
 import {
@@ -153,6 +153,9 @@ const App = () => {
               </Group>
             </Group>
           </div>
+          <br />
+          <Button variant="secondary">Click Here</Button>
+          <br />
           <Title order="h1" className="bg-green-300 dark:bg-red-400">
             Accordion
           </Title>

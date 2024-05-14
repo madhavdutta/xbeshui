@@ -19,7 +19,7 @@ const fontSizes = {
 };
 
 const fontFamilies = {
-  default: "font-sans",
+  default: "font-default",
   sans: "font-sans",
   serif: "font-serif",
   mono: "font-mono",
@@ -49,7 +49,7 @@ const labelConfig: labelVariantsType = {
   },
 };
 const labelVariants = cva(
-  "bg-transparent text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+  "bg-transparent text-foreground font-default text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
   labelConfig
 );
 

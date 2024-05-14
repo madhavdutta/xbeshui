@@ -19,7 +19,7 @@ const titleConfig: TitleVariantsType = {
       pretty: "text-pretty",
     },
     fontFamily: {
-      default: "font-sans",
+      default: "font-default",
       serif: "font-serif",
       mono: "font-mono",
       sans: "font-sans",
@@ -52,7 +52,7 @@ const titleConfig: TitleVariantsType = {
 };
 
 export const titleVariants = cva(
-  "font-normal",
+  "font-normal font-default",
   titleConfig
 );
 export interface TitleProps

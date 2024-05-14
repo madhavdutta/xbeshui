@@ -6,9 +6,7 @@
 // Notes: This file needs to be used in the root Layout component of the application. It provides the context value to the tree, making it accessible to all components wrapped within XbeshProvider. It also wraps children with the theme provider.
 
 import { createContext, useState, type ReactNode, useContext } from 'react';
-import { XBeshThemeProvider } from './xBeshThemeProvider';
-import { ToastProvider } from '../../Feedback/toast/toast';
-import { Tooltip } from '../../Overlays/tooltip/tooltip';
+import {Tooltip,SonnerStack,XBeshThemeProvider } from '../../index';
 
 interface XBeshUIContextType {
   error: Error | null;
@@ -56,14 +54,15 @@ export const XbeshProvider: React.FC<{
   return (
     <XbeshUIContext.Provider value={contextValue}>
       <XBeshThemeProvider defaultTheme={defaultTheme} storageKey={storageKey}>
-      <ToastProvider>
+      <SonnerStack />
+      {/* <ToastProvider> */}
       <Tooltip.Provider>
         {error ? <ErrorDisplay error={error} clearError={clearError} /> : null}
         <div className="bg-background text-foreground">
         {children}
         </div>
         </Tooltip.Provider>
-        </ToastProvider>
+        {/* </ToastProvider> */}
       </XBeshThemeProvider>
     </XbeshUIContext.Provider>
   );

@@ -53,7 +53,7 @@ export const sepratorConfig:SepratorConfigType ={
   },
 }
 
-export const separatorVariant = cva("shrink-0 bg-border",sepratorConfig);
+export const separatorVariant = cva("shrink-0  font-default bg-border",sepratorConfig);
 
 
 
