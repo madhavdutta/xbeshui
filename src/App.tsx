@@ -173,63 +173,9 @@ const App = () => {
 								</Text>
 						`}
 					</Code> */}
-			<Tabs defaultValue="account" className="w-[400px] bg-white p-8">
-          <Tabs.TabsList variant={"outline"} className="grid w-full grid-cols-2">
-            <Tabs.TabsTrigger variant={"outline"} value="account">
-              Account
-            </Tabs.TabsTrigger>
-            <Tabs.TabsTrigger variant={"outline"} value="password">
-              Password
-            </Tabs.TabsTrigger>
-          </Tabs.TabsList>
-          <Tabs.TabsContent value="account">
-            <Card className="p-4">
-              <Card.Header>
-                <Card.Title>Account</Card.Title>
-                <Card.Description>
-                  Make changes to your account here. Click save when you're
-                  done.
-                </Card.Description>
-              </Card.Header>
-              <Card.Content className="space-y-2">
-                <div className="space-y-1">
-                  <Label htmlFor="name">Name</Label>
-                  <TextInput id="name" defaultValue="Pedro Duarte" />
-                </div>
-                <div className="space-y-1">
-                  <Label htmlFor="username">Username</Label>
-                  <TextInput id="username" defaultValue="@peduarte" />
-                </div>
-              </Card.Content>
-              <Card.Footer>
-                <Button>Save changes</Button>
-              </Card.Footer>
-            </Card>
-          </Tabs.TabsContent>
-          <Tabs.TabsContent value="password">
-            <Card className="p-4">
-              <Card.Header>
-                <Card.Title>Password</Card.Title>
-                <Card.Description>
-                  Change your password here. After saving, you'll be logged out.
-                </Card.Description>
-              </Card.Header>
-              <Card.Content className="space-y-2">
-                <div className="space-y-1">
-                  <Label htmlFor="current">Current password</Label>
-                  <TextInput id="current" type="password" />
-                </div>
-                <div className="space-y-1">
-                  <Label htmlFor="new">New password</Label>
-                  <TextInput id="new" type="password" />
-                </div>
-              </Card.Content>
-              <Card.Footer>
-                <Button>Save password</Button>
-              </Card.Footer>
-            </Card>
-          </Tabs.TabsContent>
-        </Tabs>
+  <Button variant="default" loading disabled={false} >
+    Save Now
+  </Button>
           
         </Container>
       </AppShell>

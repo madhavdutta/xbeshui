@@ -5,10 +5,14 @@ import { labelVariants } from "./label.config";
 import type{ VariantProps } from "class-variance-authority";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
+interface ICommonProps {
+  onPointerEnterCapture?: React.PointerEventHandler<HTMLLabelElement>;
+  onPointerLeaveCapture?: React.PointerEventHandler<HTMLLabelElement>;
+}
 const Label = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
-    VariantProps<typeof labelVariants>
+    VariantProps<typeof labelVariants> & ICommonProps
 >(({ className, fontFamily, fontSize, fontWeight, ...props }, ref) => {
   useXbeshProviderCheck();
   return(

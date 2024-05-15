@@ -2,6 +2,7 @@ import { forwardRef } from "react";
 import { cn } from "../../../../utils";
 import { buttonVariants, type ButtonProps } from "./button.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
+import { IconLoader2 } from "@tabler/icons-react";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -13,18 +14,22 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       radius,
       rightSection,
       children,
+      loading,
+      disabled,
       ...props
     },
     ref
   ) => {
     useXbeshProviderCheck();
+
     return (
       <button
         className={cn(buttonVariants({ variant, size, radius }), className)}
         ref={ref}
+        disabled={disabled}
         {...props}
       >
-        {leftSection && <span className="mr-2">{leftSection}</span>}
+        { loading ? <IconLoader2 size={20} stroke={1.5} className="animate-spin mr-2" /> : leftSection && <span className="mr-2">{leftSection}</span>}
         {children}
         {rightSection && <span className="ml-2">{rightSection}</span>}
       </button>
