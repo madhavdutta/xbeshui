@@ -22,9 +22,11 @@ import {
   Card,
   Label,
   Toggle,
+  Tooltip,
 } from "../packages/core/components";
 import {
   IconBox,
+  IconChevronDown,
   IconDeviceAnalytics,
   IconHome,
   IconSearch,
@@ -32,6 +34,12 @@ import {
   IconShoppingCart,
   IconStack,
   IconUsers,
+  IconStar,
+  IconCircleCheckFilled,
+  IconPin,
+  IconFileDescription,
+  IconPencil,
+  IconExclamationCircle,
 } from "@tabler/icons-react";
 import Navmenu from "../packages/core/components/Navigation/navMenu/navMenu";
 import { motion } from "framer-motion";
@@ -115,8 +123,8 @@ const App = () => {
         fixedHeader={true}
         shrinkedAside
       >
-        <Container size={"xl"} fluid className="p-4">
-          <div className="h-16 w-full bg-secondary p-4  flex flex-row justify-end items-end">
+        <Container size={"xl"} fluid className="">
+          {/* <div className="h-16 w-full bg-secondary p-4  flex flex-row justify-end items-end">
             <Group
               className={"w-full h-full px-10 py-4 "}
               justify="spaceBetween"
@@ -160,23 +168,100 @@ const App = () => {
                 </DropdownMenu>
               </Group>
             </Group>
-          </div>
-          <Title order="h1" className="bg-green-300 dark:bg-red-400">
+          </div> */}
+          {/* <Title order="h1" className="bg-green-300 dark:bg-red-400">
             Accordion
-          </Title>
+          </Title> */}
           {/* <Code language="typescript">
-						{`
-							import React from "react";
-							import { Text } from "@tabler/react";
-								<Text className="text-lg font-bold">
-									This is a generated text component!
-								</Text>
-						`}
-					</Code> */}
-  <Button variant="default" loading disabled={false} >
-    Save Now
-  </Button>
-          
+			{`
+				import React from "react";
+				import { Text } from "@tabler/react";
+					<Text className="text-lg font-bold">
+						This is a generated text component!
+					</Text>
+			`}
+		  </Code> */}
+          {/* <Button variant="default" loading disabled={false} >
+					Save Now
+				</Button> */}
+
+          <Group className="h-16 w-full bg-white border-b p-4 flex">
+            <Stack gap="xs">
+              <Group gap="xs">
+                <Text size="base" fontWeight="semibold">
+                  Madhav Dutta
+                </Text>
+                <IconChevronDown className="text-primary/90" width={16} />
+                <Tooltip>
+                  <Tooltip.Trigger asChild>
+                    <Button size={"xs"} variant={"ghost"}>
+                      <IconStar className="text-primary/40" width={16} />
+                    </Button>
+                  </Tooltip.Trigger>
+                  <Tooltip.Content>
+                    <p>Add to Favorites</p>
+                  </Tooltip.Content>
+                </Tooltip>
+              </Group>
+              <Group gap="xs">
+                <IconCircleCheckFilled className="text-green-600" width={16} />
+                <Text className="text-primary/60" size="xs">
+                  online
+                </Text>
+                <Tooltip>
+                  <Tooltip.Trigger asChild>
+                    <Button size={"xs"} variant={"ghost"}>
+                      <IconPin className="text-primary/40" width={16} />
+                    </Button>
+                  </Tooltip.Trigger>
+                  <Tooltip.Content>
+                    <p>Pinned messages</p>
+                  </Tooltip.Content>
+                </Tooltip>
+
+                <Tooltip>
+                  <Tooltip.Trigger asChild>
+                    <Button size={"xs"} variant={"ghost"}>
+                      <IconFileDescription
+                        className="text-primary/40"
+                        width={16}
+                      />
+                    </Button>
+                  </Tooltip.Trigger>
+                  <Tooltip.Content>
+                    <p>Channel files</p>
+                  </Tooltip.Content>
+                </Tooltip>
+                <Text className="text-primary/60" size="xs">
+                  Add a channel header
+                </Text>
+                <IconPencil className="text-primary/40" width={14} />
+              </Group>
+            </Stack>
+            <Group gap="xs" justify="right">
+              <Button
+                size={"sm"}
+                variant={"ghost"}
+                leftSection={<IconPencil width={16} />}
+                className="text-blue-500"
+              >
+                Start call
+              </Button>
+              <Tooltip>
+                <Tooltip.Trigger asChild>
+                  <Button size={"sm"} variant={"ghost"}>
+                    <IconExclamationCircle
+                      className="text-primary/40"
+                      width={16}
+                    />
+                  </Button>
+                </Tooltip.Trigger>
+                <Tooltip.Content>
+                  <p>View Info</p>
+                </Tooltip.Content>
+              </Tooltip>
+            </Group>
+          </Group>
         </Container>
       </AppShell>
     </>
