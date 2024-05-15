@@ -13,7 +13,8 @@ export const getInitials = (name: string) => {
 };
 
 export const getViewport = () => {
-  let viewportWidth, viewportHeight;
+  let viewportWidth:number;
+  let viewportHeight:number;
 
   if (typeof window !== 'undefined') {
     // Browser environment
