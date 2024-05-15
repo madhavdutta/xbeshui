@@ -1,25 +1,39 @@
-import { IconMoon, IconSun } from "@tabler/icons-react"
-import { useTheme } from  "../xBeshTheme/xBeshThemeProvider"
-
-import {
-  Button,
-  DropdownMenu
-} from "../../index"
+import { IconMoon, IconSun } from "@tabler/icons-react";
+import { useTheme } from "../xBeshTheme/xBeshThemeProvider";
+import { Button, DropdownMenu } from "../../index";
 import { useXbeshProviderCheck } from "../xBeshTheme/xbeshProvider";
+import type { ButtonVariantType, ButtonRadiusType, ButtonSizeType } from "../../Buttons/button/buttonType";
 
+interface XbeshThemeSwitchProps {
+  size?: keyof ButtonSizeType;
+  radius?: keyof ButtonRadiusType;
+  variant?: keyof ButtonVariantType;
+  border?: boolean;
+  className?: string;
+}
 
-// import { fontSans } from "./xBeshThemeProvider"
-
-export function XbeshThemeSwitch() {
+export function XbeshThemeSwitch({
+  size = "default",
+  radius = "sm",
+  variant = "default",
+  border = true,
+  className = "",
+}: XbeshThemeSwitchProps) {
   useXbeshProviderCheck();
-  const { setTheme } = useTheme()
+  const { setTheme } = useTheme();
 
   return (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
-        <Button variant="outline" size="default">
-          <IconSun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <IconMoon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+        <Button
+          variant={variant || "default"}
+          size={size}
+          radius={radius}
+          className={className}
+          style={{ borderWidth: border ? "1px" : "0" }}
+        >
+          <IconSun size={20} className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <IconMoon size={20} className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenu.Trigger>
@@ -35,5 +49,5 @@ export function XbeshThemeSwitch() {
         </DropdownMenu.Item>
       </DropdownMenu.Content>
     </DropdownMenu>
-  )
+  );
 }

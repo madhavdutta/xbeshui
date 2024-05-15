@@ -1,14 +1,14 @@
 // import { ButtonVariant } from "../../../types/variantType";
 export type ButtonVariantType = {
-  "default": string;
-  "success": string;
-  "warning": string;
-  "notice": string;
-  "destructive": string;
-  "outline": string;
-  "secondary": string;
-  "ghost": string;
-  "link": string;
+  default: string;
+  success: string;
+  warning: string;
+  notice: string;
+  destructive: string;
+  outline: string;
+  secondary: string;
+  ghost: string;
+  link: string;
 };
 
 // Define ButtonSize type representing the structure of button sizes

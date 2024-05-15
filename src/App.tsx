@@ -22,6 +22,7 @@ import {
   Card,
   Label,
   Toggle,
+  TagsInput,
   Tooltip,
 } from "../packages/core/components";
 import {
@@ -146,7 +147,7 @@ const App = () => {
               </Breadcrumb>
 
               <Group className="w-96">
-                <XbeshThemeSwitch />
+                <XbeshThemeSwitch size="md" />
                 <TextInput
                   leftSection={<IconSearch size={16} stroke={0.5} />}
                   placeholder="Type here to search"
@@ -173,19 +174,16 @@ const App = () => {
             Accordion
           </Title> */}
           {/* <Code language="typescript">
-			{`
-				import React from "react";
-				import { Text } from "@tabler/react";
-					<Text className="text-lg font-bold">
-						This is a generated text component!
-					</Text>
-			`}
-		  </Code> */}
-          {/* <Button variant="default" loading disabled={false} >
-					Save Now
-				</Button> */}
+						{`
+							import React from "react";
+							import { Text } from "@tabler/react";
+								<Text className="text-lg font-bold">
+									This is a generated text component!
+								</Text>
+						`}
+					</Code> */}
 
-          <Group className="h-16 w-full bg-white border-b p-4 flex">
+<Group className="h-16 w-full bg-white border-b p-4 flex">
             <Stack gap="xs">
               <Group gap="xs">
                 <Text size="base" fontWeight="semibold">
@@ -262,6 +260,13 @@ const App = () => {
               </Tooltip>
             </Group>
           </Group>
+          <Stack gap={"lg"} className="py-10 w-96">
+          <TextInput placeholder="Type here to search" label="Search" description="Search for anything" />
+          <TagsInput clearable label={"Enter Tags"} description={"Enter Description"}  />
+          </Stack>
+
+
+		  
         </Container>
       </AppShell>
     </>
