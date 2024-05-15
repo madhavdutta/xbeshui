@@ -1,5 +1,5 @@
 // All Buttons core components are exported from this file
-export { Button } from "./Buttons/button/button";
+export { Button, type ButtonRadiusType, type ButtonSizeType, type ButtonVariantType } from "./Buttons/button/button";
 export { ToggleGroup } from "./Buttons/toggle/toggleGroup";
 export { Toggle, toggleVariants } from "./Buttons/toggle/toggle";
 export { ActionIcon } from "./Buttons/actionIcon/actionIcon";

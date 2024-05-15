@@ -40,4 +40,3 @@ export interface TagsinputConfigType {
     width: keyof TagsinputConfigType["variants"]["width"];
   };
 }
-

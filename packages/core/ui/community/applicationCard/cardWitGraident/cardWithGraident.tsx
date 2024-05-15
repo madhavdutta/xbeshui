@@ -6,7 +6,7 @@ export function CardGradient() {
   return (
     <Card withBorder radius="md" className="cardgrad w-[500px]">
       <ActionIcon
-        size="xl"
+        size="lg"
         radius="md"
         className="bg-gradient-to-r from-pink-500 to-orange-500"
       >

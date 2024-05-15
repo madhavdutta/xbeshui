@@ -22,6 +22,7 @@ import {
   Card,
   Label,
   Toggle,
+  TagsInput,
 } from "../packages/core/components";
 import {
   IconBox,
@@ -138,7 +139,7 @@ const App = () => {
               </Breadcrumb>
 
               <Group className="w-96">
-                <XbeshThemeSwitch />
+                <XbeshThemeSwitch size="md" />
                 <TextInput
                   leftSection={<IconSearch size={16} stroke={0.5} />}
                   placeholder="Type here to search"
@@ -173,10 +174,10 @@ const App = () => {
 								</Text>
 						`}
 					</Code> */}
-  <Button variant="default" loading disabled={false} >
-    Save Now
-  </Button>
-          
+          <Stack gap={"lg"} className="py-10 w-96">
+          <TextInput placeholder="Type here to search" label="Search" description="Search for anything" />
+          <TagsInput clearable label={"Enter Tags"} description={"Enter Description"}  />
+          </Stack>
         </Container>
       </AppShell>
     </>

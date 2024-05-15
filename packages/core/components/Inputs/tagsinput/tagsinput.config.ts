@@ -1,5 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import type { TagsinputConfigType } from "./tagsinputType";
+
 const tagsinputConfig: TagsinputConfigType = {
   variants: {
     variant: {
@@ -13,7 +14,7 @@ const tagsinputConfig: TagsinputConfigType = {
       left: "",
     },
     width: {
-      default: "w-4/6",
+      default: "",
       xs: "w-3/12",
       sm: "w-4/12",
       md: "w-3/6",
@@ -22,7 +23,7 @@ const tagsinputConfig: TagsinputConfigType = {
       full: "w-full",
     },
     radius: {
-      default: "rounded-none",
+      default: "rounded-sm",
       xs: "rounded-xs",
       sm: "rounded-sm",
       md: "rounded-md",
@@ -34,7 +35,6 @@ const tagsinputConfig: TagsinputConfigType = {
       true: "border-red-500 text-red-500",
       false: "",
     },
-
   },
   defaultVariants: {
     labelPosition: "default",
@@ -43,12 +43,14 @@ const tagsinputConfig: TagsinputConfigType = {
     width: "default",
   },
 };
+
 export const tagsinputVariants = cva(
-  "bg-background font-default text-secondary-foreground rounded-sm text-sm focus:ring-white" ,
+  "bg-background font-default text-foreground p-[3px] border border-input text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
   tagsinputConfig
 );
 
-export interface TagsinputProps extends React.InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof tagsinputVariants> {
+export interface TagsinputProps extends React.InputHTMLAttributes<HTMLInputElement>,
+  VariantProps<typeof tagsinputVariants> {
   className?: string;
   placeholder?: string;
   label?: React.ReactNode;
@@ -61,5 +63,10 @@ export interface TagsinputProps extends React.InputHTMLAttributes<HTMLInputEleme
   data?: string[];
   allowDuplicates?: boolean;
   maxTags?: number;
-  error?:boolean;
+  error?: boolean;
+  onAdd?: (tag: string) => void;
+  onRemove?: (tag: string) => void;
+  onClear?: () => void;
+  clearable?: boolean;
+  splitChars?: string[];
 }

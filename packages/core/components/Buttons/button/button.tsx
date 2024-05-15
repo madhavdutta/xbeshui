@@ -3,6 +3,8 @@ import { cn } from "../../../../utils";
 import { buttonVariants, type ButtonProps } from "./button.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 import { IconLoader2 } from "@tabler/icons-react";
+import type { ButtonVariantType,  ButtonSizeType,  ButtonRadiusType} from "./buttonType";
+
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -39,4 +41,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 
-export { Button, buttonVariants };
+export { Button, buttonVariants, type ButtonVariantType, type ButtonSizeType, type ButtonRadiusType};
