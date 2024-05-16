@@ -2,7 +2,7 @@ import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { cn } from "../../../../utils";
 import type { VariantProps } from "class-variance-authority";
-import type { tabsVariants } from "./tabs.config";
+import { tabsVariants } from "./tabs.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface TabsProps {
@@ -26,12 +26,12 @@ const Tabs = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root> &
     TabsProps &
     VariantProps<typeof tabsVariants>
->(({ className, variant, ...props }, ref) => {
+>(({ className, orientation, ...props }, ref) => {
   useXbeshProviderCheck();
   return (
     <TabsPrimitive.Root
       ref={ref}
-      className={cn("flex-col", className)}
+      className={cn(tabsVariants({ orientation }), "flex-col", className)}
       {...props}
     />
   );
@@ -51,10 +51,10 @@ const TabsList = React.forwardRef<
         variant === "outline"
           ? "w-full inline-flex h-[38px] bg-transparent text-foreground border-b border-gray-300 rounded-none"
           : variant === "pill"
-          ? "w-full inline-flex h-10 rounded-sm bg-muted p-1 text-muted-foreground"
-          : variant === "underline"
-          ? "w-full inline-flex h-[38px] bg-transparent text-foreground border-b-2 border-input rounded-none"
-          : "w-full inline-flex h-[38px] bg-transparent text-foreground border-b-2 border-input rounded-none",
+            ? "w-full inline-flex h-10 rounded-sm bg-muted p-1 text-muted-foreground"
+            : variant === "underline"
+              ? "w-full inline-flex h-[38px] bg-transparent text-foreground border-b-2 border-input rounded-none"
+              : "w-full inline-flex h-[38px] bg-transparent text-foreground border-b-2 border-input rounded-none",
         className
       )}
       {...props}
@@ -76,10 +76,10 @@ const TabsTrigger = React.forwardRef<
       variant === "outline"
         ? "inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-transparent shadow-none rounded-none  data-[state=active]:text-foreground data-[state=active]:border-l data-[state=active]:border-t data-[state=active]:border-r data-[state=active]:border-l-gray-300 data-[state=active]:border-t-gray-300 data-[state=active]:border-r-gray-300 data-[state=active]:border-b-white data-[state=active]:border-b data-[state=active]:rounded-t-sm"
         : variant === "pill"
-        ? "inline-flex items-center justify-center whitespace-nowrap px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
-        : variant === "underline"
-        ? "inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-transparent shadow-none rounded-none  data-[state=active]:text-foreground data-[state=active]:border-b data-[state=active]:border-gray-600"
-        : "inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-transparent shadow-none rounded-none  data-[state=active]:text-foreground data-[state=active]:border-b data-[state=active]:border-gray-600",
+          ? "inline-flex items-center justify-center whitespace-nowrap px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm"
+          : variant === "underline"
+            ? "inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-transparent shadow-none rounded-none  data-[state=active]:text-foreground data-[state=active]:border-b data-[state=active]:border-gray-600"
+            : "inline-flex items-center justify-center whitespace-nowrap px-3 py-2 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-transparent shadow-none rounded-none  data-[state=active]:text-foreground data-[state=active]:border-b data-[state=active]:border-gray-600",
       className
     )}
     {...props}

@@ -23,6 +23,7 @@ import {
   Label,
   Toggle,
   TagsInput,
+  Dialog,
 } from "../packages/core/components";
 import {
   IconBox,
@@ -39,6 +40,7 @@ import { motion } from "framer-motion";
 
 const App = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
+  const [open, setOpen] = React.useState(false);
   const totalPages = 10; // Total number of pages in your pagination
 
   const handlePageChange = (page: number) => {
@@ -159,25 +161,47 @@ const App = () => {
                     <DropdownMenu.Item>Subscription</DropdownMenu.Item>
                   </DropdownMenu.Content>
                 </DropdownMenu>
+                <Dialog open={open} onOpenChange={setOpen}>
+                  <Dialog.Trigger asChild>
+                    <IconSettings />
+                  </Dialog.Trigger>
+
+                  <Dialog.Content size="md">
+                    <Dialog.Header>
+                      <Dialog.Title>Create team</Dialog.Title>
+                      <Dialog.Description>
+                        Add a new team to manage products and customers.
+                      </Dialog.Description>
+                    </Dialog.Header>
+
+                    <Dialog.Footer>
+                      <Button variant="outline" onClick={() => console.log("")}>
+                        Cancel
+                      </Button>
+                      <Button type="submit">Continue</Button>
+                    </Dialog.Footer>
+                  </Dialog.Content>
+                </Dialog>
               </Group>
             </Group>
           </div>
-          <Title order="h1" className="bg-green-300 dark:bg-red-400">
-            Accordion
-          </Title>
-          {/* <Code language="typescript">
-						{`
-							import React from "react";
-							import { Text } from "@tabler/react";
-								<Text className="text-lg font-bold">
-									This is a generated text component!
-								</Text>
-						`}
-					</Code> */}
-          <Stack gap={"lg"} className="py-10 w-96">
-          <TextInput placeholder="Type here to search" label="Search" description="Search for anything" />
-          <TagsInput clearable label={"Enter Tags"} description={"Enter Description"}  />
-          </Stack>
+
+          <Tabs defaultValue="account" className="w-[400px]" orientation='vertical'>
+            <Tabs.TabsList
+              variant={"outline"}
+              className="grid w-full grid-cols-2"
+            >
+              <Tabs.TabsTrigger variant={"outline"} value="account">
+                Account
+              </Tabs.TabsTrigger>
+              <Tabs.TabsTrigger variant={"outline"} value="password">
+                Password
+              </Tabs.TabsTrigger>
+            </Tabs.TabsList>
+            <Tabs.TabsContent value="account"></Tabs.TabsContent>
+            <Tabs.TabsContent value="password"></Tabs.TabsContent>
+          </Tabs>
+          <Container size={"md"}></Container>
         </Container>
       </AppShell>
     </>
