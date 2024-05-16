@@ -27,6 +27,7 @@ import {
 } from "../packages/core/components";
 import {
   IconBox,
+  IconChevronDown,
   IconDeviceAnalytics,
   IconHome,
   IconSearch,
@@ -34,6 +35,12 @@ import {
   IconShoppingCart,
   IconStack,
   IconUsers,
+  IconStar,
+  IconCircleCheckFilled,
+  IconPin,
+  IconFileDescription,
+  IconPencil,
+  IconExclamationCircle,
 } from "@tabler/icons-react";
 import Navmenu from "../packages/core/components/Navigation/navMenu/navMenu";
 import { motion } from "framer-motion";
@@ -118,7 +125,7 @@ const App = () => {
         fixedHeader={true}
         shrinkedAside
       >
-        <Container size={"xl"} fluid className="p-4">
+        <Container size={"xl"} fluid className="">
           <div className="h-16 w-full bg-secondary p-4  flex flex-row justify-end items-end">
             <Group
               className={"w-full h-full px-10 py-4 "}
@@ -186,7 +193,11 @@ const App = () => {
             </Group>
           </div>
 
-          <Tabs defaultValue="account" className="w-[400px]" orientation='vertical'>
+          <Tabs
+            defaultValue="account"
+            className="w-[400px]"
+            orientation="vertical"
+          >
             <Tabs.TabsList
               variant={"outline"}
               className="grid w-full grid-cols-2"
