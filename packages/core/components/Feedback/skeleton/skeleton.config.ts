@@ -32,6 +32,6 @@ export const skeletonVariants = cva(
 export interface SkeletonProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof skeletonVariants> {
-  radius: keyof skeletonVariantsConfigType["variants"]["radius"];
-  animate: keyof skeletonVariantsConfigType["variants"]["animate"];
+  radius?: keyof skeletonVariantsConfigType["variants"]["radius"];
+  animate?: keyof skeletonVariantsConfigType["variants"]["animate"];
 }

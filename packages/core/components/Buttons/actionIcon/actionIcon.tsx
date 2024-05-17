@@ -14,7 +14,7 @@ const ActionIcon = forwardRef<HTMLButtonElement, Omit<ButtonProps, 'variant'> & 
         ref={ref}
         {...props}
       >
-        {children}
+        {!props.loading && children}
       </Button>
     );
   }

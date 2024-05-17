@@ -1,4 +1,3 @@
-// biome-ignore lint/style/useImportType: <explanation>
 import React from "react";
 import {
   TextInput,
@@ -10,21 +9,16 @@ import {
   Avatar,
   NavbarUI,
   Container,
-  Button,
-  Sheet,
   Stack,
   AsideUI,
   Title,
-  Text,
-  Accordion,
-  Code,
-  Tabs,
-  Card,
-  Label,
-  Toggle,
   TagsInput,
+  Button,
 } from "../packages/core/components";
 import {
+  IconAt,
+  IconBell,
+  IconBookmark,
   IconBox,
   IconDeviceAnalytics,
   IconHome,
@@ -34,8 +28,9 @@ import {
   IconStack,
   IconUsers,
 } from "@tabler/icons-react";
-import Navmenu from "../packages/core/components/Navigation/navMenu/navMenu";
-import { motion } from "framer-motion";
+import type { IAsideProps } from "../packages/core/components/Layout/appShell/appShell.config";
+
+// import userAvatar from "../public/images/avatar.svg";
 
 const App = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -45,6 +40,7 @@ const App = () => {
     setCurrentPage(page);
     // Perform any other actions you need to do when the page changes
   };
+
   interface NavItemProps {
     link: string;
     title: string;
@@ -92,9 +88,43 @@ const App = () => {
     return <div className={"h-ful p-4"}>footer</div>;
   };
 
-  const Aside = () => {
+  const AsideNotificationsView = () => {
     return <AsideUI />;
   };
+
+
+  const AsideBookmarksView = () => {
+    return <>Bookmarks View</>;
+  };
+
+
+  const AsideMentionsView = () => {
+    return <>Mentions View</>;
+  };
+
+  const AsideData: IAsideProps[] = [
+    {
+      id: "notifications",
+      title: "NOTIFICATIONS",
+      icon: <IconBell stroke={1.8} size={21} />,
+      isOpenable: true,
+      openedAsideComponent: <AsideNotificationsView />,
+    },
+    {
+      id: "bookmarks",
+      title: "BOOKMARKS",
+      icon: <IconBookmark stroke={1.8} size={21} />,
+      isOpenable: true,
+      openedAsideComponent: <AsideBookmarksView />,
+    },
+    {
+      id: "mentions",
+      title: "MENTIONS",
+      icon: <IconAt stroke={1.8} size={21} />,
+      isOpenable: true,
+      openedAsideComponent: <AsideMentionsView />,
+    }
+  ];
 
   return (
     <>
@@ -108,7 +138,7 @@ const App = () => {
         }
         Header={<HeaderUI />}
         Footer={<FooterUI />}
-        Aside={<Aside />}
+        Aside={AsideData}
         layout="alt"
         variant="default"
         withBorder={true}
@@ -165,18 +195,16 @@ const App = () => {
           <Title order="h1" className="bg-green-300 dark:bg-red-400">
             Accordion
           </Title>
-          {/* <Code language="typescript">
-						{`
-							import React from "react";
-							import { Text } from "@tabler/react";
-								<Text className="text-lg font-bold">
-									This is a generated text component!
-								</Text>
-						`}
-					</Code> */}
+         
           <Stack gap={"lg"} className="py-10 w-96">
-          <TextInput placeholder="Type here to search" label="Search" description="Search for anything" />
-          <TagsInput clearable label={"Enter Tags"} description={"Enter Description"}  />
+            <TextInput placeholder="Type here to search" label="Search" description="Search for anything" />
+            <TagsInput clearable label={"Enter Tags"} description={"Enter Description"} />
+
+            <Avatar size="md" alt="Madhav Dutta" />
+
+            <Button variant="default" size="md" leftSection={<IconStack />} loading>
+              Primary Button
+            </Button>
           </Stack>
         </Container>
       </AppShell>

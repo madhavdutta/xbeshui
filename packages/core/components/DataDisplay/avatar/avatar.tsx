@@ -2,8 +2,9 @@ import React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { cn, getInitials } from "../../../../utils";
 import { avatarVariants, type AvatarProps } from "./avatar.config";
-import { IconUserCircle } from "@tabler/icons-react";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
+import { IconMoodSmile } from "@tabler/icons-react";
+
 
 const Avatar = React.forwardRef<
 	React.ElementRef<typeof AvatarPrimitive.Root>,
@@ -44,10 +45,11 @@ const Avatar = React.forwardRef<
 					) : (
 						<AvatarPrimitive.Fallback
 							style={colorStyle}
-							className="flex h-full w-full items-center bg-background text-foreground border rounded justify-center"
+							className="flex h-full w-full items-center hover:bg-accent cursor-pointer text-foreground border rounded justify-center"
 						>
 							{children || initials || (
-								<IconUserCircle color="gray" size={25} />
+								<IconMoodSmile size={25} stroke={1.5} />
+								
 							)}
 						</AvatarPrimitive.Fallback>
 					)}

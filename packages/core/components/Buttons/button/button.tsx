@@ -31,8 +31,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         {...props}
       >
-        { loading ? <IconLoader2 size={20} stroke={1.5} className="animate-spin mr-2" /> : leftSection && <span className="mr-2">{leftSection}</span>}
-        {children}
+        { loading ? <IconLoader2 size={20} stroke={1.5} className={`animate-spin ${leftSection ? "mr-2" : ""}`} /> : leftSection && <span className="mr-2">{leftSection}</span>}
+        {(loading && leftSection) ? children : null}
+        {(!loading && children) || ""}
         {rightSection && <span className="ml-2">{rightSection}</span>}
       </button>
     );

@@ -19,6 +19,15 @@ const appShellConfig: AppShellVariantType = {
 };
 export const appShellVariant = cva("bg-background font-default text-primary-foreground flex flex-col w-full", appShellConfig);
 
+export interface IAsideProps {
+    id: string;
+    title: string;
+    icon: React.ReactNode;
+    onClick?: () => void;
+    isOpenable?: boolean;
+    openedAsideComponent?: React.ReactNode;
+  }
+
 export interface appShellProps
     extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof appShellVariant> {
@@ -27,7 +36,7 @@ export interface appShellProps
     Header?: React.ReactNode;
     Footer?: React.ReactNode;
     Navbar?: React.ReactNode;
-    Aside?: React.ReactNode;
+    Aside?: IAsideProps[];
     viewPort?: {headerHeight: number, footerHeight: number, asideWidth: number, navbarWidth: number}
     withBorder?: boolean;
     fixedHeader?:boolean;

@@ -7,6 +7,7 @@ type AvatarSizeType = {
   md: string;
   lg: string;
   xl: string;
+  xxl: string;
 };
 
 type AvatarRadiusType = {
