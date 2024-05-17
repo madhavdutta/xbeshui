@@ -2,7 +2,7 @@
 // import { IconTruckDelivery, IconDotsVertical, IconChevronLeft, IconChevronRight, IconCreditCard } from '@tabler/icons-react';
 
 import { IconTargetArrow, IconX, IconArrowsDiagonalMinimize2 } from "@tabler/icons-react";
-import { Stack, Group, Text, Button } from "../../../components";
+import { Group, Text, Button } from "../../../components";
 
 export const AsideUI = () => {
   return (
