@@ -4,10 +4,11 @@ import type { TextVariantsType } from "./textType";
 const textConfig:TextVariantsType= {
   variants: {
     size: {
+      base: "text-base",
       default: "text-base",
       xs: "text-xs",
       sm: "text-sm",
-      base: "text-base",
+      md: "text-base",
       lg: "text-lg",
       xl: "text-xl",
       "2xl": "text-2xl",

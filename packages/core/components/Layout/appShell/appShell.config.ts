@@ -39,7 +39,6 @@ export interface appShellProps
     Aside?: IAsideProps[];
     viewPort?: {headerHeight: number, footerHeight: number, asideWidth: number, navbarWidth: number}
     withBorder?: boolean;
-    fixedHeader?:boolean;
     children?: React.ReactNode;
     shrinkedAside?: boolean;
 }

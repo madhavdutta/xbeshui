@@ -114,21 +114,21 @@ const App = () => {
   const AsideData: IAsideProps[] = [
     {
       id: "notifications",
-      title: "NOTIFICATIONS",
+      title: "Notifications",
       icon: <IconBell stroke={1.8} size={21} />,
       isOpenable: true,
       openedAsideComponent: <AsideNotificationsView />,
     },
     {
       id: "bookmarks",
-      title: "BOOKMARKS",
+      title: "Bookmarks",
       icon: <IconBookmark stroke={1.8} size={21} />,
       isOpenable: true,
       openedAsideComponent: <AsideBookmarksView />,
     },
     {
       id: "mentions",
-      title: "MENTIONS",
+      title: "Mentions",
       icon: <IconAt stroke={1.8} size={21} />,
       isOpenable: true,
       openedAsideComponent: <AsideMentionsView />,
@@ -152,11 +152,10 @@ const App = () => {
         variant="default"
         withBorder={true}
         className="bg-muted/40"
-        fixedHeader={true}
         shrinkedAside
       >
         <Container size={"xl"} fluid className="">
-          <div className="h-16 w-full bg-secondary p-4  flex flex-row justify-end items-end">
+          <div className="h-16 w-full bg-secondary p-0  flex flex-row justify-end items-end">
             <Group
               className={"w-full h-full px-10 py-4 "}
               justify="spaceBetween"

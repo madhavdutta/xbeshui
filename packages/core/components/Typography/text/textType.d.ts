@@ -7,6 +7,7 @@ export interface TextVariantsType {
       default: string;
       xs: string;
       sm: string;
+      md: string;
       base: string;
       lg: string;
       xl: string;
