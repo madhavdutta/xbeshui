@@ -12,7 +12,10 @@ import { IfElse } from "../../Misc/ifElse/ifElse";
 import { ActionIcon } from "../../Buttons/actionIcon/actionIcon";
 import { Stack } from "../stack/stack";
 import { motion } from "framer-motion";
+<<<<<<< HEAD
 import { Group, Skeleton, Tooltip } from "../..";
+=======
+>>>>>>> 1dd405f4cb66159a5dd037e1ef5e8943d86c4034
 
 const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
   (
@@ -39,15 +42,16 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
     const [loading, setLoading] = React.useState(false);
 
 
-
     const renderNavbarAlt = () => (
       <IfElse condition={!!Navbar}>
         <nav
-          className={`fixed z-30 hidden sm:hidden md:flex lg:flex left-0 top-16 mt-[.01rem] ${withBorder ? "border-r" : ""
-            } ${variant === "default"
+          className={`fixed z-30 hidden sm:hidden md:flex lg:flex left-0 top-16 mt-[.01rem] ${
+            withBorder ? "border-r" : ""
+          } ${
+            variant === "default"
               ? "w-16 left-0 top-0 bottom-0"
               : "w-72 left-0 top-0 bottom-0"
-            }`}
+          }`}
           aria-label="NavBarAlt"
         >
           {Navbar && Navbar}
@@ -60,8 +64,9 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
     const renderHeaderAlt = () => (
       <IfElse condition={!!Header}>
         <header
-          className={`z-40 h-16 md:right-0 top-0 left-0 right-0 ${fixedHeader ? "fixed" : ""
-            } flex items-center ${withBorder ? "border-b" : ""}`}
+          className={`z-40 h-16 md:right-0 top-0 left-0 right-0 ${
+            fixedHeader ? "fixed" : ""
+          } flex items-center ${withBorder ? "border-b" : ""}`}
           aria-label="HeaderAlt"
         >
           <Sheet
@@ -103,12 +108,16 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           } 
           ${Header ? (fixedHeader ? "mt-[66px]" : "mt-4") : "mt-0"} 
           ${Footer ? "pb-20" : "pb-0"} px-0 
+<<<<<<< HEAD
           ${Navbar
             ? variant === "inner"
               ? "left-0 md:left-72"
               : "left-0 md:left-16"
             : "left-0"
           }`}
+=======
+          ${Navbar ? (variant === "inner" ? "left-0 md:left-72" : "left-0 md:left-16") : "left-0"}`}
+>>>>>>> 1dd405f4cb66159a5dd037e1ef5e8943d86c4034
       >
         {props.children}
       </motion.div>
@@ -125,12 +134,16 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           aria-label="FooterAlt"
           className={`z-40 h-16 ${withBorder ? "border-t" : ""} flex fixed bottom-0 items-center mr-0 "md:mr-0"} left-0 px-0 right-12 md:mr-[2px]
           
+<<<<<<< HEAD
           ${Navbar
               ? variant === "inner"
                 ? "md:ml-72"
                 : "md:ml-16 mt-16"
               : "md:ml-0 mt-16"
             }`}
+=======
+          ${Navbar ? (variant === "inner" ? "md:ml-72" : "md:ml-16 mt-16") : "md:ml-0 mt-16"}`}
+>>>>>>> 1dd405f4cb66159a5dd037e1ef5e8943d86c4034
         >
           {Footer && Footer}
         </motion.div>
@@ -197,12 +210,32 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
     const renderAsideAlt = (Aside: IAsideProps[]) => (
       <IfElse condition={Aside.length > 0}>
         <div className="z-50">
+<<<<<<< HEAD
 
           {renderAsideData && renderAsideComponent(renderAsideData as IAsideProps)}
 
           <div
             className={`fixed mt-[0.01rem] right-0 top-16 h-screen ${withBorder ? "border-l" : ""
               } pt-4 bg-background flex flex-col items-center`}
+=======
+          <motion.div
+            initial={{ right: "0" }}
+            animate={{
+              right: asideOpened ? 12 : -500,
+            }}
+            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+            className={`fixed bg-background top-16 w-[500px] h-full ${
+              withBorder ? "border-l" : ""
+            }`}
+            aria-label="AsideAlt"
+          >
+            {Aside}
+          </motion.div>
+          <div
+            className={`w-12 fixed mt-[0.01rem] right-0 top-16 h-screen ${
+              withBorder ? "border-l" : ""
+            } pt-4 bg-background flex flex-col items-center`}
+>>>>>>> 1dd405f4cb66159a5dd037e1ef5e8943d86c4034
           >
             <Stack justify="center" align="center" className="px-0">
               {Aside.map((aside) => (
@@ -240,11 +273,13 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
     const renderNavbarDefault = () => (
       <IfElse condition={!!Navbar}>
         <nav
-          className={`fixed z-30 mt-[.01rem] h-screen bottom-0 hidden sm:hidden md:flex lg:flex ${withBorder ? "border-r" : ""
-            } ${variant === "default"
+          className={`fixed z-30 mt-[.01rem] h-screen bottom-0 hidden sm:hidden md:flex lg:flex ${
+            withBorder ? "border-r" : ""
+          } ${
+            variant === "default"
               ? "w-16 left-0 top-0 bottom-0"
               : "w-72 left-0 top-0 bottom-0"
-            }`}
+          }`}
           aria-label="SideNavDefault"
         >
           {Navbar && Navbar}
@@ -263,10 +298,16 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           }}
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
           aria-label="HeaderDefault"
+<<<<<<< HEAD
           className={`z-40 h-16 bg-background top-0 ${variant === "inner"
             ? "left-0 md:left-72 right-16"
             : "left-0  md:left-16"
             } ${fixedHeader ? "fixed" : ""} ${withBorder ? "border-b" : ""}`}
+=======
+          className={`z-40 h-16 bg-background top-0 ${variant == "inner" ? "left-0 md:left-72 right-16" : "left-0  md:left-16"} ${
+            fixedHeader ? "fixed" : ""
+          } ${withBorder ? "border-b" : ""}`}
+>>>>>>> 1dd405f4cb66159a5dd037e1ef5e8943d86c4034
         >
           <header className="h-full flex items-center">
             <IfElse condition={!!asideOpened}>
@@ -316,12 +357,16 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           } 
           ${Header ? (fixedHeader ? "mt-[66px]" : "mt-4") : "mt-0"} 
           ${Footer ? "pb-20" : "pb-0"} px-0 
+<<<<<<< HEAD
           ${Navbar
             ? variant === "inner"
               ? "left-0 md:left-72"
               : "left-0 md:left-16"
             : "left-0"
           }`}
+=======
+          ${Navbar ? (variant === "inner" ? "left-0 md:left-72" : "left-0 md:left-16") : "left-0"}`}
+>>>>>>> 1dd405f4cb66159a5dd037e1ef5e8943d86c4034
       >
         {props.children}
       </motion.div>
@@ -338,12 +383,16 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           aria-label="FooterDefault"
           className={`z-40 h-16 ${withBorder ? "border-t" : ""} flex fixed bottom-0 items-center mr-0 "md:mr-0"} left-0 px-0 right-12 md:mr-0
           
+<<<<<<< HEAD
           ${Navbar
               ? variant === "inner"
                 ? "md:ml-72"
                 : "md:ml-16 mt-16"
               : "md:ml-0 mt-16"
             }`}
+=======
+          ${Navbar ? (variant === "inner" ? "md:ml-72" : "md:ml-16 mt-16") : "md:ml-0 mt-16"}`}
+>>>>>>> 1dd405f4cb66159a5dd037e1ef5e8943d86c4034
         >
           {Footer && Footer}
         </motion.div>
@@ -353,6 +402,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
       </IfElse>
     );
 
+<<<<<<< HEAD
     // const renderAsideDefault = () => (
     // 	<IfElse condition={!!Aside}>
     // 		<div className="z-50">
@@ -397,6 +447,44 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
     // 		<></>
     // 	</IfElse>
     // );
+=======
+    const renderAsideDefault = () => (
+      <IfElse condition={!!Aside}>
+        <div className="z-50">
+          <motion.div
+            initial={{ right: "0" }}
+            animate={{
+              right: asideOpened ? 12 : -500,
+            }}
+            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+            className={`fixed bg-background w-[498px] top-0 h-full ${withBorder ? "border-l" : ""}`}
+            aria-label="AsideDefault"
+          >
+            {Aside}
+          </motion.div>
+          <div
+            className={`w-12 fixed mt-[0.01rem] right-0 top-0 h-screen ${withBorder ? "border-l" : ""} pt-4 bg-background flex flex-col items-center`}
+          >
+            <Stack>
+              <ActionIcon
+                onClick={() => setAsideOpened(!asideOpened)}
+                variant="ghost"
+                radius="sm"
+              >
+                <IconTarget size={14} />
+              </ActionIcon>
+
+              <ActionIcon radius="sm">
+                <IconTarget size={14} />
+              </ActionIcon>
+            </Stack>
+          </div>
+        </div>
+        {/* biome-ignore lint/complexity/noUselessFragments: <explanation> */}
+        <></>
+      </IfElse>
+    );
+>>>>>>> 1dd405f4cb66159a5dd037e1ef5e8943d86c4034
 
     return (
       <div

@@ -14,12 +14,14 @@ import {
   Title,
   TagsInput,
   Button,
+  Dialog,
 } from "../packages/core/components";
 import {
   IconAt,
   IconBell,
   IconBookmark,
   IconBox,
+  IconChevronDown,
   IconDeviceAnalytics,
   IconHome,
   IconSearch,
@@ -27,6 +29,12 @@ import {
   IconShoppingCart,
   IconStack,
   IconUsers,
+  IconStar,
+  IconCircleCheckFilled,
+  IconPin,
+  IconFileDescription,
+  IconPencil,
+  IconExclamationCircle,
 } from "@tabler/icons-react";
 import type { IAsideProps } from "../packages/core/components/Layout/appShell/appShell.config";
 
@@ -34,6 +42,7 @@ import type { IAsideProps } from "../packages/core/components/Layout/appShell/ap
 
 const App = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
+  const [open, setOpen] = React.useState(false);
   const totalPages = 10; // Total number of pages in your pagination
 
   const handlePageChange = (page: number) => {
@@ -146,7 +155,7 @@ const App = () => {
         fixedHeader={true}
         shrinkedAside
       >
-        <Container size={"xl"} fluid className="p-4">
+        <Container size={"xl"} fluid className="">
           <div className="h-16 w-full bg-secondary p-4  flex flex-row justify-end items-end">
             <Group
               className={"w-full h-full px-10 py-4 "}
@@ -189,6 +198,27 @@ const App = () => {
                     <DropdownMenu.Item>Subscription</DropdownMenu.Item>
                   </DropdownMenu.Content>
                 </DropdownMenu>
+                <Dialog open={open} onOpenChange={setOpen}>
+                  <Dialog.Trigger asChild>
+                    <IconSettings />
+                  </Dialog.Trigger>
+
+                  <Dialog.Content size="md">
+                    <Dialog.Header>
+                      <Dialog.Title>Create team</Dialog.Title>
+                      <Dialog.Description>
+                        Add a new team to manage products and customers.
+                      </Dialog.Description>
+                    </Dialog.Header>
+
+                    <Dialog.Footer>
+                      <Button variant="outline" onClick={() => console.log("")}>
+                        Cancel
+                      </Button>
+                      <Button type="submit">Continue</Button>
+                    </Dialog.Footer>
+                  </Dialog.Content>
+                </Dialog>
               </Group>
             </Group>
           </div>
@@ -206,6 +236,8 @@ const App = () => {
               Primary Button
             </Button>
           </Stack>
+
+        
         </Container>
       </AppShell>
     </>

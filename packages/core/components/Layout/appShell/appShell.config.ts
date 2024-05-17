@@ -36,7 +36,12 @@ export interface appShellProps
     Header?: React.ReactNode;
     Footer?: React.ReactNode;
     Navbar?: React.ReactNode;
+<<<<<<< HEAD
     Aside?: IAsideProps[];
+=======
+    
+    Aside?: React.ReactNode;
+>>>>>>> 1dd405f4cb66159a5dd037e1ef5e8943d86c4034
     viewPort?: {headerHeight: number, footerHeight: number, asideWidth: number, navbarWidth: number}
     withBorder?: boolean;
     fixedHeader?:boolean;
