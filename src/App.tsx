@@ -94,7 +94,7 @@ const App = () => {
   };
 
   const FooterUI = () => {
-    return <div className={"h-ful p-4"}>footer</div>;
+    return <div className={"bg-red-300 w-full h-full"}>footer</div>;
   };
 
   const AsideNotificationsView = () => {
@@ -154,7 +154,7 @@ const App = () => {
         className="bg-muted/40"
         shrinkedAside
       >
-        <Container size={"xl"} fluid className="">
+        <Container size={"xl"} fluid className="mb-32">
           <div className="h-16 w-full bg-secondary p-0  flex flex-row justify-end items-end">
             <Group
               className={"w-full h-full px-10 py-4 "}
@@ -221,6 +221,7 @@ const App = () => {
               </Group>
             </Group>
           </div>
+          <div className="p-10"> 
           <Title order="h1" className="bg-green-300 dark:bg-red-400">
             Accordion
           </Title>
@@ -236,6 +237,112 @@ const App = () => {
             </Button>
           </Stack>
 
+          <Title order="h1" className="bg-green-300 dark:bg-red-400">
+            Accordion
+          </Title>
+         
+          <Stack gap={"lg"} className="py-10 w-96">
+            <TextInput placeholder="Type here to search" label="Search" description="Search for anything" />
+            <TagsInput clearable label={"Enter Tags"} description={"Enter Description"} />
+
+            <Avatar size="md" alt="Madhav Dutta" />
+
+            <Button variant="default" size="md" leftSection={<IconStack />} loading>
+              Primary Button
+            </Button>
+          </Stack>
+
+          <Title order="h1" className="bg-green-300 dark:bg-red-400">
+            Accordion
+          </Title>
+         
+          <Stack gap={"lg"} className="py-10 w-96">
+            <TextInput placeholder="Type here to search" label="Search" description="Search for anything" />
+            <TagsInput clearable label={"Enter Tags"} description={"Enter Description"} />
+
+            <Avatar size="md" alt="Madhav Dutta" />
+
+            <Button variant="default" size="md" leftSection={<IconStack />} loading>
+              Primary Button
+            </Button>
+          </Stack>
+
+          <Title order="h1" className="bg-green-300 dark:bg-red-400">
+            Accordion
+          </Title>
+         
+          <Stack gap={"lg"} className="py-10 w-96">
+            <TextInput placeholder="Type here to search" label="Search" description="Search for anything" />
+            <TagsInput clearable label={"Enter Tags"} description={"Enter Description"} />
+
+            <Avatar size="md" alt="Madhav Dutta" />
+
+            <Button variant="default" size="md" leftSection={<IconStack />} loading>
+              Primary Button
+            </Button>
+          </Stack>
+
+          <Title order="h1" className="bg-green-300 dark:bg-red-400">
+            Accordion
+          </Title>
+         
+          <Stack gap={"lg"} className="py-10 w-96">
+            <TextInput placeholder="Type here to search" label="Search" description="Search for anything" />
+            <TagsInput clearable label={"Enter Tags"} description={"Enter Description"} />
+
+            <Avatar size="md" alt="Madhav Dutta" />
+
+            <Button variant="default" size="md" leftSection={<IconStack />} loading>
+              Primary Button
+            </Button>
+          </Stack>
+
+          <Title order="h1" className="bg-green-300 dark:bg-red-400">
+            Accordion
+          </Title>
+         
+          <Stack gap={"lg"} className="py-10 w-96">
+            <TextInput placeholder="Type here to search" label="Search" description="Search for anything" />
+            <TagsInput clearable label={"Enter Tags"} description={"Enter Description"} />
+
+            <Avatar size="md" alt="Madhav Dutta" />
+
+            <Button variant="default" size="md" leftSection={<IconStack />} loading>
+              Primary Button
+            </Button>
+          </Stack>
+
+          <Title order="h1" className="bg-green-300 dark:bg-red-400">
+            Accordion
+          </Title>
+         
+          <Stack gap={"lg"} className="py-10 w-96">
+            <TextInput placeholder="Type here to search" label="Search" description="Search for anything" />
+            <TagsInput clearable label={"Enter Tags"} description={"Enter Description"} />
+
+            <Avatar size="md" alt="Madhav Dutta" />
+
+            <Button variant="default" size="md" leftSection={<IconStack />} loading>
+              Primary Button
+            </Button>
+          </Stack>
+
+          <Title order="h1" className="bg-green-300 dark:bg-red-400">
+            Accordion
+          </Title>
+         
+          <Stack gap={"lg"} className="py-10 w-96">
+            <TextInput placeholder="Type here to search" label="Search" description="Search for anything" />
+            <TagsInput clearable label={"Enter Tags"} description={"Enter Description"} />
+
+            <Avatar size="md" alt="Madhav Dutta" />
+
+            <Button variant="default" size="md" leftSection={<IconStack />} loading>
+              Primary Button
+            </Button>
+          </Stack>
+
+          </div>
         
         </Container>
       </AppShell>
