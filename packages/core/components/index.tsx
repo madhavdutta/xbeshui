@@ -86,7 +86,7 @@ export { List } from "./Typography/list/list";
 
 // All Theme core components are exported from this file
 export { XbeshProvider } from "./Theme/xBeshTheme/xbeshProvider";
-export { XBeshThemeProvider } from "./Theme/xBeshTheme/xBeshThemeProvider";
+export { XBeshThemeProvider, useTheme } from "./Theme/xBeshTheme/xBeshThemeProvider";
 export { XbeshThemeSwitch } from "./Theme/themeSwitch/xBeshThemeSwitch";
 export { NavbarUI } from "../ui/appshell/navbar/navbarui";
 export { AsideUI } from "../ui/appshell/aside/asideUI";
