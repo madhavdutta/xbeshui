@@ -41,7 +41,9 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
       React.useState<IAsideProps | null>(null);
     const [loading, setLoading] = React.useState(false);
     const height = isBrowser() ? window.innerHeight : 0;
-    const viewPortHeight = height - 128
+    const calculateHeader = Header ? 64 :0
+    const calculateFooter = Footer ? 64 :0
+    const viewPortHeight = height - calculateHeader - calculateFooter;
 
 
     

@@ -5,6 +5,7 @@ export { Toggle, toggleVariants } from "./Buttons/toggle/toggle";
 export { ActionIcon } from "./Buttons/actionIcon/actionIcon";
 export { CopyButton } from "./Buttons/copyButton/copyButton";
 export { FileButton } from "./Buttons/fileButton/fileButton";
+export { Link } from "./Buttons/link/link";
 
 // All DataDisplay core components are exported from this file
 export { Accordion } from "./DataDisplay/accordion/accordion";
@@ -86,7 +87,7 @@ export { List } from "./Typography/list/list";
 
 // All Theme core components are exported from this file
 export { XbeshProvider } from "./Theme/xBeshTheme/xbeshProvider";
-export { XBeshThemeProvider } from "./Theme/xBeshTheme/xBeshThemeProvider";
+export { XBeshThemeProvider, useTheme } from "./Theme/xBeshTheme/xBeshThemeProvider";
 export { XbeshThemeSwitch } from "./Theme/themeSwitch/xBeshThemeSwitch";
 export { NavbarUI } from "../ui/appshell/navbar/navbarui";
 export { AsideUI } from "../ui/appshell/aside/asideUI";
