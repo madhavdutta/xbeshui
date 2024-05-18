@@ -65,10 +65,12 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>, VariantProps<typeof buttonVariants> {
   leftSection?: React.ReactNode;
   rightSection?: React.ReactNode;
-  variant?: keyof ButtonVariantType | null;
+  // variant?: keyof ButtonVariantType | null;
   size?: keyof ButtonSizeType | null;
   href?: string;
   target?: "_blank" | "_self" | "_parent" | "_top" | string;
   radius?: keyof ButtonRadiusType;
   loading?:boolean;
+  glitchEffect?: boolean;
+  underline?: boolean;
 }

@@ -6,6 +6,7 @@ export * from "./core/components/Buttons/toggle/toggle";
 export * from "./core/components/Buttons/actionIcon/actionIcon";
 export * from "./core/components/Buttons/copyButton/copyButton";
 export * from "./core/components/Buttons/fileButton/fileButton";
+export * from "./core/components/Buttons/link/link";
 
 export * from "./core/components/DataDisplay/accordion/accordion";
 export * from "./core/components/DataDisplay/avatar/avatar";

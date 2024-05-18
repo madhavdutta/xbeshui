@@ -5,6 +5,7 @@ export { Toggle, toggleVariants } from "./Buttons/toggle/toggle";
 export { ActionIcon } from "./Buttons/actionIcon/actionIcon";
 export { CopyButton } from "./Buttons/copyButton/copyButton";
 export { FileButton } from "./Buttons/fileButton/fileButton";
+export { Link } from "./Buttons/link/link";
 
 // All DataDisplay core components are exported from this file
 export { Accordion } from "./DataDisplay/accordion/accordion";
