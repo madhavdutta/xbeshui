@@ -89,5 +89,5 @@ export * from "./core/ui/appshell/navbar/navbarui";
 export * from "./core/components/Inputs/passwordInput/passwordInput";
 export * from "./core/components/Feedback/sonner/sonner";
 
-export * from "./core/components/Network/network";
+export * from "./core/components/Misc/network/network";
 

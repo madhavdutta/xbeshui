@@ -132,3 +132,15 @@ body {
 .back {
   transform: rotateY(180deg);
 }
+
+[data-state="open"] > * > .accordionIcon {
+  /* Styles for the SVG element */
+  transform: rotate(0deg);
+  transform-origin: center;
+}
+
+[data-state="closed"] > * > .accordionIcon {
+  /* Styles for the SVG element */
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
