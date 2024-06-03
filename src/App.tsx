@@ -41,6 +41,7 @@ import {
 	IconExclamationCircle,
 } from "@tabler/icons-react";
 import type { IAsideProps } from "../packages/core/components/Layout/appShell/appShell.config";
+// import { NetworkStatusIndicator } from "../packages";
 
 // import userAvatar from "../public/images/avatar.svg";
 
@@ -157,6 +158,9 @@ const App = () => {
 				shrinkedAside
 			>
 				<Container size={"xl"} fluid className="mb-32">
+
+					{/* <NetworkStatusIndicator connectionOKJsx={<Text className="w-full text-center bg-green-500 text-white">Connection is Ok !</Text>} noConnectionJsx={<Text className="bg-red-500 text-white w-full text-center">No Internet Connection</Text>} /> */}
+
 					<div className="h-16 w-full bg-secondary p-0  flex flex-row justify-end items-end">
 						<Group
 							className={"w-full h-full px-10 py-4 "}
