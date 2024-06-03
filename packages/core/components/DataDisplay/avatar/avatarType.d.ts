@@ -20,6 +20,8 @@ type AvatarRadiusType = {
   full: string;
 };
 
+type IndicatorPositionType = "top-left" | "top-right" | "bottom-left" | "bottom-right" | "top-center" | "bottom-center" | "left-center" | "right-center";
+
 interface AvatarVariantsConfigType {
   variants: {
     radius: AvatarRadiusType;
@@ -31,5 +33,9 @@ interface AvatarVariantsConfigType {
   };
 }
 
-
-export type {AvatarSizeType,AvatarRadiusType, AvatarVariantsConfigType };
+export type {
+  AvatarSizeType,
+  AvatarRadiusType,
+  IndicatorPositionType,
+  AvatarVariantsConfigType,
+};

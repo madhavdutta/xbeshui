@@ -16,7 +16,9 @@ import {
 	Button,
 	Dialog,
 	Link,
-  Text,
+	Text,
+	Drawer,
+	MediaQuery,
 } from "../packages/core/components";
 import {
 	IconAt,
@@ -221,41 +223,8 @@ const App = () => {
 							</Group>
 						</Group>
 					</div>
-					<div className="p-10">
-						<Title order="h1" className="bg-green-300 dark:bg-red-400">
-							Accordion
-						</Title>
+					<Avatar size="md" radius="sm" indicatorColor="bg-green-300" indicatorPosition="bottom-right" alt="madhav dutta" src="https://assets.circle.so/2y9v2ap5g826axie38knxfb76x9n"> </Avatar>
 
-						<Stack gap={"lg"} className="py-10 w-96">
-							<TextInput
-								placeholder="Type here to search"
-								label="Search"
-								description="Search for anything"
-							/>
-							<TagsInput
-								clearable
-								label={"Enter Tags"}
-								description={"Enter Description"}
-							/>
-
-							<Avatar size="md" alt="Madhav Dutta" />
-
-							<Button
-								variant="default"
-								size="md"
-								leftSection={<IconStack />}
-								loading
-							>
-								Primary Button
-							</Button>
-						</Stack>
-
-						<Link href="/dashboard" glitchEffect={true}>
-              <Avatar size="md" alt="Madhav Dutta" />
-							<Text>Dashboard</Text>
-              DashText
-						</Link>
-					</div>
 				</Container>
 			</AppShell>
 		</>

@@ -28,6 +28,7 @@ export * from "./core/components/Layout/flexBox/flexBox";
 export * from "./core/components/Layout/grid/grid";
 export * from "./core/components/Layout/simpleGrid/simpleGrid";
 export * from "./core/components/Layout/resizable/resizable";
+export * from "./core/components/Layout/mediaquery/mediaQuery";
 
 export * from "./core/components/Feedback/alert/alert";
 export * from "./core/components/Feedback/progress/progress";

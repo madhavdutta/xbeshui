@@ -67,7 +67,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
     const renderHeaderAlt = () => (
       <IfElse condition={!!Header}>
         <header
-          className={`z-40 h-16 md:right-0 top-0 left-0 right-0 fixed flex items-center ${withBorder ? "border-b" : ""}`}
+          className={`z-30 h-16 md:right-0 top-0 left-0 right-0 fixed flex items-center ${withBorder ? "border-b" : ""}`}
           aria-label="HeaderAlt"
         >
           <Sheet
@@ -131,7 +131,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           }}
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
           aria-label="FooterAlt"
-          className={`z-40 h-16 ${withBorder ? "border-t" : ""} flex fixed bottom-0 items-center mr-0 "md:mr-0"} left-0 px-0 right-12
+          className={`z-30 h-16 ${withBorder ? "border-t" : ""} flex fixed bottom-0 items-center mr-0 "md:mr-0"} left-0 px-0 right-12
           
           ${Navbar
               ? variant === "inner"
@@ -246,7 +246,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
 
     const renderAsideAlt = (Aside: IAsideProps[]) => (
       <IfElse condition={Aside && Array.isArray(Aside) && Aside.length > 0}>
-        <div className="z-50">
+        <div className="z-30">
           {renderAsideData &&
             renderAsideComponent(renderAsideData as IAsideProps)}
 
@@ -314,7 +314,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           }}
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
           aria-label="HeaderDefault"
-          className={`z-40 h-16 bg-background top-0 ${variant === "inner"
+          className={`z-30 h-16 bg-background top-0 ${variant === "inner"
               ? "left-0 md:left-72 right-16"
               : "left-0  md:left-16"
             } "fixed" ${withBorder ? "border-b" : ""}`}
@@ -387,7 +387,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           }}
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
           aria-label="FooterDefault"
-          className={`z-40 h-16 ${withBorder ? "border-t" : ""} flex fixed bottom-0 items-center mr-0 "md:mr-0"} left-0 px-0 right-12 md:mr-0
+          className={`z-30 h-16 ${withBorder ? "border-t" : ""} flex fixed bottom-0 items-center mr-0 "md:mr-0"} left-0 px-0 right-12 md:mr-0
           
           ${Navbar
               ? variant === "inner"
