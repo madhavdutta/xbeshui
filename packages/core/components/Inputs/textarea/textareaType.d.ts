@@ -28,7 +28,7 @@ export interface TextareaConfigType {
       xl: string;
     };
     error: {
-      default: string;
+      default: string
       true: string;
       false: string;
     };

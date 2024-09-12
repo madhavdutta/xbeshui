@@ -6,15 +6,15 @@ import { tabsVariants } from "./tabs.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
 interface TabsProps {
-  variant?: "outline" | "pill" | "underline";
+  variant?: "default" | "outline" | "pill" | "underline";
 }
 
 interface TabsComponent<T extends React.ElementType = typeof TabsPrimitive.Root>
   extends React.ForwardRefExoticComponent<
     Omit<React.ComponentPropsWithoutRef<T>, "ref"> &
-      TabsProps &
-      VariantProps<typeof tabsVariants> &
-      React.RefAttributes<HTMLDivElement>
+    TabsProps &
+    VariantProps<typeof tabsVariants> &
+    React.RefAttributes<HTMLDivElement>
   > {
   TabsList: typeof TabsList;
   TabsTrigger: typeof TabsTrigger;
@@ -24,8 +24,8 @@ interface TabsComponent<T extends React.ElementType = typeof TabsPrimitive.Root>
 const Tabs = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root> &
-    TabsProps &
-    VariantProps<typeof tabsVariants>
+  TabsProps &
+  VariantProps<typeof tabsVariants>
 >(({ className, orientation, ...props }, ref) => {
   useXbeshProviderCheck();
   return (
@@ -40,8 +40,8 @@ const Tabs = React.forwardRef<
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> &
-    TabsProps &
-    VariantProps<typeof tabsVariants>
+  TabsProps &
+  VariantProps<typeof tabsVariants>
 >(({ className, variant, ...props }, ref) => {
   useXbeshProviderCheck();
   return (
@@ -67,8 +67,8 @@ TabsList.displayName = TabsPrimitive.List.displayName;
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> &
-    TabsProps &
-    VariantProps<typeof tabsVariants>
+  TabsProps &
+  VariantProps<typeof tabsVariants>
 >(({ className, variant, ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}

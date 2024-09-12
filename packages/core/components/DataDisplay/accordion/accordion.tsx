@@ -9,8 +9,8 @@ import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 interface AccordionComponent<T extends React.ElementType = typeof AccordionPrimitive.Root>
   extends React.ForwardRefExoticComponent<
     Omit<React.ComponentPropsWithoutRef<T>, "ref"> &
-      VariantProps<typeof accordionVariants> &
-      React.RefAttributes<HTMLDivElement>
+    VariantProps<typeof accordionVariants> &
+    React.RefAttributes<HTMLDivElement>
   > {
   Item: typeof AccordionItem;
   Trigger: typeof AccordionTrigger;
@@ -20,7 +20,7 @@ interface AccordionComponent<T extends React.ElementType = typeof AccordionPrimi
 const Accordion = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> &
-    VariantProps<typeof accordionVariants>
+  VariantProps<typeof accordionVariants>
 >(({ className, variant, radius, chevronPosition, ...props }, ref) => {
   useXbeshProviderCheck();
   return (
@@ -28,7 +28,8 @@ const Accordion = React.forwardRef<
       ref={ref}
       className={cn(
         className,
-        accordionVariants({ variant, radius, chevronPosition })
+        accordionVariants({ variant, radius, chevronPosition }),
+        'w-full'
       )}
       {...props}
     />
@@ -43,7 +44,7 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn("border-b border-input", className)}
+    className={cn("border-b border-input", className, 'w-full')}
     {...props}
   />
 ));
@@ -58,21 +59,25 @@ type AccordionTriggerProps = React.ComponentPropsWithoutRef<typeof AccordionPrim
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   AccordionTriggerProps & VariantProps<typeof accordionVariants>
->(({ className, children, chevronPosition, chevronsize, ...props }, ref) => (
-  <AccordionPrimitive.Header className="flex">
+>(({ className, children, chevronPosition, chevronSize, ...props }, ref) => (
+  <AccordionPrimitive.Header className="w-full">
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 items-center text-secondary-foreground px-4 justify-between py-4 text-sm font-medium transition-all ",
-        accordionVariants({ chevronPosition, chevronsize }),
+        "flex items-center text-secondary-foreground px-4 justify-between py-4 text-sm font-medium transition-all w-full",
+        accordionVariants({ chevronPosition }),
+        'w-full',
         className
       )}
       {...props}
     >
-      {children}
+      <div className="flex-nowrap text-nowrap text-left">
+        {children}
+      </div>
       <IconChevronDown
         className={cn(
-          `h-${chevronsize} w-${chevronsize} shrink-0 text-muted-foreground transition-transform duration-200`,
+          `shrink-0 text-muted-foreground transition-transform duration-200`,
+          accordionVariants({ chevronSize }),
           {
             "rotate-90": props["data-state"] === "open",
           }
@@ -82,6 +87,7 @@ const AccordionTrigger = React.forwardRef<
   </AccordionPrimitive.Header>
 ));
 
+
 AccordionTrigger.displayName = "AccordionTrigger";
 
 const AccordionContent = React.forwardRef<
@@ -90,7 +96,7 @@ const AccordionContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
-    className="overflow-hidden text-secondary-foreground px-4 text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    className="w-full text-secondary-foreground px-4 text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >
     <div className={cn("pb-4 pt-0", className)}>{children}</div>

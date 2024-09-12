@@ -40,7 +40,7 @@ interface BreakpointCols {
 
 export interface SimpleGridProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    Omit<BreakpointCols, "cols"> {
+  Omit<BreakpointCols, "cols"> {
   children?: React.ReactNode;
   className?: string;
   cols?: Partial<Record<keyof typeof simpleGridConfig.variants.cols, number>>;

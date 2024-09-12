@@ -10,7 +10,9 @@ export type BackgroundImageSizeType = {
 };
 
 export type BackgroundImageRadiusType = {
+  default: string;
   none: string;
+  xs: string;
   sm: string;
   md: string;
   lg: string;

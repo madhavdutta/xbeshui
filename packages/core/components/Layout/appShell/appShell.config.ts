@@ -26,7 +26,7 @@ export interface IAsideProps {
     onClick?: () => void;
     isOpenable?: boolean;
     openedAsideComponent?: React.ReactNode;
-  }
+}
 
 export interface appShellProps
     extends React.HTMLAttributes<HTMLDivElement>,
@@ -37,8 +37,9 @@ export interface appShellProps
     Footer?: React.ReactNode;
     Navbar?: React.ReactNode;
     Aside?: IAsideProps[];
-    viewPort?: {headerHeight: number, footerHeight: number, asideWidth: number, navbarWidth: number}
+    viewPort?: { headerHeight: number, footerHeight: number, asideWidth: number, navbarWidth: number }
     withBorder?: boolean;
+    fixedHeader?: boolean;
     children?: React.ReactNode;
     shrinkedAside?: boolean;
 }

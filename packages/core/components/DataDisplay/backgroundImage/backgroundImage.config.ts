@@ -1,10 +1,12 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import type { BackgroundImageFitType, BackgroundImageRadiusType, BackgroundImageVariantsConfigType} from "./backgroundImageType";
+import type { BackgroundImageFitType, BackgroundImageRadiusType, BackgroundImageVariantsConfigType } from "./backgroundImageType";
 
 export const backgroundImageVariant: BackgroundImageVariantsConfigType = {
   variants: {
     radius: {
+      default: "rounded-md",
       none: "rounded-none",
+      xs: "rounded-xs",
       sm: "rounded-sm",
       md: "rounded-md",
       lg: "rounded-lg",
@@ -29,7 +31,7 @@ export const backgroundImageVariants = cva("bg-background font-default text-prim
 
 export interface BackgroundImageProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof backgroundImageVariants> {
+  VariantProps<typeof backgroundImageVariants> {
   src: string;
   alt?: string;
   width?: string | number;

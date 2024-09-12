@@ -7,6 +7,7 @@ export interface SimpleGridVariantType {
       lg: number;
       xl: number;
     };
+
     verticalSpacing: {
       base: string;
       sm: string;

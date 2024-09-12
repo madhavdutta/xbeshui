@@ -67,6 +67,7 @@ const App = () => {
 			title: "Dashboard",
 			icon: <IconHome stroke={1.8} size={21} />,
 		},
+
 		{
 			link: "/orders",
 			title: "Orders",

@@ -38,6 +38,10 @@ const Grid: React.FC<GridProps> = ({
   );
 };
 
+
+
+
+
 // GridCol component
 const GridCol: React.FC<GridColProps> = ({ children, offset, order, span = 12, className = '' }) => {
   // Generate class names based on the provided props

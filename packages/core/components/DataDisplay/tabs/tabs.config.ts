@@ -9,6 +9,12 @@ const tabsConfig: TabsConfigType = {
       pill: "",
       underline: "",
     },
+    // variant: {
+    //   default: "bg-primary text-primary-foreground shadow ",
+    //   outline: "border border-input bg-transparent shadow-sm  hover:text-foreground",
+    //   pill: "rounded-full  text-primary-foreground px-4 py-2 shadow ",
+    //   underline: "bg-transparent text-primary underline underline-offset-4 hover:no-underline",
+    // },
     radius: {
       default: "rounded-sm",
       xs: "rounded-xs",

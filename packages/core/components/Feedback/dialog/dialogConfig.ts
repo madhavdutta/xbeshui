@@ -32,7 +32,7 @@ export const dialogVariants = cva("", dialogVarientConfig);
 
 export interface DialogContentProps
   extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>,
-    VariantProps<typeof dialogVariants> {
+  VariantProps<typeof dialogVariants> {
   size?: keyof dialogVarientConfigType["variants"]["size"];
   radius?: keyof dialogVarientConfigType["variants"]["radius"];
 }

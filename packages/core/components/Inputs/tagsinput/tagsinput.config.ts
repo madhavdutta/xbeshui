@@ -8,6 +8,7 @@ const tagsinputConfig: TagsinputConfigType = {
       filled: "bg-muted text-foreground",
       unstyled: "border-0 shadow-none",
     },
+
     labelPosition: {
       default: "",
       right: "",

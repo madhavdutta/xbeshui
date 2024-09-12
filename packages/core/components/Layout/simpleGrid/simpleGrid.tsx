@@ -3,7 +3,7 @@ import { cn } from "../../../../utils";
 import { type SimpleGridProps, simpleGridVariant } from "./simpleGrid.config";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 
-const SimpleGrid = React.forwardRef<HTMLDivElement, SimpleGridProps> (
+const SimpleGrid = React.forwardRef<HTMLDivElement, SimpleGridProps>(
   ({ cols, spacing = "base", verticalSpacing = "base", children, className }, ref) => {
     useXbeshProviderCheck();
 

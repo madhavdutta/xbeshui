@@ -32,14 +32,14 @@ const titleConfig: TitleVariantsType = {
     },
     gradient: {
       default: "",
-      lr: "bg-gradient-to-r text-transparent  bg-clip-text",
-      rl: "bg-gradient-to-l text-transparent  bg-clip-text",
-      tb: "bg-gradient-to-b text-transparent  bg-clip-text",
-      bt: "bg-gradient-to-t text-transparent  bg-clip-text",
-      tl: "bg-gradient-to-tl text-transparent  bg-clip-text",
-      tr: "bg-gradient-to-tr text-transparent  bg-clip-text",
-      bl: "bg-gradient-to-bl text-transparent  bg-clip-text",
-      br: "bg-gradient-to-br text-transparent  bg-clip-text",
+      lr: "bg-gradient-to-r from-red-500 to-black text-transparent bg-clip-text",
+      rl: "bg-gradient-to-l bg-clip-text",
+      tb: "bg-gradient-to-b bg-clip-text",
+      bt: "bg-gradient-to-t bg-clip-text",
+      tl: "bg-gradient-to-tl bg-clip-text",
+      tr: "bg-gradient-to-tr bg-clip-text",
+      bl: "bg-gradient-to-bl bg-clip-text",
+      br: "bg-gradient-to-br bg-clip-text",
     },
   },
   defaultVariants: {
@@ -57,7 +57,7 @@ export const titleVariants = cva(
 );
 export interface TitleProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
-    VariantProps<typeof titleVariants> {
+  VariantProps<typeof titleVariants> {
   asChild?: boolean;
   order?: keyof TitleVariantsType["variants"]["order"];
   textWrap?: keyof TitleVariantsType["variants"]["textWrap"];

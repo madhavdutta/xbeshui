@@ -28,6 +28,7 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
       Aside,
       Navbar,
       withBorder,
+
       shrinkedAside,
       ...props
     },
@@ -41,12 +42,12 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
       React.useState<IAsideProps | null>(null);
     const [loading, setLoading] = React.useState(false);
     const height = isBrowser() ? window.innerHeight : 0;
-    const calculateHeader = Header ? 64 :0
-    const calculateFooter = Footer ? 64 :0
+    const calculateHeader = Header ? 64 : 0
+    const calculateFooter = Footer ? 64 : 0
     const viewPortHeight = height - calculateHeader - calculateFooter;
 
 
-    
+
     const renderNavbarAlt = () => (
       <IfElse condition={!!Navbar}>
         <nav
@@ -116,8 +117,8 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
             : "left-0"
           }`}
       >
-        <ScrollArea className="overflow-y-auto" style={{height:`${viewPortHeight}px`}}>
-        {props.children}
+        <ScrollArea className="overflow-y-auto" style={{ height: `${viewPortHeight}px` }}>
+          {props.children}
         </ScrollArea>
       </motion.div>
     );
@@ -233,8 +234,8 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
                       </Group>
                     </Group>
 
-                    
-                    {aside && <ScrollArea style={{height:viewPortHeight,}}>{aside.openedAsideComponent}</ScrollArea>}
+
+                    {aside && <ScrollArea style={{ height: viewPortHeight, }}>{aside.openedAsideComponent}</ScrollArea>}
                   </>
                   : null
               )}
@@ -315,8 +316,8 @@ const AppShell = React.forwardRef<HTMLDivElement, appShellProps>(
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
           aria-label="HeaderDefault"
           className={`z-30 h-16 bg-background top-0 ${variant === "inner"
-              ? "left-0 md:left-72 right-16"
-              : "left-0  md:left-16"
+            ? "left-0 md:left-72 right-16"
+            : "left-0  md:left-16"
             } "fixed" ${withBorder ? "border-b" : ""}`}
         >
           <header className="h-full flex items-center">

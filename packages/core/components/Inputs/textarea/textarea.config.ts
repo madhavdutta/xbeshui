@@ -33,7 +33,7 @@ const textareaConfig: TextareaConfigType = {
     error: {
       default: "",
       true: "border-red-500 text-red-500",
-      false: "",
+      false: "border-input text-foreground",
     },
   },
   defaultVariants: {
@@ -51,7 +51,7 @@ export const textareaVariants = cva(
 
 export interface TextareaProps
   extends React.HTMLAttributes<HTMLTextAreaElement>,
-    VariantProps<typeof textareaVariants> {
+  VariantProps<typeof textareaVariants> {
   label?: React.ReactNode;
   description?: string;
   labelPosition?: keyof TextareaConfigType["variants"]["labelPosition"];
@@ -59,6 +59,6 @@ export interface TextareaProps
   variant?: keyof TextareaConfigType["variants"]["variant"];
   size?: keyof TextareaConfigType["variants"]["size"];
   disabled?: boolean;
-  error?:boolean;
-  placeholder?:string;
+  error?: boolean;
+  placeholder?: string;
 }

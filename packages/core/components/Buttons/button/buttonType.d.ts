@@ -27,6 +27,7 @@ export type ButtonSizeType = {
 
 export type ButtonRadiusType = {
   none: "rounded-none";
+  xs: "rounded-xs";
   sm: "rounded-sm";
   md: "rounded-md";
   lg: "rounded-lg";

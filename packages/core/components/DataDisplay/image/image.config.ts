@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import type{ ImageFitType, ImageSizeType, ImageVariantsConfigType } from "./imageType";
+import type { ImageFitType, ImageSizeType, ImageVariantsConfigType } from "./imageType";
 const imageConfig: ImageVariantsConfigType = {
   variants: {
     radius: {
@@ -31,4 +31,5 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement>, V
   height?: string | number;
   radius?: keyof ImageSizeType;
   fit?: keyof ImageFitType;
+  alt?: string;
 }

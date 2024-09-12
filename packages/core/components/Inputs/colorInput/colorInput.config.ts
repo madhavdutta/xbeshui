@@ -3,9 +3,9 @@ import type { ColorInputConfigType } from "./colorInputType";
 export const colorInputConfig: ColorInputConfigType = {
   variants: {
     variant: {
-      default: "rounded-none",
-      filled: "",
-      outline: "",
+      default: "none",
+      filled: "bg-muted text-foreground",
+      outline: "border border-input text-foreground bg-transparent",
     },
     radius: {
       default: "rounded-none",
@@ -21,7 +21,7 @@ export const colorInputConfig: ColorInputConfigType = {
       sm: "size-5",
       md: "size-6",
       lg: "size-7",
-      xl: "size-8",
+      xl: "size-8"
     },
   },
   defaultVariants: {

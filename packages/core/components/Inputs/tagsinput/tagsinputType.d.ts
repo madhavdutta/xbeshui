@@ -32,6 +32,7 @@ export interface TagsinputConfigType {
       lg: string;
       xl: string;
     };
+
   };
   defaultVariants: {
     labelPosition: keyof TagsinputConfigType["variants"]["labelPosition"];

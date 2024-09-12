@@ -4,7 +4,7 @@ import type { AccordionVariantsType } from "./accordionType";
 const accordionVariant: AccordionVariantsType = {
   variants: {
     variant: {
-      default: "",
+      default: "border-input",
       filled: "border-input",
       contained: "border border-input rounded-sm",
       separated: "border-t border-b border-input",
@@ -19,25 +19,25 @@ const accordionVariant: AccordionVariantsType = {
       xl: "rounded-xl",
     },
     chevronPosition: {
-      default: "ml-0",
-      left: "ml-2",
-      right: "mr-2",
+      default: "",
+      left: "flex-row-reverse",
+      right: "",
     },
-    chevronsize: {
-      default: 2,
-      xs: 1,
-      sm: 3,
-      md: 4,
-      lg: 5,
-      xl: 6,
-      xxl: 8,
+    chevronSize: {
+      default: "h-2 w-2",
+      xs: "h-1 w-1",
+      sm: "h-3 w-3",
+      md: "h-4 w-4",
+      lg: "h-5 w-5",
+      xl: "h-6 w-6",
+      xxl: "h-10 w-10",
     },
   },
   defaultVariants: {
     variant: "default",
     radius: "default",
     chevronPosition: "default",
-    chevronsize: "default",
+    chevronSize: "default",
   },
 };
 

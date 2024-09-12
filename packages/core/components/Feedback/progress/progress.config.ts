@@ -8,7 +8,7 @@ const progressVariantConfig: progressVariantConfigType = {
     },
     radius: {
       default: "rounded-none",
-      xs: "rounded",
+      xs: "rounded-xs",
       sm: "rounded-sm",
       md: "rounded-md",
       lg: "rounded-lg",

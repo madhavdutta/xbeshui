@@ -35,7 +35,7 @@ const fileInputConfig: FileInputConfigType = {
     error: {
       default: "",
       true: "border-red-500 text-red-500",
-      false: "",
+      false: "border-input text-foreground",
     },
   },
   defaultVariants: {
@@ -53,7 +53,7 @@ export const fileInputVariants = cva(
 
 export interface FileInputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof fileInputVariants> {
+  VariantProps<typeof fileInputVariants> {
   onFileSelect?: (file: File | null) => void;
   leftSection?: React.ReactNode;
   rightSection?: React.ReactNode;
