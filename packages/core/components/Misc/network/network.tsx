@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useWindowListener } from './windowListener';
-import { Text } from '../../Typography/text/text';
+// import { Text } from '../../Typography/text/text';
 import { Group } from '../../Layout/group/group';
 
 export function useNetwork() {

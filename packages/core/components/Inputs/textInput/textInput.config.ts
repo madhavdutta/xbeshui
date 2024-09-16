@@ -7,6 +7,7 @@ const inputConfig: InputConfigType = {
       default: "none",
       filled: "bg-muted text-foreground",
       unstyled: "border-0 shadow-none",
+      outline: "border-2 shadow-none"
     },
     labelPosition: {
       default: "text-left",
@@ -52,7 +53,7 @@ export const inputVariants = cva(
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof inputVariants> {
+  VariantProps<typeof inputVariants> {
   leftSection?: React.ReactNode;
   rightSection?: React.ReactNode;
   leftSectionWidth?: number;

@@ -4,6 +4,7 @@ export interface InputConfigType {
       default: string;
       filled: string;
       unstyled: string;
+      outline: string;
     };
     labelPosition: {
       default: string;
@@ -13,11 +14,11 @@ export interface InputConfigType {
     width: {
       default: string;
       xs: string;
-      sm:string;
-      md:string;
-      lg:string;
-      xl:string;
-      full:string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      full: string;
     };
     radius: {
       default: string;
