@@ -25,3 +25,17 @@ coverage/
 *.DS_Store
 Thumbs.db
 pnpm-lock.yaml
+
+# yarn lock file
+yarn.lock
+
+# package-lock json
+package-lock.json
+
+# Bun lockb file
+bun.lockb
+
+# Local Deploy file
+localDeploy.sh
+
+.DS_Store
