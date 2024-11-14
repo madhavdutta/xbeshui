@@ -21,6 +21,7 @@ export interface CheckboxConfigType {
       lg: string;
       xl: string;
     };
+   
   },
   defaultVariants: {
     variant: keyof CheckboxConfigType["variants"]["variant"];

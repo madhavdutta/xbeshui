@@ -124,12 +124,12 @@ export const ColorInputComponent: React.FC<ColorInputProps> = ({
 				/>
 			</div>
 			{showColorPicker && (
-				<div ref={colorPickerRef}>
+				<div ref={colorPickerRef} className="absolute left-0 top-16">
 					<SketchPicker
 						color={value}
 						onChange={handleColorChange}
 						disableAlpha={true}
-						className="text-primary-foreground"
+						className="text-primary dark:text-secondary"
 					/>
 				</div>
 			)}

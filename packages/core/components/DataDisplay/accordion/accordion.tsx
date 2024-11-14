@@ -29,7 +29,7 @@ const Accordion = React.forwardRef<
       className={cn(
         className,
         accordionVariants({ variant, radius, chevronPosition }),
-        'w-full'
+        'w-full h-auto'
       )}
       {...props}
     />
@@ -64,7 +64,7 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex items-center text-secondary-foreground px-4 justify-between py-4 text-sm font-medium transition-all w-full",
+        "flex items-center text-secondary-foreground px-4 justify-between py-4 text-sm font-medium w-full",
         accordionVariants({ chevronPosition }),
         'w-full',
         className
@@ -96,10 +96,15 @@ const AccordionContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
-    className="w-full text-secondary-foreground px-4 text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    className={cn(
+      "w-full text-secondary-foreground px-4 text-sm transition-all duration-300 overflow-hidden",
+      "data-[state=open]:animate-accordion-down",
+      "data-[state=closed]:animate-accordion-up",
+      className
+    )}
     {...props}
   >
-    <div className={cn("pb-4 pt-0", className)}>{children}</div>
+    <div className="pb-2 pt-0">{children}</div>
   </AccordionPrimitive.Content>
 ));
 

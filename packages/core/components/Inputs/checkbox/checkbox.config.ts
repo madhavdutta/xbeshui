@@ -1,5 +1,7 @@
+import { ReactNode } from 'react';
 import { cva, type VariantProps } from "class-variance-authority";
 import type { CheckboxConfigType } from "./checkboxType";
+
 export const checkboxConfig: CheckboxConfigType = {
   variants: {
     variant: {
@@ -25,6 +27,7 @@ export const checkboxConfig: CheckboxConfigType = {
       lg: "size-7",
       xl: "size-8",
     },
+   
   },
   defaultVariants: {
     variant: "default",
@@ -32,6 +35,7 @@ export const checkboxConfig: CheckboxConfigType = {
     size: "default",
   },
 };
+
 export const checkboxVariants = cva(
   "bg-background font-default text-primary-foreground peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
   checkboxConfig
@@ -44,4 +48,5 @@ export interface CheckboxProps
   radius?: keyof CheckboxConfigType["variants"]["radius"];
   size?: keyof CheckboxConfigType["variants"]["size"];
   disabled?: boolean;
+  label?: string | ReactNode;
 }

@@ -1,195 +1,388 @@
-import React from "react";
-import { Container } from "../packages/core/components/Layout/container/container";
+import React, { useState } from "react";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../packages/core/components/DataDisplay/accordion/accordion";
-import { Switch } from "../packages/core/components/Inputs/switch/switch";
-import { TagsInput } from "../packages/core/components/Inputs/tags/tags";
-import { Input } from "../packages/core/components/Inputs/textInput/textInput";
-import { Separator } from "../packages/core/components/Misc/separator/separator";
-import { Group } from "../packages/core/components/Layout/group/group";
-import { Button } from "../packages/core/components/Buttons/button/button";
-import { Stack } from "../packages/core/components/Layout/stack/stack";
-import { Text } from "../packages/core/components/Typography/text/text";
-import { Title } from "../packages/core/components/Typography/title/title";
-import { Grid, GridCol } from "../packages/core/components/Layout/grid/grid";
-import { SimpleGrid } from "../packages/core/components/Layout/simpleGrid/simpleGrid";
-import { FlexBox } from "../packages/core/components/Layout/flexBox/flexBox";
-import { Textarea } from "../packages/core/components/Inputs/textarea/textarea";
-import { ActionIcon } from "../packages/core/components/Buttons/actionIcon/actionIcon";
-import { FileButton } from "../packages/core/components/Buttons/fileButton/fileButton";
-import { CopyButton } from "../packages/core/components/Buttons/copyButton/copyButton";
-import { Toggle } from "../packages/core/components/Buttons/toggle/toggle";
-import {
+  Timeline,
+  Container,
+  TimelineItem,
+  Avatar,
+  XbeshThemeSwitch,
+  ColorInput,
+  CopyButton,
+  Group,
+  Checkbox,
+  Label,
+  Text,
+  DataTable,
   Card,
-  CardContent,
-  CardFooter,
-} from "../packages/core/components/DataDisplay/card/card";
-import { Image } from "../packages/core/components/DataDisplay/image/image";
-import { Badge } from "../packages/core/components/DataDisplay/badge/badge";
-import { IconSettings } from "@tabler/icons-react";
-const App = () => {
+  MultiSelect,
+  Accordion,
+  Toggle,
+  TextInput,
+  RadioGroup,
+} from "../packages";
+import { selectListDataset } from "../packages/core/components/Inputs/multiSelect/config";
+import { DynamicSelectOption } from "../packages/core/components/Inputs/multiSelect/type";
+import { IconStack } from "@tabler/icons-react";
+
+const AppMaheshUi = () => {
+  const [selectListData] = useState<DynamicSelectOption[]>(selectListDataset);
+  const handleChange = (selected: Array<{ value: string; label: string }>) => {
+    console.log("Selected Option:", selected);
+  };
+  // const data = [
+  //   {
+  //     id: "TASK-0013",
+  //     task: "Bug",
+  //     title: "Fix login issue",
+  //     status: "Done",
+  //     priority: "High",
+  //   },
+  //   {
+  //     id: "TASK-0014",
+  //     task: "Feature",
+  //     title: "Implement user authentication",
+  //     status: "Backlog",
+  //     priority: "Medium",
+  //   },
+  //   {
+  //     id: "TASK-0015",
+  //     task: "Bug",
+  //     title: "Fix navigation bar styling",
+  //     status: "In Progress",
+  //     priority: "Low",
+  //   },
+  //   {
+  //     id: "TASK-0016",
+  //     task: "Feature",
+  //     title: "Add dark mode support",
+  //     status: "Todo",
+  //     priority: "High",
+  //   },
+  //   {
+  //     id: "TASK-0017",
+  //     task: "Bug",
+  //     title: "Fix database query bug",
+  //     status: "Done",
+  //     priority: "High",
+  //   },
+  //   {
+  //     id: "TASK-0018",
+  //     task: "Feature",
+  //     title: "Implement user profile page",
+  //     status: "Backlog",
+  //     priority: "Medium",
+  //   },
+  //   {
+  //     id: "TASK-0019",
+  //     task: "Bug",
+  //     title: "Fix form validation bug",
+  //     status: "In Progress",
+  //     priority: "Low",
+  //   },
+  //   {
+  //     id: "TASK-0020",
+  //     task: "Feature",
+  //     title: "Add search functionality",
+  //     status: "Done",
+  //     priority: "High",
+  //   },
+  //   {
+  //     id: "TASK-0021",
+  //     task: "Bug",
+  //     title: "Fix login authentication bug",
+  //     status: "Todo",
+  //     priority: "Medium",
+  //   },
+  //   {
+  //     id: "TASK-0022",
+  //     task: "Feature",
+  //     title: "Implement file upload feature",
+  //     status: "Backlog",
+  //     priority: "High",
+  //   },
+  //   {
+  //     id: "TASK-0023",
+  //     task: "Bug",
+  //     title: "Fix broken links",
+  //     status: "In Progress",
+  //     priority: "Low",
+  //   },
+  //   {
+  //     id: "TASK-0024",
+  //     task: "Feature",
+  //     title: "Add product comparison feature",
+  //     status: "Done",
+  //     priority: "High",
+  //   },
+  //   {
+  //     id: "TASK-0025",
+  //     task: "Bug",
+  //     title: "Fix login redirect issue",
+  //     status: "Todo",
+  //     priority: "Medium",
+  //   },
+  //   {
+  //     id: "TASK-0026",
+  //     task: "Feature",
+  //     title: "Implement search suggestions",
+  //     status: "Backlog",
+  //     priority: "High",
+  //   },
+  //   {
+  //     id: "TASK-0027",
+  //     task: "Bug",
+  //     title: "Fix pagination issue",
+  //     status: "In Progress",
+  //     priority: "Low",
+  //   },
+  //   {
+  //     id: "TASK-0028",
+  //     task: "Feature",
+  //     title: "Add user registration page",
+  //     status: "Done",
+  //     priority: "High",
+  //   },
+  //   {
+  //     id: "TASK-0029",
+  //     task: "Bug",
+  //     title: "Fix layout issue on mobile devices",
+  //     status: "Todo",
+  //     priority: "Medium",
+  //   },
+  //   {
+  //     id: "TASK-0030",
+  //     task: "Feature",
+  //     title: "Implement email notification system",
+  //     status: "Backlog",
+  //     priority: "High",
+  //   },
+  //   {
+  //     id: "TASK-0031",
+  //     task: "Bug",
+  //     title: "Fix email delivery issue",
+  //     status: "In Progress",
+  //     priority: "Low",
+  //   },
+  //   {
+  //     id: "TASK-0032",
+  //     task: "Feature",
+  //     title: "Add subscription option",
+  //     status: "Done",
+  //     priority: "High",
+  //   },
+  //   {
+  //     id: "TASK-0033",
+  //     task: "Bug",
+  //     title: "Fix 404 error page",
+  //     status: "Todo",
+  //     priority: "Medium",
+  //   },
+  //   {
+  //     id: "TASK-0034",
+  //     task: "Feature",
+  //     title: "Implement admin dashboard",
+  //     status: "Backlog",
+  //     priority: "High",
+  //   },
+  //   {
+  //     id: "TASK-0035",
+  //     task: "Bug",
+  //     title: "Fix session timeout issue",
+  //     status: "In Progress",
+  //     priority: "Low",
+  //   },
+  //   {
+  //     id: "TASK-0036",
+  //     task: "Feature",
+  //     title: "Add social media sharing buttons",
+  //     status: "Done",
+  //     priority: "High",
+  //   },
+  //   {
+  //     id: "TASK-0037",
+  //     task: "Bug",
+  //     title: "Fix date formatting issue",
+  //     status: "Todo",
+  //     priority: "Medium",
+  //   },
+  // ];
+
+  // const columns = [
+  //   {
+  //     accessorKey: "id",
+  //     header: "ID",
+  //     cell: ({ row }) => <div>{row.getValue("id")}</div>,
+  //   },
+  //   {
+  //     accessorKey: "task",
+  //     header: "Task",
+  //     cell: ({ row }) => <div>{row.getValue("task")}</div>,
+  //   },
+  //   {
+  //     accessorKey: "title",
+  //     header: "Title",
+  //     cell: ({ row }) => <div>{row.getValue("title")}</div>,
+  //   },
+  //   {
+  //     accessorKey: "status",
+  //     header: "Status",
+  //     cell: ({ row }) => <div>{row.getValue("status")}</div>,
+  //   },
+  //   {
+  //     accessorKey: "priority",
+  //     header: "Priority",
+  //     cell: ({ row }) => <div>{row.getValue("priority")}</div>,
+  //   },
+  // ];
+
+  // const filters = [
+  //   {
+  //     name: "status",
+  //     options: ["Backlog", "Todo", "In Progress", "Done", "Cancel"],
+  //   },
+  //   { name: "priority", options: ["low", "medium", "high"] },
+  // ];
+  // const searchable = "title";
+
+  // const items = [
+  //   {
+  //     imageUrl: "https://avatars.githubusercontent.com/u/5016004",
+  //     name: "Madhav D",
+  //     action: "likes Bonnie Greens post",
+  //     description: "I wanted to share a webinar zeroheight",
+  //     privacy: "Public",
+  //   },
+  //   {
+  //     imageUrl: "https://avatars.githubusercontent.com/u/108726788",
+  //     name: "Milan Thakur",
+  //     action: "likes Madhav Greens post",
+  //     description: "I wanted to share a webinar zeroheight",
+  //     privacy: "Public",
+  //   },
+  //   {
+  //     imageUrl: "https://avatars.githubusercontent.com/u/72692494",
+  //     name: "Mohd. Aakib",
+  //     action: "likes Bonnie Greens post",
+  //     description: "I wanted to share a webinar zeroheight",
+  //     privacy: "Public",
+  //   },
+  //   {
+  //     imageUrl: "https://avatars.githubusercontent.com/u/145119425",
+  //     name: "Mahesh Sharma",
+  //     action: "likes Bonnie Greens post",
+  //     description: "I wanted to share a webinar zeroheight",
+  //     privacy: "Public",
+  //   },
+  // ];
+  const data = [
+    { label: 'Default', value: 'Default', id: 'r1' }, 
+    { label: 'Comfortable', value: 'comfortable', id: 'r2' }, 
+    { label: 'Compact', value: 'compact', id: 'r3' }
+];
   return (
-    <Container className="py-6 flex flex-col gap-8">
-      <div>
-        <CopyButton variant="default">CopyButton</CopyButton>
-      </div>
-      <FileButton variant="default" onFileSelect={function (files: File[] | null): void {
-        throw new Error("Function not implemented.");
-      } }>FileButton</FileButton>
-      <div className="flex gap-4">
-        <Button variant={"default"}>Button</Button>
-        <Button variant={"success"}>Button</Button>
-        <Button variant={"warning"}>Button</Button>
-        <Button variant={"notice"}>Button</Button>
-        <Button variant={"destructive"}>Button</Button>
-        <Button variant={"outline"}>Button</Button>
-        <Button variant={"secondary"}>Button</Button>
-        <Button variant={"ghost"}>Button</Button>
-      </div>
+    <Container className="flex flex-col gap-8 p-4 mx-auto">
+      <XbeshThemeSwitch />
+      {/* <Timeline>
+        {items.map((item, index) => (
+          <TimelineItem key={index}>
+            <div>
+              <Avatar
+                className="w-10 h-10 mb-3 me-3 rounded-full sm:mb-0"
+                src={item.imageUrl}
+                alt="Jese Leos image"
+              />
+            </div>
+            <div className="flex flex-col gap-1">
+              <div className="text-sm font-bold">
+                <span>{item.name}</span> likes <span>Bonnie Greens</span> post
+                in <span> How to start with Flowbite library</span>
+              </div>
+              <div className="text-xs font-normal">
+                I wanted to share a webinar zeroheight
+              </div>
+              <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                <svg
+                  className="w-2.5 h-2.5 me-1"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M10 .5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19ZM8.374 17.4a7.6 7.6 0 0 1-5.9-7.4c0-.83.137-1.655.406-2.441l.239.019a3.887 3.887 0 0 1 2.082 2.5 4.1 4.1 0 0 0 2.441 2.8c1.148.522 1.389 2.007.732 4.522Zm3.6-8.829a.997.997 0 0 0-.027-.225 5.456 5.456 0 0 0-2.811-3.662c-.832-.527-1.347-.854-1.486-1.89a7.584 7.584 0 0 1 8.364 2.47c-1.387.208-2.14 2.237-2.14 3.307a1.187 1.187 0 0 1-1.9 0Zm1.626 8.053-.671-2.013a1.9 1.9 0 0 1 1.771-1.757l2.032.619a7.553 7.553 0 0 1-3.132 3.151Z" />
+                </svg>
+                Public
+              </span>
+            </div>
+          </TimelineItem>
+        ))}
+      </Timeline> */}
+
+      <ColorInput
+        label="Choose a color:"
+        value={"#FF0000"}
+        format="hex"
+        variant={"filled"}
+        radius={"sm"}
+        width={"xl"}
+        className="relative"
+      />
+      
+      {/* <CopyButton buttonMessage={true} value={"Here we go"} size="lg" radius={"sm"}>Copy to clipboard</CopyButton>
+      <CopyButton buttonMessage={false} value={"Here we go"} size="lg" radius={"sm"}>Copy to clipboard</CopyButton>
+      <CopyButton value={"Here we go"} size="lg" radius={"sm"}>Copy to clipboard</CopyButton> */}
+
+      {/* <DataTable data={data} filters={filters} columns={columns} searchable={searchable} /> */}
+      {/* <MultiSelect
+        options={selectListData}
+        placeholder="Select Audience Lists.."
+        onChange={handleChange}
+        maxSelected={9}
+        searchable={true}
+        clearable={true}
+        className="w-64"
+      /> */}
+      {/* <Checkbox
+          className="text-gray-600"
+          radius={"sm"}
+          size={"sm"}
+          variant={"default"}
+          label={"Accept terms and conditions"}
+        /> */}
+      {/* <Card className="w-full p-0 rounded-none gap-6">
       <Accordion
         type="multiple"
         variant="default"
         radius="lg"
-        chevronPosition="left"
-        chevronsize={"xs"}
+        chevronPosition="right"
       >
-        <AccordionItem value="item1">
-          <AccordionTrigger>Item 1</AccordionTrigger>
-          <AccordionContent onClick={() => alert("ok")}>
-            <div className="flex flex-col">
-              <h3 className="text-lg">Content for Item 1</h3>
-              <p>
-                Naturally sweet and potassium-rich fruit. Bananas are a popular
-                choice for their energy-boosting properties and can be enjoyed
-                as a quick snack, added to smoothies, or used in baking.
-              </p>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+        <Accordion.Item value="item1">
+          <Accordion.Trigger>Item 1</Accordion.Trigger>
+          <Accordion.Content>
+            <Text size="xs">Content for Item 1. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit.</Text>
 
-        <AccordionItem value="item2">
-          <AccordionTrigger>Item 2</AccordionTrigger>
-          <AccordionContent>
-            <div className="flex flex-col">
-              <h3 className="text-lg">Content for Item 2</h3>
-              <p>
-                Naturally sweet and potassium-rich fruit. Bananas are a popular
-                choice for their energy-boosting properties and can be enjoyed
-                as a quick snack, added to smoothies, or used in baking.
-              </p>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
-        <AccordionItem value="item3">
-          <AccordionTrigger>Item 3</AccordionTrigger>
-          <AccordionContent>
-            <div className="flex flex-col">
-              <h3 className="text-lg">Content for Item 3</h3>
-              <p>
-                Naturally sweet and potassium-rich fruit. Bananas are a popular
-                choice for their energy-boosting properties and can be enjoyed
-                as a quick snack, added to smoothies, or used in baking.
-              </p>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+          </Accordion.Content>
+        </Accordion.Item>
+        <Accordion.Item value="item2">
+          <Accordion.Trigger>Item 2</Accordion.Trigger>
+          <Accordion.Content>
+          <Text size="xs">Content for Item 2. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.</Text>
+          </Accordion.Content>
+        </Accordion.Item>
       </Accordion>
-      <Switch size={"sm"} id="ok" label="Airplane Mode" />
-      <TagsInput
-        width="md"
-        radius="md"
-        variant="unstyled"
-        label="Press Enter to submit a tag"
-        placeholder="Enter tag"
-      />
-      <Stack gap="xs" justify="center" align="center" className="border">
-        <Group gap="sm">
-          <Text>button2</Text>
-        </Group>
-        <Group gap="sm">
-          <Text>button2</Text>
-        </Group>
-        <Group gap="sm">
-          <Text>button2</Text>
-        </Group>
-      </Stack>
-      <Grid gutter={{ base: 12, md: 6, lg: 3 }}>
-        <GridCol className="bg-red-500" span={4}>
-          1
-        </GridCol>
-        <GridCol className="bg-red-500" span={4}>
-          2
-        </GridCol>
-        <GridCol className="bg-red-500" span={4}>
-          3
-        </GridCol>
-        <GridCol className="bg-red-500" span={4}>
-          4
-        </GridCol>
-        <GridCol className="bg-red-500" span={4}>
-          5
-        </GridCol>
-        <GridCol className="bg-red-500" span={4}>
-          6
-        </GridCol>
-      </Grid>
-      <FlexBox wrap="wrap">
-        <div className="bg-red-500 h-10 w-60">1</div>
-        <div className="bg-red-500 h-10 w-60">2</div>
-        <div className="bg-red-500 h-10 w-60">3</div>
-        <div className="bg-red-500 h-10 w-60">3</div>
-        <div className="bg-red-500 h-10 w-60">1</div>
-        <div className="bg-red-500 h-10 w-60">2</div>
-        <div className="bg-red-500 h-10 w-60">3</div>
-        <div className="bg-red-500 h-10 w-60">3</div>
-      </FlexBox>
-      <Card size={'md'} radius="sm" shadow="none" withBorder>
-        <div className="sm:h-72 h-56 overflow-hidden">
-          <Image src="/images/card-bg3.jpg" alt="" width="auto" fit="contain" />
-        </div>
-        <div className="flex flex-row justify-between p-4">
-          <Title order={"h6"}>Title name</Title>
-          <Badge size="xs" className="bg-orange-500">
-            on sale
-          </Badge>
-        </div>
-        <CardContent className="flex flex-col gap-4">
-          <Text className="text-gray-500">
-            Make changes to your account here. Click save when you are done.
-          </Text>
-          <div>
-            <Input placeholder={"Pedro Duarte"} radius="md" />
-            <Input placeholder={"@pedro"} radius="md" className="mt-2" />
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button variant={"default"} size={"default"}>
-            Book Now
-          </Button>
-        </CardFooter>
-      </Card>
-      Separator
-      <Separator className="bg-red-500" orientation="horizontal" />
-      <SimpleGrid cols={2} spacing="sm" verticalSpacing="lg">
-        <div className="bg-blue-400">1</div>
-        <div className="bg-red-400">2</div>
-        <div className="bg-green-400">3</div>
-        <div className="bg-orange-400">4</div>
-        <div className="bg-pink-400">5</div>
-      </SimpleGrid>
-
-      <Textarea label="label" variant={"filled"}  />
-
-      <ActionIcon size="default" radius="md" variant="destructive">
-        <IconSettings/>
-      </ActionIcon>
+      </Card> */}
+      {/* <TextInput
+        variant={"outline"}
+        placeholder="input field..."
+        radius={"sm"}
+        label="Input label"
+        description="Input description"
+      /> */}
+      {/* <Card className="w-full">
+        <RadioGroup variant="default" labelSize="lg" defaultValue="comfortable" radioOptions={data} />
+      </Card> */}
     </Container>
   );
 };
 
-export default App;
+export default AppMaheshUi;

@@ -7,23 +7,24 @@ import { XbeshProvider } from "../packages/core/components/Theme/xBeshTheme/xbes
 import App from "./App";
 // import App from "./App-Akanksha";
 import { SonnerStack } from "../packages/core/components/index";
-import AppDataDisplay from "./AppDataDisplay";
-import AppLayout from "./AppLayout";
-import AppMisc from "./AppMisc";
-import AppNavigation from "./AppNavigation";
-import AppOverlays from "./AppOverlays";
-import AppTypography from "./AppTypography";
-import AppTest from "./App-Test";
-import AppDashbord from "./App-Dashboard";
+import AppMaheshUi from "./App-mahesh";
+// import AppDataDisplay from "./AppDataDisplay";
+// import AppLayout from "./AppLayout";
+// import AppMisc from "./AppMisc";
+// import AppNavigation from "./AppNavigation";
+// import AppOverlays from "./AppOverlays";
+// import AppTypography from "./AppTypography";
+// import AppTest from "./App-Test";
+// import AppDashbord from "./App-Dashboard";
 
 const RootComponent = () => {
   return (
     <React.StrictMode>
       <XbeshProvider storageKey={"vite"} defaultTheme={"light"}>
         <div className="w-full">
-          {/* <AppAakibUi /> */}
-          {/* <App /> */}
-          <AppTest />
+          {/* <AppMaheshUi /> */}
+          <App />
+          {/* <AppTest /> */}
           {/* <AppDashbord /> */}
           {/* <AppDataDisplay /> */}
           {/* <AppLayout /> */}
