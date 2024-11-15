@@ -18,6 +18,9 @@ import {
   Toggle,
   TextInput,
   RadioGroup,
+  Tabs,
+  Button,
+  Switch,
 } from "../packages";
 import { selectListDataset } from "../packages/core/components/Inputs/multiSelect/config";
 import { DynamicSelectOption } from "../packages/core/components/Inputs/multiSelect/type";
@@ -274,10 +277,10 @@ const AppMaheshUi = () => {
   //   },
   // ];
   const data = [
-    { label: 'Default', value: 'Default', id: 'r1' }, 
-    { label: 'Comfortable', value: 'comfortable', id: 'r2' }, 
-    { label: 'Compact', value: 'compact', id: 'r3' }
-];
+    { label: "Default", value: "Default", id: "r1" },
+    { label: "Comfortable", value: "comfortable", id: "r2" },
+    { label: "Compact", value: "compact", id: "r3" },
+  ];
   return (
     <Container className="flex flex-col gap-8 p-4 mx-auto">
       <XbeshThemeSwitch />
@@ -316,7 +319,7 @@ const AppMaheshUi = () => {
         ))}
       </Timeline> */}
 
-      <ColorInput
+      {/* <ColorInput
         label="Choose a color:"
         value={"#FF0000"}
         format="hex"
@@ -324,8 +327,8 @@ const AppMaheshUi = () => {
         radius={"sm"}
         width={"xl"}
         className="relative"
-      />
-      
+      /> */}
+
       {/* <CopyButton buttonMessage={true} value={"Here we go"} size="lg" radius={"sm"}>Copy to clipboard</CopyButton>
       <CopyButton buttonMessage={false} value={"Here we go"} size="lg" radius={"sm"}>Copy to clipboard</CopyButton>
       <CopyButton value={"Here we go"} size="lg" radius={"sm"}>Copy to clipboard</CopyButton> */}
@@ -381,6 +384,71 @@ const AppMaheshUi = () => {
       {/* <Card className="w-full">
         <RadioGroup variant="default" labelSize="lg" defaultValue="comfortable" radioOptions={data} />
       </Card> */}
+
+      <Tabs defaultValue="account" className="w-[400px]">
+        <Tabs.TabsList
+          variant={"underline"}
+          className="grid w-full grid-cols-2"
+        >
+          <Tabs.TabsTrigger variant={"underline"} value="account">
+            Account
+          </Tabs.TabsTrigger>
+          <Tabs.TabsTrigger variant={"underline"} value="password">
+            Password
+          </Tabs.TabsTrigger>
+        </Tabs.TabsList>
+        <Tabs.TabsContent value="account">
+          <Card className="p-4">
+            <Card.Header>
+              <Card.Title>Account</Card.Title>
+              <Card.Description>
+                Make changes to your account here. Click save when you're done.
+              </Card.Description>
+            </Card.Header>
+            <Card.Content className="space-y-2">
+              <div className="space-y-1">
+                <Label htmlFor="name">Name</Label>
+                <TextInput id="name" defaultValue="Pedro Duarte" />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="username">Username</Label>
+                <TextInput id="username" defaultValue="@peduarte" />
+              </div>
+            </Card.Content>
+            <Card.Footer>
+              <Button>Save changes</Button>
+            </Card.Footer>
+          </Card>
+        </Tabs.TabsContent>
+        <Tabs.TabsContent value="password">
+          <Card className="p-4">
+            <Card.Header>
+              <Card.Title>Password</Card.Title>
+              <Card.Description>
+                Change your password here. After saving, you'll be logged out.
+              </Card.Description>
+            </Card.Header>
+            <Card.Content className="space-y-2">
+              <div className="space-y-1">
+                <Label htmlFor="current">Current password</Label>
+                <TextInput id="current" type="password" />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="new">New password</Label>
+                <TextInput id="new" type="password" />
+              </div>
+            </Card.Content>
+            <Card.Footer>
+              <Button>Save password</Button>
+            </Card.Footer>
+          </Card>
+        </Tabs.TabsContent>
+      </Tabs>
+
+      <Group justify="center">
+        <Switch id="SwitchMode" size={"lg"} radius="full" thumbSize="md" />
+        <Label htmlFor="SwitchMode">Airplane Mode</Label>
+      </Group>
     </Container>
   );
 };
