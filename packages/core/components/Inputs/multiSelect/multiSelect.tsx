@@ -107,7 +107,7 @@ return () => {
     option.label.toLowerCase().includes(searchTerm)
   );
 
-  const selectedValues = selectedOptions.map((option) => option.label).join(", ");
+  // const selectedValues = selectedOptions.map((option) => option.label).join(", ");
 
   return (
     <>

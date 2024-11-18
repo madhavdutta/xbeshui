@@ -31,256 +31,256 @@ const AppMaheshUi = () => {
   const handleChange = (selected: Array<{ value: string; label: string }>) => {
     console.log("Selected Option:", selected);
   };
-  // const data = [
-  //   {
-  //     id: "TASK-0013",
-  //     task: "Bug",
-  //     title: "Fix login issue",
-  //     status: "Done",
-  //     priority: "High",
-  //   },
-  //   {
-  //     id: "TASK-0014",
-  //     task: "Feature",
-  //     title: "Implement user authentication",
-  //     status: "Backlog",
-  //     priority: "Medium",
-  //   },
-  //   {
-  //     id: "TASK-0015",
-  //     task: "Bug",
-  //     title: "Fix navigation bar styling",
-  //     status: "In Progress",
-  //     priority: "Low",
-  //   },
-  //   {
-  //     id: "TASK-0016",
-  //     task: "Feature",
-  //     title: "Add dark mode support",
-  //     status: "Todo",
-  //     priority: "High",
-  //   },
-  //   {
-  //     id: "TASK-0017",
-  //     task: "Bug",
-  //     title: "Fix database query bug",
-  //     status: "Done",
-  //     priority: "High",
-  //   },
-  //   {
-  //     id: "TASK-0018",
-  //     task: "Feature",
-  //     title: "Implement user profile page",
-  //     status: "Backlog",
-  //     priority: "Medium",
-  //   },
-  //   {
-  //     id: "TASK-0019",
-  //     task: "Bug",
-  //     title: "Fix form validation bug",
-  //     status: "In Progress",
-  //     priority: "Low",
-  //   },
-  //   {
-  //     id: "TASK-0020",
-  //     task: "Feature",
-  //     title: "Add search functionality",
-  //     status: "Done",
-  //     priority: "High",
-  //   },
-  //   {
-  //     id: "TASK-0021",
-  //     task: "Bug",
-  //     title: "Fix login authentication bug",
-  //     status: "Todo",
-  //     priority: "Medium",
-  //   },
-  //   {
-  //     id: "TASK-0022",
-  //     task: "Feature",
-  //     title: "Implement file upload feature",
-  //     status: "Backlog",
-  //     priority: "High",
-  //   },
-  //   {
-  //     id: "TASK-0023",
-  //     task: "Bug",
-  //     title: "Fix broken links",
-  //     status: "In Progress",
-  //     priority: "Low",
-  //   },
-  //   {
-  //     id: "TASK-0024",
-  //     task: "Feature",
-  //     title: "Add product comparison feature",
-  //     status: "Done",
-  //     priority: "High",
-  //   },
-  //   {
-  //     id: "TASK-0025",
-  //     task: "Bug",
-  //     title: "Fix login redirect issue",
-  //     status: "Todo",
-  //     priority: "Medium",
-  //   },
-  //   {
-  //     id: "TASK-0026",
-  //     task: "Feature",
-  //     title: "Implement search suggestions",
-  //     status: "Backlog",
-  //     priority: "High",
-  //   },
-  //   {
-  //     id: "TASK-0027",
-  //     task: "Bug",
-  //     title: "Fix pagination issue",
-  //     status: "In Progress",
-  //     priority: "Low",
-  //   },
-  //   {
-  //     id: "TASK-0028",
-  //     task: "Feature",
-  //     title: "Add user registration page",
-  //     status: "Done",
-  //     priority: "High",
-  //   },
-  //   {
-  //     id: "TASK-0029",
-  //     task: "Bug",
-  //     title: "Fix layout issue on mobile devices",
-  //     status: "Todo",
-  //     priority: "Medium",
-  //   },
-  //   {
-  //     id: "TASK-0030",
-  //     task: "Feature",
-  //     title: "Implement email notification system",
-  //     status: "Backlog",
-  //     priority: "High",
-  //   },
-  //   {
-  //     id: "TASK-0031",
-  //     task: "Bug",
-  //     title: "Fix email delivery issue",
-  //     status: "In Progress",
-  //     priority: "Low",
-  //   },
-  //   {
-  //     id: "TASK-0032",
-  //     task: "Feature",
-  //     title: "Add subscription option",
-  //     status: "Done",
-  //     priority: "High",
-  //   },
-  //   {
-  //     id: "TASK-0033",
-  //     task: "Bug",
-  //     title: "Fix 404 error page",
-  //     status: "Todo",
-  //     priority: "Medium",
-  //   },
-  //   {
-  //     id: "TASK-0034",
-  //     task: "Feature",
-  //     title: "Implement admin dashboard",
-  //     status: "Backlog",
-  //     priority: "High",
-  //   },
-  //   {
-  //     id: "TASK-0035",
-  //     task: "Bug",
-  //     title: "Fix session timeout issue",
-  //     status: "In Progress",
-  //     priority: "Low",
-  //   },
-  //   {
-  //     id: "TASK-0036",
-  //     task: "Feature",
-  //     title: "Add social media sharing buttons",
-  //     status: "Done",
-  //     priority: "High",
-  //   },
-  //   {
-  //     id: "TASK-0037",
-  //     task: "Bug",
-  //     title: "Fix date formatting issue",
-  //     status: "Todo",
-  //     priority: "Medium",
-  //   },
-  // ];
-
-  // const columns = [
-  //   {
-  //     accessorKey: "id",
-  //     header: "ID",
-  //     cell: ({ row }) => <div>{row.getValue("id")}</div>,
-  //   },
-  //   {
-  //     accessorKey: "task",
-  //     header: "Task",
-  //     cell: ({ row }) => <div>{row.getValue("task")}</div>,
-  //   },
-  //   {
-  //     accessorKey: "title",
-  //     header: "Title",
-  //     cell: ({ row }) => <div>{row.getValue("title")}</div>,
-  //   },
-  //   {
-  //     accessorKey: "status",
-  //     header: "Status",
-  //     cell: ({ row }) => <div>{row.getValue("status")}</div>,
-  //   },
-  //   {
-  //     accessorKey: "priority",
-  //     header: "Priority",
-  //     cell: ({ row }) => <div>{row.getValue("priority")}</div>,
-  //   },
-  // ];
-
-  // const filters = [
-  //   {
-  //     name: "status",
-  //     options: ["Backlog", "Todo", "In Progress", "Done", "Cancel"],
-  //   },
-  //   { name: "priority", options: ["low", "medium", "high"] },
-  // ];
-  // const searchable = "title";
-
-  // const items = [
-  //   {
-  //     imageUrl: "https://avatars.githubusercontent.com/u/5016004",
-  //     name: "Madhav D",
-  //     action: "likes Bonnie Greens post",
-  //     description: "I wanted to share a webinar zeroheight",
-  //     privacy: "Public",
-  //   },
-  //   {
-  //     imageUrl: "https://avatars.githubusercontent.com/u/108726788",
-  //     name: "Milan Thakur",
-  //     action: "likes Madhav Greens post",
-  //     description: "I wanted to share a webinar zeroheight",
-  //     privacy: "Public",
-  //   },
-  //   {
-  //     imageUrl: "https://avatars.githubusercontent.com/u/72692494",
-  //     name: "Mohd. Aakib",
-  //     action: "likes Bonnie Greens post",
-  //     description: "I wanted to share a webinar zeroheight",
-  //     privacy: "Public",
-  //   },
-  //   {
-  //     imageUrl: "https://avatars.githubusercontent.com/u/145119425",
-  //     name: "Mahesh Sharma",
-  //     action: "likes Bonnie Greens post",
-  //     description: "I wanted to share a webinar zeroheight",
-  //     privacy: "Public",
-  //   },
-  // ];
   const data = [
-    { label: "Default", value: "Default", id: "r1" },
-    { label: "Comfortable", value: "comfortable", id: "r2" },
-    { label: "Compact", value: "compact", id: "r3" },
+    {
+      id: "TASK-0013",
+      task: "Bug",
+      title: "Fix login issue",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0014",
+      task: "Feature",
+      title: "Implement user authentication",
+      status: "Backlog",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0015",
+      task: "Bug",
+      title: "Fix navigation bar styling",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0016",
+      task: "Feature",
+      title: "Add dark mode support",
+      status: "Todo",
+      priority: "High",
+    },
+    {
+      id: "TASK-0017",
+      task: "Bug",
+      title: "Fix database query bug",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0018",
+      task: "Feature",
+      title: "Implement user profile page",
+      status: "Backlog",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0019",
+      task: "Bug",
+      title: "Fix form validation bug",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0020",
+      task: "Feature",
+      title: "Add search functionality",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0021",
+      task: "Bug",
+      title: "Fix login authentication bug",
+      status: "Todo",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0022",
+      task: "Feature",
+      title: "Implement file upload feature",
+      status: "Backlog",
+      priority: "High",
+    },
+    {
+      id: "TASK-0023",
+      task: "Bug",
+      title: "Fix broken links",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0024",
+      task: "Feature",
+      title: "Add product comparison feature",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0025",
+      task: "Bug",
+      title: "Fix login redirect issue",
+      status: "Todo",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0026",
+      task: "Feature",
+      title: "Implement search suggestions",
+      status: "Backlog",
+      priority: "High",
+    },
+    {
+      id: "TASK-0027",
+      task: "Bug",
+      title: "Fix pagination issue",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0028",
+      task: "Feature",
+      title: "Add user registration page",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0029",
+      task: "Bug",
+      title: "Fix layout issue on mobile devices",
+      status: "Todo",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0030",
+      task: "Feature",
+      title: "Implement email notification system",
+      status: "Backlog",
+      priority: "High",
+    },
+    {
+      id: "TASK-0031",
+      task: "Bug",
+      title: "Fix email delivery issue",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0032",
+      task: "Feature",
+      title: "Add subscription option",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0033",
+      task: "Bug",
+      title: "Fix 404 error page",
+      status: "Todo",
+      priority: "Medium",
+    },
+    {
+      id: "TASK-0034",
+      task: "Feature",
+      title: "Implement admin dashboard",
+      status: "Backlog",
+      priority: "High",
+    },
+    {
+      id: "TASK-0035",
+      task: "Bug",
+      title: "Fix session timeout issue",
+      status: "In Progress",
+      priority: "Low",
+    },
+    {
+      id: "TASK-0036",
+      task: "Feature",
+      title: "Add social media sharing buttons",
+      status: "Done",
+      priority: "High",
+    },
+    {
+      id: "TASK-0037",
+      task: "Bug",
+      title: "Fix date formatting issue",
+      status: "Todo",
+      priority: "Medium",
+    },
   ];
+
+  const columns = [
+    {
+      accessorKey: "id",
+      header: "ID",
+      cell: ({ row }) => <div>{row.getValue("id")}</div>,
+    },
+    {
+      accessorKey: "task",
+      header: "Task",
+      cell: ({ row }) => <div>{row.getValue("task")}</div>,
+    },
+    {
+      accessorKey: "title",
+      header: "Title",
+      cell: ({ row }) => <div>{row.getValue("title")}</div>,
+    },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ row }) => <div>{row.getValue("status")}</div>,
+    },
+    {
+      accessorKey: "priority",
+      header: "Priority",
+      cell: ({ row }) => <div>{row.getValue("priority")}</div>,
+    },
+  ];
+
+  const filters = [
+    {
+      name: "status",
+      options: ["Backlog", "Todo", "In Progress", "Done", "Cancel"],
+    },
+    { name: "priority", options: ["low", "medium", "high"] },
+  ];
+  const searchable = "title";
+
+  const items = [
+    {
+      imageUrl: "https://avatars.githubusercontent.com/u/5016004",
+      name: "Madhav D",
+      action: "likes Bonnie Greens post",
+      description: "I wanted to share a webinar zeroheight",
+      privacy: "Public",
+    },
+    {
+      imageUrl: "https://avatars.githubusercontent.com/u/108726788",
+      name: "Milan Thakur",
+      action: "likes Madhav Greens post",
+      description: "I wanted to share a webinar zeroheight",
+      privacy: "Public",
+    },
+    {
+      imageUrl: "https://avatars.githubusercontent.com/u/72692494",
+      name: "Mohd. Aakib",
+      action: "likes Bonnie Greens post",
+      description: "I wanted to share a webinar zeroheight",
+      privacy: "Public",
+    },
+    {
+      imageUrl: "https://avatars.githubusercontent.com/u/145119425",
+      name: "Mahesh Sharma",
+      action: "likes Bonnie Greens post",
+      description: "I wanted to share a webinar zeroheight",
+      privacy: "Public",
+    },
+  ];
+  // const data = [
+  //   { label: "Default", value: "Default", id: "r1" },
+  //   { label: "Comfortable", value: "comfortable", id: "r2" },
+  //   { label: "Compact", value: "compact", id: "r3" },
+  // ];
   return (
     <Container className="flex flex-col gap-8 p-4 mx-auto">
       <XbeshThemeSwitch />
@@ -333,7 +333,7 @@ const AppMaheshUi = () => {
       <CopyButton buttonMessage={false} value={"Here we go"} size="lg" radius={"sm"}>Copy to clipboard</CopyButton>
       <CopyButton value={"Here we go"} size="lg" radius={"sm"}>Copy to clipboard</CopyButton> */}
 
-      {/* <DataTable data={data} filters={filters} columns={columns} searchable={searchable} /> */}
+      <DataTable data={data} filters={filters} columns={columns} searchable={searchable} />
       {/* <MultiSelect
         options={selectListData}
         placeholder="Select Audience Lists.."
@@ -385,7 +385,7 @@ const AppMaheshUi = () => {
         <RadioGroup variant="default" labelSize="lg" defaultValue="comfortable" radioOptions={data} />
       </Card> */}
 
-      <Tabs defaultValue="account" className="w-[400px]">
+      {/* <Tabs defaultValue="account" className="w-[400px]">
         <Tabs.TabsList
           variant={"underline"}
           className="grid w-full grid-cols-2"
@@ -443,12 +443,12 @@ const AppMaheshUi = () => {
             </Card.Footer>
           </Card>
         </Tabs.TabsContent>
-      </Tabs>
+      </Tabs> */}
 
-      <Group justify="center">
+      {/* <Group justify="center">
         <Switch id="SwitchMode" size={"lg"} radius="full" thumbSize="md" />
         <Label htmlFor="SwitchMode">Airplane Mode</Label>
-      </Group>
+      </Group> */}
     </Container>
   );
 };

@@ -25,7 +25,7 @@ import {
   TableRow,
 } from "../table/table";
 import { DataTablePagination } from "./dataTablePagination";
-import { IconCirclePlus } from "@tabler/icons-react";
+// import { IconCirclePlus } from "@tabler/icons-react";
 import type { DataTableProps } from "./dataTableType";
 import { useXbeshProviderCheck } from "../../Theme/xBeshTheme/xbeshProvider";
 interface SelectedFilters {
@@ -34,14 +34,14 @@ interface SelectedFilters {
 
   // Define the interface for action options
 interface ActionOption {
-	option: string | React.ReactNode;
+	option: string;
 	handleClick: (row: any) => void;
   }
 export const DataTable = <T,>({
   data,
   filters,
   columns,
-  searchable,
+  // searchable,
   actionOptions,
 }: DataTableProps<T>  & { actionOptions?: ActionOption[] }) => {
   useXbeshProviderCheck();
@@ -139,10 +139,10 @@ export const DataTable = <T,>({
     <div className="w-full">
       <div className="flex items-center justify-between gap-3 py-4">
         {/* <TextInput
-					placeholder={`Filter ${searchable}...`}
+					// placeholder={`Filter ${searchable}...`}
 					radius="sm"
 					value={
-						(table.getColumn(searchable)?.getFilterValue() as string) ?? ""
+						// (table.getColumn(searchable)?.getFilterValue() as string) ?? ""
 					}
 					onChange={(event: { target: { value: unknown } }) =>
 						table.getColumn(searchable)?.setFilterValue(event.target.value)
